@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c54795205a114bb4bf764ef99b137ad4" Name="Diagram1" ZoomLevel="52">
+        <EntityTypeShape EntityType="qt_infinigentdbModel.LU_Challan_Type_t" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.LU_Comments_Type_t" Width="1.5" PointX="2.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.LU_Commnets_t" Width="1.5" PointX="4.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.LU_Configaration_Settings_t" Width="1.5" PointX="6.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.LU_Device_Info_t" Width="1.5" PointX="8.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.LU_Employee_t" Width="1.5" PointX="14.625" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.LU_Outlate_Type_t" Width="1.5" PointX="0.875" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.LU_Scheme_Media_Type_t" Width="1.5" PointX="2.875" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.LU_Scheme_Name_t" Width="1.5" PointX="10.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.LU_User_Login_Ids_t" Width="1.5" PointX="4.875" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.sysdiagram" Width="1.5" PointX="8.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_Scheme_Audit_Child_t" Width="1.5" PointX="10.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_Scheme_Audit_Parent_t" Width="1.5" PointX="12.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.LU_User_t" Width="1.5" PointX="6.625" PointY="5.125" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,693 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="qt_infinigentdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LU_Challan_Type_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="date" Nullable="false" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="ModificationDate" Type="date" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_Comments_Type_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CommentsType" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="date" Nullable="false" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="ModificationDate" Type="date" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_Commnets_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CommentsTypeId" Type="int" Nullable="false" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="date" Nullable="false" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="ModificationDate" Type="date" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_Configaration_Settings_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Config1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="date" Nullable="false" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="EmployeeTypeId" Type="int" Nullable="false" />
+          <Property Name="ModificationDate" Type="date" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_Device_Info_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UniqueNumber" Type="int" Nullable="false" />
+          <Property Name="DeviceType" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="date" Nullable="false" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="ModificationDate" Type="date" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_Employee_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmployeeTypeId" Type="int" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="date" Nullable="false" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="ModificationDate" Type="date" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_Outlate_Type_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="date" Nullable="false" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="ModificationDate" Type="date" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_Scheme_Media_Type_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="date" Nullable="false" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="ModificationDate" Type="date" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_Scheme_Name_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ActivateFromDate" Type="date" Nullable="false" />
+          <Property Name="ActivateToDate" Type="date" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="date" Nullable="false" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="ModificationDate" Type="date" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_User_Login_Ids_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LogInID" Type="int" Nullable="false" />
+          <Property Name="IsDefault" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_User_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserGroupId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="MobileNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="date" Nullable="false" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="ModificationDate" Type="date" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TRN_Scheme_Audit_Child_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImageLocation" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsSignature" Type="smallint" />
+        </EntityType>
+        <EntityType Name="TRN_Scheme_Audit_Parent_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="OutlateName" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="GccCode" Type="int" Nullable="false" />
+          <Property Name="RetailSellerName" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="MobileNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OutlateTypeId" Type="int" Nullable="false" />
+          <Property Name="VisitedDate" Type="date" Nullable="false" />
+          <Property Name="DistributorName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="AsmId" Type="int" Nullable="false" />
+          <Property Name="AicId" Type="int" Nullable="false" />
+          <Property Name="OutlateAddress" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="IsKnowenAboutScheme" Type="int" Nullable="false" />
+          <Property Name="SchemeDetails" Type="nvarchar" MaxLength="500" />
+          <Property Name="SchemeMediaTypeId" Type="int" Nullable="false" />
+          <Property Name="IsFacilitatedByScheme" Type="int" Nullable="false" />
+          <Property Name="DateOfScheme" Type="date" />
+          <Property Name="IsWrittenRecordAvailable" Type="int" />
+          <Property Name="LatestChallanDate" Type="date" />
+          <Property Name="ChallanAmount" Type="nvarchar" MaxLength="50" />
+          <Property Name="DoesGotAnyChallan" Type="int" />
+          <Property Name="ChallanTypeId" Type="int" />
+          <Property Name="DoesExpiredProductAvailable" Type="int" />
+          <Property Name="DoesSatisfiedWithSallesOfficer" Type="int" />
+          <Property Name="DoesSatisfiedWithProductOrderAndService" Type="int" />
+          <Property Name="SallesOfficerVisitingDay" Type="int" />
+          <Property Name="DoesGotLatestDiscountOffer" Type="int" />
+          <Property Name="WillGetAnyDiscountOfferFromDistributor" Type="int" />
+          <Property Name="DoesCocaColaLabelAvailable" Type="int" />
+          <Property Name="IsGccCodeAvailable" Type="int" />
+          <Property Name="CommentsType" Type="int" />
+          <Property Name="Comments" Type="int" />
+          <Property Name="CommentDetails" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatorName" Type="tinyint" Nullable="false" />
+          <Property Name="CreationDate" Type="date" Nullable="false" />
+          <Property Name="ModifierName" Type="tinyint" Nullable="false" />
+          <Property Name="ModificationDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="qt_infinigentdbModelStoreContainer">
+          <EntitySet Name="LU_Challan_Type_t" EntityType="Self.LU_Challan_Type_t" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LU_Comments_Type_t" EntityType="Self.LU_Comments_Type_t" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LU_Commnets_t" EntityType="Self.LU_Commnets_t" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LU_Configaration_Settings_t" EntityType="Self.LU_Configaration_Settings_t" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LU_Device_Info_t" EntityType="Self.LU_Device_Info_t" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LU_Employee_t" EntityType="Self.LU_Employee_t" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LU_Outlate_Type_t" EntityType="Self.LU_Outlate_Type_t" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LU_Scheme_Media_Type_t" EntityType="Self.LU_Scheme_Media_Type_t" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LU_Scheme_Name_t" EntityType="Self.LU_Scheme_Name_t" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LU_User_Login_Ids_t" EntityType="Self.LU_User_Login_Ids_t" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LU_User_t" EntityType="Self.LU_User_t" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRN_Scheme_Audit_Child_t" EntityType="Self.TRN_Scheme_Audit_Child_t" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRN_Scheme_Audit_Parent_t" EntityType="Self.TRN_Scheme_Audit_Parent_t" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="qt_infinigentdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LU_Challan_Type_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_Comments_Type_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CommentsType" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_Commnets_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CommentsTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_Configaration_Settings_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Config1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeTypeId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_Device_Info_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UniqueNumber" Type="Int32" Nullable="false" />
+          <Property Name="DeviceType" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_Employee_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmployeeTypeId" Type="Int32" Nullable="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_Outlate_Type_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_Scheme_Media_Type_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_Scheme_Name_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ActivateFromDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ActivateToDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_User_Login_Ids_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LogInID" Type="Int32" Nullable="false" />
+          <Property Name="IsDefault" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TRN_Scheme_Audit_Child_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImageLocation" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsSignature" Type="Int16" />
+        </EntityType>
+        <EntityType Name="TRN_Scheme_Audit_Parent_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="OutlateName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="GccCode" Type="Int32" Nullable="false" />
+          <Property Name="RetailSellerName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MobileNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OutlateTypeId" Type="Int32" Nullable="false" />
+          <Property Name="VisitedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DistributorName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AsmId" Type="Int32" Nullable="false" />
+          <Property Name="AicId" Type="Int32" Nullable="false" />
+          <Property Name="OutlateAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsKnowenAboutScheme" Type="Int32" Nullable="false" />
+          <Property Name="SchemeDetails" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SchemeMediaTypeId" Type="Int32" Nullable="false" />
+          <Property Name="IsFacilitatedByScheme" Type="Int32" Nullable="false" />
+          <Property Name="DateOfScheme" Type="DateTime" Precision="0" />
+          <Property Name="IsWrittenRecordAvailable" Type="Int32" />
+          <Property Name="LatestChallanDate" Type="DateTime" Precision="0" />
+          <Property Name="ChallanAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DoesGotAnyChallan" Type="Int32" />
+          <Property Name="ChallanTypeId" Type="Int32" />
+          <Property Name="DoesExpiredProductAvailable" Type="Int32" />
+          <Property Name="DoesSatisfiedWithSallesOfficer" Type="Int32" />
+          <Property Name="DoesSatisfiedWithProductOrderAndService" Type="Int32" />
+          <Property Name="SallesOfficerVisitingDay" Type="Int32" />
+          <Property Name="DoesGotLatestDiscountOffer" Type="Int32" />
+          <Property Name="WillGetAnyDiscountOfferFromDistributor" Type="Int32" />
+          <Property Name="DoesCocaColaLabelAvailable" Type="Int32" />
+          <Property Name="IsGccCodeAvailable" Type="Int32" />
+          <Property Name="CommentsType" Type="Int32" />
+          <Property Name="Comments" Type="Int32" />
+          <Property Name="CommentDetails" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatorName" Type="Byte" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ModifierName" Type="Byte" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="qt_infinigentdbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LU_Challan_Type_t" EntityType="Self.LU_Challan_Type_t" />
+          <EntitySet Name="LU_Comments_Type_t" EntityType="Self.LU_Comments_Type_t" />
+          <EntitySet Name="LU_Commnets_t" EntityType="Self.LU_Commnets_t" />
+          <EntitySet Name="LU_Configaration_Settings_t" EntityType="Self.LU_Configaration_Settings_t" />
+          <EntitySet Name="LU_Device_Info_t" EntityType="Self.LU_Device_Info_t" />
+          <EntitySet Name="LU_Employee_t" EntityType="Self.LU_Employee_t" />
+          <EntitySet Name="LU_Outlate_Type_t" EntityType="Self.LU_Outlate_Type_t" />
+          <EntitySet Name="LU_Scheme_Media_Type_t" EntityType="Self.LU_Scheme_Media_Type_t" />
+          <EntitySet Name="LU_Scheme_Name_t" EntityType="Self.LU_Scheme_Name_t" />
+          <EntitySet Name="LU_User_Login_Ids_t" EntityType="Self.LU_User_Login_Ids_t" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TRN_Scheme_Audit_Child_t" EntityType="Self.TRN_Scheme_Audit_Child_t" />
+          <EntitySet Name="TRN_Scheme_Audit_Parent_t" EntityType="Self.TRN_Scheme_Audit_Parent_t" />
+          <EntitySet Name="LU_User_t" EntityType="qt_infinigentdbModel.LU_User_t" />
+          </EntityContainer>
+        <EntityType Name="LU_User_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserGroupId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="qt_infinigentdbModelStoreContainer" CdmEntityContainer="qt_infinigentdbEntities">
+          <EntitySetMapping Name="LU_Challan_Type_t">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Challan_Type_t">
+              <MappingFragment StoreEntitySet="LU_Challan_Type_t">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_Comments_Type_t">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Comments_Type_t">
+              <MappingFragment StoreEntitySet="LU_Comments_Type_t">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CommentsType" ColumnName="CommentsType" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_Commnets_t">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Commnets_t">
+              <MappingFragment StoreEntitySet="LU_Commnets_t">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CommentsTypeId" ColumnName="CommentsTypeId" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_Configaration_Settings_t">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Configaration_Settings_t">
+              <MappingFragment StoreEntitySet="LU_Configaration_Settings_t">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Config1" ColumnName="Config1" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="EmployeeTypeId" ColumnName="EmployeeTypeId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_Device_Info_t">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Device_Info_t">
+              <MappingFragment StoreEntitySet="LU_Device_Info_t">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UniqueNumber" ColumnName="UniqueNumber" />
+                <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_Employee_t">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Employee_t">
+              <MappingFragment StoreEntitySet="LU_Employee_t">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EmployeeTypeId" ColumnName="EmployeeTypeId" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_Outlate_Type_t">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Outlate_Type_t">
+              <MappingFragment StoreEntitySet="LU_Outlate_Type_t">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_Scheme_Media_Type_t">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Scheme_Media_Type_t">
+              <MappingFragment StoreEntitySet="LU_Scheme_Media_Type_t">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_Scheme_Name_t">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Scheme_Name_t">
+              <MappingFragment StoreEntitySet="LU_Scheme_Name_t">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ActivateFromDate" ColumnName="ActivateFromDate" />
+                <ScalarProperty Name="ActivateToDate" ColumnName="ActivateToDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_User_Login_Ids_t">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_User_Login_Ids_t">
+              <MappingFragment StoreEntitySet="LU_User_Login_Ids_t">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LogInID" ColumnName="LogInID" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_Scheme_Audit_Child_t">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_Scheme_Audit_Child_t">
+              <MappingFragment StoreEntitySet="TRN_Scheme_Audit_Child_t">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
+                <ScalarProperty Name="IsSignature" ColumnName="IsSignature" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_Scheme_Audit_Parent_t">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_Scheme_Audit_Parent_t">
+              <MappingFragment StoreEntitySet="TRN_Scheme_Audit_Parent_t">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="OutlateName" ColumnName="OutlateName" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="GccCode" ColumnName="GccCode" />
+                <ScalarProperty Name="RetailSellerName" ColumnName="RetailSellerName" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="OutlateTypeId" ColumnName="OutlateTypeId" />
+                <ScalarProperty Name="VisitedDate" ColumnName="VisitedDate" />
+                <ScalarProperty Name="DistributorName" ColumnName="DistributorName" />
+                <ScalarProperty Name="AsmId" ColumnName="AsmId" />
+                <ScalarProperty Name="AicId" ColumnName="AicId" />
+                <ScalarProperty Name="OutlateAddress" ColumnName="OutlateAddress" />
+                <ScalarProperty Name="IsKnowenAboutScheme" ColumnName="IsKnowenAboutScheme" />
+                <ScalarProperty Name="SchemeDetails" ColumnName="SchemeDetails" />
+                <ScalarProperty Name="SchemeMediaTypeId" ColumnName="SchemeMediaTypeId" />
+                <ScalarProperty Name="IsFacilitatedByScheme" ColumnName="IsFacilitatedByScheme" />
+                <ScalarProperty Name="DateOfScheme" ColumnName="DateOfScheme" />
+                <ScalarProperty Name="IsWrittenRecordAvailable" ColumnName="IsWrittenRecordAvailable" />
+                <ScalarProperty Name="LatestChallanDate" ColumnName="LatestChallanDate" />
+                <ScalarProperty Name="ChallanAmount" ColumnName="ChallanAmount" />
+                <ScalarProperty Name="DoesGotAnyChallan" ColumnName="DoesGotAnyChallan" />
+                <ScalarProperty Name="ChallanTypeId" ColumnName="ChallanTypeId" />
+                <ScalarProperty Name="DoesExpiredProductAvailable" ColumnName="DoesExpiredProductAvailable" />
+                <ScalarProperty Name="DoesSatisfiedWithSallesOfficer" ColumnName="DoesSatisfiedWithSallesOfficer" />
+                <ScalarProperty Name="DoesSatisfiedWithProductOrderAndService" ColumnName="DoesSatisfiedWithProductOrderAndService" />
+                <ScalarProperty Name="SallesOfficerVisitingDay" ColumnName="SallesOfficerVisitingDay" />
+                <ScalarProperty Name="DoesGotLatestDiscountOffer" ColumnName="DoesGotLatestDiscountOffer" />
+                <ScalarProperty Name="WillGetAnyDiscountOfferFromDistributor" ColumnName="WillGetAnyDiscountOfferFromDistributor" />
+                <ScalarProperty Name="DoesCocaColaLabelAvailable" ColumnName="DoesCocaColaLabelAvailable" />
+                <ScalarProperty Name="IsGccCodeAvailable" ColumnName="IsGccCodeAvailable" />
+                <ScalarProperty Name="CommentsType" ColumnName="CommentsType" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="CommentDetails" ColumnName="CommentDetails" />
+                <ScalarProperty Name="CreatorName" ColumnName="CreatorName" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierName" ColumnName="ModifierName" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_User_t">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_User_t">
+              <MappingFragment StoreEntitySet="LU_User_t">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserGroupId" ColumnName="UserGroupId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
