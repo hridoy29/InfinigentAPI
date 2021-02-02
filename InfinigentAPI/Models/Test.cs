@@ -12,16 +12,11 @@ namespace InfinigentAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LU_Device_Info_t
+    public partial class Test
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int UniqueNumber { get; set; }
-        public string DeviceType { get; set; }
-        public int CreatorId { get; set; }
-        public System.DateTime CreationDate { get; set; }
-        public int ModifierId { get; set; }
-        public System.DateTime ModificationDate { get; set; }
-        public bool IsActive { get; set; }
+        public string Number { get; set; }
+        public byte[] ImageLocation { get; set; }
+        public Nullable<short> IsSignature { get; set; }
     }
 }

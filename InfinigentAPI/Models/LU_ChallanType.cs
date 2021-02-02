@@ -12,14 +12,13 @@ namespace InfinigentAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LU_Configaration_Settings_t
+    public partial class LU_ChallanType
     {
         public int Id { get; set; }
-        public string Config1 { get; set; }
+        public string Name { get; set; }
         public int CreatorId { get; set; }
         public System.DateTime CreationDate { get; set; }
         public int ModifierId { get; set; }
-        public int EmployeeTypeId { get; set; }
         public System.DateTime ModificationDate { get; set; }
         public bool IsActive { get; set; }
     }

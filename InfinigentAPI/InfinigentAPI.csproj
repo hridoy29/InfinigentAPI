@@ -163,6 +163,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TestsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -183,46 +184,73 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InfinigentModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\LU_Challan_Type_t.cs">
+    <Compile Include="Models\LU_ChallanType.cs">
       <DependentUpon>InfinigentModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\LU_Comments_Type_t.cs">
+    <Compile Include="Models\LU_CommentsType.cs">
       <DependentUpon>InfinigentModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\LU_Commnets_t.cs">
+    <Compile Include="Models\LU_Commnets.cs">
       <DependentUpon>InfinigentModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\LU_Configaration_Settings_t.cs">
+    <Compile Include="Models\LU_ConfigarationSettings.cs">
       <DependentUpon>InfinigentModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\LU_Device_Info_t.cs">
+    <Compile Include="Models\LU_DeviceInfo.cs">
       <DependentUpon>InfinigentModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\LU_Employee_t.cs">
+    <Compile Include="Models\LU_Employee.cs">
       <DependentUpon>InfinigentModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\LU_Outlate_Type_t.cs">
+    <Compile Include="Models\LU_Module.cs">
       <DependentUpon>InfinigentModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\LU_Scheme_Media_Type_t.cs">
+    <Compile Include="Models\LU_OutletType.cs">
       <DependentUpon>InfinigentModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\LU_Scheme_Name_t.cs">
+    <Compile Include="Models\LU_SchemeMediaType.cs">
       <DependentUpon>InfinigentModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\LU_User_Login_Ids_t.cs">
+    <Compile Include="Models\LU_SchemeName.cs">
       <DependentUpon>InfinigentModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\LU_User_t.cs">
+    <Compile Include="Models\LU_Screen.cs">
+      <DependentUpon>InfinigentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LU_ScreenDetail.cs">
+      <DependentUpon>InfinigentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LU_ScreenFunction.cs">
+      <DependentUpon>InfinigentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LU_User.cs">
+      <DependentUpon>InfinigentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LU_UserGroup.cs">
+      <DependentUpon>InfinigentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LU_UserLoginIds.cs">
       <DependentUpon>InfinigentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>InfinigentModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TRN_Scheme_Audit_Child_t.cs">
+    <Compile Include="Models\Test.cs">
       <DependentUpon>InfinigentModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TRN_Scheme_Audit_Parent_t.cs">
+    <Compile Include="Models\TRN_Permission.cs">
+      <DependentUpon>InfinigentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRN_PermissionDetail.cs">
+      <DependentUpon>InfinigentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRN_SchemeAuditChild.cs">
+      <DependentUpon>InfinigentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRN_SchemeAuditParent.cs">
+      <DependentUpon>InfinigentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRN_SchemeAuditShopDetails.cs">
       <DependentUpon>InfinigentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

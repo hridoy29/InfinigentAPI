@@ -12,14 +12,10 @@ namespace InfinigentAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LU_Challan_Type_t
+    public partial class LU_UserLoginIds
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int CreatorId { get; set; }
-        public System.DateTime CreationDate { get; set; }
-        public int ModifierId { get; set; }
-        public System.DateTime ModificationDate { get; set; }
-        public bool IsActive { get; set; }
+        public int LogInID { get; set; }
+        public bool IsDefault { get; set; }
     }
 }

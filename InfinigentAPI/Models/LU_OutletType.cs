@@ -12,7 +12,7 @@ namespace InfinigentAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LU_Scheme_Media_Type_t
+    public partial class LU_OutletType
     {
         public int Id { get; set; }
         public string Name { get; set; }

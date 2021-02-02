@@ -12,12 +12,12 @@ namespace InfinigentAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LU_Scheme_Name_t
+    public partial class LU_DeviceInfo
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public System.DateTime ActivateFromDate { get; set; }
-        public System.DateTime ActivateToDate { get; set; }
+        public int UniqueNumber { get; set; }
+        public string DeviceType { get; set; }
         public int CreatorId { get; set; }
         public System.DateTime CreationDate { get; set; }
         public int ModifierId { get; set; }

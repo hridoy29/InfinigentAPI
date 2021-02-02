@@ -12,10 +12,11 @@ namespace InfinigentAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LU_User_Login_Ids_t
+    public partial class TRN_SchemeAuditChild
     {
         public int Id { get; set; }
-        public int LogInID { get; set; }
-        public bool IsDefault { get; set; }
+        public string Number { get; set; }
+        public string ImageLocation { get; set; }
+        public Nullable<short> IsSignature { get; set; }
     }
 }

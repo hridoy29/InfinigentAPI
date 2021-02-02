@@ -12,22 +12,13 @@ namespace InfinigentAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TRN_Scheme_Audit_Parent_t
+    public partial class TRN_SchemeAuditParent
     {
         public int Id { get; set; }
         public string Number { get; set; }
         public int UserId { get; set; }
         public string OutlateName { get; set; }
         public System.DateTime Date { get; set; }
-        public int GccCode { get; set; }
-        public string RetailSellerName { get; set; }
-        public string MobileNumber { get; set; }
-        public int OutlateTypeId { get; set; }
-        public System.DateTime VisitedDate { get; set; }
-        public string DistributorName { get; set; }
-        public int AsmId { get; set; }
-        public int AicId { get; set; }
-        public string OutlateAddress { get; set; }
         public int IsKnowenAboutScheme { get; set; }
         public string SchemeDetails { get; set; }
         public int SchemeMediaTypeId { get; set; }
@@ -49,9 +40,9 @@ namespace InfinigentAPI.Models
         public Nullable<int> CommentsType { get; set; }
         public Nullable<int> Comments { get; set; }
         public string CommentDetails { get; set; }
-        public byte CreatorName { get; set; }
+        public int CreatorId { get; set; }
         public System.DateTime CreationDate { get; set; }
-        public byte ModifierName { get; set; }
+        public int ModifierId { get; set; }
         public System.DateTime ModificationDate { get; set; }
     }
 }

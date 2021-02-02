@@ -12,10 +12,10 @@ namespace InfinigentAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LU_Outlate_Type_t
+    public partial class LU_CommentsType
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string CommentsType { get; set; }
         public int CreatorId { get; set; }
         public System.DateTime CreationDate { get; set; }
         public int ModifierId { get; set; }

@@ -12,14 +12,14 @@ namespace InfinigentAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LU_Comments_Type_t
+    public partial class TRN_PermissionDetail
     {
-        public int Id { get; set; }
-        public string CommentsType { get; set; }
-        public int CreatorId { get; set; }
-        public System.DateTime CreationDate { get; set; }
-        public int ModifierId { get; set; }
-        public System.DateTime ModificationDate { get; set; }
-        public bool IsActive { get; set; }
+        public long PermissionDetailId { get; set; }
+        public long PermissionId { get; set; }
+        public int ScreenDetailId { get; set; }
+        public bool CanExecute { get; set; }
+    
+        public virtual LU_ScreenDetail LU_ScreenDetail { get; set; }
+        public virtual TRN_Permission TRN_Permission { get; set; }
     }
 }

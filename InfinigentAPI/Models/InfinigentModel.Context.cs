@@ -25,19 +25,28 @@ namespace InfinigentAPI.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<LU_Challan_Type_t> LU_Challan_Type_t { get; set; }
-        public virtual DbSet<LU_Comments_Type_t> LU_Comments_Type_t { get; set; }
-        public virtual DbSet<LU_Commnets_t> LU_Commnets_t { get; set; }
-        public virtual DbSet<LU_Configaration_Settings_t> LU_Configaration_Settings_t { get; set; }
-        public virtual DbSet<LU_Device_Info_t> LU_Device_Info_t { get; set; }
-        public virtual DbSet<LU_Employee_t> LU_Employee_t { get; set; }
-        public virtual DbSet<LU_Outlate_Type_t> LU_Outlate_Type_t { get; set; }
-        public virtual DbSet<LU_Scheme_Media_Type_t> LU_Scheme_Media_Type_t { get; set; }
-        public virtual DbSet<LU_Scheme_Name_t> LU_Scheme_Name_t { get; set; }
-        public virtual DbSet<LU_User_Login_Ids_t> LU_User_Login_Ids_t { get; set; }
+        public virtual DbSet<LU_ChallanType> LU_ChallanType { get; set; }
+        public virtual DbSet<LU_CommentsType> LU_CommentsType { get; set; }
+        public virtual DbSet<LU_Commnets> LU_Commnets { get; set; }
+        public virtual DbSet<LU_ConfigarationSettings> LU_ConfigarationSettings { get; set; }
+        public virtual DbSet<LU_DeviceInfo> LU_DeviceInfo { get; set; }
+        public virtual DbSet<LU_Employee> LU_Employee { get; set; }
+        public virtual DbSet<LU_Module> LU_Module { get; set; }
+        public virtual DbSet<LU_OutletType> LU_OutletType { get; set; }
+        public virtual DbSet<LU_SchemeMediaType> LU_SchemeMediaType { get; set; }
+        public virtual DbSet<LU_SchemeName> LU_SchemeName { get; set; }
+        public virtual DbSet<LU_Screen> LU_Screen { get; set; }
+        public virtual DbSet<LU_ScreenDetail> LU_ScreenDetail { get; set; }
+        public virtual DbSet<LU_ScreenFunction> LU_ScreenFunction { get; set; }
+        public virtual DbSet<LU_User> LU_User { get; set; }
+        public virtual DbSet<LU_UserGroup> LU_UserGroup { get; set; }
+        public virtual DbSet<LU_UserLoginIds> LU_UserLoginIds { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<TRN_Scheme_Audit_Child_t> TRN_Scheme_Audit_Child_t { get; set; }
-        public virtual DbSet<TRN_Scheme_Audit_Parent_t> TRN_Scheme_Audit_Parent_t { get; set; }
-        public virtual DbSet<LU_User_t> LU_User_t { get; set; }
+        public virtual DbSet<Test> Tests { get; set; }
+        public virtual DbSet<TRN_Permission> TRN_Permission { get; set; }
+        public virtual DbSet<TRN_PermissionDetail> TRN_PermissionDetail { get; set; }
+        public virtual DbSet<TRN_SchemeAuditChild> TRN_SchemeAuditChild { get; set; }
+        public virtual DbSet<TRN_SchemeAuditParent> TRN_SchemeAuditParent { get; set; }
+        public virtual DbSet<TRN_SchemeAuditShopDetails> TRN_SchemeAuditShopDetails { get; set; }
     }
 }

@@ -12,11 +12,11 @@ namespace InfinigentAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LU_Commnets_t
+    public partial class LU_Employee
     {
         public int Id { get; set; }
-        public int CommentsTypeId { get; set; }
-        public string Comments { get; set; }
+        public string Name { get; set; }
+        public int EmployeeTypeId { get; set; }
         public int CreatorId { get; set; }
         public System.DateTime CreationDate { get; set; }
         public int ModifierId { get; set; }

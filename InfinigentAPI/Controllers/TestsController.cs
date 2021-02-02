@@ -12,45 +12,44 @@ using InfinigentAPI.Models;
 
 namespace InfinigentAPI.Controllers
 {
-    public class UserController : ApiController
+    public class TestsController : ApiController
     {
         private qt_infinigentdbEntities db = new qt_infinigentdbEntities();
 
-        // GET: api/User
-        public IQueryable<LU_User> GetLU_User()
+        // GET: api/Tests
+        public IQueryable<Test> GetTests()
         {
-            return db.LU_User;
+            return db.Tests;
         }
 
-        // GET: api/User/5
-        [ResponseType(typeof(LU_User))]
-        public IQueryable<LU_User> GetLU_User(int id)
+        // GET: api/Tests/5
+        [ResponseType(typeof(Test))]
+        public IHttpActionResult GetTest(int id)
         {
-            /* LU_User LU_User = db.LU_User.Find(id);
-             if (LU_User == null)
-             {
-                 return NotFound();
-             }
+            Test test = db.Tests.Find(id);
+            if (test == null)
+            {
+                return NotFound();
+            }
 
-             return Ok(LU_User);*/
-            return  db.LU_User;
+            return Ok(test);
         }
 
-        // PUT: api/User/5
+        // PUT: api/Tests/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutLU_User(int id, LU_User LU_User)
+        public IHttpActionResult PutTest(int id, Test test)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != LU_User.Id)
+            if (id != test.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(LU_User).State = EntityState.Modified;
+            db.Entry(test).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +57,7 @@ namespace InfinigentAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LU_UserExists(id))
+                if (!TestExists(id))
                 {
                     return NotFound();
                 }
@@ -71,35 +70,35 @@ namespace InfinigentAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/User
-        [ResponseType(typeof(LU_User))]
-        public IHttpActionResult PostLU_User(LU_User LU_User)
+        // POST: api/Tests
+        [ResponseType(typeof(Test))]
+        public IHttpActionResult PostTest(Test test)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.LU_User.Add(LU_User);
+            db.Tests.Add(test);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = LU_User.Id }, LU_User);
+            return CreatedAtRoute("DefaultApi", new { id = test.Id }, test);
         }
 
-        // DELETE: api/User/5
-        [ResponseType(typeof(LU_User))]
-        public IHttpActionResult DeleteLU_User(int id)
+        // DELETE: api/Tests/5
+        [ResponseType(typeof(Test))]
+        public IHttpActionResult DeleteTest(int id)
         {
-            LU_User LU_User = db.LU_User.Find(id);
-            if (LU_User == null)
+            Test test = db.Tests.Find(id);
+            if (test == null)
             {
                 return NotFound();
             }
 
-            db.LU_User.Remove(LU_User);
+            db.Tests.Remove(test);
             db.SaveChanges();
 
-            return Ok(LU_User);
+            return Ok(test);
         }
 
         protected override void Dispose(bool disposing)
@@ -111,9 +110,9 @@ namespace InfinigentAPI.Controllers
             base.Dispose(disposing);
         }
 
-        private bool LU_UserExists(int id)
+        private bool TestExists(int id)
         {
-            return db.LU_User.Count(e => e.Id == id) > 0;
+            return db.Tests.Count(e => e.Id == id) > 0;
         }
     }
 }

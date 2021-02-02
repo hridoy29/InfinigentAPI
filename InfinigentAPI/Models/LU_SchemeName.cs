@@ -12,11 +12,12 @@ namespace InfinigentAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LU_Employee_t
+    public partial class LU_SchemeName
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int EmployeeTypeId { get; set; }
+        public System.DateTime ActivateFromDate { get; set; }
+        public System.DateTime ActivateToDate { get; set; }
         public int CreatorId { get; set; }
         public System.DateTime CreationDate { get; set; }
         public int ModifierId { get; set; }
