@@ -22,7 +22,7 @@
         <EntityTypeShape EntityType="qt_infinigentdbModel.LU_UserGroup" Width="1.5" PointX="3" PointY="0.75" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.LU_UserLoginIds" Width="1.5" PointX="8.75" PointY="12.625" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.sysdiagram" Width="1.5" PointX="10.75" PointY="12.625" />
-        <EntityTypeShape EntityType="qt_infinigentdbModel.Test" Width="1.5" PointX="12.75" PointY="2.625" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.Test" Width="1.5" PointX="12.75" PointY="3.625" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_Permission" Width="1.5" PointX="5.25" PointY="4.5" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_PermissionDetail" Width="1.5" PointX="10.5" PointY="5" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_SchemeAuditChild" Width="1.5" PointX="12.75" PointY="5.625" />
@@ -35,6 +35,9 @@
         <AssociationConnector Association="qt_infinigentdbModel.FK_PermissionDetail_ScreenDetail" />
         <AssociationConnector Association="qt_infinigentdbModel.FK_RoleWisePermission_Role" />
         <AssociationConnector Association="qt_infinigentdbModel.FK_PermissionDetail_Permission" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.LU_AIC" Width="1.5" PointX="14.625" PointY="5.625" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.LU_ASM" Width="1.5" PointX="14.5" PointY="8.625" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.LU_DistributorDetails" Width="1.5" PointX="14.625" PointY="3.125" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

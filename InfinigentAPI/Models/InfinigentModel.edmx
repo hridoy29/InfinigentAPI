@@ -5,6 +5,30 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="qt_infinigentdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LU_AIC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="ModificationDate" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_ASM">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="ModificationDate" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="LU_ChallanType">
           <Key>
             <PropertyRef Name="Id" />
@@ -63,6 +87,18 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="UniqueNumber" Type="int" Nullable="false" />
           <Property Name="DeviceType" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="ModificationDate" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_DistributorDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CreatorId" Type="int" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="int" Nullable="false" />
@@ -374,11 +410,14 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="qt_infinigentdbModelStoreContainer">
+          <EntitySet Name="LU_AIC" EntityType="Self.LU_AIC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LU_ASM" EntityType="Self.LU_ASM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_ChallanType" EntityType="Self.LU_ChallanType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_CommentsType" EntityType="Self.LU_CommentsType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_Commnets" EntityType="Self.LU_Commnets" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_ConfigarationSettings" EntityType="Self.LU_ConfigarationSettings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_DeviceInfo" EntityType="Self.LU_DeviceInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LU_DistributorDetails" EntityType="Self.LU_DistributorDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_Employee" EntityType="Self.LU_Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_Module" EntityType="Self.LU_Module" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_OutletType" EntityType="Self.LU_OutletType" Schema="dbo" store:Type="Tables" />
@@ -482,6 +521,9 @@
             <End Role="TRN_Permission" EntitySet="TRN_Permission" />
             <End Role="TRN_PermissionDetail" EntitySet="TRN_PermissionDetail" />
           </AssociationSet>
+          <EntitySet Name="LU_AIC" EntityType="qt_infinigentdbModel.LU_AIC" />
+          <EntitySet Name="LU_ASM" EntityType="qt_infinigentdbModel.LU_ASM" />
+          <EntitySet Name="LU_DistributorDetails" EntityType="qt_infinigentdbModel.LU_DistributorDetails" />
         </EntityContainer>
         <EntityType Name="LU_ChallanType">
           <Key>
@@ -865,6 +907,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="LU_AIC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_ASM">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_DistributorDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1174,6 +1252,45 @@
                 <ScalarProperty Name="GccCode" ColumnName="GccCode" />
                 <ScalarProperty Name="OutlateName" ColumnName="OutlateName" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_AIC">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_AIC">
+              <MappingFragment StoreEntitySet="LU_AIC">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_ASM">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_ASM">
+              <MappingFragment StoreEntitySet="LU_ASM">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_DistributorDetails">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_DistributorDetails">
+              <MappingFragment StoreEntitySet="LU_DistributorDetails">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

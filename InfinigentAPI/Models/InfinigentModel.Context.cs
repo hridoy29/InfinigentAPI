@@ -48,5 +48,8 @@ namespace InfinigentAPI.Models
         public virtual DbSet<TRN_SchemeAuditChild> TRN_SchemeAuditChild { get; set; }
         public virtual DbSet<TRN_SchemeAuditParent> TRN_SchemeAuditParent { get; set; }
         public virtual DbSet<TRN_SchemeAuditShopDetails> TRN_SchemeAuditShopDetails { get; set; }
+        public virtual DbSet<LU_AIC> LU_AIC { get; set; }
+        public virtual DbSet<LU_ASM> LU_ASM { get; set; }
+        public virtual DbSet<LU_DistributorDetails> LU_DistributorDetails { get; set; }
     }
 }

@@ -162,7 +162,15 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AICController.cs" />
+    <Compile Include="Controllers\ASMController.cs" />
+    <Compile Include="Controllers\CommentsTypeController.cs" />
+    <Compile Include="Controllers\CommnetsController.cs" />
+    <Compile Include="Controllers\DistributorDetailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SchemeAuditChildController.cs" />
+    <Compile Include="Controllers\SchemeAuditParentController.cs" />
+    <Compile Include="Controllers\SchemeAuditShopDetailsController.cs" />
     <Compile Include="Controllers\TestsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -184,6 +192,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InfinigentModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\LU_AIC.cs">
+      <DependentUpon>InfinigentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LU_ASM.cs">
+      <DependentUpon>InfinigentModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LU_ChallanType.cs">
       <DependentUpon>InfinigentModel.tt</DependentUpon>
     </Compile>
@@ -197,6 +211,9 @@
       <DependentUpon>InfinigentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_DeviceInfo.cs">
+      <DependentUpon>InfinigentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LU_DistributorDetails.cs">
       <DependentUpon>InfinigentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_Employee.cs">
