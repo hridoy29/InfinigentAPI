@@ -72,17 +72,20 @@ namespace InfinigentAPI.Controllers
 
         // POST: api/Tests
         [ResponseType(typeof(Test))]
-        public IHttpActionResult PostTest(Test test)
+        [HttpPost]
+        public IHttpActionResult PostTest([FromBody] Test test)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
+              
+             db.Tests.Add(test);
+             db.SaveChanges();
+           
+            //return CreatedAtRoute("DefaultApi", new { id = test.Id }, test);
+           return Ok();
 
-            db.Tests.Add(test);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = test.Id }, test);
         }
 
         // DELETE: api/Tests/5
