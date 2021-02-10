@@ -25,11 +25,14 @@ namespace InfinigentAPI.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<LU_AIC> LU_AIC { get; set; }
+        public virtual DbSet<LU_ASM> LU_ASM { get; set; }
         public virtual DbSet<LU_ChallanType> LU_ChallanType { get; set; }
         public virtual DbSet<LU_CommentsType> LU_CommentsType { get; set; }
         public virtual DbSet<LU_Commnets> LU_Commnets { get; set; }
         public virtual DbSet<LU_ConfigarationSettings> LU_ConfigarationSettings { get; set; }
         public virtual DbSet<LU_DeviceInfo> LU_DeviceInfo { get; set; }
+        public virtual DbSet<LU_DistributorDetails> LU_DistributorDetails { get; set; }
         public virtual DbSet<LU_Employee> LU_Employee { get; set; }
         public virtual DbSet<LU_Module> LU_Module { get; set; }
         public virtual DbSet<LU_OutletType> LU_OutletType { get; set; }
@@ -42,14 +45,13 @@ namespace InfinigentAPI.Models
         public virtual DbSet<LU_UserGroup> LU_UserGroup { get; set; }
         public virtual DbSet<LU_UserLoginIds> LU_UserLoginIds { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<Test> Tests { get; set; }
         public virtual DbSet<TRN_Permission> TRN_Permission { get; set; }
         public virtual DbSet<TRN_PermissionDetail> TRN_PermissionDetail { get; set; }
         public virtual DbSet<TRN_SchemeAuditChild> TRN_SchemeAuditChild { get; set; }
         public virtual DbSet<TRN_SchemeAuditParent> TRN_SchemeAuditParent { get; set; }
         public virtual DbSet<TRN_SchemeAuditShopDetails> TRN_SchemeAuditShopDetails { get; set; }
-        public virtual DbSet<LU_AIC> LU_AIC { get; set; }
-        public virtual DbSet<LU_ASM> LU_ASM { get; set; }
-        public virtual DbSet<LU_DistributorDetails> LU_DistributorDetails { get; set; }
+        public virtual DbSet<pratdummy> pratdummies { get; set; }
+        public virtual DbSet<TRN_SMkneet_t> TRN_SMkneet_t { get; set; }
+        public virtual DbSet<Test> Tests { get; set; }
     }
 }

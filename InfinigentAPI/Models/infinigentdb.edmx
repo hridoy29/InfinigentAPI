@@ -238,9 +238,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ImageLocation" Type="varbinary(max)" />
-          <Property Name="IsSignature" Type="smallint" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Photo" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="TRN_Permission">
           <Key>
@@ -324,6 +323,27 @@
           <Property Name="AsmId" Type="int" Nullable="false" />
           <Property Name="AicId" Type="int" Nullable="false" />
           <Property Name="OutlateAddress" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pratdummy">
+          <Key>
+            <PropertyRef Name="zid" />
+          </Key>
+          <Property Name="zid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="xemp" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="xdate" Type="datetime" Nullable="false" />
+          <Property Name="xdesc" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="xtrnord" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TRN_SMkneet_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MachineId" Type="nvarchar" MaxLength="50" />
+          <Property Name="IpAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="port" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK_LU_ScreenDetail_LU_ScreenFunction">
           <End Role="LU_ScreenFunction" Type="Self.LU_ScreenFunction" Multiplicity="1" />
@@ -436,6 +456,8 @@
           <EntitySet Name="TRN_SchemeAuditChild" EntityType="Self.TRN_SchemeAuditChild" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_SchemeAuditParent" EntityType="Self.TRN_SchemeAuditParent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_SchemeAuditShopDetails" EntityType="Self.TRN_SchemeAuditShopDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pratdummy" EntityType="Self.pratdummy" Schema="demo2" store:Type="Tables" />
+          <EntitySet Name="TRN_SMkneet_t" EntityType="Self.TRN_SMkneet_t" Schema="demo2" store:Type="Tables" />
           <AssociationSet Name="FK_LU_ScreenDetail_LU_ScreenFunction" Association="Self.FK_LU_ScreenDetail_LU_ScreenFunction">
             <End Role="LU_ScreenFunction" EntitySet="LU_ScreenFunction" />
             <End Role="LU_ScreenDetail" EntitySet="LU_ScreenDetail" />
@@ -469,68 +491,36 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="qt_infinigentdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="qt_infinigentdbEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="LU_ChallanType" EntityType="qt_infinigentdbModel.LU_ChallanType" />
-          <EntitySet Name="LU_CommentsType" EntityType="qt_infinigentdbModel.LU_CommentsType" />
-          <EntitySet Name="LU_Commnets" EntityType="qt_infinigentdbModel.LU_Commnets" />
-          <EntitySet Name="LU_ConfigarationSettings" EntityType="qt_infinigentdbModel.LU_ConfigarationSettings" />
-          <EntitySet Name="LU_DeviceInfo" EntityType="qt_infinigentdbModel.LU_DeviceInfo" />
-          <EntitySet Name="LU_Employee" EntityType="qt_infinigentdbModel.LU_Employee" />
-          <EntitySet Name="LU_Module" EntityType="qt_infinigentdbModel.LU_Module" />
-          <EntitySet Name="LU_OutletType" EntityType="qt_infinigentdbModel.LU_OutletType" />
-          <EntitySet Name="LU_SchemeMediaType" EntityType="qt_infinigentdbModel.LU_SchemeMediaType" />
-          <EntitySet Name="LU_SchemeName" EntityType="qt_infinigentdbModel.LU_SchemeName" />
-          <EntitySet Name="LU_Screen" EntityType="qt_infinigentdbModel.LU_Screen" />
-          <EntitySet Name="LU_ScreenDetail" EntityType="qt_infinigentdbModel.LU_ScreenDetail" />
-          <EntitySet Name="LU_ScreenFunction" EntityType="qt_infinigentdbModel.LU_ScreenFunction" />
-          <EntitySet Name="LU_User" EntityType="qt_infinigentdbModel.LU_User" />
-          <EntitySet Name="LU_UserGroup" EntityType="qt_infinigentdbModel.LU_UserGroup" />
-          <EntitySet Name="LU_UserLoginIds" EntityType="qt_infinigentdbModel.LU_UserLoginIds" />
-          <EntitySet Name="sysdiagrams" EntityType="qt_infinigentdbModel.sysdiagram" />
-          <EntitySet Name="Tests" EntityType="qt_infinigentdbModel.Test" />
-          <EntitySet Name="TRN_Permission" EntityType="qt_infinigentdbModel.TRN_Permission" />
-          <EntitySet Name="TRN_PermissionDetail" EntityType="qt_infinigentdbModel.TRN_PermissionDetail" />
-          <EntitySet Name="TRN_SchemeAuditChild" EntityType="qt_infinigentdbModel.TRN_SchemeAuditChild" />
-          <EntitySet Name="TRN_SchemeAuditParent" EntityType="qt_infinigentdbModel.TRN_SchemeAuditParent" />
-          <EntitySet Name="TRN_SchemeAuditShopDetails" EntityType="qt_infinigentdbModel.TRN_SchemeAuditShopDetails" />
-          <AssociationSet Name="FK_PageList_Module" Association="qt_infinigentdbModel.FK_PageList_Module">
-            <End Role="LU_Module" EntitySet="LU_Module" />
-            <End Role="LU_Screen" EntitySet="LU_Screen" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RoleWisePermission_PageList" Association="qt_infinigentdbModel.FK_RoleWisePermission_PageList">
-            <End Role="LU_Screen" EntitySet="LU_Screen" />
-            <End Role="TRN_Permission" EntitySet="TRN_Permission" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ScreenDetail_Screen" Association="qt_infinigentdbModel.FK_ScreenDetail_Screen">
-            <End Role="LU_Screen" EntitySet="LU_Screen" />
-            <End Role="LU_ScreenDetail" EntitySet="LU_ScreenDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LU_ScreenDetail_LU_ScreenFunction" Association="qt_infinigentdbModel.FK_LU_ScreenDetail_LU_ScreenFunction">
-            <End Role="LU_ScreenFunction" EntitySet="LU_ScreenFunction" />
-            <End Role="LU_ScreenDetail" EntitySet="LU_ScreenDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PermissionDetail_ScreenDetail" Association="qt_infinigentdbModel.FK_PermissionDetail_ScreenDetail">
-            <End Role="LU_ScreenDetail" EntitySet="LU_ScreenDetail" />
-            <End Role="TRN_PermissionDetail" EntitySet="TRN_PermissionDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RoleWisePermission_Role" Association="qt_infinigentdbModel.FK_RoleWisePermission_Role">
-            <End Role="LU_UserGroup" EntitySet="LU_UserGroup" />
-            <End Role="TRN_Permission" EntitySet="TRN_Permission" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PermissionDetail_Permission" Association="qt_infinigentdbModel.FK_PermissionDetail_Permission">
-            <End Role="TRN_Permission" EntitySet="TRN_Permission" />
-            <End Role="TRN_PermissionDetail" EntitySet="TRN_PermissionDetail" />
-          </AssociationSet>
-          <EntitySet Name="LU_AIC" EntityType="qt_infinigentdbModel.LU_AIC" />
-          <EntitySet Name="LU_ASM" EntityType="qt_infinigentdbModel.LU_ASM" />
-          <EntitySet Name="LU_DistributorDetails" EntityType="qt_infinigentdbModel.LU_DistributorDetails" />
-        </EntityContainer>
+        <EntityType Name="LU_AIC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_ASM">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
         <EntityType Name="LU_ChallanType">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatorId" Type="Int32" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
@@ -542,7 +532,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CommentsType" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CommentsType" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatorId" Type="Int32" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
@@ -555,7 +545,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CommentsTypeId" Type="Int32" Nullable="false" />
-          <Property Name="Comments" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatorId" Type="Int32" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
@@ -567,7 +557,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Config" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Config" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatorId" Type="Int32" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
@@ -580,9 +570,21 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UniqueNumber" Type="Int32" Nullable="false" />
-          <Property Name="DeviceType" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceType" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_DistributorDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatorId" Type="Int32" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
@@ -594,7 +596,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EmployeeTypeId" Type="Int32" Nullable="false" />
           <Property Name="CreatorId" Type="Int32" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
@@ -607,15 +609,15 @@
             <PropertyRef Name="ModuleId" />
           </Key>
           <Property Name="ModuleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ModuleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="LU_Screen" Relationship="qt_infinigentdbModel.FK_PageList_Module" FromRole="LU_Module" ToRole="LU_Screen" />
+          <Property Name="ModuleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="LU_Screen" Relationship="Self.FK_PageList_Module" FromRole="LU_Module" ToRole="LU_Screen" />
         </EntityType>
         <EntityType Name="LU_OutletType">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatorId" Type="Int32" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
@@ -627,7 +629,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatorId" Type="Int32" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
@@ -639,7 +641,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ActivateFromDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ActivateToDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatorId" Type="Int32" Nullable="false" />
@@ -654,11 +656,11 @@
           </Key>
           <Property Name="ScreenId" Type="Int32" Nullable="false" />
           <Property Name="ModuleId" Type="Int32" Nullable="false" />
-          <Property Name="ScreenName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ScreenName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="LU_Module" Relationship="qt_infinigentdbModel.FK_PageList_Module" FromRole="LU_Screen" ToRole="LU_Module" />
-          <NavigationProperty Name="TRN_Permission" Relationship="qt_infinigentdbModel.FK_RoleWisePermission_PageList" FromRole="LU_Screen" ToRole="TRN_Permission" />
-          <NavigationProperty Name="LU_ScreenDetail" Relationship="qt_infinigentdbModel.FK_ScreenDetail_Screen" FromRole="LU_Screen" ToRole="LU_ScreenDetail" />
+          <NavigationProperty Name="LU_Module" Relationship="Self.FK_PageList_Module" FromRole="LU_Screen" ToRole="LU_Module" />
+          <NavigationProperty Name="TRN_Permission" Relationship="Self.FK_RoleWisePermission_PageList" FromRole="LU_Screen" ToRole="TRN_Permission" />
+          <NavigationProperty Name="LU_ScreenDetail" Relationship="Self.FK_ScreenDetail_Screen" FromRole="LU_Screen" ToRole="LU_ScreenDetail" />
         </EntityType>
         <EntityType Name="LU_ScreenDetail">
           <Key>
@@ -667,17 +669,17 @@
           <Property Name="ScreenDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ScreenId" Type="Int32" Nullable="false" />
           <Property Name="FunctionId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="LU_Screen" Relationship="qt_infinigentdbModel.FK_ScreenDetail_Screen" FromRole="LU_ScreenDetail" ToRole="LU_Screen" />
-          <NavigationProperty Name="LU_ScreenFunction" Relationship="qt_infinigentdbModel.FK_LU_ScreenDetail_LU_ScreenFunction" FromRole="LU_ScreenDetail" ToRole="LU_ScreenFunction" />
-          <NavigationProperty Name="TRN_PermissionDetail" Relationship="qt_infinigentdbModel.FK_PermissionDetail_ScreenDetail" FromRole="LU_ScreenDetail" ToRole="TRN_PermissionDetail" />
+          <NavigationProperty Name="LU_Screen" Relationship="Self.FK_ScreenDetail_Screen" FromRole="LU_ScreenDetail" ToRole="LU_Screen" />
+          <NavigationProperty Name="LU_ScreenFunction" Relationship="Self.FK_LU_ScreenDetail_LU_ScreenFunction" FromRole="LU_ScreenDetail" ToRole="LU_ScreenFunction" />
+          <NavigationProperty Name="TRN_PermissionDetail" Relationship="Self.FK_PermissionDetail_ScreenDetail" FromRole="LU_ScreenDetail" ToRole="TRN_PermissionDetail" />
         </EntityType>
         <EntityType Name="LU_ScreenFunction">
           <Key>
             <PropertyRef Name="FunctionId" />
           </Key>
           <Property Name="FunctionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FunctionName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="LU_ScreenDetail" Relationship="qt_infinigentdbModel.FK_LU_ScreenDetail_LU_ScreenFunction" FromRole="LU_ScreenFunction" ToRole="LU_ScreenDetail" />
+          <Property Name="FunctionName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="LU_ScreenDetail" Relationship="Self.FK_LU_ScreenDetail_LU_ScreenFunction" FromRole="LU_ScreenFunction" ToRole="LU_ScreenDetail" />
         </EntityType>
         <EntityType Name="LU_User">
           <Key>
@@ -685,10 +687,10 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserGroupId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="MobileNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatorId" Type="Int32" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
@@ -700,13 +702,13 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatorId" Type="Int32" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="TRN_Permission" Relationship="qt_infinigentdbModel.FK_RoleWisePermission_Role" FromRole="LU_UserGroup" ToRole="TRN_Permission" />
+          <NavigationProperty Name="TRN_Permission" Relationship="Self.FK_RoleWisePermission_Role" FromRole="LU_UserGroup" ToRole="TRN_Permission" />
         </EntityType>
         <EntityType Name="LU_UserLoginIds">
           <Key>
@@ -720,20 +722,11 @@
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Test">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ImageLocation" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="IsSignature" Type="Int16" />
         </EntityType>
         <EntityType Name="TRN_Permission">
           <Key>
@@ -747,9 +740,9 @@
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdatorId" Type="Int32" Nullable="false" />
           <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="LU_Screen" Relationship="qt_infinigentdbModel.FK_RoleWisePermission_PageList" FromRole="TRN_Permission" ToRole="LU_Screen" />
-          <NavigationProperty Name="LU_UserGroup" Relationship="qt_infinigentdbModel.FK_RoleWisePermission_Role" FromRole="TRN_Permission" ToRole="LU_UserGroup" />
-          <NavigationProperty Name="TRN_PermissionDetail" Relationship="qt_infinigentdbModel.FK_PermissionDetail_Permission" FromRole="TRN_Permission" ToRole="TRN_PermissionDetail" />
+          <NavigationProperty Name="LU_Screen" Relationship="Self.FK_RoleWisePermission_PageList" FromRole="TRN_Permission" ToRole="LU_Screen" />
+          <NavigationProperty Name="LU_UserGroup" Relationship="Self.FK_RoleWisePermission_Role" FromRole="TRN_Permission" ToRole="LU_UserGroup" />
+          <NavigationProperty Name="TRN_PermissionDetail" Relationship="Self.FK_PermissionDetail_Permission" FromRole="TRN_Permission" ToRole="TRN_PermissionDetail" />
         </EntityType>
         <EntityType Name="TRN_PermissionDetail">
           <Key>
@@ -759,15 +752,15 @@
           <Property Name="PermissionId" Type="Int64" Nullable="false" />
           <Property Name="ScreenDetailId" Type="Int32" Nullable="false" />
           <Property Name="CanExecute" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="LU_ScreenDetail" Relationship="qt_infinigentdbModel.FK_PermissionDetail_ScreenDetail" FromRole="TRN_PermissionDetail" ToRole="LU_ScreenDetail" />
-          <NavigationProperty Name="TRN_Permission" Relationship="qt_infinigentdbModel.FK_PermissionDetail_Permission" FromRole="TRN_PermissionDetail" ToRole="TRN_Permission" />
+          <NavigationProperty Name="LU_ScreenDetail" Relationship="Self.FK_PermissionDetail_ScreenDetail" FromRole="TRN_PermissionDetail" ToRole="LU_ScreenDetail" />
+          <NavigationProperty Name="TRN_Permission" Relationship="Self.FK_PermissionDetail_Permission" FromRole="TRN_PermissionDetail" ToRole="TRN_Permission" />
         </EntityType>
         <EntityType Name="TRN_SchemeAuditChild">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ImageLocation" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="IsSignature" Type="Int16" />
         </EntityType>
@@ -776,9 +769,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="OutlateName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="OutlateName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsKnowenAboutScheme" Type="Int32" Nullable="false" />
           <Property Name="SchemeDetails" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
@@ -811,21 +804,42 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OutlateName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OutlateName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GccCode" Type="Int32" Nullable="false" />
-          <Property Name="RetailSellerName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="MobileNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RetailSellerName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MobileNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="OutlateTypeId" Type="Int32" Nullable="false" />
           <Property Name="VisitedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="DistributorName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DistributorName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="AsmId" Type="Int32" Nullable="false" />
           <Property Name="AicId" Type="Int32" Nullable="false" />
-          <Property Name="OutlateAddress" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="OutlateAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pratdummy">
+          <Key>
+            <PropertyRef Name="zid" />
+          </Key>
+          <Property Name="zid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="xemp" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="xdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="xdesc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="xtrnord" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TRN_SMkneet_t">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MachineId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="port" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK_PageList_Module">
-          <End Type="qt_infinigentdbModel.LU_Module" Role="LU_Module" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.LU_Screen" Role="LU_Screen" Multiplicity="*" />
+          <End Role="LU_Module" Type="Self.LU_Module" Multiplicity="1" />
+          <End Role="LU_Screen" Type="Self.LU_Screen" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LU_Module">
               <PropertyRef Name="ModuleId" />
@@ -836,8 +850,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_RoleWisePermission_PageList">
-          <End Type="qt_infinigentdbModel.LU_Screen" Role="LU_Screen" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.TRN_Permission" Role="TRN_Permission" Multiplicity="*" />
+          <End Role="LU_Screen" Type="Self.LU_Screen" Multiplicity="1" />
+          <End Role="TRN_Permission" Type="Self.TRN_Permission" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LU_Screen">
               <PropertyRef Name="ScreenId" />
@@ -848,8 +862,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ScreenDetail_Screen">
-          <End Type="qt_infinigentdbModel.LU_Screen" Role="LU_Screen" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.LU_ScreenDetail" Role="LU_ScreenDetail" Multiplicity="*" />
+          <End Role="LU_Screen" Type="Self.LU_Screen" Multiplicity="1" />
+          <End Role="LU_ScreenDetail" Type="Self.LU_ScreenDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LU_Screen">
               <PropertyRef Name="ScreenId" />
@@ -860,8 +874,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LU_ScreenDetail_LU_ScreenFunction">
-          <End Type="qt_infinigentdbModel.LU_ScreenFunction" Role="LU_ScreenFunction" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.LU_ScreenDetail" Role="LU_ScreenDetail" Multiplicity="*" />
+          <End Role="LU_ScreenFunction" Type="Self.LU_ScreenFunction" Multiplicity="1" />
+          <End Role="LU_ScreenDetail" Type="Self.LU_ScreenDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LU_ScreenFunction">
               <PropertyRef Name="FunctionId" />
@@ -872,8 +886,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PermissionDetail_ScreenDetail">
-          <End Type="qt_infinigentdbModel.LU_ScreenDetail" Role="LU_ScreenDetail" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.TRN_PermissionDetail" Role="TRN_PermissionDetail" Multiplicity="*" />
+          <End Role="LU_ScreenDetail" Type="Self.LU_ScreenDetail" Multiplicity="1" />
+          <End Role="TRN_PermissionDetail" Type="Self.TRN_PermissionDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LU_ScreenDetail">
               <PropertyRef Name="ScreenDetailId" />
@@ -884,8 +898,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_RoleWisePermission_Role">
-          <End Type="qt_infinigentdbModel.LU_UserGroup" Role="LU_UserGroup" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.TRN_Permission" Role="TRN_Permission" Multiplicity="*" />
+          <End Role="LU_UserGroup" Type="Self.LU_UserGroup" Multiplicity="1" />
+          <End Role="TRN_Permission" Type="Self.TRN_Permission" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LU_UserGroup">
               <PropertyRef Name="Id" />
@@ -896,8 +910,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PermissionDetail_Permission">
-          <End Type="qt_infinigentdbModel.TRN_Permission" Role="TRN_Permission" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.TRN_PermissionDetail" Role="TRN_PermissionDetail" Multiplicity="*" />
+          <End Role="TRN_Permission" Type="Self.TRN_Permission" Multiplicity="1" />
+          <End Role="TRN_PermissionDetail" Type="Self.TRN_PermissionDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TRN_Permission">
               <PropertyRef Name="PermissionId" />
@@ -907,41 +921,71 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="LU_AIC">
+        <EntityContainer Name="qt_infinigentdbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LU_AIC" EntityType="Self.LU_AIC" />
+          <EntitySet Name="LU_ASM" EntityType="Self.LU_ASM" />
+          <EntitySet Name="LU_ChallanType" EntityType="Self.LU_ChallanType" />
+          <EntitySet Name="LU_CommentsType" EntityType="Self.LU_CommentsType" />
+          <EntitySet Name="LU_Commnets" EntityType="Self.LU_Commnets" />
+          <EntitySet Name="LU_ConfigarationSettings" EntityType="Self.LU_ConfigarationSettings" />
+          <EntitySet Name="LU_DeviceInfo" EntityType="Self.LU_DeviceInfo" />
+          <EntitySet Name="LU_DistributorDetails" EntityType="Self.LU_DistributorDetails" />
+          <EntitySet Name="LU_Employee" EntityType="Self.LU_Employee" />
+          <EntitySet Name="LU_Module" EntityType="Self.LU_Module" />
+          <EntitySet Name="LU_OutletType" EntityType="Self.LU_OutletType" />
+          <EntitySet Name="LU_SchemeMediaType" EntityType="Self.LU_SchemeMediaType" />
+          <EntitySet Name="LU_SchemeName" EntityType="Self.LU_SchemeName" />
+          <EntitySet Name="LU_Screen" EntityType="Self.LU_Screen" />
+          <EntitySet Name="LU_ScreenDetail" EntityType="Self.LU_ScreenDetail" />
+          <EntitySet Name="LU_ScreenFunction" EntityType="Self.LU_ScreenFunction" />
+          <EntitySet Name="LU_User" EntityType="Self.LU_User" />
+          <EntitySet Name="LU_UserGroup" EntityType="Self.LU_UserGroup" />
+          <EntitySet Name="LU_UserLoginIds" EntityType="Self.LU_UserLoginIds" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TRN_Permission" EntityType="Self.TRN_Permission" />
+          <EntitySet Name="TRN_PermissionDetail" EntityType="Self.TRN_PermissionDetail" />
+          <EntitySet Name="TRN_SchemeAuditChild" EntityType="Self.TRN_SchemeAuditChild" />
+          <EntitySet Name="TRN_SchemeAuditParent" EntityType="Self.TRN_SchemeAuditParent" />
+          <EntitySet Name="TRN_SchemeAuditShopDetails" EntityType="Self.TRN_SchemeAuditShopDetails" />
+          <EntitySet Name="pratdummies" EntityType="Self.pratdummy" />
+          <EntitySet Name="TRN_SMkneet_t" EntityType="Self.TRN_SMkneet_t" />
+          <AssociationSet Name="FK_PageList_Module" Association="Self.FK_PageList_Module">
+            <End Role="LU_Module" EntitySet="LU_Module" />
+            <End Role="LU_Screen" EntitySet="LU_Screen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleWisePermission_PageList" Association="Self.FK_RoleWisePermission_PageList">
+            <End Role="LU_Screen" EntitySet="LU_Screen" />
+            <End Role="TRN_Permission" EntitySet="TRN_Permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScreenDetail_Screen" Association="Self.FK_ScreenDetail_Screen">
+            <End Role="LU_Screen" EntitySet="LU_Screen" />
+            <End Role="LU_ScreenDetail" EntitySet="LU_ScreenDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LU_ScreenDetail_LU_ScreenFunction" Association="Self.FK_LU_ScreenDetail_LU_ScreenFunction">
+            <End Role="LU_ScreenFunction" EntitySet="LU_ScreenFunction" />
+            <End Role="LU_ScreenDetail" EntitySet="LU_ScreenDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PermissionDetail_ScreenDetail" Association="Self.FK_PermissionDetail_ScreenDetail">
+            <End Role="LU_ScreenDetail" EntitySet="LU_ScreenDetail" />
+            <End Role="TRN_PermissionDetail" EntitySet="TRN_PermissionDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleWisePermission_Role" Association="Self.FK_RoleWisePermission_Role">
+            <End Role="LU_UserGroup" EntitySet="LU_UserGroup" />
+            <End Role="TRN_Permission" EntitySet="TRN_Permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PermissionDetail_Permission" Association="Self.FK_PermissionDetail_Permission">
+            <End Role="TRN_Permission" EntitySet="TRN_Permission" />
+            <End Role="TRN_PermissionDetail" EntitySet="TRN_PermissionDetail" />
+          </AssociationSet>
+          <EntitySet Name="Tests" EntityType="qt_infinigentdbModel.Test" />
+        </EntityContainer>
+        <EntityType Name="Test">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <EntityType Name="LU_ASM">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <EntityType Name="LU_DistributorDetails">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -949,348 +993,370 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="qt_infinigentdbModelStoreContainer" CdmEntityContainer="qt_infinigentdbEntities">
-          <EntitySetMapping Name="LU_ChallanType">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_ChallanType">
-              <MappingFragment StoreEntitySet="LU_ChallanType">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LU_CommentsType">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_CommentsType">
-              <MappingFragment StoreEntitySet="LU_CommentsType">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="CommentsType" ColumnName="CommentsType" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LU_Commnets">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Commnets">
-              <MappingFragment StoreEntitySet="LU_Commnets">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="CommentsTypeId" ColumnName="CommentsTypeId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LU_ConfigarationSettings">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_ConfigarationSettings">
-              <MappingFragment StoreEntitySet="LU_ConfigarationSettings">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="EmployeeTypeId" ColumnName="EmployeeTypeId" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="Config" ColumnName="Config" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LU_DeviceInfo">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_DeviceInfo">
-              <MappingFragment StoreEntitySet="LU_DeviceInfo">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
-                <ScalarProperty Name="UniqueNumber" ColumnName="UniqueNumber" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LU_Employee">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Employee">
-              <MappingFragment StoreEntitySet="LU_Employee">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="EmployeeTypeId" ColumnName="EmployeeTypeId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LU_Module">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Module">
-              <MappingFragment StoreEntitySet="LU_Module">
-                <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
-                <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LU_OutletType">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_OutletType">
-              <MappingFragment StoreEntitySet="LU_OutletType">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LU_SchemeMediaType">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_SchemeMediaType">
-              <MappingFragment StoreEntitySet="LU_SchemeMediaType">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LU_SchemeName">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_SchemeName">
-              <MappingFragment StoreEntitySet="LU_SchemeName">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="ActivateToDate" ColumnName="ActivateToDate" />
-                <ScalarProperty Name="ActivateFromDate" ColumnName="ActivateFromDate" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LU_Screen">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Screen">
-              <MappingFragment StoreEntitySet="LU_Screen">
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="ScreenName" ColumnName="ScreenName" />
-                <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
-                <ScalarProperty Name="ScreenId" ColumnName="ScreenId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LU_ScreenDetail">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_ScreenDetail">
-              <MappingFragment StoreEntitySet="LU_ScreenDetail">
-                <ScalarProperty Name="FunctionId" ColumnName="FunctionId" />
-                <ScalarProperty Name="ScreenId" ColumnName="ScreenId" />
-                <ScalarProperty Name="ScreenDetailId" ColumnName="ScreenDetailId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LU_ScreenFunction">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_ScreenFunction">
-              <MappingFragment StoreEntitySet="LU_ScreenFunction">
-                <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
-                <ScalarProperty Name="FunctionId" ColumnName="FunctionId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LU_User">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_User">
-              <MappingFragment StoreEntitySet="LU_User">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="UserGroupId" ColumnName="UserGroupId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LU_UserGroup">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_UserGroup">
-              <MappingFragment StoreEntitySet="LU_UserGroup">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LU_UserLoginIds">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_UserLoginIds">
-              <MappingFragment StoreEntitySet="LU_UserLoginIds">
-                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
-                <ScalarProperty Name="LogInID" ColumnName="LogInID" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tests">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.Test">
-              <MappingFragment StoreEntitySet="Test">
-                <ScalarProperty Name="IsSignature" ColumnName="IsSignature" />
-                <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TRN_Permission">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_Permission">
-              <MappingFragment StoreEntitySet="TRN_Permission">
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
-                <ScalarProperty Name="UpdatorId" ColumnName="UpdatorId" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="CanView" ColumnName="CanView" />
-                <ScalarProperty Name="ScreenId" ColumnName="ScreenId" />
-                <ScalarProperty Name="UserGroupId" ColumnName="UserGroupId" />
-                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TRN_PermissionDetail">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_PermissionDetail">
-              <MappingFragment StoreEntitySet="TRN_PermissionDetail">
-                <ScalarProperty Name="CanExecute" ColumnName="CanExecute" />
-                <ScalarProperty Name="ScreenDetailId" ColumnName="ScreenDetailId" />
-                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
-                <ScalarProperty Name="PermissionDetailId" ColumnName="PermissionDetailId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TRN_SchemeAuditChild">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_SchemeAuditChild">
-              <MappingFragment StoreEntitySet="TRN_SchemeAuditChild">
-                <ScalarProperty Name="IsSignature" ColumnName="IsSignature" />
-                <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TRN_SchemeAuditParent">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_SchemeAuditParent">
-              <MappingFragment StoreEntitySet="TRN_SchemeAuditParent">
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="CommentDetails" ColumnName="CommentDetails" />
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="CommentsType" ColumnName="CommentsType" />
-                <ScalarProperty Name="IsGccCodeAvailable" ColumnName="IsGccCodeAvailable" />
-                <ScalarProperty Name="DoesCocaColaLabelAvailable" ColumnName="DoesCocaColaLabelAvailable" />
-                <ScalarProperty Name="WillGetAnyDiscountOfferFromDistributor" ColumnName="WillGetAnyDiscountOfferFromDistributor" />
-                <ScalarProperty Name="DoesGotLatestDiscountOffer" ColumnName="DoesGotLatestDiscountOffer" />
-                <ScalarProperty Name="SallesOfficerVisitingDay" ColumnName="SallesOfficerVisitingDay" />
-                <ScalarProperty Name="DoesSatisfiedWithProductOrderAndService" ColumnName="DoesSatisfiedWithProductOrderAndService" />
-                <ScalarProperty Name="DoesSatisfiedWithSallesOfficer" ColumnName="DoesSatisfiedWithSallesOfficer" />
-                <ScalarProperty Name="DoesExpiredProductAvailable" ColumnName="DoesExpiredProductAvailable" />
-                <ScalarProperty Name="ChallanTypeId" ColumnName="ChallanTypeId" />
-                <ScalarProperty Name="DoesGotAnyChallan" ColumnName="DoesGotAnyChallan" />
-                <ScalarProperty Name="ChallanAmount" ColumnName="ChallanAmount" />
-                <ScalarProperty Name="LatestChallanDate" ColumnName="LatestChallanDate" />
-                <ScalarProperty Name="IsWrittenRecordAvailable" ColumnName="IsWrittenRecordAvailable" />
-                <ScalarProperty Name="DateOfScheme" ColumnName="DateOfScheme" />
-                <ScalarProperty Name="IsFacilitatedByScheme" ColumnName="IsFacilitatedByScheme" />
-                <ScalarProperty Name="SchemeMediaTypeId" ColumnName="SchemeMediaTypeId" />
-                <ScalarProperty Name="SchemeDetails" ColumnName="SchemeDetails" />
-                <ScalarProperty Name="IsKnowenAboutScheme" ColumnName="IsKnowenAboutScheme" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="OutlateName" ColumnName="OutlateName" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TRN_SchemeAuditShopDetails">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_SchemeAuditShopDetails">
-              <MappingFragment StoreEntitySet="TRN_SchemeAuditShopDetails">
-                <ScalarProperty Name="OutlateAddress" ColumnName="OutlateAddress" />
-                <ScalarProperty Name="AicId" ColumnName="AicId" />
-                <ScalarProperty Name="AsmId" ColumnName="AsmId" />
-                <ScalarProperty Name="DistributorName" ColumnName="DistributorName" />
-                <ScalarProperty Name="VisitedDate" ColumnName="VisitedDate" />
-                <ScalarProperty Name="OutlateTypeId" ColumnName="OutlateTypeId" />
-                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
-                <ScalarProperty Name="RetailSellerName" ColumnName="RetailSellerName" />
-                <ScalarProperty Name="GccCode" ColumnName="GccCode" />
-                <ScalarProperty Name="OutlateName" ColumnName="OutlateName" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="LU_AIC">
             <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_AIC">
               <MappingFragment StoreEntitySet="LU_AIC">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LU_ASM">
             <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_ASM">
               <MappingFragment StoreEntitySet="LU_ASM">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_ChallanType">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_ChallanType">
+              <MappingFragment StoreEntitySet="LU_ChallanType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_CommentsType">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_CommentsType">
+              <MappingFragment StoreEntitySet="LU_CommentsType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CommentsType" ColumnName="CommentsType" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_Commnets">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Commnets">
+              <MappingFragment StoreEntitySet="LU_Commnets">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CommentsTypeId" ColumnName="CommentsTypeId" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_ConfigarationSettings">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_ConfigarationSettings">
+              <MappingFragment StoreEntitySet="LU_ConfigarationSettings">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Config" ColumnName="Config" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="EmployeeTypeId" ColumnName="EmployeeTypeId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_DeviceInfo">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_DeviceInfo">
+              <MappingFragment StoreEntitySet="LU_DeviceInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UniqueNumber" ColumnName="UniqueNumber" />
+                <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LU_DistributorDetails">
             <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_DistributorDetails">
               <MappingFragment StoreEntitySet="LU_DistributorDetails">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_Employee">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Employee">
+              <MappingFragment StoreEntitySet="LU_Employee">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EmployeeTypeId" ColumnName="EmployeeTypeId" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_Module">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Module">
+              <MappingFragment StoreEntitySet="LU_Module">
+                <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+                <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_OutletType">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_OutletType">
+              <MappingFragment StoreEntitySet="LU_OutletType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_SchemeMediaType">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_SchemeMediaType">
+              <MappingFragment StoreEntitySet="LU_SchemeMediaType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_SchemeName">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_SchemeName">
+              <MappingFragment StoreEntitySet="LU_SchemeName">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ActivateFromDate" ColumnName="ActivateFromDate" />
+                <ScalarProperty Name="ActivateToDate" ColumnName="ActivateToDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_Screen">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Screen">
+              <MappingFragment StoreEntitySet="LU_Screen">
+                <ScalarProperty Name="ScreenId" ColumnName="ScreenId" />
+                <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+                <ScalarProperty Name="ScreenName" ColumnName="ScreenName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_ScreenDetail">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_ScreenDetail">
+              <MappingFragment StoreEntitySet="LU_ScreenDetail">
+                <ScalarProperty Name="ScreenDetailId" ColumnName="ScreenDetailId" />
+                <ScalarProperty Name="ScreenId" ColumnName="ScreenId" />
+                <ScalarProperty Name="FunctionId" ColumnName="FunctionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_ScreenFunction">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_ScreenFunction">
+              <MappingFragment StoreEntitySet="LU_ScreenFunction">
+                <ScalarProperty Name="FunctionId" ColumnName="FunctionId" />
+                <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_User">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_User">
+              <MappingFragment StoreEntitySet="LU_User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserGroupId" ColumnName="UserGroupId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_UserGroup">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_UserGroup">
+              <MappingFragment StoreEntitySet="LU_UserGroup">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_UserLoginIds">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_UserLoginIds">
+              <MappingFragment StoreEntitySet="LU_UserLoginIds">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LogInID" ColumnName="LogInID" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_Permission">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_Permission">
+              <MappingFragment StoreEntitySet="TRN_Permission">
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+                <ScalarProperty Name="UserGroupId" ColumnName="UserGroupId" />
+                <ScalarProperty Name="ScreenId" ColumnName="ScreenId" />
+                <ScalarProperty Name="CanView" ColumnName="CanView" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdatorId" ColumnName="UpdatorId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_PermissionDetail">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_PermissionDetail">
+              <MappingFragment StoreEntitySet="TRN_PermissionDetail">
+                <ScalarProperty Name="PermissionDetailId" ColumnName="PermissionDetailId" />
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+                <ScalarProperty Name="ScreenDetailId" ColumnName="ScreenDetailId" />
+                <ScalarProperty Name="CanExecute" ColumnName="CanExecute" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_SchemeAuditChild">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_SchemeAuditChild">
+              <MappingFragment StoreEntitySet="TRN_SchemeAuditChild">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
+                <ScalarProperty Name="IsSignature" ColumnName="IsSignature" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_SchemeAuditParent">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_SchemeAuditParent">
+              <MappingFragment StoreEntitySet="TRN_SchemeAuditParent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="OutlateName" ColumnName="OutlateName" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="IsKnowenAboutScheme" ColumnName="IsKnowenAboutScheme" />
+                <ScalarProperty Name="SchemeDetails" ColumnName="SchemeDetails" />
+                <ScalarProperty Name="SchemeMediaTypeId" ColumnName="SchemeMediaTypeId" />
+                <ScalarProperty Name="IsFacilitatedByScheme" ColumnName="IsFacilitatedByScheme" />
+                <ScalarProperty Name="DateOfScheme" ColumnName="DateOfScheme" />
+                <ScalarProperty Name="IsWrittenRecordAvailable" ColumnName="IsWrittenRecordAvailable" />
+                <ScalarProperty Name="LatestChallanDate" ColumnName="LatestChallanDate" />
+                <ScalarProperty Name="ChallanAmount" ColumnName="ChallanAmount" />
+                <ScalarProperty Name="DoesGotAnyChallan" ColumnName="DoesGotAnyChallan" />
+                <ScalarProperty Name="ChallanTypeId" ColumnName="ChallanTypeId" />
+                <ScalarProperty Name="DoesExpiredProductAvailable" ColumnName="DoesExpiredProductAvailable" />
+                <ScalarProperty Name="DoesSatisfiedWithSallesOfficer" ColumnName="DoesSatisfiedWithSallesOfficer" />
+                <ScalarProperty Name="DoesSatisfiedWithProductOrderAndService" ColumnName="DoesSatisfiedWithProductOrderAndService" />
+                <ScalarProperty Name="SallesOfficerVisitingDay" ColumnName="SallesOfficerVisitingDay" />
+                <ScalarProperty Name="DoesGotLatestDiscountOffer" ColumnName="DoesGotLatestDiscountOffer" />
+                <ScalarProperty Name="WillGetAnyDiscountOfferFromDistributor" ColumnName="WillGetAnyDiscountOfferFromDistributor" />
+                <ScalarProperty Name="DoesCocaColaLabelAvailable" ColumnName="DoesCocaColaLabelAvailable" />
+                <ScalarProperty Name="IsGccCodeAvailable" ColumnName="IsGccCodeAvailable" />
+                <ScalarProperty Name="CommentsType" ColumnName="CommentsType" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="CommentDetails" ColumnName="CommentDetails" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_SchemeAuditShopDetails">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_SchemeAuditShopDetails">
+              <MappingFragment StoreEntitySet="TRN_SchemeAuditShopDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="OutlateName" ColumnName="OutlateName" />
+                <ScalarProperty Name="GccCode" ColumnName="GccCode" />
+                <ScalarProperty Name="RetailSellerName" ColumnName="RetailSellerName" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="OutlateTypeId" ColumnName="OutlateTypeId" />
+                <ScalarProperty Name="VisitedDate" ColumnName="VisitedDate" />
+                <ScalarProperty Name="DistributorName" ColumnName="DistributorName" />
+                <ScalarProperty Name="AsmId" ColumnName="AsmId" />
+                <ScalarProperty Name="AicId" ColumnName="AicId" />
+                <ScalarProperty Name="OutlateAddress" ColumnName="OutlateAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pratdummies">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.pratdummy">
+              <MappingFragment StoreEntitySet="pratdummy">
+                <ScalarProperty Name="zid" ColumnName="zid" />
+                <ScalarProperty Name="xemp" ColumnName="xemp" />
+                <ScalarProperty Name="xdate" ColumnName="xdate" />
+                <ScalarProperty Name="xdesc" ColumnName="xdesc" />
+                <ScalarProperty Name="xtrnord" ColumnName="xtrnord" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_SMkneet_t">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_SMkneet_t">
+              <MappingFragment StoreEntitySet="TRN_SMkneet_t">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MachineId" ColumnName="MachineId" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+                <ScalarProperty Name="port" ColumnName="port" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tests">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.Test">
+              <MappingFragment StoreEntitySet="Test">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

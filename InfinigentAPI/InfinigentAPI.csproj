@@ -168,107 +168,114 @@
     <Compile Include="Controllers\CommnetsController.cs" />
     <Compile Include="Controllers\DistributorDetailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MyController.cs" />
     <Compile Include="Controllers\SchemeAuditChildController.cs" />
     <Compile Include="Controllers\SchemeAuditParentController.cs" />
     <Compile Include="Controllers\SchemeAuditShopDetailsController.cs" />
-    <Compile Include="Controllers\TestsController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\InfinigentModel.Context.cs">
+    <Compile Include="Models\infinigentdb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>InfinigentModel.Context.tt</DependentUpon>
+      <DependentUpon>infinigentdb.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\InfinigentModel.cs">
+    <Compile Include="Models\infinigentdb.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\InfinigentModel.Designer.cs">
+    <Compile Include="Models\infinigentdb.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>InfinigentModel.edmx</DependentUpon>
+      <DependentUpon>infinigentdb.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_AIC.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_ASM.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_ChallanType.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_CommentsType.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_Commnets.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_ConfigarationSettings.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_DeviceInfo.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_DistributorDetails.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_Employee.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_Module.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_OutletType.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_SchemeMediaType.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_SchemeName.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_Screen.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_ScreenDetail.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_ScreenFunction.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_User.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_UserGroup.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_UserLoginIds.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pratdummy.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Test.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TRN_Permission.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TRN_PermissionDetail.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TRN_SchemeAuditChild.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TRN_SchemeAuditParent.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TRN_SchemeAuditShopDetails.cs">
-      <DependentUpon>InfinigentModel.tt</DependentUpon>
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRN_SMkneet_t.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -281,15 +288,15 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\InfinigentModel.Context.tt">
+    <Content Include="Models\infinigentdb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>InfinigentModel.Context.cs</LastGenOutput>
-      <DependentUpon>InfinigentModel.edmx</DependentUpon>
+      <DependentUpon>infinigentdb.edmx</DependentUpon>
+      <LastGenOutput>infinigentdb.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\InfinigentModel.tt">
+    <Content Include="Models\infinigentdb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>InfinigentModel.edmx</DependentUpon>
-      <LastGenOutput>InfinigentModel.cs</LastGenOutput>
+      <DependentUpon>infinigentdb.edmx</DependentUpon>
+      <LastGenOutput>infinigentdb.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -312,12 +319,12 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Models\InfinigentModel.edmx">
+    <EntityDeploy Include="Models\infinigentdb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>InfinigentModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>infinigentdb.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\InfinigentModel.edmx.diagram">
-      <DependentUpon>InfinigentModel.edmx</DependentUpon>
+    <Content Include="Models\infinigentdb.edmx.diagram">
+      <DependentUpon>infinigentdb.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -342,6 +349,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

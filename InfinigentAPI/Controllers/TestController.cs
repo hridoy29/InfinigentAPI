@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -12,17 +15,28 @@ using InfinigentAPI.Models;
 
 namespace InfinigentAPI.Controllers
 {
-    public class TestsController : ApiController
+    public class TestController : ApiController
     {
         private qt_infinigentdbEntities db = new qt_infinigentdbEntities();
 
-        // GET: api/Tests
+        // GET: api/Test
         public IQueryable<Test> GetTests()
         {
+
+            var bytes = Convert.FromBase64String(db.Tests.Find(7).Photo);
+            //var bytes = Convert.FromBase64String(Test.Photo);
+            using (var ms = new MemoryStream(bytes, 0, bytes.Length))
+            {
+                Image image = Image.FromStream(ms, true);
+                image.Save(@"E:\QuadTheory\" + db.Tests.Find(7).Number + "_" + db.Tests.Find(7).Id + ".png", System.Drawing.Imaging.ImageFormat.Png);
+
+            }
+
+
             return db.Tests;
         }
-
-        // GET: api/Tests/5
+        
+        // GET: api/Test/5
         [ResponseType(typeof(Test))]
         public IHttpActionResult GetTest(int id)
         {
@@ -35,7 +49,7 @@ namespace InfinigentAPI.Controllers
             return Ok(test);
         }
 
-        // PUT: api/Tests/5
+        // PUT: api/Test/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutTest(int id, Test test)
         {
@@ -70,25 +84,29 @@ namespace InfinigentAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Tests
+        // POST: api/Test
         [ResponseType(typeof(Test))]
-        [HttpPost]
-        public IHttpActionResult PostTest([FromBody] Test test)
+        public IHttpActionResult PostTest(Test Test)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return BadRequest(ModelState);
-            //}
-              
-             db.Tests.Add(test);
-             db.SaveChanges();
-           
-            //return CreatedAtRoute("DefaultApi", new { id = test.Id }, test);
-           return Ok();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
+            db.Tests.Add(Test);
+            db.SaveChanges();
+            //var bytes = Convert.FromBase64String(db.Tests.Find(6).Photo);
+            var bytes = Convert.FromBase64String(Test.Photo);
+            using (var ms = new MemoryStream(bytes, 0, bytes.Length))
+            {
+                Image image = Image.FromStream(ms, true);
+                image.Save(@"E:\QuadTheory\"+ Test.Number+"_"+Test.Id+".png", System.Drawing.Imaging.ImageFormat.Png);
+
+            }
+            return CreatedAtRoute("DefaultApi", new { id = Test.Id }, Test);
         }
 
-        // DELETE: api/Tests/5
+        // DELETE: api/Test/5
         [ResponseType(typeof(Test))]
         public IHttpActionResult DeleteTest(int id)
         {

@@ -12,10 +12,12 @@ namespace InfinigentAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Test
+    public partial class pratdummy
     {
-        public int Id { get; set; }
-        public string Number { get; set; }
-        public string Photo { get; set; }
+        public int zid { get; set; }
+        public string xemp { get; set; }
+        public System.DateTime xdate { get; set; }
+        public string xdesc { get; set; }
+        public string xtrnord { get; set; }
     }
 }

@@ -12,10 +12,13 @@ namespace InfinigentAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Test
+    public partial class TRN_SMkneet_t
     {
         public int Id { get; set; }
-        public string Number { get; set; }
-        public string Photo { get; set; }
+        public string MachineId { get; set; }
+        public string IpAddress { get; set; }
+        public string port { get; set; }
+        public string Address { get; set; }
+        public bool IsActive { get; set; }
     }
 }
