@@ -86,14 +86,24 @@ namespace InfinigentAPI.Controllers
             {
                 string _imagePath = string.Empty;
                 SaveImages saveImages = new SaveImages();
-                _imagePath=saveImages.isImageSaved(tRN_SchemeAuditChild);
-                if (_imagePath.Length != 0)
+                
+                 _imagePath = saveImages.isImageSaved(tRN_SchemeAuditChild);
+                var ImageLocation = db.TRN_SchemeAuditChild.Where(x => x.ImageLocation == _imagePath).Select(x => x.ImageLocation);
+                if (ImageLocation.Count() > 0)
                 {
-                    tRN_SchemeAuditChild.ImageLocation = string.Empty;
-                    tRN_SchemeAuditChild.ImageLocation = _imagePath;
-                    db.TRN_SchemeAuditChild.Add(tRN_SchemeAuditChild);
-                    db.SaveChanges();
+                    return BadRequest("Data Allready added");
                 }
+                else
+                {
+                    if (_imagePath.Length != 0)
+                    {
+                        tRN_SchemeAuditChild.ImageLocation = string.Empty;
+                        tRN_SchemeAuditChild.ImageLocation = _imagePath;
+                        db.TRN_SchemeAuditChild.Add(tRN_SchemeAuditChild);
+                        db.SaveChanges();
+                    }
+                }
+                 
                 return CreatedAtRoute("DefaultApi", new { id = tRN_SchemeAuditChild.Id }, tRN_SchemeAuditChild);
             }
         }

@@ -95,22 +95,7 @@ namespace InfinigentAPI.Controllers
 
             db.Tests.Add(Test);
             db.SaveChanges();
-            //var bytes = Convert.FromBase64String(db.Tests.Find(6).Photo);
-            //var bytes = Convert.FromBase64String(Test.Photo);
-            //using (var ms = new MemoryStream(bytes, 0, bytes.Length))
-            //{
-            //    Image image = Image.FromStream(ms, true);
-            //    image.Save(@"E:\QuadTheory\"+ Test.Number+"_"+Test.Id+".png", System.Drawing.Imaging.ImageFormat.Png);
-
-            //}
-            //var bytes = Convert.FromBase64String(db.Tests.Find(17).Photo);
-            ////var bytes = Convert.FromBase64String(Test.Photo);
-            //using (var ms = new MemoryStream(bytes, 0, bytes.Length))
-            //{
-            //    Image image = Image.FromStream(ms, true);
-            //    image.Save(@"E:\QuadTheory\" + db.Tests.Find(17).Number + "_" + db.Tests.Find(17).Id + ".png", System.Drawing.Imaging.ImageFormat.Png);
-
-            //}
+             
             return CreatedAtRoute("DefaultApi", new { id = Test.Id }, Test);
         }
 

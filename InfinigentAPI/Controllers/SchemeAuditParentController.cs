@@ -78,10 +78,16 @@ namespace InfinigentAPI.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            db.TRN_SchemeAuditParent.Add(tRN_SchemeAuditParent);
-            db.SaveChanges();
-
+            var Number = db.TRN_SchemeAuditParent.Where(x => x.Number == tRN_SchemeAuditParent.Number).Select(x => x.Number);
+            if (Number.Count() > 0)
+            {
+                return BadRequest("Data Allready added");
+            }
+            else
+            {
+                db.TRN_SchemeAuditParent.Add(tRN_SchemeAuditParent);
+                db.SaveChanges();
+            }
             return CreatedAtRoute("DefaultApi", new { id = tRN_SchemeAuditParent.Id }, tRN_SchemeAuditParent);
         }
 
