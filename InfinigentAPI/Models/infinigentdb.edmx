@@ -269,8 +269,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ImageLocation" Type="nvarchar" MaxLength="500" />
-          <Property Name="IsSignature" Type="smallint" />
+          <Property Name="ImageLocation" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="TRN_SchemeAuditParent">
           <Key>
@@ -283,18 +282,18 @@
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="IsKnowenAboutScheme" Type="int" Nullable="false" />
           <Property Name="SchemeDetails" Type="nvarchar" MaxLength="500" />
-          <Property Name="SchemeMediaTypeId" Type="int" Nullable="false" />
+          <Property Name="SchemeMediaTypeId" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IsFacilitatedByScheme" Type="int" Nullable="false" />
-          <Property Name="DateOfScheme" Type="datetime" />
+          <Property Name="DateOfScheme" Type="nvarchar" MaxLength="50" />
           <Property Name="IsWrittenRecordAvailable" Type="int" />
-          <Property Name="LatestChallanDate" Type="datetime" />
+          <Property Name="LatestChallanDate" Type="nvarchar" MaxLength="50" />
           <Property Name="ChallanAmount" Type="nvarchar" MaxLength="50" />
-          <Property Name="DoesGotAnyChallan" Type="int" />
+          <Property Name="DoesGotAnyChallan" Type="nvarchar" MaxLength="50" />
           <Property Name="ChallanTypeId" Type="int" />
           <Property Name="DoesExpiredProductAvailable" Type="int" />
           <Property Name="DoesSatisfiedWithSallesOfficer" Type="int" />
           <Property Name="DoesSatisfiedWithProductOrderAndService" Type="int" />
-          <Property Name="SallesOfficerVisitingDay" Type="int" />
+          <Property Name="SallesOfficerVisitingDay" Type="nvarchar" MaxLength="50" />
           <Property Name="DoesGotLatestDiscountOffer" Type="int" />
           <Property Name="WillGetAnyDiscountOfferFromDistributor" Type="int" />
           <Property Name="DoesCocaColaLabelAvailable" Type="int" />
@@ -317,7 +316,7 @@
           <Property Name="GccCode" Type="int" Nullable="false" />
           <Property Name="RetailSellerName" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="MobileNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="OutlateTypeId" Type="int" Nullable="false" />
+          <Property Name="OutlateTypeId" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="VisitedDate" Type="datetime" Nullable="false" />
           <Property Name="DistributorName" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="AsmId" Type="int" Nullable="false" />
@@ -333,6 +332,13 @@
           <Property Name="xdate" Type="datetime" Nullable="false" />
           <Property Name="xdesc" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="xtrnord" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TRN_Number">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="TRN_SMkneet_t">
           <Key>
@@ -457,6 +463,7 @@
           <EntitySet Name="TRN_SchemeAuditParent" EntityType="Self.TRN_SchemeAuditParent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_SchemeAuditShopDetails" EntityType="Self.TRN_SchemeAuditShopDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="pratdummy" EntityType="Self.pratdummy" Schema="demo2" store:Type="Tables" />
+          <EntitySet Name="TRN_Number" EntityType="Self.TRN_Number" Schema="demo2" store:Type="Tables" />
           <EntitySet Name="TRN_SMkneet_t" EntityType="Self.TRN_SMkneet_t" Schema="demo2" store:Type="Tables" />
           <AssociationSet Name="FK_LU_ScreenDetail_LU_ScreenFunction" Association="Self.FK_LU_ScreenDetail_LU_ScreenFunction">
             <End Role="LU_ScreenFunction" EntitySet="LU_ScreenFunction" />
@@ -755,67 +762,6 @@
           <NavigationProperty Name="LU_ScreenDetail" Relationship="Self.FK_PermissionDetail_ScreenDetail" FromRole="TRN_PermissionDetail" ToRole="LU_ScreenDetail" />
           <NavigationProperty Name="TRN_Permission" Relationship="Self.FK_PermissionDetail_Permission" FromRole="TRN_PermissionDetail" ToRole="TRN_Permission" />
         </EntityType>
-        <EntityType Name="TRN_SchemeAuditChild">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ImageLocation" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="IsSignature" Type="Int16" />
-        </EntityType>
-        <EntityType Name="TRN_SchemeAuditParent">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="OutlateName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IsKnowenAboutScheme" Type="Int32" Nullable="false" />
-          <Property Name="SchemeDetails" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="SchemeMediaTypeId" Type="Int32" Nullable="false" />
-          <Property Name="IsFacilitatedByScheme" Type="Int32" Nullable="false" />
-          <Property Name="DateOfScheme" Type="DateTime" Precision="3" />
-          <Property Name="IsWrittenRecordAvailable" Type="Int32" />
-          <Property Name="LatestChallanDate" Type="DateTime" Precision="3" />
-          <Property Name="ChallanAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DoesGotAnyChallan" Type="Int32" />
-          <Property Name="ChallanTypeId" Type="Int32" />
-          <Property Name="DoesExpiredProductAvailable" Type="Int32" />
-          <Property Name="DoesSatisfiedWithSallesOfficer" Type="Int32" />
-          <Property Name="DoesSatisfiedWithProductOrderAndService" Type="Int32" />
-          <Property Name="SallesOfficerVisitingDay" Type="Int32" />
-          <Property Name="DoesGotLatestDiscountOffer" Type="Int32" />
-          <Property Name="WillGetAnyDiscountOfferFromDistributor" Type="Int32" />
-          <Property Name="DoesCocaColaLabelAvailable" Type="Int32" />
-          <Property Name="IsGccCodeAvailable" Type="Int32" />
-          <Property Name="CommentsType" Type="Int32" />
-          <Property Name="Comments" Type="Int32" />
-          <Property Name="CommentDetails" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
-        <EntityType Name="TRN_SchemeAuditShopDetails">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OutlateName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="GccCode" Type="Int32" Nullable="false" />
-          <Property Name="RetailSellerName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MobileNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OutlateTypeId" Type="Int32" Nullable="false" />
-          <Property Name="VisitedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="DistributorName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="AsmId" Type="Int32" Nullable="false" />
-          <Property Name="AicId" Type="Int32" Nullable="false" />
-          <Property Name="OutlateAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
         <EntityType Name="pratdummy">
           <Key>
             <PropertyRef Name="zid" />
@@ -944,9 +890,6 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TRN_Permission" EntityType="Self.TRN_Permission" />
           <EntitySet Name="TRN_PermissionDetail" EntityType="Self.TRN_PermissionDetail" />
-          <EntitySet Name="TRN_SchemeAuditChild" EntityType="Self.TRN_SchemeAuditChild" />
-          <EntitySet Name="TRN_SchemeAuditParent" EntityType="Self.TRN_SchemeAuditParent" />
-          <EntitySet Name="TRN_SchemeAuditShopDetails" EntityType="Self.TRN_SchemeAuditShopDetails" />
           <EntitySet Name="pratdummies" EntityType="Self.pratdummy" />
           <EntitySet Name="TRN_SMkneet_t" EntityType="Self.TRN_SMkneet_t" />
           <AssociationSet Name="FK_PageList_Module" Association="Self.FK_PageList_Module">
@@ -978,6 +921,10 @@
             <End Role="TRN_PermissionDetail" EntitySet="TRN_PermissionDetail" />
           </AssociationSet>
           <EntitySet Name="Tests" EntityType="qt_infinigentdbModel.Test" />
+          <EntitySet Name="TRN_SchemeAuditShopDetails" EntityType="qt_infinigentdbModel.TRN_SchemeAuditShopDetails" />
+          <EntitySet Name="TRN_Number" EntityType="qt_infinigentdbModel.TRN_Number" />
+          <EntitySet Name="TRN_SchemeAuditChild" EntityType="qt_infinigentdbModel.TRN_SchemeAuditChild" />
+          <EntitySet Name="TRN_SchemeAuditParent" EntityType="qt_infinigentdbModel.TRN_SchemeAuditParent" />
         </EntityContainer>
         <EntityType Name="Test">
           <Key>
@@ -986,6 +933,73 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TRN_SchemeAuditShopDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OutlateName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="GccCode" Type="Int32" Nullable="false" />
+          <Property Name="RetailSellerName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OutlateTypeId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VisitedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DistributorName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AsmId" Type="Int32" Nullable="false" />
+          <Property Name="AicId" Type="Int32" Nullable="false" />
+          <Property Name="OutlateAddress" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TRN_Number">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TRN_SchemeAuditChild">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImageLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TRN_SchemeAuditParent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="OutlateName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsKnowenAboutScheme" Type="Int32" Nullable="false" />
+          <Property Name="SchemeDetails" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SchemeMediaTypeId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsFacilitatedByScheme" Type="Int32" Nullable="false" />
+          <Property Name="DateOfScheme" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsWrittenRecordAvailable" Type="Int32" />
+          <Property Name="LatestChallanDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ChallanAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DoesGotAnyChallan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ChallanTypeId" Type="Int32" />
+          <Property Name="DoesExpiredProductAvailable" Type="Int32" />
+          <Property Name="DoesSatisfiedWithSallesOfficer" Type="Int32" />
+          <Property Name="DoesSatisfiedWithProductOrderAndService" Type="Int32" />
+          <Property Name="SallesOfficerVisitingDay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DoesGotLatestDiscountOffer" Type="Int32" />
+          <Property Name="WillGetAnyDiscountOfferFromDistributor" Type="Int32" />
+          <Property Name="DoesCocaColaLabelAvailable" Type="Int32" />
+          <Property Name="IsGccCodeAvailable" Type="Int32" />
+          <Property Name="CommentsType" Type="Int32" />
+          <Property Name="Comments" Type="Int32" />
+          <Property Name="CommentDetails" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1265,70 +1279,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TRN_SchemeAuditChild">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_SchemeAuditChild">
-              <MappingFragment StoreEntitySet="TRN_SchemeAuditChild">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
-                <ScalarProperty Name="IsSignature" ColumnName="IsSignature" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TRN_SchemeAuditParent">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_SchemeAuditParent">
-              <MappingFragment StoreEntitySet="TRN_SchemeAuditParent">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="OutlateName" ColumnName="OutlateName" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="IsKnowenAboutScheme" ColumnName="IsKnowenAboutScheme" />
-                <ScalarProperty Name="SchemeDetails" ColumnName="SchemeDetails" />
-                <ScalarProperty Name="SchemeMediaTypeId" ColumnName="SchemeMediaTypeId" />
-                <ScalarProperty Name="IsFacilitatedByScheme" ColumnName="IsFacilitatedByScheme" />
-                <ScalarProperty Name="DateOfScheme" ColumnName="DateOfScheme" />
-                <ScalarProperty Name="IsWrittenRecordAvailable" ColumnName="IsWrittenRecordAvailable" />
-                <ScalarProperty Name="LatestChallanDate" ColumnName="LatestChallanDate" />
-                <ScalarProperty Name="ChallanAmount" ColumnName="ChallanAmount" />
-                <ScalarProperty Name="DoesGotAnyChallan" ColumnName="DoesGotAnyChallan" />
-                <ScalarProperty Name="ChallanTypeId" ColumnName="ChallanTypeId" />
-                <ScalarProperty Name="DoesExpiredProductAvailable" ColumnName="DoesExpiredProductAvailable" />
-                <ScalarProperty Name="DoesSatisfiedWithSallesOfficer" ColumnName="DoesSatisfiedWithSallesOfficer" />
-                <ScalarProperty Name="DoesSatisfiedWithProductOrderAndService" ColumnName="DoesSatisfiedWithProductOrderAndService" />
-                <ScalarProperty Name="SallesOfficerVisitingDay" ColumnName="SallesOfficerVisitingDay" />
-                <ScalarProperty Name="DoesGotLatestDiscountOffer" ColumnName="DoesGotLatestDiscountOffer" />
-                <ScalarProperty Name="WillGetAnyDiscountOfferFromDistributor" ColumnName="WillGetAnyDiscountOfferFromDistributor" />
-                <ScalarProperty Name="DoesCocaColaLabelAvailable" ColumnName="DoesCocaColaLabelAvailable" />
-                <ScalarProperty Name="IsGccCodeAvailable" ColumnName="IsGccCodeAvailable" />
-                <ScalarProperty Name="CommentsType" ColumnName="CommentsType" />
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="CommentDetails" ColumnName="CommentDetails" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TRN_SchemeAuditShopDetails">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_SchemeAuditShopDetails">
-              <MappingFragment StoreEntitySet="TRN_SchemeAuditShopDetails">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="OutlateName" ColumnName="OutlateName" />
-                <ScalarProperty Name="GccCode" ColumnName="GccCode" />
-                <ScalarProperty Name="RetailSellerName" ColumnName="RetailSellerName" />
-                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
-                <ScalarProperty Name="OutlateTypeId" ColumnName="OutlateTypeId" />
-                <ScalarProperty Name="VisitedDate" ColumnName="VisitedDate" />
-                <ScalarProperty Name="DistributorName" ColumnName="DistributorName" />
-                <ScalarProperty Name="AsmId" ColumnName="AsmId" />
-                <ScalarProperty Name="AicId" ColumnName="AicId" />
-                <ScalarProperty Name="OutlateAddress" ColumnName="OutlateAddress" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="pratdummies">
             <EntityTypeMapping TypeName="qt_infinigentdbModel.pratdummy">
               <MappingFragment StoreEntitySet="pratdummy">
@@ -1356,6 +1306,77 @@
             <EntityTypeMapping TypeName="qt_infinigentdbModel.Test">
               <MappingFragment StoreEntitySet="Test">
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_SchemeAuditShopDetails">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_SchemeAuditShopDetails">
+              <MappingFragment StoreEntitySet="TRN_SchemeAuditShopDetails">
+                <ScalarProperty Name="OutlateAddress" ColumnName="OutlateAddress" />
+                <ScalarProperty Name="AicId" ColumnName="AicId" />
+                <ScalarProperty Name="AsmId" ColumnName="AsmId" />
+                <ScalarProperty Name="DistributorName" ColumnName="DistributorName" />
+                <ScalarProperty Name="VisitedDate" ColumnName="VisitedDate" />
+                <ScalarProperty Name="OutlateTypeId" ColumnName="OutlateTypeId" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="RetailSellerName" ColumnName="RetailSellerName" />
+                <ScalarProperty Name="GccCode" ColumnName="GccCode" />
+                <ScalarProperty Name="OutlateName" ColumnName="OutlateName" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_Number">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_Number">
+              <MappingFragment StoreEntitySet="TRN_Number">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_SchemeAuditChild">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_SchemeAuditChild">
+              <MappingFragment StoreEntitySet="TRN_SchemeAuditChild">
+                <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_SchemeAuditParent">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_SchemeAuditParent">
+              <MappingFragment StoreEntitySet="TRN_SchemeAuditParent">
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CommentDetails" ColumnName="CommentDetails" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="CommentsType" ColumnName="CommentsType" />
+                <ScalarProperty Name="IsGccCodeAvailable" ColumnName="IsGccCodeAvailable" />
+                <ScalarProperty Name="DoesCocaColaLabelAvailable" ColumnName="DoesCocaColaLabelAvailable" />
+                <ScalarProperty Name="WillGetAnyDiscountOfferFromDistributor" ColumnName="WillGetAnyDiscountOfferFromDistributor" />
+                <ScalarProperty Name="DoesGotLatestDiscountOffer" ColumnName="DoesGotLatestDiscountOffer" />
+                <ScalarProperty Name="SallesOfficerVisitingDay" ColumnName="SallesOfficerVisitingDay" />
+                <ScalarProperty Name="DoesSatisfiedWithProductOrderAndService" ColumnName="DoesSatisfiedWithProductOrderAndService" />
+                <ScalarProperty Name="DoesSatisfiedWithSallesOfficer" ColumnName="DoesSatisfiedWithSallesOfficer" />
+                <ScalarProperty Name="DoesExpiredProductAvailable" ColumnName="DoesExpiredProductAvailable" />
+                <ScalarProperty Name="ChallanTypeId" ColumnName="ChallanTypeId" />
+                <ScalarProperty Name="DoesGotAnyChallan" ColumnName="DoesGotAnyChallan" />
+                <ScalarProperty Name="ChallanAmount" ColumnName="ChallanAmount" />
+                <ScalarProperty Name="LatestChallanDate" ColumnName="LatestChallanDate" />
+                <ScalarProperty Name="IsWrittenRecordAvailable" ColumnName="IsWrittenRecordAvailable" />
+                <ScalarProperty Name="DateOfScheme" ColumnName="DateOfScheme" />
+                <ScalarProperty Name="IsFacilitatedByScheme" ColumnName="IsFacilitatedByScheme" />
+                <ScalarProperty Name="SchemeMediaTypeId" ColumnName="SchemeMediaTypeId" />
+                <ScalarProperty Name="SchemeDetails" ColumnName="SchemeDetails" />
+                <ScalarProperty Name="IsKnowenAboutScheme" ColumnName="IsKnowenAboutScheme" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="OutlateName" ColumnName="OutlateName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

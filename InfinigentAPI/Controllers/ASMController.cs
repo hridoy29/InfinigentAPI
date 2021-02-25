@@ -19,7 +19,7 @@ namespace InfinigentAPI.Controllers
         // GET: api/ASM
         public IQueryable<LU_ASM> GetLU_ASM()
         {
-            return db.LU_ASM;
+            return db.LU_ASM.Where(x => x.IsActive == true);
         }
 
         // GET: api/ASM/5

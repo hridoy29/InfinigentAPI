@@ -19,7 +19,7 @@ namespace InfinigentAPI.Controllers
         // GET: api/User
         public IQueryable<LU_User> GetLU_User()
         {
-            return db.LU_User;
+            return db.LU_User.Where(x=>x.IsActive==true);
         }
 
         // GET: api/User/5

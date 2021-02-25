@@ -47,11 +47,12 @@ namespace InfinigentAPI.Models
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TRN_Permission> TRN_Permission { get; set; }
         public virtual DbSet<TRN_PermissionDetail> TRN_PermissionDetail { get; set; }
-        public virtual DbSet<TRN_SchemeAuditChild> TRN_SchemeAuditChild { get; set; }
-        public virtual DbSet<TRN_SchemeAuditParent> TRN_SchemeAuditParent { get; set; }
-        public virtual DbSet<TRN_SchemeAuditShopDetails> TRN_SchemeAuditShopDetails { get; set; }
         public virtual DbSet<pratdummy> pratdummies { get; set; }
         public virtual DbSet<TRN_SMkneet_t> TRN_SMkneet_t { get; set; }
         public virtual DbSet<Test> Tests { get; set; }
+        public virtual DbSet<TRN_SchemeAuditShopDetails> TRN_SchemeAuditShopDetails { get; set; }
+        public virtual DbSet<TRN_Number> TRN_Number { get; set; }
+        public virtual DbSet<TRN_SchemeAuditChild> TRN_SchemeAuditChild { get; set; }
+        public virtual DbSet<TRN_SchemeAuditParent> TRN_SchemeAuditParent { get; set; }
     }
 }

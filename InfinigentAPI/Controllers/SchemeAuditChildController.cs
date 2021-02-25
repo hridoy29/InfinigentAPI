@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+ 
 using InfinigentAPI.Models;
+ 
 
 namespace InfinigentAPI.Controllers
 {
@@ -78,11 +82,20 @@ namespace InfinigentAPI.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            db.TRN_SchemeAuditChild.Add(tRN_SchemeAuditChild);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = tRN_SchemeAuditChild.Id }, tRN_SchemeAuditChild);
+            else
+            {
+                string _imagePath = string.Empty;
+                SaveImages saveImages = new SaveImages();
+                _imagePath=saveImages.isImageSaved(tRN_SchemeAuditChild);
+                if (_imagePath.Length != 0)
+                {
+                    tRN_SchemeAuditChild.ImageLocation = string.Empty;
+                    tRN_SchemeAuditChild.ImageLocation = _imagePath;
+                    db.TRN_SchemeAuditChild.Add(tRN_SchemeAuditChild);
+                    db.SaveChanges();
+                }
+                return CreatedAtRoute("DefaultApi", new { id = tRN_SchemeAuditChild.Id }, tRN_SchemeAuditChild);
+            }
         }
 
         // DELETE: api/SchemeAuditChild/5

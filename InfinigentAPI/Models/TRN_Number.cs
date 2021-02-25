@@ -12,19 +12,9 @@ namespace InfinigentAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TRN_SchemeAuditShopDetails
+    public partial class TRN_Number
     {
         public int Id { get; set; }
         public string Number { get; set; }
-        public string OutlateName { get; set; }
-        public int GccCode { get; set; }
-        public string RetailSellerName { get; set; }
-        public string MobileNumber { get; set; }
-        public string OutlateTypeId { get; set; }
-        public System.DateTime VisitedDate { get; set; }
-        public string DistributorName { get; set; }
-        public int AsmId { get; set; }
-        public int AicId { get; set; }
-        public string OutlateAddress { get; set; }
     }
 }

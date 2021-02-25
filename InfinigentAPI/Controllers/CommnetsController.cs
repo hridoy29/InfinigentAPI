@@ -19,7 +19,7 @@ namespace InfinigentAPI.Controllers
         // GET: api/Commnets
         public IQueryable<LU_Commnets> GetLU_Commnets()
         {
-            return db.LU_Commnets;
+            return db.LU_Commnets.Where(x => x.IsActive == true);
         }
 
         // GET: api/Commnets/5

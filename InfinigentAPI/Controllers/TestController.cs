@@ -20,20 +20,20 @@ namespace InfinigentAPI.Controllers
         private qt_infinigentdbEntities db = new qt_infinigentdbEntities();
 
         // GET: api/Test
-        public IQueryable<Test> GetTests()
+        public int GetTests()
         {
 
-            var bytes = Convert.FromBase64String(db.Tests.Find(7).Photo);
+            var bytes = Convert.FromBase64String(db.Tests.Find(53).Photo);
             //var bytes = Convert.FromBase64String(Test.Photo);
             using (var ms = new MemoryStream(bytes, 0, bytes.Length))
             {
                 Image image = Image.FromStream(ms, true);
-                image.Save(@"E:\QuadTheory\" + db.Tests.Find(7).Number + "_" + db.Tests.Find(7).Id + ".png", System.Drawing.Imaging.ImageFormat.Png);
+                image.Save(@"E:\QuadTheory\" + db.Tests.Find(53).Number + "_" + db.Tests.Find(53).Id + ".png", System.Drawing.Imaging.ImageFormat.Png);
 
             }
 
 
-            return db.Tests;
+            return 1;
         }
         
         // GET: api/Test/5
@@ -96,13 +96,21 @@ namespace InfinigentAPI.Controllers
             db.Tests.Add(Test);
             db.SaveChanges();
             //var bytes = Convert.FromBase64String(db.Tests.Find(6).Photo);
-            var bytes = Convert.FromBase64String(Test.Photo);
-            using (var ms = new MemoryStream(bytes, 0, bytes.Length))
-            {
-                Image image = Image.FromStream(ms, true);
-                image.Save(@"E:\QuadTheory\"+ Test.Number+"_"+Test.Id+".png", System.Drawing.Imaging.ImageFormat.Png);
+            //var bytes = Convert.FromBase64String(Test.Photo);
+            //using (var ms = new MemoryStream(bytes, 0, bytes.Length))
+            //{
+            //    Image image = Image.FromStream(ms, true);
+            //    image.Save(@"E:\QuadTheory\"+ Test.Number+"_"+Test.Id+".png", System.Drawing.Imaging.ImageFormat.Png);
 
-            }
+            //}
+            //var bytes = Convert.FromBase64String(db.Tests.Find(17).Photo);
+            ////var bytes = Convert.FromBase64String(Test.Photo);
+            //using (var ms = new MemoryStream(bytes, 0, bytes.Length))
+            //{
+            //    Image image = Image.FromStream(ms, true);
+            //    image.Save(@"E:\QuadTheory\" + db.Tests.Find(17).Number + "_" + db.Tests.Find(17).Id + ".png", System.Drawing.Imaging.ImageFormat.Png);
+
+            //}
             return CreatedAtRoute("DefaultApi", new { id = Test.Id }, Test);
         }
 

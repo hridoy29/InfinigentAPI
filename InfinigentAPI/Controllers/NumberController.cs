@@ -12,44 +12,44 @@ using InfinigentAPI.Models;
 
 namespace InfinigentAPI.Controllers
 {
-    public class AICController : ApiController
+    public class NumberController : ApiController
     {
         private qt_infinigentdbEntities db = new qt_infinigentdbEntities();
 
-        // GET: api/AIC
-        public IQueryable<LU_AIC> GetLU_AIC()
+        // GET: api/Number
+        public IQueryable<TRN_Number> GetTRN_Number()
         {
-            return db.LU_AIC.Where(x => x.IsActive == true);
+            return db.TRN_Number;
         }
 
-        // GET: api/AIC/5
-        [ResponseType(typeof(LU_AIC))]
-        public IHttpActionResult GetLU_AIC(int id)
+        // GET: api/Number/5
+        [ResponseType(typeof(TRN_Number))]
+        public IHttpActionResult GetTRN_Number(int id)
         {
-            LU_AIC lU_AIC = db.LU_AIC.Find(id);
-            if (lU_AIC == null)
+            TRN_Number tRN_Number = db.TRN_Number.Find(id);
+            if (tRN_Number == null)
             {
                 return NotFound();
             }
 
-            return Ok(lU_AIC);
+            return Ok(tRN_Number);
         }
 
-        // PUT: api/AIC/5
+        // PUT: api/Number/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutLU_AIC(int id, LU_AIC lU_AIC)
+        public IHttpActionResult PutTRN_Number(int id, TRN_Number tRN_Number)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != lU_AIC.Id)
+            if (id != tRN_Number.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(lU_AIC).State = EntityState.Modified;
+            db.Entry(tRN_Number).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace InfinigentAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LU_AICExists(id))
+                if (!TRN_NumberExists(id))
                 {
                     return NotFound();
                 }
@@ -70,35 +70,35 @@ namespace InfinigentAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/AIC
-        [ResponseType(typeof(LU_AIC))]
-        public IHttpActionResult PostLU_AIC(LU_AIC lU_AIC)
+        // POST: api/Number
+        [ResponseType(typeof(TRN_Number))]
+        public IHttpActionResult PostTRN_Number(TRN_Number tRN_Number)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.LU_AIC.Add(lU_AIC);
+            db.Entry(tRN_Number).State = EntityState.Modified;
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = lU_AIC.Id }, lU_AIC);
+            return CreatedAtRoute("DefaultApi", new { id = tRN_Number.Id }, tRN_Number);
         }
 
-        // DELETE: api/AIC/5
-        [ResponseType(typeof(LU_AIC))]
-        public IHttpActionResult DeleteLU_AIC(int id)
+        // DELETE: api/Number/5
+        [ResponseType(typeof(TRN_Number))]
+        public IHttpActionResult DeleteTRN_Number(int id)
         {
-            LU_AIC lU_AIC = db.LU_AIC.Find(id);
-            if (lU_AIC == null)
+            TRN_Number tRN_Number = db.TRN_Number.Find(id);
+            if (tRN_Number == null)
             {
                 return NotFound();
             }
 
-            db.LU_AIC.Remove(lU_AIC);
+            db.TRN_Number.Remove(tRN_Number);
             db.SaveChanges();
 
-            return Ok(lU_AIC);
+            return Ok(tRN_Number);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,9 +110,9 @@ namespace InfinigentAPI.Controllers
             base.Dispose(disposing);
         }
 
-        private bool LU_AICExists(int id)
+        private bool TRN_NumberExists(int id)
         {
-            return db.LU_AIC.Count(e => e.Id == id) > 0;
+            return db.TRN_Number.Count(e => e.Id == id) > 0;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace InfinigentAPI.Controllers
         // GET: api/CommentsType
         public IQueryable<LU_CommentsType> GetLU_CommentsType()
         {
-            return db.LU_CommentsType;
+            return db.LU_CommentsType.Where(x => x.IsActive == true);
         }
 
         // GET: api/CommentsType/5

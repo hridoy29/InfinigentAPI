@@ -27,9 +27,6 @@
         <EntityTypeShape EntityType="qt_infinigentdbModel.sysdiagram" Width="1.5" PointX="12.75" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_Permission" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_PermissionDetail" Width="1.5" PointX="10.5" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_SchemeAuditChild" Width="1.5" PointX="12.75" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_SchemeAuditParent" Width="1.5" PointX="12.75" PointY="15.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_SchemeAuditShopDetails" Width="1.5" PointX="14.75" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.pratdummy" Width="1.5" PointX="0.75" PointY="16.625" IsExpanded="true" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_SMkneet_t" Width="1.5" PointX="2.75" PointY="16.625" IsExpanded="true" />
         <AssociationConnector Association="qt_infinigentdbModel.FK_PageList_Module" ManuallyRouted="false" />
@@ -40,6 +37,10 @@
         <AssociationConnector Association="qt_infinigentdbModel.FK_RoleWisePermission_Role" ManuallyRouted="false" />
         <AssociationConnector Association="qt_infinigentdbModel.FK_PermissionDetail_Permission" ManuallyRouted="false" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.Test" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_SchemeAuditShopDetails" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_Number" Width="1.5" PointX="15.375" PointY="5.75" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_SchemeAuditChild" Width="1.5" PointX="13.375" PointY="12.75" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_SchemeAuditParent" Width="1.5" PointX="5.375" PointY="15.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

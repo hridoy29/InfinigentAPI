@@ -17,6 +17,5 @@ namespace InfinigentAPI.Models
         public int Id { get; set; }
         public string Number { get; set; }
         public string ImageLocation { get; set; }
-        public Nullable<short> IsSignature { get; set; }
     }
 }

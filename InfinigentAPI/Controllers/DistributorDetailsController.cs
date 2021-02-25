@@ -19,7 +19,23 @@ namespace InfinigentAPI.Controllers
         // GET: api/DistributorDetails
         public IQueryable<LU_DistributorDetails> GetLU_DistributorDetails()
         {
-            return db.LU_DistributorDetails;
+
+          /* // IQueryable<LU_DistributorDetails> _LU_DistributorDetails;
+         //  var  _LU_DistributorDetails= db.LU_DistributorDetails.Where(store => store.IsActive == true)
+          // .Select(store => new LU_DistributorDetails { Id = store.Id,Name = store.Name +"("+store.Id.ToString() +")", CreatorId=store.CreatorId,CreationDate=store.CreationDate,ModifierId=store.ModifierId,ModificationDate=store.ModificationDate,IsActive =store.IsActive });
+            var books = from store in db.LU_DistributorDetails
+                        select new LU_DistributorDetails()
+                        {
+                            Id = store.Id,
+                            Name = store.Name + "(" + store.Id.ToString() + ")",
+                            CreatorId = store.CreatorId,
+                            CreationDate = store.CreationDate,
+                            ModifierId = store.ModifierId,
+                            ModificationDate = store.ModificationDate,
+                            IsActive = store.IsActive
+                        };*/
+
+            return db.LU_DistributorDetails.Where(x => x.IsActive == true); 
         }
 
         // GET: api/DistributorDetails/5

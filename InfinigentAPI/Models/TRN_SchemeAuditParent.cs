@@ -21,18 +21,18 @@ namespace InfinigentAPI.Models
         public System.DateTime Date { get; set; }
         public int IsKnowenAboutScheme { get; set; }
         public string SchemeDetails { get; set; }
-        public int SchemeMediaTypeId { get; set; }
+        public string SchemeMediaTypeId { get; set; }
         public int IsFacilitatedByScheme { get; set; }
-        public Nullable<System.DateTime> DateOfScheme { get; set; }
+        public string DateOfScheme { get; set; }
         public Nullable<int> IsWrittenRecordAvailable { get; set; }
-        public Nullable<System.DateTime> LatestChallanDate { get; set; }
+        public string LatestChallanDate { get; set; }
         public string ChallanAmount { get; set; }
-        public Nullable<int> DoesGotAnyChallan { get; set; }
+        public string DoesGotAnyChallan { get; set; }
         public Nullable<int> ChallanTypeId { get; set; }
         public Nullable<int> DoesExpiredProductAvailable { get; set; }
         public Nullable<int> DoesSatisfiedWithSallesOfficer { get; set; }
         public Nullable<int> DoesSatisfiedWithProductOrderAndService { get; set; }
-        public Nullable<int> SallesOfficerVisitingDay { get; set; }
+        public string SallesOfficerVisitingDay { get; set; }
         public Nullable<int> DoesGotLatestDiscountOffer { get; set; }
         public Nullable<int> WillGetAnyDiscountOfferFromDistributor { get; set; }
         public Nullable<int> DoesCocaColaLabelAvailable { get; set; }
