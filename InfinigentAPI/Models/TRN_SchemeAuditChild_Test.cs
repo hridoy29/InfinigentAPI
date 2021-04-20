@@ -12,12 +12,10 @@ namespace InfinigentAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class pratdummy
+    public partial class TRN_SchemeAuditChild_Test
     {
-        public int zid { get; set; }
-        public string xemp { get; set; }
-        public System.DateTime xdate { get; set; }
-        public string xdesc { get; set; }
-        public string xtrnord { get; set; }
+        public int Id { get; set; }
+        public string Number { get; set; }
+        public string ImageLocation { get; set; }
     }
 }

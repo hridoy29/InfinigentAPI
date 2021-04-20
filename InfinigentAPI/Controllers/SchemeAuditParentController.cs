@@ -70,8 +70,8 @@ namespace InfinigentAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/SchemeAuditParent
-        [ResponseType(typeof(TRN_SchemeAuditParent))]
+       // POST: api/SchemeAuditParent
+       [ResponseType(typeof(TRN_SchemeAuditParent))]
         public IHttpActionResult PostTRN_SchemeAuditParent(TRN_SchemeAuditParent tRN_SchemeAuditParent)
         {
             if (!ModelState.IsValid)
@@ -89,8 +89,24 @@ namespace InfinigentAPI.Controllers
                 db.SaveChanges();
             }
             return CreatedAtRoute("DefaultApi", new { id = tRN_SchemeAuditParent.Id }, tRN_SchemeAuditParent);
+            // return BadRequest("Data Added Successfuly");
         }
+        //[ResponseType(typeof(TRN_SchemeAuditParent_Test))]
+        //public IHttpActionResult PostTRN_SchemeAuditParent(TRN_SchemeAuditParent_Test tRN_SchemeAuditParent)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
+
+        //    {
+        //        db.TRN_SchemeAuditParent_Test.Add(tRN_SchemeAuditParent);
+        //        db.SaveChanges();
+        //    }
+        //    return CreatedAtRoute("DefaultApi", new { id = tRN_SchemeAuditParent.Id }, tRN_SchemeAuditParent);
+        //    // return BadRequest("Data Added Successfuly");
+        //}
         // DELETE: api/SchemeAuditParent/5
         [ResponseType(typeof(TRN_SchemeAuditParent))]
         public IHttpActionResult DeleteTRN_SchemeAuditParent(int id)
