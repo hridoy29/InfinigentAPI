@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using InfinigentAPI.Models;
@@ -70,15 +71,20 @@ namespace InfinigentAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/SchemeAuditParent
-        [ResponseType(typeof(TRN_SchemeAuditParent))]
-        public IHttpActionResult PostTRN_SchemeAuditParent(TRN_SchemeAuditParent tRN_SchemeAuditParent)
+       // POST: api/SchemeAuditParent
+       [ResponseType(typeof(TRN_SchemeAuditParent))]
+        public async Task<IHttpActionResult> PostTRN_SchemeAuditParent(TRN_SchemeAuditParent tRN_SchemeAuditParent)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             var Number = db.TRN_SchemeAuditParent.Where(x => x.Number == tRN_SchemeAuditParent.Number).Select(x => x.Number);
+            //if (tRN_SchemeAuditParent.Number.Substring(0, 3) == "204")
+            //{
+            //    db.TRN_SchemeAuditParent.Add(tRN_SchemeAuditParent);
+            //    await db.SaveChangesAsync();
+            //}
             if (Number.Count() > 0)
             {
                 return BadRequest("Data Allready added");
@@ -86,11 +92,27 @@ namespace InfinigentAPI.Controllers
             else
             {
                 db.TRN_SchemeAuditParent.Add(tRN_SchemeAuditParent);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
             return CreatedAtRoute("DefaultApi", new { id = tRN_SchemeAuditParent.Id }, tRN_SchemeAuditParent);
+            // return BadRequest("Data Added Successfuly");
         }
+        //[ResponseType(typeof(TRN_SchemeAuditParent_Test))]
+        //public IHttpActionResult PostTRN_SchemeAuditParent(TRN_SchemeAuditParent_Test tRN_SchemeAuditParent)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
+
+        //    {
+        //        db.TRN_SchemeAuditParent_Test.Add(tRN_SchemeAuditParent);
+        //        db.SaveChanges();
+        //    }
+        //    return CreatedAtRoute("DefaultApi", new { id = tRN_SchemeAuditParent.Id }, tRN_SchemeAuditParent);
+        //    // return BadRequest("Data Added Successfuly");
+        //}
         // DELETE: api/SchemeAuditParent/5
         [ResponseType(typeof(TRN_SchemeAuditParent))]
         public IHttpActionResult DeleteTRN_SchemeAuditParent(int id)

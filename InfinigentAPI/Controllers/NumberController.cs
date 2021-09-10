@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using InfinigentAPI.Models;
@@ -37,7 +38,7 @@ namespace InfinigentAPI.Controllers
 
         // PUT: api/Number/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutTRN_Number(int id, TRN_Number tRN_Number)
+        public async Task<IHttpActionResult> PutTRN_Number(int id, TRN_Number tRN_Number)
         {
             if (!ModelState.IsValid)
             {
@@ -53,7 +54,9 @@ namespace InfinigentAPI.Controllers
 
             try
             {
-                db.SaveChanges();
+                await db.SaveChangesAsync();
+                return Ok(tRN_Number);
+
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -66,13 +69,11 @@ namespace InfinigentAPI.Controllers
                     throw;
                 }
             }
-
-            return StatusCode(HttpStatusCode.NoContent);
         }
 
         // POST: api/Number
         [ResponseType(typeof(TRN_Number))]
-        public IHttpActionResult PostTRN_Number(TRN_Number tRN_Number)
+        public async Task<IHttpActionResult> PostTRN_Number(TRN_Number tRN_Number)
         {
             if (!ModelState.IsValid)
             {
@@ -80,9 +81,21 @@ namespace InfinigentAPI.Controllers
             }
 
             db.Entry(tRN_Number).State = EntityState.Modified;
-            db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = tRN_Number.Id }, tRN_Number);
+            try
+            {
+                await db.SaveChangesAsync();
+                return CreatedAtRoute("DefaultApi", new { id = tRN_Number.Id }, tRN_Number);
+
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+
+                return BadRequest(ModelState);
+
+            }
+
+     
         }
 
         // DELETE: api/Number/5

@@ -20,5 +20,6 @@ namespace InfinigentAPI.Models
         public string port { get; set; }
         public string Address { get; set; }
         public bool IsActive { get; set; }
+        public Nullable<int> ZId { get; set; }
     }
 }

@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
  
@@ -76,7 +77,7 @@ namespace InfinigentAPI.Controllers
 
         // POST: api/SchemeAuditChild
         [ResponseType(typeof(TRN_SchemeAuditChild))]
-        public IHttpActionResult PostTRN_SchemeAuditChild(TRN_SchemeAuditChild tRN_SchemeAuditChild)
+        public async Task<IHttpActionResult> PostTRN_SchemeAuditChild(TRN_SchemeAuditChild tRN_SchemeAuditChild)
         {
             if (!ModelState.IsValid)
             {
@@ -88,7 +89,7 @@ namespace InfinigentAPI.Controllers
                 SaveImages saveImages = new SaveImages();
                 
                  _imagePath = saveImages.isImageSaved(tRN_SchemeAuditChild);
-                var ImageLocation = db.TRN_SchemeAuditChild.Where(x => x.ImageLocation == _imagePath).Select(x => x.ImageLocation);
+                var ImageLocation = db.TRN_SchemeAuditChild.Where(x => x.ImageLocation == _imagePath).Select(x => x.ImageLocation);                
                 if (ImageLocation.Count() > 0)
                 {
                     return BadRequest("Data Allready added");
@@ -100,7 +101,7 @@ namespace InfinigentAPI.Controllers
                         tRN_SchemeAuditChild.ImageLocation = string.Empty;
                         tRN_SchemeAuditChild.ImageLocation = _imagePath;
                         db.TRN_SchemeAuditChild.Add(tRN_SchemeAuditChild);
-                        db.SaveChanges();
+                        await db.SaveChangesAsync();
                     }
                 }
                  

@@ -18,7 +18,7 @@ namespace InfinigentAPI.Models
             using (var ms = new MemoryStream(bytes, 0, bytes.Length))
             {
                 Image image =  Image.FromStream(ms, true);
-                _imagePath=  "/img/" + tRN_SchemeAuditChild.Number + "_" + tRN_SchemeAuditChild.Id + ".png";
+                _imagePath= "/image/" + tRN_SchemeAuditChild.Number + "_" + tRN_SchemeAuditChild.Id + ".png";
                 _imageActualPath = HttpContext.Current.Server.MapPath("~/image/"+ tRN_SchemeAuditChild.Number + "_" + tRN_SchemeAuditChild.Id + ".png");
                 image.Save(_imageActualPath, System.Drawing.Imaging.ImageFormat.Png);
 

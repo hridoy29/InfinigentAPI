@@ -188,6 +188,7 @@
     <Compile Include="Controllers\SchemeAuditChildController.cs" />
     <Compile Include="Controllers\SchemeAuditParentController.cs" />
     <Compile Include="Controllers\SchemeAuditShopDetailsController.cs" />
+    <Compile Include="Controllers\SchemeNameController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -266,9 +267,6 @@
     <Compile Include="Models\LU_UserLoginIds.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\pratdummy.cs">
-      <DependentUpon>infinigentdb.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\SaveImages.cs" />
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
@@ -288,10 +286,19 @@
     <Compile Include="Models\TRN_SchemeAuditChild.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TRN_SchemeAuditChild_Test.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TRN_SchemeAuditParent.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TRN_SchemeAuditParent_Test.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TRN_SchemeAuditShopDetails.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRN_SchemeAuditShopDetails_Test.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TRN_SMkneet_t.cs">
@@ -348,6 +355,7 @@
     </Content>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\InfinigentAPI20210401115023 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
