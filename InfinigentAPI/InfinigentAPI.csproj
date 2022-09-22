@@ -179,6 +179,8 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AICController.cs" />
     <Compile Include="Controllers\ASMController.cs" />
+    <Compile Include="Controllers\AuditorsController.cs" />
+    <Compile Include="Controllers\BBDsController.cs" />
     <Compile Include="Controllers\CommentsTypeController.cs" />
     <Compile Include="Controllers\CommnetsController.cs" />
     <Compile Include="Controllers\DistributorDetailsController.cs" />
@@ -195,6 +197,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BBD.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Department.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Distributor.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Identity.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\infinigentdb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -209,6 +226,15 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>infinigentdb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Issue.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Item.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ItemGroup.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_AIC.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
@@ -267,6 +293,30 @@
     <Compile Include="Models\LU_UserLoginIds.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Observation.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Questionnaire.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuestionnaireDetail.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuestionnaireHyginePhoto.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuestionnaireHygineSignature.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuestionnaireObservation.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuestionnaireObservationFreeHandWriting.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuestionnairePhysicalStock.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SaveImages.cs" />
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
@@ -302,6 +352,9 @@
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TRN_SMkneet_t.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserDepartment.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -412,6 +465,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InfinigentBackend\InfinigentBackend.csproj">
+      <Project>{c4a9baa4-781f-45dc-888b-f8f08936e0af}</Project>
+      <Name>InfinigentBackend</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

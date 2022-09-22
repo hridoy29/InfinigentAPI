@@ -36,6 +36,37 @@ namespace InfinigentAPI.Controllers
             return  db.LU_User;
         }
 
+
+        //// GET: api/User/5
+        //[ResponseType(typeof(LU_User))]
+        //public IQueryable<LU_User> GetAuditorInfo(int id)
+        //{
+        //    try
+        //    {
+        //        //if (userName != null && password != null)
+        //        //{
+        //        //    password = EncryptPassword(password);
+        //        //}
+        //        var list = Facade.User.GetByUsernameAndPassword(id);
+        //        if (list != null)
+        //        {
+        //            System.Web.HttpContext.Current.Session["UserId"] = list.UserId;
+        //        }
+        //        return list;
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //    //    error_Log error = new error_Log();
+        //    //    error.ErrorMessage = ex.Message;
+        //    //    error.ErrorType = ex.GetType().ToString();
+        //    //    error.FileName = "UserController";
+        //    //    return Json(error.ErrorMessage, JsonRequestBehavior.AllowGet);
+        //    //
+        //    }
+        //    //return db.LU_User;
+        //}
+
         // PUT: api/User/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutLU_User(int id, LU_User LU_User)

@@ -56,5 +56,24 @@ namespace InfinigentAPI.Models
         public virtual DbSet<TRN_SchemeAuditChild_Test> TRN_SchemeAuditChild_Test { get; set; }
         public virtual DbSet<TRN_SchemeAuditParent_Test> TRN_SchemeAuditParent_Test { get; set; }
         public virtual DbSet<TRN_SchemeAuditShopDetails_Test> TRN_SchemeAuditShopDetails_Test { get; set; }
+        public virtual DbSet<BBD> BBDs { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Department> Departments { get; set; }
+        public virtual DbSet<Distributor> Distributors { get; set; }
+        public virtual DbSet<Identity> Identities { get; set; }
+        public virtual DbSet<Issue> Issues { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
+        public virtual DbSet<ItemGroup> ItemGroups { get; set; }
+        public virtual DbSet<Observation> Observations { get; set; }
+        public virtual DbSet<Questionnaire> Questionnaires { get; set; }
+        public virtual DbSet<QuestionnaireDetail> QuestionnaireDetails { get; set; }
+        public virtual DbSet<QuestionnaireHyginePhoto> QuestionnaireHyginePhotos { get; set; }
+        public virtual DbSet<QuestionnaireHygineSignature> QuestionnaireHygineSignatures { get; set; }
+        public virtual DbSet<QuestionnaireObservation> QuestionnaireObservations { get; set; }
+        public virtual DbSet<QuestionnaireObservationFreeHandWriting> QuestionnaireObservationFreeHandWritings { get; set; }
+        public virtual DbSet<QuestionnairePhysicalStock> QuestionnairePhysicalStocks { get; set; }
+        public virtual DbSet<UserDepartment> UserDepartments { get; set; }
+
+        public System.Data.Entity.DbSet<InfinigentBackend.SECURITY.SecurityEntity.Auditor> Auditors { get; set; }
     }
 }
