@@ -54,6 +54,7 @@ namespace InfinigentAPI.Controllers
             try
             {
                 db.SaveChanges();
+                Ok(tRN_Number);
             }
             catch (DbUpdateConcurrencyException)
             {
