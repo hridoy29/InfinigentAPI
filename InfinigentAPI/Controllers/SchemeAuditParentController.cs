@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using InfinigentAPI.Models;
@@ -72,13 +73,18 @@ namespace InfinigentAPI.Controllers
 
        // POST: api/SchemeAuditParent
        [ResponseType(typeof(TRN_SchemeAuditParent))]
-        public IHttpActionResult PostTRN_SchemeAuditParent(TRN_SchemeAuditParent tRN_SchemeAuditParent)
+        public async Task<IHttpActionResult> PostTRN_SchemeAuditParent(TRN_SchemeAuditParent tRN_SchemeAuditParent)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             var Number = db.TRN_SchemeAuditParent.Where(x => x.Number == tRN_SchemeAuditParent.Number).Select(x => x.Number);
+            //if (tRN_SchemeAuditParent.Number.Substring(0, 3) == "204")
+            //{
+            //    db.TRN_SchemeAuditParent.Add(tRN_SchemeAuditParent);
+            //    await db.SaveChangesAsync();
+            //}
             if (Number.Count() > 0)
             {
                 return BadRequest("Data Allready added");
@@ -86,7 +92,7 @@ namespace InfinigentAPI.Controllers
             else
             {
                 db.TRN_SchemeAuditParent.Add(tRN_SchemeAuditParent);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
             return CreatedAtRoute("DefaultApi", new { id = tRN_SchemeAuditParent.Id }, tRN_SchemeAuditParent);
             // return BadRequest("Data Added Successfuly");

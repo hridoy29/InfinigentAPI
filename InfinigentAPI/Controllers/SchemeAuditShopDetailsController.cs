@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using InfinigentAPI.Models;
@@ -72,7 +73,7 @@ namespace InfinigentAPI.Controllers
 
         // POST: api/SchemeAuditShopDetails
         [ResponseType(typeof(TRN_SchemeAuditShopDetails))]
-        public IHttpActionResult PostTRN_SchemeAuditShopDetails(TRN_SchemeAuditShopDetails TRN_SchemeAuditShopDetails)
+        public async  Task<IHttpActionResult> PostTRN_SchemeAuditShopDetails(TRN_SchemeAuditShopDetails TRN_SchemeAuditShopDetails)
         {
             if (!ModelState.IsValid)
             {
@@ -80,7 +81,11 @@ namespace InfinigentAPI.Controllers
             }
 
             var Number = db.TRN_SchemeAuditShopDetails.Where(x => x.Number == TRN_SchemeAuditShopDetails.Number).Select(x => x.Number);
-
+            //if (TRN_SchemeAuditShopDetails.Number.Substring(0, 3) == "204")
+            //{
+            //    db.TRN_SchemeAuditShopDetails.Add(TRN_SchemeAuditShopDetails);
+            //    await db.SaveChangesAsync();
+            //}
             if (Number.Count() > 0)
             {
                 return BadRequest("Data Allready added");
@@ -88,7 +93,7 @@ namespace InfinigentAPI.Controllers
             else
             {
                 db.TRN_SchemeAuditShopDetails.Add(TRN_SchemeAuditShopDetails);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
             return CreatedAtRoute("DefaultApi", new { id = TRN_SchemeAuditShopDetails.Id }, TRN_SchemeAuditShopDetails);
             // return BadRequest("Data Added Successfuly");
