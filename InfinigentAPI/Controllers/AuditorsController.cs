@@ -20,23 +20,23 @@ namespace InfinigentAPI.Controllers
         private qt_infinigentdbEntities db = new qt_infinigentdbEntities();
 
         // GET: api/Auditors
-        public IQueryable<Auditor> GetAuditors()
-        {
-            return db.Auditors;
-        }
+        //public IQueryable<Auditor> GetAuditors()
+        //{
+        //    return db.Auditors;
+        //}
 
-        // GET: api/Auditors/5
-        [ResponseType(typeof(Auditor))]
-        public async Task<IHttpActionResult> GetAuditor(int id)
-        {
-            Auditor auditor = await db.Auditors.FindAsync(id);
-            if (auditor == null)
-            {
-                return NotFound();
-            }
+        //// GET: api/Auditors/5
+        //[ResponseType(typeof(Auditor))]
+        //public async Task<IHttpActionResult> GetAuditor(int id)
+        //{
+        //    Auditor auditor = await db.Auditors.FindAsync(id);
+        //    if (auditor == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return Ok(auditor);
-        }
+        //    return Ok(auditor);
+        //}
 
 
         // GET: api/Auditors/GetAuditorInfo/userEmail
@@ -73,71 +73,71 @@ namespace InfinigentAPI.Controllers
             }
         }
 
-        // PUT: api/Auditors/5
-        [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutAuditor(int id, Auditor auditor)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// PUT: api/Auditors/5
+        //[ResponseType(typeof(void))]
+        //public async Task<IHttpActionResult> PutAuditor(int id, Auditor auditor)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (id != auditor.Id)
-            {
-                return BadRequest();
-            }
+        //    if (id != auditor.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            db.Entry(auditor).State = EntityState.Modified;
+        //    db.Entry(auditor).State = EntityState.Modified;
 
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!AuditorExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        await db.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!AuditorExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
 
-        // POST: api/Auditors
-        [ResponseType(typeof(Auditor))]
-        public async Task<IHttpActionResult> PostAuditor(Auditor auditor)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// POST: api/Auditors
+        //[ResponseType(typeof(Auditor))]
+        //public async Task<IHttpActionResult> PostAuditor(Auditor auditor)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            db.Auditors.Add(auditor);
-            await db.SaveChangesAsync();
+        //    db.Auditors.Add(auditor);
+        //    await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = auditor.Id }, auditor);
-        }
+        //    return CreatedAtRoute("DefaultApi", new { id = auditor.Id }, auditor);
+        //}
 
-        // DELETE: api/Auditors/5
-        [ResponseType(typeof(Auditor))]
-        public async Task<IHttpActionResult> DeleteAuditor(int id)
-        {
-            Auditor auditor = await db.Auditors.FindAsync(id);
-            if (auditor == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/Auditors/5
+        //[ResponseType(typeof(Auditor))]
+        //public async Task<IHttpActionResult> DeleteAuditor(int id)
+        //{
+        //    Auditor auditor = await db.Auditors.FindAsync(id);
+        //    if (auditor == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            db.Auditors.Remove(auditor);
-            await db.SaveChangesAsync();
+        //    db.Auditors.Remove(auditor);
+        //    await db.SaveChangesAsync();
 
-            return Ok(auditor);
-        }
+        //    return Ok(auditor);
+        //}
 
         protected override void Dispose(bool disposing)
         {
@@ -148,9 +148,9 @@ namespace InfinigentAPI.Controllers
             base.Dispose(disposing);
         }
 
-        private bool AuditorExists(int id)
-        {
-            return db.Auditors.Count(e => e.Id == id) > 0;
-        }
+        //private bool AuditorExists(int id)
+        //{
+        //    return db.Auditors.Count(e => e.Id == id) > 0;
+        //}
     }
 }

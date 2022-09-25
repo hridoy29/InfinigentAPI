@@ -75,6 +75,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="isDefault" Type="bit" Nullable="false" />
           <Property Name="CreatorId" Type="int" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="int" Nullable="false" />
@@ -418,6 +419,16 @@
           <Property Name="Difference" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="BBDDamage" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="IssueId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QuestionnaireStockIssueFreeHandwriting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionnaireId" Type="int" Nullable="false" />
+          <Property Name="PhysicalStockId" Type="int" Nullable="false" />
+          <Property Name="IssueId" Type="int" Nullable="false" />
+          <Property Name="Issue" Type="varchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -786,6 +797,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire">
+          <End Role="QuestionnaireObservationFreeHandWriting" Type="Self.QuestionnaireObservationFreeHandWriting" Multiplicity="1" />
+          <End Role="QuestionnaireStockIssueFreeHandwriting" Type="Self.QuestionnaireStockIssueFreeHandwriting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuestionnaireObservationFreeHandWriting">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionnaireStockIssueFreeHandwriting">
+              <PropertyRef Name="PhysicalStockId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_RoleWisePermission_PageList">
           <End Role="LU_Screen" Type="Self.LU_Screen" Multiplicity="1" />
           <End Role="TRN_Permission" Type="Self.TRN_Permission" Multiplicity="*" />
@@ -882,6 +905,7 @@
           <EntitySet Name="QuestionnaireObservation" EntityType="Self.QuestionnaireObservation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QuestionnaireObservationFreeHandWriting" EntityType="Self.QuestionnaireObservationFreeHandWriting" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QuestionnairePhysicalStock" EntityType="Self.QuestionnairePhysicalStock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuestionnaireStockIssueFreeHandwriting" EntityType="Self.QuestionnaireStockIssueFreeHandwriting" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Test" EntityType="Self.Test" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_Permission" EntityType="Self.TRN_Permission" Schema="dbo" store:Type="Tables" />
@@ -954,6 +978,10 @@
           <AssociationSet Name="FK_QuestionnairePhysicalStock_Questionnaire" Association="Self.FK_QuestionnairePhysicalStock_Questionnaire">
             <End Role="Questionnaire" EntitySet="Questionnaire" />
             <End Role="QuestionnairePhysicalStock" EntitySet="QuestionnairePhysicalStock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire" Association="Self.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire">
+            <End Role="QuestionnaireObservationFreeHandWriting" EntitySet="QuestionnaireObservationFreeHandWriting" />
+            <End Role="QuestionnaireStockIssueFreeHandwriting" EntitySet="QuestionnaireStockIssueFreeHandwriting" />
           </AssociationSet>
           <AssociationSet Name="FK_RoleWisePermission_PageList" Association="Self.FK_RoleWisePermission_PageList">
             <End Role="LU_Screen" EntitySet="LU_Screen" />
@@ -1471,6 +1499,11 @@
             <End Role="Questionnaire" EntitySet="Questionnaires" />
             <End Role="QuestionnairePhysicalStock" EntitySet="QuestionnairePhysicalStocks" />
           </AssociationSet>
+          <EntitySet Name="QuestionnaireStockIssueFreeHandwritings" EntityType="qt_infinigentdbModel.QuestionnaireStockIssueFreeHandwriting" />
+          <AssociationSet Name="FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire">
+            <End Role="QuestionnaireObservationFreeHandWriting" EntitySet="QuestionnaireObservationFreeHandWritings" />
+            <End Role="QuestionnaireStockIssueFreeHandwriting" EntitySet="QuestionnaireStockIssueFreeHandwritings" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Test">
           <Key>
@@ -1685,6 +1718,7 @@
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="isDefault" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Item">
           <Key>
@@ -1810,6 +1844,7 @@
           <Property Name="QuestionnaireId" Type="Int32" Nullable="false" />
           <Property Name="FreeHandWriting" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservationFreeHandWriting_Questionnaire" FromRole="QuestionnaireObservationFreeHandWriting" ToRole="Questionnaire" />
+          <NavigationProperty Name="QuestionnaireStockIssueFreeHandwritings" Relationship="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire" FromRole="QuestionnaireObservationFreeHandWriting" ToRole="QuestionnaireStockIssueFreeHandwriting" />
         </EntityType>
         <EntityType Name="QuestionnairePhysicalStock">
           <Key>
@@ -1988,6 +2023,29 @@
             </Principal>
             <Dependent Role="QuestionnairePhysicalStock">
               <PropertyRef Name="QuestionnaireId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="QuestionnaireStockIssueFreeHandwriting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionnaireId" Type="Int32" Nullable="false" />
+          <Property Name="PhysicalStockId" Type="Int32" Nullable="false" />
+          <Property Name="IssueId" Type="Int32" Nullable="false" />
+          <Property Name="Issue" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="QuestionnaireObservationFreeHandWriting" Relationship="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire" FromRole="QuestionnaireStockIssueFreeHandwriting" ToRole="QuestionnaireObservationFreeHandWriting" />
+        </EntityType>
+        <Association Name="FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire">
+          <End Type="qt_infinigentdbModel.QuestionnaireObservationFreeHandWriting" Role="QuestionnaireObservationFreeHandWriting" Multiplicity="1" />
+          <End Type="qt_infinigentdbModel.QuestionnaireStockIssueFreeHandwriting" Role="QuestionnaireStockIssueFreeHandwriting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuestionnaireObservationFreeHandWriting">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionnaireStockIssueFreeHandwriting">
+              <PropertyRef Name="PhysicalStockId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2496,6 +2554,7 @@
           <EntitySetMapping Name="Issues">
             <EntityTypeMapping TypeName="qt_infinigentdbModel.Issue">
               <MappingFragment StoreEntitySet="Issues">
+                <ScalarProperty Name="isDefault" ColumnName="isDefault" />
                 <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
                 <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
                 <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
@@ -2642,6 +2701,17 @@
               <MappingFragment StoreEntitySet="UserDepartment">
                 <ScalarProperty Name="DeptId" ColumnName="DeptId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuestionnaireStockIssueFreeHandwritings">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.QuestionnaireStockIssueFreeHandwriting">
+              <MappingFragment StoreEntitySet="QuestionnaireStockIssueFreeHandwriting">
+                <ScalarProperty Name="Issue" ColumnName="Issue" />
+                <ScalarProperty Name="IssueId" ColumnName="IssueId" />
+                <ScalarProperty Name="PhysicalStockId" ColumnName="PhysicalStockId" />
+                <ScalarProperty Name="QuestionnaireId" ColumnName="QuestionnaireId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -179,6 +179,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AICController.cs" />
     <Compile Include="Controllers\ASMController.cs" />
+    <Compile Include="Controllers\IssueController.cs" />
     <Compile Include="Controllers\AuditorsController.cs" />
     <Compile Include="Controllers\BBDsController.cs" />
     <Compile Include="Controllers\CommentsTypeController.cs" />
@@ -315,6 +316,9 @@
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\QuestionnairePhysicalStock.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuestionnaireStockIssueFreeHandwriting.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SaveImages.cs" />

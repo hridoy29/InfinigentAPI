@@ -73,7 +73,6 @@ namespace InfinigentAPI.Models
         public virtual DbSet<QuestionnaireObservationFreeHandWriting> QuestionnaireObservationFreeHandWritings { get; set; }
         public virtual DbSet<QuestionnairePhysicalStock> QuestionnairePhysicalStocks { get; set; }
         public virtual DbSet<UserDepartment> UserDepartments { get; set; }
-
-        public System.Data.Entity.DbSet<InfinigentBackend.SECURITY.SecurityEntity.Auditor> Auditors { get; set; }
+        public virtual DbSet<QuestionnaireStockIssueFreeHandwriting> QuestionnaireStockIssueFreeHandwritings { get; set; }
     }
 }

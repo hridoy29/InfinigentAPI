@@ -73,6 +73,8 @@
         <AssociationConnector Association="qt_infinigentdbModel.FK_QuestionnaireObservation_Questionnaire" />
         <AssociationConnector Association="qt_infinigentdbModel.FK_QuestionnaireObservationFreeHandWriting_Questionnaire" />
         <AssociationConnector Association="qt_infinigentdbModel.FK_QuestionnairePhysicalStock_Questionnaire" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.QuestionnaireStockIssueFreeHandwriting" Width="1.5" PointX="22.5" PointY="14.375" />
+        <AssociationConnector Association="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

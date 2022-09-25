@@ -14,10 +14,18 @@ namespace InfinigentAPI.Models
     
     public partial class QuestionnaireObservationFreeHandWriting
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public QuestionnaireObservationFreeHandWriting()
+        {
+            this.QuestionnaireStockIssueFreeHandwritings = new HashSet<QuestionnaireStockIssueFreeHandwriting>();
+        }
+    
         public int Id { get; set; }
         public int QuestionnaireId { get; set; }
         public string FreeHandWriting { get; set; }
     
         public virtual Questionnaire Questionnaire { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QuestionnaireStockIssueFreeHandwriting> QuestionnaireStockIssueFreeHandwritings { get; set; }
     }
 }
