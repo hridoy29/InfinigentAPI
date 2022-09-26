@@ -9,6 +9,7 @@ namespace SecurityBLL
 
      
         public static AuditorBLL AuditorBLL { get { return new AuditorBLL(); } }
+        public static DistributorBLL DistributorBLL { get { return new DistributorBLL(); } }
    
     }
 }

@@ -22,7 +22,7 @@ namespace InfinigentAPI.Controllers
         // GET: api/Auditors
         public IQueryable<Issue> GetAuditors()
         {
-            return db.Issues;
+            return db.Issues.Where(x => x.IsActive == true);
         }
 
         // GET: api/Auditors/5
