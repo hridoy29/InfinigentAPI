@@ -12,36 +12,26 @@ namespace InfinigentAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LU_User
+    public partial class LU_Distributor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LU_User()
+        public LU_Distributor()
         {
-            this.Questionnaires = new HashSet<Questionnaire>();
-            this.UserDepartments = new HashSet<UserDepartment>();
             this.TRN_Questionnaire = new HashSet<TRN_Questionnaire>();
-            this.LU_UserDepartment = new HashSet<LU_UserDepartment>();
         }
     
         public int Id { get; set; }
-        public int UserGroupId { get; set; }
+        public string DbCode { get; set; }
         public string Name { get; set; }
-        public string Email { get; set; }
-        public string MobileNo { get; set; }
-        public string Password { get; set; }
+        public string Mobile { get; set; }
+        public bool IsActive { get; set; }
+        public string GccCode { get; set; }
         public int CreatorId { get; set; }
         public System.DateTime CreationDate { get; set; }
         public int ModifierId { get; set; }
         public System.DateTime ModificationDate { get; set; }
-        public bool IsActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Questionnaire> Questionnaires { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserDepartment> UserDepartments { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TRN_Questionnaire> TRN_Questionnaire { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LU_UserDepartment> LU_UserDepartment { get; set; }
     }
 }

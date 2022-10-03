@@ -74,5 +74,23 @@ namespace InfinigentAPI.Models
         public virtual DbSet<QuestionnairePhysicalStock> QuestionnairePhysicalStocks { get; set; }
         public virtual DbSet<UserDepartment> UserDepartments { get; set; }
         public virtual DbSet<QuestionnaireStockIssueFreeHandwriting> QuestionnaireStockIssueFreeHandwritings { get; set; }
+        public virtual DbSet<LU_BBD> LU_BBD { get; set; }
+        public virtual DbSet<LU_Category> LU_Category { get; set; }
+        public virtual DbSet<LU_Department> LU_Department { get; set; }
+        public virtual DbSet<LU_Distributor> LU_Distributor { get; set; }
+        public virtual DbSet<LU_Identity> LU_Identity { get; set; }
+        public virtual DbSet<LU_Issues> LU_Issues { get; set; }
+        public virtual DbSet<LU_Item> LU_Item { get; set; }
+        public virtual DbSet<LU_ItemGroup> LU_ItemGroup { get; set; }
+        public virtual DbSet<LU_Observation> LU_Observation { get; set; }
+        public virtual DbSet<LU_UserDepartment> LU_UserDepartment { get; set; }
+        public virtual DbSet<TRN_Questionnaire> TRN_Questionnaire { get; set; }
+        public virtual DbSet<TRN_QuestionnaireDetails> TRN_QuestionnaireDetails { get; set; }
+        public virtual DbSet<TRN_QuestionnaireHyginePhotos> TRN_QuestionnaireHyginePhotos { get; set; }
+        public virtual DbSet<TRN_QuestionnaireHygineSignature> TRN_QuestionnaireHygineSignature { get; set; }
+        public virtual DbSet<TRN_QuestionnaireObservation> TRN_QuestionnaireObservation { get; set; }
+        public virtual DbSet<TRN_QuestionnaireObservationFreeHandWriting> TRN_QuestionnaireObservationFreeHandWriting { get; set; }
+        public virtual DbSet<TRN_QuestionnairePhysicalStock> TRN_QuestionnairePhysicalStock { get; set; }
+        public virtual DbSet<TRN_QuestionnaireStockIssueFreeHandwriting> TRN_QuestionnaireStockIssueFreeHandwriting { get; set; }
     }
 }

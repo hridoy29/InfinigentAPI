@@ -180,13 +180,13 @@
     <Compile Include="Controllers\AICController.cs" />
     <Compile Include="Controllers\ASMController.cs" />
     <Compile Include="Controllers\DistributorsController.cs" />
-    <Compile Include="Controllers\IssueController.cs" />
     <Compile Include="Controllers\AuditorsController.cs" />
     <Compile Include="Controllers\BBDsController.cs" />
     <Compile Include="Controllers\CommentsTypeController.cs" />
     <Compile Include="Controllers\CommnetsController.cs" />
     <Compile Include="Controllers\DistributorDetailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LU_IssuesController.cs" />
     <Compile Include="Controllers\MyController.cs" />
     <Compile Include="Controllers\NumberController.cs" />
     <Compile Include="Controllers\SchemeAuditChildController.cs" />
@@ -244,6 +244,12 @@
     <Compile Include="Models\LU_ASM.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LU_BBD.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LU_Category.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LU_ChallanType.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
@@ -256,7 +262,13 @@
     <Compile Include="Models\LU_ConfigarationSettings.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LU_Department.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LU_DeviceInfo.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LU_Distributor.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_DistributorDetails.cs">
@@ -265,7 +277,22 @@
     <Compile Include="Models\LU_Employee.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LU_Identity.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LU_Issues.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LU_Item.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LU_ItemGroup.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LU_Module.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LU_Observation.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_OutletType.cs">
@@ -287,6 +314,9 @@
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_User.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LU_UserDepartment.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_UserGroup.cs">
@@ -336,6 +366,30 @@
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TRN_PermissionDetail.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRN_Questionnaire.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRN_QuestionnaireDetails.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRN_QuestionnaireHyginePhotos.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRN_QuestionnaireHygineSignature.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRN_QuestionnaireObservation.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRN_QuestionnaireObservationFreeHandWriting.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRN_QuestionnairePhysicalStock.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRN_QuestionnaireStockIssueFreeHandwriting.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TRN_SchemeAuditChild.cs">
