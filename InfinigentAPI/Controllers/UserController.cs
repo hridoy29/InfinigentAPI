@@ -6,9 +6,11 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using InfinigentAPI.Models;
+using SecurityBLL;
 
 namespace InfinigentAPI.Controllers
 {
@@ -17,9 +19,32 @@ namespace InfinigentAPI.Controllers
         private qt_infinigentdbEntities db = new qt_infinigentdbEntities();
 
         // GET: api/User
-        public IQueryable<LU_User> GetLU_User()
+        [ResponseType(typeof(LU_Issues))]
+        public async Task<IHttpActionResult> GetLU_User()
         {
-            return db.LU_User.Where(x=>x.IsActive==true);
+            //return db.LU_User.Where(x=>x.IsActive==true);
+
+
+            try
+            {
+
+                var list = await Facade.UserBLL.GetUsers();
+              
+                if (list == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(list);
+              
+
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
+               
+            }
+
         }
 
         // GET: api/User/5
