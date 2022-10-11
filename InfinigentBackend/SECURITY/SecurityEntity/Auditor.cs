@@ -17,5 +17,6 @@ namespace InfinigentBackend.SECURITY.SecurityEntity
         public string DeptName { get; set; }
         public string Password { get; set; }
         public bool IsActive { get; set; }
+        public DateTime LastAuditDate { get; set; }
     }
 }
