@@ -7,19 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InfinigentAPI.Models
+namespace InfinigentBackend.SECURITY.SecurityEntity
 {
     using System;
     using System.Collections.Generic;
     
     public partial class LU_Observation
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LU_Observation()
-        {
-            this.TRN_QuestionnaireObservation = new HashSet<TRN_QuestionnaireObservation>();
-        }
-    
         public int Id { get; set; }
         public string Name { get; set; }
         public bool IsActive { get; set; }
@@ -28,8 +22,5 @@ namespace InfinigentAPI.Models
         public int ModifierId { get; set; }
         public System.DateTime ModificationDate { get; set; }
         public Nullable<bool> IsPositiveComments { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TRN_QuestionnaireObservation> TRN_QuestionnaireObservation { get; set; }
     }
 }

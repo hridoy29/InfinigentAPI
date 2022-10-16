@@ -190,6 +190,7 @@
     <Compile Include="Controllers\LU_IssuesController.cs" />
     <Compile Include="Controllers\MyController.cs" />
     <Compile Include="Controllers\NumberController.cs" />
+    <Compile Include="Controllers\ObservationController.cs" />
     <Compile Include="Controllers\SchemeAuditChildController.cs" />
     <Compile Include="Controllers\SchemeAuditParentController.cs" />
     <Compile Include="Controllers\SchemeAuditShopDetailsController.cs" />
