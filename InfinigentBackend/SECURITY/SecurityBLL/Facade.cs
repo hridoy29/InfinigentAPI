@@ -12,6 +12,7 @@ namespace SecurityBLL
         public static IssuesBLL IssuesBLL { get { return new IssuesBLL(); } }
         public static ObservationBLL ObservationBLL { get { return new ObservationBLL(); } }
         public static BBDBLL BBDBLL { get { return new BBDBLL(); } }
+        public static IdentityBLL IdentityBLL { get { return new IdentityBLL(); } }
         public static UserBLL UserBLL { get { return new UserBLL(); } }
         public static DistributorBLL DistributorBLL { get { return new DistributorBLL(); } }
    
