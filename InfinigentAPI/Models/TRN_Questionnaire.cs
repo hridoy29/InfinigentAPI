@@ -24,7 +24,8 @@ namespace InfinigentAPI.Models
             this.TRN_QuestionnairePhysicalStock = new HashSet<TRN_QuestionnairePhysicalStock>();
         }
     
-        public int Id { get; set; }
+        public string Id { get; set; }
+        public string Number { get; set; }
         public int UserId { get; set; }
         public int DistributorId { get; set; }
         public System.DateTime Date { get; set; }

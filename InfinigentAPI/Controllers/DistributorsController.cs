@@ -39,7 +39,7 @@ namespace InfinigentAPI.Controllers
 
 
 
-        // GET: api/Auditors/GetAuditorInfo/userEmail
+        // GET: api/Distributor/GetDistributorInfo/DbCode
         [ResponseType(typeof(Distributor))]
         public async Task<IHttpActionResult> GetDistributorInfo(string DbCode)
         {

@@ -15,7 +15,7 @@ namespace InfinigentAPI.Models
     public partial class TRN_QuestionnaireHygineSignature
     {
         public int Id { get; set; }
-        public int QuestionnaireId { get; set; }
+        public string Number { get; set; }
         public string Name { get; set; }
         public int IdentityId { get; set; }
         public string SignaturePhoto { get; set; }

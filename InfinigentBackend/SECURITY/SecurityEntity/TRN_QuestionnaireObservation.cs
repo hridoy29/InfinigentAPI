@@ -7,17 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InfinigentAPI.Models
+namespace InfinigentBackend.SECURITY.SecurityEntity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class QuestionnaireHyginePhoto
+    public partial class TRN_QuestionnaireObservation
     {
         public int Id { get; set; }
-        public int QuestionnaireId { get; set; }
-        public string HyginePhoto { get; set; }
+        public string Number { get; set; }
+        public int ObservationId { get; set; }
+        public bool isChekced { get; set; }
     
-        public virtual Questionnaire Questionnaire { get; set; }
+     
     }
 }

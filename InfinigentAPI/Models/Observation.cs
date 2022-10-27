@@ -14,12 +14,6 @@ namespace InfinigentAPI.Models
     
     public partial class Observation
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Observation()
-        {
-            this.QuestionnaireObservations = new HashSet<QuestionnaireObservation>();
-        }
-    
         public int Id { get; set; }
         public string Name { get; set; }
         public bool IsActive { get; set; }
@@ -27,8 +21,5 @@ namespace InfinigentAPI.Models
         public System.DateTime CreationDate { get; set; }
         public int ModifierId { get; set; }
         public System.DateTime ModificationDate { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuestionnaireObservation> QuestionnaireObservations { get; set; }
     }
 }

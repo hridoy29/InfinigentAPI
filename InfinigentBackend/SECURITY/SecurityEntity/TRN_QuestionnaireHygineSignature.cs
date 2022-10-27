@@ -7,19 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InfinigentAPI.Models
+namespace InfinigentBackend.SECURITY.SecurityEntity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class TRN_QuestionnaireStockIssueFreeHandwriting
+    public partial class TRN_QuestionnaireHygineSignature
     {
         public int Id { get; set; }
         public string Number { get; set; }
-        public int PhysicalStockId { get; set; }
-        public int IssueId { get; set; }
-        public string Issue { get; set; }
+        public string Name { get; set; }
+        public int IdentityId { get; set; }
+        public string SignaturePhoto { get; set; }
     
-        public virtual TRN_QuestionnaireObservationFreeHandWriting TRN_QuestionnaireObservationFreeHandWriting { get; set; }
+      
     }
 }

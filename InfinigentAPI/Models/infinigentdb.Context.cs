@@ -65,15 +65,7 @@ namespace InfinigentAPI.Models
         public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<ItemGroup> ItemGroups { get; set; }
         public virtual DbSet<Observation> Observations { get; set; }
-        public virtual DbSet<Questionnaire> Questionnaires { get; set; }
-        public virtual DbSet<QuestionnaireDetail> QuestionnaireDetails { get; set; }
-        public virtual DbSet<QuestionnaireHyginePhoto> QuestionnaireHyginePhotos { get; set; }
-        public virtual DbSet<QuestionnaireHygineSignature> QuestionnaireHygineSignatures { get; set; }
-        public virtual DbSet<QuestionnaireObservation> QuestionnaireObservations { get; set; }
-        public virtual DbSet<QuestionnaireObservationFreeHandWriting> QuestionnaireObservationFreeHandWritings { get; set; }
-        public virtual DbSet<QuestionnairePhysicalStock> QuestionnairePhysicalStocks { get; set; }
         public virtual DbSet<UserDepartment> UserDepartments { get; set; }
-        public virtual DbSet<QuestionnaireStockIssueFreeHandwriting> QuestionnaireStockIssueFreeHandwritings { get; set; }
         public virtual DbSet<LU_BBD> LU_BBD { get; set; }
         public virtual DbSet<LU_Category> LU_Category { get; set; }
         public virtual DbSet<LU_Department> LU_Department { get; set; }

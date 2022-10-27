@@ -15,7 +15,7 @@ namespace InfinigentAPI.Models
     public partial class TRN_QuestionnaireHyginePhotos
     {
         public int Id { get; set; }
-        public int QuestionnaireId { get; set; }
+        public string Number { get; set; }
         public string HyginePhoto { get; set; }
     
         public virtual TRN_Questionnaire TRN_Questionnaire { get; set; }

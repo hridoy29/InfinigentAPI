@@ -7,22 +7,31 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InfinigentAPI.Models
+namespace InfinigentBackend.SECURITY.SecurityEntity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Distributor
+    public partial class TRN_Questionnaire
     {
+      public TRN_Questionnaire()
+        {
+          
+        }
+    
         public int Id { get; set; }
-        public string DbCode { get; set; }
-        public string Name { get; set; }
-        public string Mobile { get; set; }
-        public bool IsActive { get; set; }
-        public string GccCode { get; set; }
+
+        public string Number { get; set; }
+        public int UserId { get; set; }
+        public int DistributorId { get; set; }
+        public System.DateTime Date { get; set; }
+        public int Month { get; set; }
+        public int Year { get; set; }
         public int CreatorId { get; set; }
         public System.DateTime CreationDate { get; set; }
         public int ModifierId { get; set; }
         public System.DateTime ModificationDate { get; set; }
+    
+  
     }
 }

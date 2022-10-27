@@ -7,15 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InfinigentAPI.Models
+namespace InfinigentBackend.SECURITY.SecurityEntity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class QuestionnaireDetail
+    public partial class TRN_QuestionnaireDetails
     {
         public int Id { get; set; }
-        public int QuestionnaireId { get; set; }
+        public string Number { get; set; }
         public bool LogoOfTheTCC { get; set; }
         public string LogoImage { get; set; }
         public bool StorageOfMemoForLastYear { get; set; }
@@ -29,6 +29,6 @@ namespace InfinigentAPI.Models
         public bool FreeSchemeProductAvailable { get; set; }
         public int MaintainingMandateTime { get; set; }
     
-        public virtual BBD BBD { get; set; }
+   
     }
 }

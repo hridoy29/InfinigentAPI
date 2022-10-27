@@ -7,22 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InfinigentAPI.Models
+namespace InfinigentBackend.SECURITY.SecurityEntity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class QuestionnairePhysicalStock
+    public partial class TRN_QuestionnaireHyginePhotos
     {
         public int Id { get; set; }
-        public int QuestionnaireId { get; set; }
-        public int ItemId { get; set; }
-        public decimal SystemStock { get; set; }
-        public decimal PhysicalStock { get; set; }
-        public decimal Difference { get; set; }
-        public decimal BBDDamage { get; set; }
-        public int IssueId { get; set; }
+        public string Number { get; set; }
+        public string HyginePhoto { get; set; }
     
-        public virtual Questionnaire Questionnaire { get; set; }
+      
     }
 }

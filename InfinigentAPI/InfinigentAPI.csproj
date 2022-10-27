@@ -192,6 +192,7 @@
     <Compile Include="Controllers\MyController.cs" />
     <Compile Include="Controllers\NumberController.cs" />
     <Compile Include="Controllers\ObservationController.cs" />
+    <Compile Include="Controllers\QuestionnaireTransactionsController.cs" />
     <Compile Include="Controllers\SchemeAuditChildController.cs" />
     <Compile Include="Controllers\SchemeAuditParentController.cs" />
     <Compile Include="Controllers\SchemeAuditShopDetailsController.cs" />
@@ -329,30 +330,6 @@
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Observation.cs">
-      <DependentUpon>infinigentdb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Questionnaire.cs">
-      <DependentUpon>infinigentdb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuestionnaireDetail.cs">
-      <DependentUpon>infinigentdb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuestionnaireHyginePhoto.cs">
-      <DependentUpon>infinigentdb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuestionnaireHygineSignature.cs">
-      <DependentUpon>infinigentdb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuestionnaireObservation.cs">
-      <DependentUpon>infinigentdb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuestionnaireObservationFreeHandWriting.cs">
-      <DependentUpon>infinigentdb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuestionnairePhysicalStock.cs">
-      <DependentUpon>infinigentdb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuestionnaireStockIssueFreeHandwriting.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SaveImages.cs" />

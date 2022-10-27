@@ -7,19 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InfinigentAPI.Models
+namespace InfinigentBackend.SECURITY.SecurityEntity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class QuestionnaireHygineSignature
+    public partial class TRN_QuestionnaireObservationFreeHandWriting
     {
+        public TRN_QuestionnaireObservationFreeHandWriting()
+        {
+          
+        }
+
         public int Id { get; set; }
-        public int QuestionnaireId { get; set; }
-        public string Name { get; set; }
-        public int IdentityId { get; set; }
-        public string SignaturePhoto { get; set; }
-    
-        public virtual Questionnaire Questionnaire { get; set; }
+        public string Number { get; set; }
+        public int QuestionnaireObservationId { get; set; }
+        public int ObservationId { get; set; }
+        public string FreeHandWriting { get; set; }
+
+
     }
 }

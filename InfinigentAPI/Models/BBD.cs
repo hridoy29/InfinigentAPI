@@ -14,12 +14,6 @@ namespace InfinigentAPI.Models
     
     public partial class BBD
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public BBD()
-        {
-            this.QuestionnaireDetails = new HashSet<QuestionnaireDetail>();
-        }
-    
         public int Id { get; set; }
         public string BBDName { get; set; }
         public bool IsActive { get; set; }
@@ -27,8 +21,5 @@ namespace InfinigentAPI.Models
         public System.DateTime CreationDate { get; set; }
         public int ModifierId { get; set; }
         public System.DateTime ModificationDate { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuestionnaireDetail> QuestionnaireDetails { get; set; }
     }
 }

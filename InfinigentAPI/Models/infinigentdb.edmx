@@ -391,7 +391,8 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="DistributorId" Type="int" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
@@ -407,7 +408,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="QuestionnaireId" Type="int" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LogoOfTheTCC" Type="bit" Nullable="false" />
           <Property Name="LogoImage" Type="nvarchar(max)" />
           <Property Name="StorageOfMemoForLastYear" Type="bit" Nullable="false" />
@@ -426,7 +427,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="QuestionnaireId" Type="int" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="HyginePhoto" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="TRN_QuestionnaireHygineSignature">
@@ -434,7 +435,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="QuestionnaireId" Type="int" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IdentityId" Type="int" Nullable="false" />
           <Property Name="SignaturePhoto" Type="nvarchar(max)" Nullable="false" />
@@ -444,7 +445,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="QuestionnaireId" Type="int" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ObservationId" Type="int" Nullable="false" />
           <Property Name="isChekced" Type="bit" Nullable="false" />
         </EntityType>
@@ -453,7 +454,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="QuestionnaireId" Type="int" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="QuestionnaireObservationId" Type="int" Nullable="false" />
+          <Property Name="ObservationId" Type="int" Nullable="false" />
           <Property Name="FreeHandWriting" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="TRN_QuestionnairePhysicalStock">
@@ -461,7 +464,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="QuestionnaireId" Type="int" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ItemId" Type="int" Nullable="false" />
           <Property Name="SystemStock" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="PhysicalStock" Type="decimal" Precision="18" Scale="2" Nullable="false" />
@@ -474,7 +477,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="QuestionnaireId" Type="int" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="PhysicalStockId" Type="int" Nullable="false" />
           <Property Name="IssueId" Type="int" Nullable="false" />
           <Property Name="Issue" Type="varchar" MaxLength="300" />
@@ -734,7 +737,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="TRN_QuestionnaireHyginePhotos">
-              <PropertyRef Name="QuestionnaireId" />
+              <PropertyRef Name="Number" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -746,7 +749,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="TRN_QuestionnaireHygineSignature">
-              <PropertyRef Name="QuestionnaireId" />
+              <PropertyRef Name="Number" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -770,7 +773,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="TRN_QuestionnaireObservation">
-              <PropertyRef Name="QuestionnaireId" />
+              <PropertyRef Name="Number" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -782,7 +785,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="TRN_QuestionnaireObservationFreeHandWriting">
-              <PropertyRef Name="QuestionnaireId" />
+              <PropertyRef Name="Number" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -794,7 +797,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="TRN_QuestionnairePhysicalStock">
-              <PropertyRef Name="QuestionnaireId" />
+              <PropertyRef Name="Number" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1214,10 +1217,9 @@
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Questionnaires" Relationship="qt_infinigentdbModel.FK_Questionnaire_LU_User" FromRole="LU_User" ToRole="Questionnaire" />
           <NavigationProperty Name="UserDepartments" Relationship="qt_infinigentdbModel.FK_UserDepartment_LU_User1" FromRole="LU_User" ToRole="UserDepartment" />
-          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_Questionnaire_LU_User1" FromRole="LU_User" ToRole="TRN_Questionnaire" />
           <NavigationProperty Name="LU_UserDepartment" Relationship="qt_infinigentdbModel.FK_UserDepartment_LU_User11" FromRole="LU_User" ToRole="LU_UserDepartment" />
+          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_Questionnaire_LU_User" FromRole="LU_User" ToRole="TRN_Questionnaire" />
         </EntityType>
         <EntityType Name="LU_UserGroup">
           <Key>
@@ -1442,18 +1444,7 @@
           <EntitySet Name="Items" EntityType="qt_infinigentdbModel.Item" />
           <EntitySet Name="ItemGroups" EntityType="qt_infinigentdbModel.ItemGroup" />
           <EntitySet Name="Observations" EntityType="qt_infinigentdbModel.Observation" />
-          <EntitySet Name="Questionnaires" EntityType="qt_infinigentdbModel.Questionnaire" />
-          <EntitySet Name="QuestionnaireDetails" EntityType="qt_infinigentdbModel.QuestionnaireDetail" />
-          <EntitySet Name="QuestionnaireHyginePhotos" EntityType="qt_infinigentdbModel.QuestionnaireHyginePhoto" />
-          <EntitySet Name="QuestionnaireHygineSignatures" EntityType="qt_infinigentdbModel.QuestionnaireHygineSignature" />
-          <EntitySet Name="QuestionnaireObservations" EntityType="qt_infinigentdbModel.QuestionnaireObservation" />
-          <EntitySet Name="QuestionnaireObservationFreeHandWritings" EntityType="qt_infinigentdbModel.QuestionnaireObservationFreeHandWriting" />
-          <EntitySet Name="QuestionnairePhysicalStocks" EntityType="qt_infinigentdbModel.QuestionnairePhysicalStock" />
           <EntitySet Name="UserDepartments" EntityType="qt_infinigentdbModel.UserDepartment" />
-          <AssociationSet Name="FK_QuestionnaireDetails_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireDetails_Questionnaire">
-            <End Role="BBD" EntitySet="BBDs" />
-            <End Role="QuestionnaireDetail" EntitySet="QuestionnaireDetails" />
-          </AssociationSet>
           <AssociationSet Name="FK_Item_Category" Association="qt_infinigentdbModel.FK_Item_Category">
             <End Role="Category" EntitySet="Categories" />
             <End Role="Item" EntitySet="Items" />
@@ -1462,50 +1453,13 @@
             <End Role="Department" EntitySet="Departments" />
             <End Role="UserDepartment" EntitySet="UserDepartments" />
           </AssociationSet>
-          <AssociationSet Name="FK_Questionnaire_Distributor" Association="qt_infinigentdbModel.FK_Questionnaire_Distributor">
-            <End Role="Distributor" EntitySet="Distributors" />
-            <End Role="Questionnaire" EntitySet="Questionnaires" />
-          </AssociationSet>
           <AssociationSet Name="FK_Item_ItemGroup" Association="qt_infinigentdbModel.FK_Item_ItemGroup">
             <End Role="ItemGroup" EntitySet="ItemGroups" />
             <End Role="Item" EntitySet="Items" />
           </AssociationSet>
-          <AssociationSet Name="FK_Questionnaire_LU_User" Association="qt_infinigentdbModel.FK_Questionnaire_LU_User">
-            <End Role="LU_User" EntitySet="LU_User" />
-            <End Role="Questionnaire" EntitySet="Questionnaires" />
-          </AssociationSet>
           <AssociationSet Name="FK_UserDepartment_LU_User1" Association="qt_infinigentdbModel.FK_UserDepartment_LU_User1">
             <End Role="LU_User" EntitySet="LU_User" />
             <End Role="UserDepartment" EntitySet="UserDepartments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_QuestionnaireObservation_Observation" Association="qt_infinigentdbModel.FK_QuestionnaireObservation_Observation">
-            <End Role="Observation" EntitySet="Observations" />
-            <End Role="QuestionnaireObservation" EntitySet="QuestionnaireObservations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_QuestionnaireHyginePhotos_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireHyginePhotos_Questionnaire">
-            <End Role="Questionnaire" EntitySet="Questionnaires" />
-            <End Role="QuestionnaireHyginePhoto" EntitySet="QuestionnaireHyginePhotos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_QuestionnaireHygineSignature_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireHygineSignature_Questionnaire">
-            <End Role="Questionnaire" EntitySet="Questionnaires" />
-            <End Role="QuestionnaireHygineSignature" EntitySet="QuestionnaireHygineSignatures" />
-          </AssociationSet>
-          <AssociationSet Name="FK_QuestionnaireObservation_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireObservation_Questionnaire">
-            <End Role="Questionnaire" EntitySet="Questionnaires" />
-            <End Role="QuestionnaireObservation" EntitySet="QuestionnaireObservations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_QuestionnaireObservationFreeHandWriting_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireObservationFreeHandWriting_Questionnaire">
-            <End Role="Questionnaire" EntitySet="Questionnaires" />
-            <End Role="QuestionnaireObservationFreeHandWriting" EntitySet="QuestionnaireObservationFreeHandWritings" />
-          </AssociationSet>
-          <AssociationSet Name="FK_QuestionnairePhysicalStock_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnairePhysicalStock_Questionnaire">
-            <End Role="Questionnaire" EntitySet="Questionnaires" />
-            <End Role="QuestionnairePhysicalStock" EntitySet="QuestionnairePhysicalStocks" />
-          </AssociationSet>
-          <EntitySet Name="QuestionnaireStockIssueFreeHandwritings" EntityType="qt_infinigentdbModel.QuestionnaireStockIssueFreeHandwriting" />
-          <AssociationSet Name="FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire">
-            <End Role="QuestionnaireObservationFreeHandWriting" EntitySet="QuestionnaireObservationFreeHandWritings" />
-            <End Role="QuestionnaireStockIssueFreeHandwriting" EntitySet="QuestionnaireStockIssueFreeHandwritings" />
           </AssociationSet>
           <EntitySet Name="LU_BBD" EntityType="qt_infinigentdbModel.LU_BBD" />
           <EntitySet Name="LU_Category" EntityType="qt_infinigentdbModel.LU_Category" />
@@ -1517,18 +1471,6 @@
           <EntitySet Name="LU_ItemGroup" EntityType="qt_infinigentdbModel.LU_ItemGroup" />
           <EntitySet Name="LU_Observation" EntityType="qt_infinigentdbModel.LU_Observation" />
           <EntitySet Name="LU_UserDepartment" EntityType="qt_infinigentdbModel.LU_UserDepartment" />
-          <EntitySet Name="TRN_Questionnaire" EntityType="qt_infinigentdbModel.TRN_Questionnaire" />
-          <EntitySet Name="TRN_QuestionnaireDetails" EntityType="qt_infinigentdbModel.TRN_QuestionnaireDetails" />
-          <EntitySet Name="TRN_QuestionnaireHyginePhotos" EntityType="qt_infinigentdbModel.TRN_QuestionnaireHyginePhotos" />
-          <EntitySet Name="TRN_QuestionnaireHygineSignature" EntityType="qt_infinigentdbModel.TRN_QuestionnaireHygineSignature" />
-          <EntitySet Name="TRN_QuestionnaireObservation" EntityType="qt_infinigentdbModel.TRN_QuestionnaireObservation" />
-          <EntitySet Name="TRN_QuestionnaireObservationFreeHandWriting" EntityType="qt_infinigentdbModel.TRN_QuestionnaireObservationFreeHandWriting" />
-          <EntitySet Name="TRN_QuestionnairePhysicalStock" EntityType="qt_infinigentdbModel.TRN_QuestionnairePhysicalStock" />
-          <EntitySet Name="TRN_QuestionnaireStockIssueFreeHandwriting" EntityType="qt_infinigentdbModel.TRN_QuestionnaireStockIssueFreeHandwriting" />
-          <AssociationSet Name="FK_QuestionnaireDetails_Questionnaire1" Association="qt_infinigentdbModel.FK_QuestionnaireDetails_Questionnaire1">
-            <End Role="LU_BBD" EntitySet="LU_BBD" />
-            <End Role="TRN_QuestionnaireDetails" EntitySet="TRN_QuestionnaireDetails" />
-          </AssociationSet>
           <AssociationSet Name="FK_Item_Category1" Association="qt_infinigentdbModel.FK_Item_Category1">
             <End Role="LU_Category" EntitySet="LU_Category" />
             <End Role="LU_Item" EntitySet="LU_Item" />
@@ -1537,51 +1479,63 @@
             <End Role="LU_Department" EntitySet="LU_Department" />
             <End Role="LU_UserDepartment" EntitySet="LU_UserDepartment" />
           </AssociationSet>
-          <AssociationSet Name="FK_Questionnaire_Distributor1" Association="qt_infinigentdbModel.FK_Questionnaire_Distributor1">
-            <End Role="LU_Distributor" EntitySet="LU_Distributor" />
-            <End Role="TRN_Questionnaire" EntitySet="TRN_Questionnaire" />
-          </AssociationSet>
           <AssociationSet Name="FK_Item_ItemGroup1" Association="qt_infinigentdbModel.FK_Item_ItemGroup1">
             <End Role="LU_ItemGroup" EntitySet="LU_ItemGroup" />
             <End Role="LU_Item" EntitySet="LU_Item" />
-          </AssociationSet>
-          <AssociationSet Name="FK_QuestionnaireObservation_Observation1" Association="qt_infinigentdbModel.FK_QuestionnaireObservation_Observation1">
-            <End Role="LU_Observation" EntitySet="LU_Observation" />
-            <End Role="TRN_QuestionnaireObservation" EntitySet="TRN_QuestionnaireObservation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Questionnaire_LU_User1" Association="qt_infinigentdbModel.FK_Questionnaire_LU_User1">
-            <End Role="LU_User" EntitySet="LU_User" />
-            <End Role="TRN_Questionnaire" EntitySet="TRN_Questionnaire" />
           </AssociationSet>
           <AssociationSet Name="FK_UserDepartment_LU_User11" Association="qt_infinigentdbModel.FK_UserDepartment_LU_User11">
             <End Role="LU_User" EntitySet="LU_User" />
             <End Role="LU_UserDepartment" EntitySet="LU_UserDepartment" />
           </AssociationSet>
-          <AssociationSet Name="FK_QuestionnaireHyginePhotos_Questionnaire1" Association="qt_infinigentdbModel.FK_QuestionnaireHyginePhotos_Questionnaire1">
+          <EntitySet Name="TRN_Questionnaire" EntityType="qt_infinigentdbModel.TRN_Questionnaire" />
+          <EntitySet Name="TRN_QuestionnaireDetails" EntityType="qt_infinigentdbModel.TRN_QuestionnaireDetails" />
+          <EntitySet Name="TRN_QuestionnaireHyginePhotos" EntityType="qt_infinigentdbModel.TRN_QuestionnaireHyginePhotos" />
+          <EntitySet Name="TRN_QuestionnaireHygineSignature" EntityType="qt_infinigentdbModel.TRN_QuestionnaireHygineSignature" />
+          <EntitySet Name="TRN_QuestionnaireObservation" EntityType="qt_infinigentdbModel.TRN_QuestionnaireObservation" />
+          <EntitySet Name="TRN_QuestionnaireObservationFreeHandWriting" EntityType="qt_infinigentdbModel.TRN_QuestionnaireObservationFreeHandWriting" />
+          <EntitySet Name="TRN_QuestionnairePhysicalStock" EntityType="qt_infinigentdbModel.TRN_QuestionnairePhysicalStock" />
+          <EntitySet Name="TRN_QuestionnaireStockIssueFreeHandwriting" EntityType="qt_infinigentdbModel.TRN_QuestionnaireStockIssueFreeHandwriting" />
+          <AssociationSet Name="FK_QuestionnaireDetails_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireDetails_Questionnaire">
+            <End Role="LU_BBD" EntitySet="LU_BBD" />
+            <End Role="TRN_QuestionnaireDetails" EntitySet="TRN_QuestionnaireDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Questionnaire_Distributor" Association="qt_infinigentdbModel.FK_Questionnaire_Distributor">
+            <End Role="LU_Distributor" EntitySet="LU_Distributor" />
+            <End Role="TRN_Questionnaire" EntitySet="TRN_Questionnaire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuestionnaireObservation_Observation" Association="qt_infinigentdbModel.FK_QuestionnaireObservation_Observation">
+            <End Role="LU_Observation" EntitySet="LU_Observation" />
+            <End Role="TRN_QuestionnaireObservation" EntitySet="TRN_QuestionnaireObservation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Questionnaire_LU_User" Association="qt_infinigentdbModel.FK_Questionnaire_LU_User">
+            <End Role="LU_User" EntitySet="LU_User" />
+            <End Role="TRN_Questionnaire" EntitySet="TRN_Questionnaire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuestionnaireHyginePhotos_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireHyginePhotos_Questionnaire">
             <End Role="TRN_Questionnaire" EntitySet="TRN_Questionnaire" />
             <End Role="TRN_QuestionnaireHyginePhotos" EntitySet="TRN_QuestionnaireHyginePhotos" />
           </AssociationSet>
-          <AssociationSet Name="FK_QuestionnaireHygineSignature_Questionnaire1" Association="qt_infinigentdbModel.FK_QuestionnaireHygineSignature_Questionnaire1">
+          <AssociationSet Name="FK_QuestionnaireHygineSignature_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireHygineSignature_Questionnaire">
             <End Role="TRN_Questionnaire" EntitySet="TRN_Questionnaire" />
             <End Role="TRN_QuestionnaireHygineSignature" EntitySet="TRN_QuestionnaireHygineSignature" />
           </AssociationSet>
-          <AssociationSet Name="FK_QuestionnaireObservation_Questionnaire1" Association="qt_infinigentdbModel.FK_QuestionnaireObservation_Questionnaire1">
+          <AssociationSet Name="FK_QuestionnaireObservation_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireObservation_Questionnaire">
             <End Role="TRN_Questionnaire" EntitySet="TRN_Questionnaire" />
             <End Role="TRN_QuestionnaireObservation" EntitySet="TRN_QuestionnaireObservation" />
           </AssociationSet>
-          <AssociationSet Name="FK_QuestionnaireObservationFreeHandWriting_Questionnaire1" Association="qt_infinigentdbModel.FK_QuestionnaireObservationFreeHandWriting_Questionnaire1">
+          <AssociationSet Name="FK_QuestionnaireObservationFreeHandWriting_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireObservationFreeHandWriting_Questionnaire">
             <End Role="TRN_Questionnaire" EntitySet="TRN_Questionnaire" />
             <End Role="TRN_QuestionnaireObservationFreeHandWriting" EntitySet="TRN_QuestionnaireObservationFreeHandWriting" />
           </AssociationSet>
-          <AssociationSet Name="FK_QuestionnairePhysicalStock_Questionnaire1" Association="qt_infinigentdbModel.FK_QuestionnairePhysicalStock_Questionnaire1">
+          <AssociationSet Name="FK_QuestionnairePhysicalStock_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnairePhysicalStock_Questionnaire">
             <End Role="TRN_Questionnaire" EntitySet="TRN_Questionnaire" />
             <End Role="TRN_QuestionnairePhysicalStock" EntitySet="TRN_QuestionnairePhysicalStock" />
           </AssociationSet>
-          <AssociationSet Name="FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire1" Association="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire1">
+          <AssociationSet Name="FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire">
             <End Role="TRN_QuestionnaireObservationFreeHandWriting" EntitySet="TRN_QuestionnaireObservationFreeHandWriting" />
             <End Role="TRN_QuestionnaireStockIssueFreeHandwriting" EntitySet="TRN_QuestionnaireStockIssueFreeHandwriting" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Test">
           <Key>
             <PropertyRef Name="Id" />
@@ -1728,7 +1682,6 @@
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="QuestionnaireDetails" Relationship="qt_infinigentdbModel.FK_QuestionnaireDetails_Questionnaire" FromRole="BBD" ToRole="QuestionnaireDetail" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -1770,7 +1723,6 @@
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Questionnaires" Relationship="qt_infinigentdbModel.FK_Questionnaire_Distributor" FromRole="Distributor" ToRole="Questionnaire" />
         </EntityType>
         <EntityType Name="Identity">
           <Key>
@@ -1838,104 +1790,6 @@
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="QuestionnaireObservations" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservation_Observation" FromRole="Observation" ToRole="QuestionnaireObservation" />
-        </EntityType>
-        <EntityType Name="Questionnaire">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="DistributorId" Type="Int32" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Month" Type="Int32" Nullable="false" />
-          <Property Name="Year" Type="Int32" Nullable="false" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Distributor" Relationship="qt_infinigentdbModel.FK_Questionnaire_Distributor" FromRole="Questionnaire" ToRole="Distributor" />
-          <NavigationProperty Name="LU_User" Relationship="qt_infinigentdbModel.FK_Questionnaire_LU_User" FromRole="Questionnaire" ToRole="LU_User" />
-          <NavigationProperty Name="QuestionnaireHyginePhotos" Relationship="qt_infinigentdbModel.FK_QuestionnaireHyginePhotos_Questionnaire" FromRole="Questionnaire" ToRole="QuestionnaireHyginePhoto" />
-          <NavigationProperty Name="QuestionnaireHygineSignatures" Relationship="qt_infinigentdbModel.FK_QuestionnaireHygineSignature_Questionnaire" FromRole="Questionnaire" ToRole="QuestionnaireHygineSignature" />
-          <NavigationProperty Name="QuestionnaireObservations" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservation_Questionnaire" FromRole="Questionnaire" ToRole="QuestionnaireObservation" />
-          <NavigationProperty Name="QuestionnaireObservationFreeHandWritings" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservationFreeHandWriting_Questionnaire" FromRole="Questionnaire" ToRole="QuestionnaireObservationFreeHandWriting" />
-          <NavigationProperty Name="QuestionnairePhysicalStocks" Relationship="qt_infinigentdbModel.FK_QuestionnairePhysicalStock_Questionnaire" FromRole="Questionnaire" ToRole="QuestionnairePhysicalStock" />
-        </EntityType>
-        <EntityType Name="QuestionnaireDetail">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QuestionnaireId" Type="Int32" Nullable="false" />
-          <Property Name="LogoOfTheTCC" Type="Boolean" Nullable="false" />
-          <Property Name="LogoImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="StorageOfMemoForLastYear" Type="Boolean" Nullable="false" />
-          <Property Name="MemoImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="GitInIdasAvailable" Type="Boolean" Nullable="false" />
-          <Property Name="GitImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DayClosePending" Type="Boolean" Nullable="false" />
-          <Property Name="DayCloseImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="StorageCondition" Type="Boolean" Nullable="false" />
-          <Property Name="MarketReturnedProductAdjusted" Type="Boolean" Nullable="false" />
-          <Property Name="FreeSchemeProductAvailable" Type="Boolean" Nullable="false" />
-          <Property Name="MaintainingMandateTime" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BBD" Relationship="qt_infinigentdbModel.FK_QuestionnaireDetails_Questionnaire" FromRole="QuestionnaireDetail" ToRole="BBD" />
-        </EntityType>
-        <EntityType Name="QuestionnaireHyginePhoto">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QuestionnaireId" Type="Int32" Nullable="false" />
-          <Property Name="HyginePhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnaireHyginePhotos_Questionnaire" FromRole="QuestionnaireHyginePhoto" ToRole="Questionnaire" />
-        </EntityType>
-        <EntityType Name="QuestionnaireHygineSignature">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QuestionnaireId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IdentityId" Type="Int32" Nullable="false" />
-          <Property Name="SignaturePhoto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnaireHygineSignature_Questionnaire" FromRole="QuestionnaireHygineSignature" ToRole="Questionnaire" />
-        </EntityType>
-        <EntityType Name="QuestionnaireObservation">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QuestionnaireId" Type="Int32" Nullable="false" />
-          <Property Name="ObservationId" Type="Int32" Nullable="false" />
-          <Property Name="isChekced" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Observation" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservation_Observation" FromRole="QuestionnaireObservation" ToRole="Observation" />
-          <NavigationProperty Name="Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservation_Questionnaire" FromRole="QuestionnaireObservation" ToRole="Questionnaire" />
-        </EntityType>
-        <EntityType Name="QuestionnaireObservationFreeHandWriting">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QuestionnaireId" Type="Int32" Nullable="false" />
-          <Property Name="FreeHandWriting" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservationFreeHandWriting_Questionnaire" FromRole="QuestionnaireObservationFreeHandWriting" ToRole="Questionnaire" />
-          <NavigationProperty Name="QuestionnaireStockIssueFreeHandwritings" Relationship="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire" FromRole="QuestionnaireObservationFreeHandWriting" ToRole="QuestionnaireStockIssueFreeHandwriting" />
-        </EntityType>
-        <EntityType Name="QuestionnairePhysicalStock">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QuestionnaireId" Type="Int32" Nullable="false" />
-          <Property Name="ItemId" Type="Int32" Nullable="false" />
-          <Property Name="SystemStock" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="PhysicalStock" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="Difference" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="BBDDamage" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="IssueId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnairePhysicalStock_Questionnaire" FromRole="QuestionnairePhysicalStock" ToRole="Questionnaire" />
         </EntityType>
         <EntityType Name="UserDepartment">
           <Key>
@@ -1947,18 +1801,6 @@
           <NavigationProperty Name="Department" Relationship="qt_infinigentdbModel.FK_UserDepartment_Department" FromRole="UserDepartment" ToRole="Department" />
           <NavigationProperty Name="LU_User" Relationship="qt_infinigentdbModel.FK_UserDepartment_LU_User1" FromRole="UserDepartment" ToRole="LU_User" />
         </EntityType>
-        <Association Name="FK_QuestionnaireDetails_Questionnaire">
-          <End Type="qt_infinigentdbModel.BBD" Role="BBD" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.QuestionnaireDetail" Role="QuestionnaireDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BBD">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="QuestionnaireDetail">
-              <PropertyRef Name="MaintainingMandateTime" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Item_Category">
           <End Type="qt_infinigentdbModel.Category" Role="Category" Multiplicity="1" />
           <End Type="qt_infinigentdbModel.Item" Role="Item" Multiplicity="*" />
@@ -1983,18 +1825,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Questionnaire_Distributor">
-          <End Type="qt_infinigentdbModel.Distributor" Role="Distributor" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.Questionnaire" Role="Questionnaire" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Distributor">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Questionnaire">
-              <PropertyRef Name="DistributorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Item_ItemGroup">
           <End Type="qt_infinigentdbModel.ItemGroup" Role="ItemGroup" Multiplicity="1" />
           <End Type="qt_infinigentdbModel.Item" Role="Item" Multiplicity="*" />
@@ -2004,18 +1834,6 @@
             </Principal>
             <Dependent Role="Item">
               <PropertyRef Name="ItemGroupId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Questionnaire_LU_User">
-          <End Type="qt_infinigentdbModel.LU_User" Role="LU_User" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.Questionnaire" Role="Questionnaire" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LU_User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Questionnaire">
-              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2031,101 +1849,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QuestionnaireObservation_Observation">
-          <End Type="qt_infinigentdbModel.Observation" Role="Observation" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.QuestionnaireObservation" Role="QuestionnaireObservation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Observation">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="QuestionnaireObservation">
-              <PropertyRef Name="ObservationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_QuestionnaireHyginePhotos_Questionnaire">
-          <End Type="qt_infinigentdbModel.Questionnaire" Role="Questionnaire" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.QuestionnaireHyginePhoto" Role="QuestionnaireHyginePhoto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Questionnaire">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="QuestionnaireHyginePhoto">
-              <PropertyRef Name="QuestionnaireId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_QuestionnaireHygineSignature_Questionnaire">
-          <End Type="qt_infinigentdbModel.Questionnaire" Role="Questionnaire" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.QuestionnaireHygineSignature" Role="QuestionnaireHygineSignature" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Questionnaire">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="QuestionnaireHygineSignature">
-              <PropertyRef Name="QuestionnaireId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_QuestionnaireObservation_Questionnaire">
-          <End Type="qt_infinigentdbModel.Questionnaire" Role="Questionnaire" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.QuestionnaireObservation" Role="QuestionnaireObservation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Questionnaire">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="QuestionnaireObservation">
-              <PropertyRef Name="QuestionnaireId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_QuestionnaireObservationFreeHandWriting_Questionnaire">
-          <End Type="qt_infinigentdbModel.Questionnaire" Role="Questionnaire" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.QuestionnaireObservationFreeHandWriting" Role="QuestionnaireObservationFreeHandWriting" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Questionnaire">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="QuestionnaireObservationFreeHandWriting">
-              <PropertyRef Name="QuestionnaireId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_QuestionnairePhysicalStock_Questionnaire">
-          <End Type="qt_infinigentdbModel.Questionnaire" Role="Questionnaire" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.QuestionnairePhysicalStock" Role="QuestionnairePhysicalStock" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Questionnaire">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="QuestionnairePhysicalStock">
-              <PropertyRef Name="QuestionnaireId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="QuestionnaireStockIssueFreeHandwriting">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QuestionnaireId" Type="Int32" Nullable="false" />
-          <Property Name="PhysicalStockId" Type="Int32" Nullable="false" />
-          <Property Name="IssueId" Type="Int32" Nullable="false" />
-          <Property Name="Issue" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="QuestionnaireObservationFreeHandWriting" Relationship="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire" FromRole="QuestionnaireStockIssueFreeHandwriting" ToRole="QuestionnaireObservationFreeHandWriting" />
-        </EntityType>
-        <Association Name="FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire">
-          <End Type="qt_infinigentdbModel.QuestionnaireObservationFreeHandWriting" Role="QuestionnaireObservationFreeHandWriting" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.QuestionnaireStockIssueFreeHandwriting" Role="QuestionnaireStockIssueFreeHandwriting" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="QuestionnaireObservationFreeHandWriting">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="QuestionnaireStockIssueFreeHandwriting">
-              <PropertyRef Name="PhysicalStockId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="LU_BBD">
           <Key>
             <PropertyRef Name="Id" />
@@ -2137,7 +1860,7 @@
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="TRN_QuestionnaireDetails" Relationship="qt_infinigentdbModel.FK_QuestionnaireDetails_Questionnaire1" FromRole="LU_BBD" ToRole="TRN_QuestionnaireDetails" />
+          <NavigationProperty Name="TRN_QuestionnaireDetails" Relationship="qt_infinigentdbModel.FK_QuestionnaireDetails_Questionnaire" FromRole="LU_BBD" ToRole="TRN_QuestionnaireDetails" />
         </EntityType>
         <EntityType Name="LU_Category">
           <Key>
@@ -2179,7 +1902,7 @@
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_Questionnaire_Distributor1" FromRole="LU_Distributor" ToRole="TRN_Questionnaire" />
+          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_Questionnaire_Distributor" FromRole="LU_Distributor" ToRole="TRN_Questionnaire" />
         </EntityType>
         <EntityType Name="LU_Identity">
           <Key>
@@ -2247,8 +1970,8 @@
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="TRN_QuestionnaireObservation" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservation_Observation1" FromRole="LU_Observation" ToRole="TRN_QuestionnaireObservation" />
           <Property Name="IsPositiveComments" Type="Boolean" />
+          <NavigationProperty Name="TRN_QuestionnaireObservation" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservation_Observation" FromRole="LU_Observation" ToRole="TRN_QuestionnaireObservation" />
         </EntityType>
         <EntityType Name="LU_UserDepartment">
           <Key>
@@ -2260,126 +1983,6 @@
           <NavigationProperty Name="LU_Department" Relationship="qt_infinigentdbModel.FK_UserDepartment_Department1" FromRole="LU_UserDepartment" ToRole="LU_Department" />
           <NavigationProperty Name="LU_User" Relationship="qt_infinigentdbModel.FK_UserDepartment_LU_User11" FromRole="LU_UserDepartment" ToRole="LU_User" />
         </EntityType>
-        <EntityType Name="TRN_Questionnaire">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="DistributorId" Type="Int32" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Month" Type="Int32" Nullable="false" />
-          <Property Name="Year" Type="Int32" Nullable="false" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="LU_Distributor" Relationship="qt_infinigentdbModel.FK_Questionnaire_Distributor1" FromRole="TRN_Questionnaire" ToRole="LU_Distributor" />
-          <NavigationProperty Name="LU_User" Relationship="qt_infinigentdbModel.FK_Questionnaire_LU_User1" FromRole="TRN_Questionnaire" ToRole="LU_User" />
-          <NavigationProperty Name="TRN_QuestionnaireHyginePhotos" Relationship="qt_infinigentdbModel.FK_QuestionnaireHyginePhotos_Questionnaire1" FromRole="TRN_Questionnaire" ToRole="TRN_QuestionnaireHyginePhotos" />
-          <NavigationProperty Name="TRN_QuestionnaireHygineSignature" Relationship="qt_infinigentdbModel.FK_QuestionnaireHygineSignature_Questionnaire1" FromRole="TRN_Questionnaire" ToRole="TRN_QuestionnaireHygineSignature" />
-          <NavigationProperty Name="TRN_QuestionnaireObservation" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservation_Questionnaire1" FromRole="TRN_Questionnaire" ToRole="TRN_QuestionnaireObservation" />
-          <NavigationProperty Name="TRN_QuestionnaireObservationFreeHandWriting" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservationFreeHandWriting_Questionnaire1" FromRole="TRN_Questionnaire" ToRole="TRN_QuestionnaireObservationFreeHandWriting" />
-          <NavigationProperty Name="TRN_QuestionnairePhysicalStock" Relationship="qt_infinigentdbModel.FK_QuestionnairePhysicalStock_Questionnaire1" FromRole="TRN_Questionnaire" ToRole="TRN_QuestionnairePhysicalStock" />
-        </EntityType>
-        <EntityType Name="TRN_QuestionnaireDetails">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QuestionnaireId" Type="Int32" Nullable="false" />
-          <Property Name="LogoOfTheTCC" Type="Boolean" Nullable="false" />
-          <Property Name="LogoImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="StorageOfMemoForLastYear" Type="Boolean" Nullable="false" />
-          <Property Name="MemoImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="GitInIdasAvailable" Type="Boolean" Nullable="false" />
-          <Property Name="GitImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DayClosePending" Type="Boolean" Nullable="false" />
-          <Property Name="DayCloseImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="StorageCondition" Type="Boolean" Nullable="false" />
-          <Property Name="MarketReturnedProductAdjusted" Type="Boolean" Nullable="false" />
-          <Property Name="FreeSchemeProductAvailable" Type="Boolean" Nullable="false" />
-          <Property Name="MaintainingMandateTime" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="LU_BBD" Relationship="qt_infinigentdbModel.FK_QuestionnaireDetails_Questionnaire1" FromRole="TRN_QuestionnaireDetails" ToRole="LU_BBD" />
-        </EntityType>
-        <EntityType Name="TRN_QuestionnaireHyginePhotos">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QuestionnaireId" Type="Int32" Nullable="false" />
-          <Property Name="HyginePhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnaireHyginePhotos_Questionnaire1" FromRole="TRN_QuestionnaireHyginePhotos" ToRole="TRN_Questionnaire" />
-        </EntityType>
-        <EntityType Name="TRN_QuestionnaireHygineSignature">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QuestionnaireId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IdentityId" Type="Int32" Nullable="false" />
-          <Property Name="SignaturePhoto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnaireHygineSignature_Questionnaire1" FromRole="TRN_QuestionnaireHygineSignature" ToRole="TRN_Questionnaire" />
-        </EntityType>
-        <EntityType Name="TRN_QuestionnaireObservation">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QuestionnaireId" Type="Int32" Nullable="false" />
-          <Property Name="ObservationId" Type="Int32" Nullable="false" />
-          <Property Name="isChekced" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="LU_Observation" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservation_Observation1" FromRole="TRN_QuestionnaireObservation" ToRole="LU_Observation" />
-          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservation_Questionnaire1" FromRole="TRN_QuestionnaireObservation" ToRole="TRN_Questionnaire" />
-        </EntityType>
-        <EntityType Name="TRN_QuestionnaireObservationFreeHandWriting">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QuestionnaireId" Type="Int32" Nullable="false" />
-          <Property Name="FreeHandWriting" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservationFreeHandWriting_Questionnaire1" FromRole="TRN_QuestionnaireObservationFreeHandWriting" ToRole="TRN_Questionnaire" />
-          <NavigationProperty Name="TRN_QuestionnaireStockIssueFreeHandwriting" Relationship="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire1" FromRole="TRN_QuestionnaireObservationFreeHandWriting" ToRole="TRN_QuestionnaireStockIssueFreeHandwriting" />
-        </EntityType>
-        <EntityType Name="TRN_QuestionnairePhysicalStock">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QuestionnaireId" Type="Int32" Nullable="false" />
-          <Property Name="ItemId" Type="Int32" Nullable="false" />
-          <Property Name="SystemStock" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="PhysicalStock" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="Difference" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="BBDDamage" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="IssueId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnairePhysicalStock_Questionnaire1" FromRole="TRN_QuestionnairePhysicalStock" ToRole="TRN_Questionnaire" />
-        </EntityType>
-        <EntityType Name="TRN_QuestionnaireStockIssueFreeHandwriting">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QuestionnaireId" Type="Int32" Nullable="false" />
-          <Property Name="PhysicalStockId" Type="Int32" Nullable="false" />
-          <Property Name="IssueId" Type="Int32" Nullable="false" />
-          <Property Name="Issue" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TRN_QuestionnaireObservationFreeHandWriting" Relationship="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire1" FromRole="TRN_QuestionnaireStockIssueFreeHandwriting" ToRole="TRN_QuestionnaireObservationFreeHandWriting" />
-        </EntityType>
-        <Association Name="FK_QuestionnaireDetails_Questionnaire1">
-          <End Type="qt_infinigentdbModel.LU_BBD" Role="LU_BBD" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.TRN_QuestionnaireDetails" Role="TRN_QuestionnaireDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LU_BBD">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TRN_QuestionnaireDetails">
-              <PropertyRef Name="MaintainingMandateTime" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Item_Category1">
           <End Type="qt_infinigentdbModel.LU_Category" Role="LU_Category" Multiplicity="1" />
           <End Type="qt_infinigentdbModel.LU_Item" Role="LU_Item" Multiplicity="*" />
@@ -2404,18 +2007,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Questionnaire_Distributor1">
-          <End Type="qt_infinigentdbModel.LU_Distributor" Role="LU_Distributor" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.TRN_Questionnaire" Role="TRN_Questionnaire" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LU_Distributor">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TRN_Questionnaire">
-              <PropertyRef Name="DistributorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Item_ItemGroup1">
           <End Type="qt_infinigentdbModel.LU_ItemGroup" Role="LU_ItemGroup" Multiplicity="1" />
           <End Type="qt_infinigentdbModel.LU_Item" Role="LU_Item" Multiplicity="*" />
@@ -2425,30 +2016,6 @@
             </Principal>
             <Dependent Role="LU_Item">
               <PropertyRef Name="ItemGroupId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_QuestionnaireObservation_Observation1">
-          <End Type="qt_infinigentdbModel.LU_Observation" Role="LU_Observation" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.TRN_QuestionnaireObservation" Role="TRN_QuestionnaireObservation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LU_Observation">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TRN_QuestionnaireObservation">
-              <PropertyRef Name="ObservationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Questionnaire_LU_User1">
-          <End Type="qt_infinigentdbModel.LU_User" Role="LU_User" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.TRN_Questionnaire" Role="TRN_Questionnaire" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LU_User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TRN_Questionnaire">
-              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2464,7 +2031,166 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QuestionnaireHyginePhotos_Questionnaire1">
+        <EntityType Name="TRN_Questionnaire">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="DistributorId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Month" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="LU_Distributor" Relationship="qt_infinigentdbModel.FK_Questionnaire_Distributor" FromRole="TRN_Questionnaire" ToRole="LU_Distributor" />
+          <NavigationProperty Name="LU_User" Relationship="qt_infinigentdbModel.FK_Questionnaire_LU_User" FromRole="TRN_Questionnaire" ToRole="LU_User" />
+          <NavigationProperty Name="TRN_QuestionnaireHyginePhotos" Relationship="qt_infinigentdbModel.FK_QuestionnaireHyginePhotos_Questionnaire" FromRole="TRN_Questionnaire" ToRole="TRN_QuestionnaireHyginePhotos" />
+          <NavigationProperty Name="TRN_QuestionnaireHygineSignature" Relationship="qt_infinigentdbModel.FK_QuestionnaireHygineSignature_Questionnaire" FromRole="TRN_Questionnaire" ToRole="TRN_QuestionnaireHygineSignature" />
+          <NavigationProperty Name="TRN_QuestionnaireObservation" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservation_Questionnaire" FromRole="TRN_Questionnaire" ToRole="TRN_QuestionnaireObservation" />
+          <NavigationProperty Name="TRN_QuestionnaireObservationFreeHandWriting" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservationFreeHandWriting_Questionnaire" FromRole="TRN_Questionnaire" ToRole="TRN_QuestionnaireObservationFreeHandWriting" />
+          <NavigationProperty Name="TRN_QuestionnairePhysicalStock" Relationship="qt_infinigentdbModel.FK_QuestionnairePhysicalStock_Questionnaire" FromRole="TRN_Questionnaire" ToRole="TRN_QuestionnairePhysicalStock" />
+        </EntityType>
+        <EntityType Name="TRN_QuestionnaireDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LogoOfTheTCC" Type="Boolean" Nullable="false" />
+          <Property Name="LogoImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StorageOfMemoForLastYear" Type="Boolean" Nullable="false" />
+          <Property Name="MemoImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GitInIdasAvailable" Type="Boolean" Nullable="false" />
+          <Property Name="GitImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DayClosePending" Type="Boolean" Nullable="false" />
+          <Property Name="DayCloseImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StorageCondition" Type="Boolean" Nullable="false" />
+          <Property Name="MarketReturnedProductAdjusted" Type="Boolean" Nullable="false" />
+          <Property Name="FreeSchemeProductAvailable" Type="Boolean" Nullable="false" />
+          <Property Name="MaintainingMandateTime" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="LU_BBD" Relationship="qt_infinigentdbModel.FK_QuestionnaireDetails_Questionnaire" FromRole="TRN_QuestionnaireDetails" ToRole="LU_BBD" />
+        </EntityType>
+        <EntityType Name="TRN_QuestionnaireHyginePhotos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HyginePhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnaireHyginePhotos_Questionnaire" FromRole="TRN_QuestionnaireHyginePhotos" ToRole="TRN_Questionnaire" />
+        </EntityType>
+        <EntityType Name="TRN_QuestionnaireHygineSignature">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdentityId" Type="Int32" Nullable="false" />
+          <Property Name="SignaturePhoto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnaireHygineSignature_Questionnaire" FromRole="TRN_QuestionnaireHygineSignature" ToRole="TRN_Questionnaire" />
+        </EntityType>
+        <EntityType Name="TRN_QuestionnaireObservation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ObservationId" Type="Int32" Nullable="false" />
+          <Property Name="isChekced" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="LU_Observation" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservation_Observation" FromRole="TRN_QuestionnaireObservation" ToRole="LU_Observation" />
+          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservation_Questionnaire" FromRole="TRN_QuestionnaireObservation" ToRole="TRN_Questionnaire" />
+        </EntityType>
+        <EntityType Name="TRN_QuestionnaireObservationFreeHandWriting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QuestionnaireObservationId" Type="Int32" Nullable="false" />
+          <Property Name="ObservationId" Type="Int32" Nullable="false" />
+          <Property Name="FreeHandWriting" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservationFreeHandWriting_Questionnaire" FromRole="TRN_QuestionnaireObservationFreeHandWriting" ToRole="TRN_Questionnaire" />
+          <NavigationProperty Name="TRN_QuestionnaireStockIssueFreeHandwriting" Relationship="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire" FromRole="TRN_QuestionnaireObservationFreeHandWriting" ToRole="TRN_QuestionnaireStockIssueFreeHandwriting" />
+        </EntityType>
+        <EntityType Name="TRN_QuestionnairePhysicalStock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="SystemStock" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="PhysicalStock" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Difference" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="BBDDamage" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="IssueId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnairePhysicalStock_Questionnaire" FromRole="TRN_QuestionnairePhysicalStock" ToRole="TRN_Questionnaire" />
+        </EntityType>
+        <EntityType Name="TRN_QuestionnaireStockIssueFreeHandwriting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhysicalStockId" Type="Int32" Nullable="false" />
+          <Property Name="IssueId" Type="Int32" Nullable="false" />
+          <Property Name="Issue" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TRN_QuestionnaireObservationFreeHandWriting" Relationship="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire" FromRole="TRN_QuestionnaireStockIssueFreeHandwriting" ToRole="TRN_QuestionnaireObservationFreeHandWriting" />
+        </EntityType>
+        <Association Name="FK_QuestionnaireDetails_Questionnaire">
+          <End Type="qt_infinigentdbModel.LU_BBD" Role="LU_BBD" Multiplicity="1" />
+          <End Type="qt_infinigentdbModel.TRN_QuestionnaireDetails" Role="TRN_QuestionnaireDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LU_BBD">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TRN_QuestionnaireDetails">
+              <PropertyRef Name="MaintainingMandateTime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Questionnaire_Distributor">
+          <End Type="qt_infinigentdbModel.LU_Distributor" Role="LU_Distributor" Multiplicity="1" />
+          <End Type="qt_infinigentdbModel.TRN_Questionnaire" Role="TRN_Questionnaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LU_Distributor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TRN_Questionnaire">
+              <PropertyRef Name="DistributorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuestionnaireObservation_Observation">
+          <End Type="qt_infinigentdbModel.LU_Observation" Role="LU_Observation" Multiplicity="1" />
+          <End Type="qt_infinigentdbModel.TRN_QuestionnaireObservation" Role="TRN_QuestionnaireObservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LU_Observation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TRN_QuestionnaireObservation">
+              <PropertyRef Name="ObservationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Questionnaire_LU_User">
+          <End Type="qt_infinigentdbModel.LU_User" Role="LU_User" Multiplicity="1" />
+          <End Type="qt_infinigentdbModel.TRN_Questionnaire" Role="TRN_Questionnaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LU_User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TRN_Questionnaire">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuestionnaireHyginePhotos_Questionnaire">
           <End Type="qt_infinigentdbModel.TRN_Questionnaire" Role="TRN_Questionnaire" Multiplicity="1" />
           <End Type="qt_infinigentdbModel.TRN_QuestionnaireHyginePhotos" Role="TRN_QuestionnaireHyginePhotos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2472,11 +2198,11 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="TRN_QuestionnaireHyginePhotos">
-              <PropertyRef Name="QuestionnaireId" />
+              <PropertyRef Name="Number" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QuestionnaireHygineSignature_Questionnaire1">
+        <Association Name="FK_QuestionnaireHygineSignature_Questionnaire">
           <End Type="qt_infinigentdbModel.TRN_Questionnaire" Role="TRN_Questionnaire" Multiplicity="1" />
           <End Type="qt_infinigentdbModel.TRN_QuestionnaireHygineSignature" Role="TRN_QuestionnaireHygineSignature" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2484,11 +2210,11 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="TRN_QuestionnaireHygineSignature">
-              <PropertyRef Name="QuestionnaireId" />
+              <PropertyRef Name="Number" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QuestionnaireObservation_Questionnaire1">
+        <Association Name="FK_QuestionnaireObservation_Questionnaire">
           <End Type="qt_infinigentdbModel.TRN_Questionnaire" Role="TRN_Questionnaire" Multiplicity="1" />
           <End Type="qt_infinigentdbModel.TRN_QuestionnaireObservation" Role="TRN_QuestionnaireObservation" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2496,11 +2222,11 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="TRN_QuestionnaireObservation">
-              <PropertyRef Name="QuestionnaireId" />
+              <PropertyRef Name="Number" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QuestionnaireObservationFreeHandWriting_Questionnaire1">
+        <Association Name="FK_QuestionnaireObservationFreeHandWriting_Questionnaire">
           <End Type="qt_infinigentdbModel.TRN_Questionnaire" Role="TRN_Questionnaire" Multiplicity="1" />
           <End Type="qt_infinigentdbModel.TRN_QuestionnaireObservationFreeHandWriting" Role="TRN_QuestionnaireObservationFreeHandWriting" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2508,11 +2234,11 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="TRN_QuestionnaireObservationFreeHandWriting">
-              <PropertyRef Name="QuestionnaireId" />
+              <PropertyRef Name="Number" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QuestionnairePhysicalStock_Questionnaire1">
+        <Association Name="FK_QuestionnairePhysicalStock_Questionnaire">
           <End Type="qt_infinigentdbModel.TRN_Questionnaire" Role="TRN_Questionnaire" Multiplicity="1" />
           <End Type="qt_infinigentdbModel.TRN_QuestionnairePhysicalStock" Role="TRN_QuestionnairePhysicalStock" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2520,11 +2246,11 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="TRN_QuestionnairePhysicalStock">
-              <PropertyRef Name="QuestionnaireId" />
+              <PropertyRef Name="Number" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire1">
+        <Association Name="FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire">
           <End Type="qt_infinigentdbModel.TRN_QuestionnaireObservationFreeHandWriting" Role="TRN_QuestionnaireObservationFreeHandWriting" Multiplicity="1" />
           <End Type="qt_infinigentdbModel.TRN_QuestionnaireStockIssueFreeHandwriting" Role="TRN_QuestionnaireStockIssueFreeHandwriting" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2536,7 +2262,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -3116,6 +2842,7 @@
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="DistributorId" ColumnName="DistributorId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -3135,7 +2862,7 @@
                 <ScalarProperty Name="StorageOfMemoForLastYear" ColumnName="StorageOfMemoForLastYear" />
                 <ScalarProperty Name="LogoImage" ColumnName="LogoImage" />
                 <ScalarProperty Name="LogoOfTheTCC" ColumnName="LogoOfTheTCC" />
-                <ScalarProperty Name="QuestionnaireId" ColumnName="QuestionnaireId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -3144,7 +2871,7 @@
             <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnaireHyginePhotos">
               <MappingFragment StoreEntitySet="TRN_QuestionnaireHyginePhotos">
                 <ScalarProperty Name="HyginePhoto" ColumnName="HyginePhoto" />
-                <ScalarProperty Name="QuestionnaireId" ColumnName="QuestionnaireId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -3155,7 +2882,7 @@
                 <ScalarProperty Name="SignaturePhoto" ColumnName="SignaturePhoto" />
                 <ScalarProperty Name="IdentityId" ColumnName="IdentityId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="QuestionnaireId" ColumnName="QuestionnaireId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -3165,7 +2892,7 @@
               <MappingFragment StoreEntitySet="TRN_QuestionnaireObservation">
                 <ScalarProperty Name="isChekced" ColumnName="isChekced" />
                 <ScalarProperty Name="ObservationId" ColumnName="ObservationId" />
-                <ScalarProperty Name="QuestionnaireId" ColumnName="QuestionnaireId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -3174,7 +2901,9 @@
             <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnaireObservationFreeHandWriting">
               <MappingFragment StoreEntitySet="TRN_QuestionnaireObservationFreeHandWriting">
                 <ScalarProperty Name="FreeHandWriting" ColumnName="FreeHandWriting" />
-                <ScalarProperty Name="QuestionnaireId" ColumnName="QuestionnaireId" />
+                <ScalarProperty Name="ObservationId" ColumnName="ObservationId" />
+                <ScalarProperty Name="QuestionnaireObservationId" ColumnName="QuestionnaireObservationId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -3188,7 +2917,7 @@
                 <ScalarProperty Name="PhysicalStock" ColumnName="PhysicalStock" />
                 <ScalarProperty Name="SystemStock" ColumnName="SystemStock" />
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
-                <ScalarProperty Name="QuestionnaireId" ColumnName="QuestionnaireId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -3199,7 +2928,7 @@
                 <ScalarProperty Name="Issue" ColumnName="Issue" />
                 <ScalarProperty Name="IssueId" ColumnName="IssueId" />
                 <ScalarProperty Name="PhysicalStockId" ColumnName="PhysicalStockId" />
-                <ScalarProperty Name="QuestionnaireId" ColumnName="QuestionnaireId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

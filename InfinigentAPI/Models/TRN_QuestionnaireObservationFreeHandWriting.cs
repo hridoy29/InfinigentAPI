@@ -21,7 +21,9 @@ namespace InfinigentAPI.Models
         }
     
         public int Id { get; set; }
-        public int QuestionnaireId { get; set; }
+        public string Number { get; set; }
+        public int QuestionnaireObservationId { get; set; }
+        public int ObservationId { get; set; }
         public string FreeHandWriting { get; set; }
     
         public virtual TRN_Questionnaire TRN_Questionnaire { get; set; }

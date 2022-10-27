@@ -15,7 +15,7 @@ namespace InfinigentAPI.Models
     public partial class TRN_QuestionnairePhysicalStock
     {
         public int Id { get; set; }
-        public int QuestionnaireId { get; set; }
+        public string Number { get; set; }
         public int ItemId { get; set; }
         public decimal SystemStock { get; set; }
         public decimal PhysicalStock { get; set; }

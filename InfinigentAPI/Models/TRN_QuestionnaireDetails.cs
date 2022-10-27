@@ -15,7 +15,7 @@ namespace InfinigentAPI.Models
     public partial class TRN_QuestionnaireDetails
     {
         public int Id { get; set; }
-        public int QuestionnaireId { get; set; }
+        public string Number { get; set; }
         public bool LogoOfTheTCC { get; set; }
         public string LogoImage { get; set; }
         public bool StorageOfMemoForLastYear { get; set; }
