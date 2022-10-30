@@ -17,9 +17,8 @@ namespace InfinigentAPI.Models
         public int Id { get; set; }
         public string Number { get; set; }
         public int ObservationId { get; set; }
-        public bool isChekced { get; set; }
+        public bool isChecked { get; set; }
     
         public virtual LU_Observation LU_Observation { get; set; }
-        public virtual TRN_Questionnaire TRN_Questionnaire { get; set; }
     }
 }

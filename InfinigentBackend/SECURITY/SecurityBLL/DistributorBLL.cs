@@ -4,6 +4,7 @@ using System;
 using SecurityDAL;
 using InfinigentBackend.SECURITY.SecurityEntity;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Sundorbon.Backend.SECURITY.SecurityBLL
 {
@@ -17,6 +18,18 @@ namespace Sundorbon.Backend.SECURITY.SecurityBLL
 
         public DistributorDAO _DistributorDAO { get; set; }
 
+
+        public async Task<List<Distributor>> GetDistributors()
+        {
+            try
+            {
+                return await _DistributorDAO.GetDistributors();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
 
 

@@ -19,7 +19,6 @@ namespace InfinigentAPI.Models
         {
             this.TRN_QuestionnaireHyginePhotos = new HashSet<TRN_QuestionnaireHyginePhotos>();
             this.TRN_QuestionnaireHygineSignature = new HashSet<TRN_QuestionnaireHygineSignature>();
-            this.TRN_QuestionnaireObservation = new HashSet<TRN_QuestionnaireObservation>();
             this.TRN_QuestionnaireObservationFreeHandWriting = new HashSet<TRN_QuestionnaireObservationFreeHandWriting>();
             this.TRN_QuestionnairePhysicalStock = new HashSet<TRN_QuestionnairePhysicalStock>();
         }
@@ -42,8 +41,6 @@ namespace InfinigentAPI.Models
         public virtual ICollection<TRN_QuestionnaireHyginePhotos> TRN_QuestionnaireHyginePhotos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TRN_QuestionnaireHygineSignature> TRN_QuestionnaireHygineSignature { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TRN_QuestionnaireObservation> TRN_QuestionnaireObservation { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TRN_QuestionnaireObservationFreeHandWriting> TRN_QuestionnaireObservationFreeHandWriting { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

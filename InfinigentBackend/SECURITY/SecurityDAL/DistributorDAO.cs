@@ -41,6 +41,24 @@ namespace SecurityDAL
             return instance;
         }
 
+        public async Task<List<Distributor>> GetDistributors()
+        {
+            try
+            {
+
+                var identityList = new List<Distributor>();
+
+                identityList = dbExecutor.FetchData<Distributor>(CommandType.StoredProcedure, "get_distributors");
+
+                return identityList;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         //public int Add(LU_User _Item)
         //{
         //    var ret = 0;

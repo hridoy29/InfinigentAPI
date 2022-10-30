@@ -75,20 +75,19 @@
         <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_QuestionnaireDetails" Width="1.5" PointX="26" PointY="28.25" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_QuestionnaireHyginePhotos" Width="1.5" PointX="23.625" PointY="13" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_QuestionnaireHygineSignature" Width="1.5" PointX="23.625" PointY="18.5" />
-        <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_QuestionnaireObservation" Width="1.5" PointX="26.625" PointY="14.875" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_QuestionnaireObservationFreeHandWriting" Width="1.5" PointX="23.625" PointY="24.875" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_QuestionnairePhysicalStock" Width="1.5" PointX="23.625" PointY="21.375" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_QuestionnaireStockIssueFreeHandwriting" Width="1.5" PointX="25.875" PointY="25" />
         <AssociationConnector Association="qt_infinigentdbModel.FK_QuestionnaireDetails_Questionnaire" />
         <AssociationConnector Association="qt_infinigentdbModel.FK_Questionnaire_Distributor" />
-        <AssociationConnector Association="qt_infinigentdbModel.FK_QuestionnaireObservation_Observation" />
         <AssociationConnector Association="qt_infinigentdbModel.FK_Questionnaire_LU_User" />
         <AssociationConnector Association="qt_infinigentdbModel.FK_QuestionnaireHyginePhotos_Questionnaire" />
         <AssociationConnector Association="qt_infinigentdbModel.FK_QuestionnaireHygineSignature_Questionnaire" />
-        <AssociationConnector Association="qt_infinigentdbModel.FK_QuestionnaireObservation_Questionnaire" />
         <AssociationConnector Association="qt_infinigentdbModel.FK_QuestionnaireObservationFreeHandWriting_Questionnaire" />
         <AssociationConnector Association="qt_infinigentdbModel.FK_QuestionnairePhysicalStock_Questionnaire" />
         <AssociationConnector Association="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_QuestionnaireObservation" Width="1.5" PointX="23.625" PointY="3.375" />
+        <AssociationConnector Association="qt_infinigentdbModel.FK_QuestionnaireObservation_Observation" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

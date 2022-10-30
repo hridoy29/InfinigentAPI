@@ -17,8 +17,8 @@ namespace InfinigentBackend.SECURITY.SecurityEntity
         public int Id { get; set; }
         public string Number { get; set; }
         public int ObservationId { get; set; }
-        public bool isChekced { get; set; }
-    
-     
+        public bool isChecked { get; set; }
+
+
     }
 }
