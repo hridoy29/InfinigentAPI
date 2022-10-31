@@ -19,9 +19,27 @@ namespace InfinigentAPI.Controllers
         private qt_infinigentdbEntities db = new qt_infinigentdbEntities();
 
         // GET: api/Distributors
-        public IQueryable<Distributor> GetDistributors()
+        public async Task<IHttpActionResult> GetDistributorsAsync()
         {
-            return db.Distributors;
+            try
+            {
+
+                var list = await Facade.DistributorBLL.GetDistributors();
+
+                if (list == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(list);
+
+
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
+
+            }
         }
 
         // GET: api/Distributors/5

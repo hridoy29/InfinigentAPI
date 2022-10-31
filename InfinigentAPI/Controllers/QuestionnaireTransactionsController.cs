@@ -91,8 +91,16 @@ namespace InfinigentAPI.Controllers
             {
 
                var result = Facade.QuestionnaireTransactionBLL.Post(questionnaireTransaction);
-                
-                return CreatedAtRoute("DefaultApi", new { id = questionnaireTransaction.TRN_Questionnaire.Id }, questionnaireTransaction);
+                int ret = await result;
+                if(ret != 0)
+                {
+                  return  Ok(questionnaireTransaction);
+                }
+                else
+                {
+                    return BadRequest(ModelState);
+                }
+               // return CreatedAtRoute("DefaultApi", new { id = questionnaireTransaction.TRN_Questionnaire.Id }, questionnaireTransaction);
             }
         }
 
