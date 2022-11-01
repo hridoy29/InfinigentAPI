@@ -79,10 +79,10 @@ namespace InfinigentAPI.Models
         public virtual DbSet<TRN_Questionnaire> TRN_Questionnaire { get; set; }
         public virtual DbSet<TRN_QuestionnaireDetails> TRN_QuestionnaireDetails { get; set; }
         public virtual DbSet<TRN_QuestionnaireHyginePhotos> TRN_QuestionnaireHyginePhotos { get; set; }
-        public virtual DbSet<TRN_QuestionnaireHygineSignature> TRN_QuestionnaireHygineSignature { get; set; }
         public virtual DbSet<TRN_QuestionnaireObservationFreeHandWriting> TRN_QuestionnaireObservationFreeHandWriting { get; set; }
         public virtual DbSet<TRN_QuestionnairePhysicalStock> TRN_QuestionnairePhysicalStock { get; set; }
         public virtual DbSet<TRN_QuestionnaireStockIssueFreeHandwriting> TRN_QuestionnaireStockIssueFreeHandwriting { get; set; }
         public virtual DbSet<TRN_QuestionnaireObservation> TRN_QuestionnaireObservation { get; set; }
+        public virtual DbSet<TRN_QuestionnaireHygineSignature> TRN_QuestionnaireHygineSignature { get; set; }
     }
 }

@@ -37,6 +37,28 @@ namespace InfinigentAPI.Controllers
 
         //    return Ok(auditor);
         //}
+        public async Task<IHttpActionResult> GetAuditorsAsync()
+        {
+            try
+            {
+
+                var list = await Facade.AuditorBLL.GetAuditors();
+
+                if (list == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(list);
+
+
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
+
+            }
+        }
 
 
         // GET: api/Auditors/GetAuditorInfo/userEmail

@@ -4,6 +4,7 @@ using System;
 using SecurityDAL;
 using InfinigentBackend.SECURITY.SecurityEntity;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Sundorbon.Backend.SECURITY.SecurityBLL
 {
@@ -20,6 +21,17 @@ namespace Sundorbon.Backend.SECURITY.SecurityBLL
 
 
 
+        public async Task<List<Auditor>> GetAuditors()
+        {
+            try
+            {
+                return await _AuditorDAO.GetAuditors();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public async Task<Auditor> GetAuditorInfo(string userEmail)
         {

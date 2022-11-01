@@ -387,11 +387,22 @@
           <Property Name="ScreenDetailId" Type="int" Nullable="false" />
           <Property Name="CanExecute" Type="bit" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_Questionnaire' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TRN_Questionnaire">
           <Key>
             <PropertyRef Name="Id" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Number" Type="nvarchar" MaxLength="50" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="DistributorId" Type="int" Nullable="false" />
@@ -403,11 +414,22 @@
           <Property Name="ModifierId" Type="int" Nullable="false" />
           <Property Name="ModificationDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TRN_QuestionnaireDetails">
           <Key>
             <PropertyRef Name="Id" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LogoOfTheTCC" Type="bit" Nullable="false" />
           <Property Name="LogoImage" Type="nvarchar(max)" />
@@ -422,48 +444,78 @@
           <Property Name="FreeSchemeProductAvailable" Type="bit" Nullable="false" />
           <Property Name="MaintainingMandateTime" Type="int" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireHyginePhotos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TRN_QuestionnaireHyginePhotos">
           <Key>
             <PropertyRef Name="Id" />
+            
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="HyginePhoto" Type="nvarchar(max)" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireHygineSignature' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TRN_QuestionnaireHygineSignature">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="Number" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="IdentityId" />
+            <PropertyRef Name="SignaturePhoto" />
+            <PropertyRef Name="DistributorPhoto" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IdentityId" Type="int" Nullable="false" />
           <Property Name="SignaturePhoto" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DistributorPhoto" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireObservation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TRN_QuestionnaireObservation">
           <Key>
             <PropertyRef Name="Id" />
+            
+            
+            
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ObservationId" Type="int" Nullable="false" />
           <Property Name="isChecked" Type="bit" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireObservationFreeHandWriting' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TRN_QuestionnaireObservationFreeHandWriting">
           <Key>
             <PropertyRef Name="Id" />
+            
+            
+            
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="QuestionnaireObservationId" Type="int" Nullable="false" />
           <Property Name="ObservationId" Type="int" Nullable="false" />
           <Property Name="FreeHandWriting" Type="varchar" MaxLength="200" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnairePhysicalStock' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TRN_QuestionnairePhysicalStock">
           <Key>
             <PropertyRef Name="Id" />
+            
+            
+            
+            
+            
+            
+            
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ItemId" Type="int" Nullable="false" />
           <Property Name="SystemStock" Type="decimal" Precision="18" Scale="2" Nullable="false" />
@@ -472,11 +524,16 @@
           <Property Name="BBDDamage" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="IssueId" Type="int" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFreeHandwriting' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TRN_QuestionnaireStockIssueFreeHandwriting">
           <Key>
             <PropertyRef Name="Id" />
+            
+            
+            
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="PhysicalStockId" Type="int" Nullable="false" />
           <Property Name="IssueId" Type="int" Nullable="false" />
@@ -717,18 +774,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire">
-          <End Role="TRN_QuestionnaireObservationFreeHandWriting" Type="Self.TRN_QuestionnaireObservationFreeHandWriting" Multiplicity="1" />
-          <End Role="TRN_QuestionnaireStockIssueFreeHandwriting" Type="Self.TRN_QuestionnaireStockIssueFreeHandwriting" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TRN_QuestionnaireObservationFreeHandWriting">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TRN_QuestionnaireStockIssueFreeHandwriting">
-              <PropertyRef Name="PhysicalStockId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_RoleWisePermission_PageList">
           <End Role="LU_Screen" Type="Self.LU_Screen" Multiplicity="1" />
           <End Role="TRN_Permission" Type="Self.TRN_Permission" Multiplicity="*" />
@@ -823,14 +868,6 @@
           <EntitySet Name="Test" EntityType="Self.Test" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_Permission" EntityType="Self.TRN_Permission" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_PermissionDetail" EntityType="Self.TRN_PermissionDetail" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRN_Questionnaire" EntityType="Self.TRN_Questionnaire" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRN_QuestionnaireDetails" EntityType="Self.TRN_QuestionnaireDetails" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRN_QuestionnaireHyginePhotos" EntityType="Self.TRN_QuestionnaireHyginePhotos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRN_QuestionnaireHygineSignature" EntityType="Self.TRN_QuestionnaireHygineSignature" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRN_QuestionnaireObservation" EntityType="Self.TRN_QuestionnaireObservation" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRN_QuestionnaireObservationFreeHandWriting" EntityType="Self.TRN_QuestionnaireObservationFreeHandWriting" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRN_QuestionnairePhysicalStock" EntityType="Self.TRN_QuestionnairePhysicalStock" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRN_QuestionnaireStockIssueFreeHandwriting" EntityType="Self.TRN_QuestionnaireStockIssueFreeHandwriting" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_SchemeAuditChild" EntityType="Self.TRN_SchemeAuditChild" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_SchemeAuditChild_Test" EntityType="Self.TRN_SchemeAuditChild_Test" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_SchemeAuditParent" EntityType="Self.TRN_SchemeAuditParent" Schema="dbo" store:Type="Tables" />
@@ -839,6 +876,94 @@
           <EntitySet Name="TRN_SchemeAuditShopDetails_Test" EntityType="Self.TRN_SchemeAuditShopDetails_Test" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_Number" EntityType="Self.TRN_Number" Schema="demo2" store:Type="Tables" />
           <EntitySet Name="TRN_SMkneet_t" EntityType="Self.TRN_SMkneet_t" Schema="demo2" store:Type="Tables" />
+          <EntitySet Name="TRN_Questionnaire" EntityType="Self.TRN_Questionnaire" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TRN_Questionnaire].[Id] AS [Id], 
+    [TRN_Questionnaire].[Number] AS [Number], 
+    [TRN_Questionnaire].[UserId] AS [UserId], 
+    [TRN_Questionnaire].[DistributorId] AS [DistributorId], 
+    [TRN_Questionnaire].[Date] AS [Date], 
+    [TRN_Questionnaire].[Month] AS [Month], 
+    [TRN_Questionnaire].[Year] AS [Year], 
+    [TRN_Questionnaire].[CreatorId] AS [CreatorId], 
+    [TRN_Questionnaire].[CreationDate] AS [CreationDate], 
+    [TRN_Questionnaire].[ModifierId] AS [ModifierId], 
+    [TRN_Questionnaire].[ModificationDate] AS [ModificationDate]
+    FROM [dbo].[TRN_Questionnaire] AS [TRN_Questionnaire]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TRN_QuestionnaireDetails" EntityType="Self.TRN_QuestionnaireDetails" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TRN_QuestionnaireDetails].[Id] AS [Id], 
+    [TRN_QuestionnaireDetails].[Number] AS [Number], 
+    [TRN_QuestionnaireDetails].[LogoOfTheTCC] AS [LogoOfTheTCC], 
+    [TRN_QuestionnaireDetails].[LogoImage] AS [LogoImage], 
+    [TRN_QuestionnaireDetails].[StorageOfMemoForLastYear] AS [StorageOfMemoForLastYear], 
+    [TRN_QuestionnaireDetails].[MemoImage] AS [MemoImage], 
+    [TRN_QuestionnaireDetails].[GitInIdasAvailable] AS [GitInIdasAvailable], 
+    [TRN_QuestionnaireDetails].[GitImage] AS [GitImage], 
+    [TRN_QuestionnaireDetails].[DayClosePending] AS [DayClosePending], 
+    [TRN_QuestionnaireDetails].[DayCloseImage] AS [DayCloseImage], 
+    [TRN_QuestionnaireDetails].[StorageCondition] AS [StorageCondition], 
+    [TRN_QuestionnaireDetails].[MarketReturnedProductAdjusted] AS [MarketReturnedProductAdjusted], 
+    [TRN_QuestionnaireDetails].[FreeSchemeProductAvailable] AS [FreeSchemeProductAvailable], 
+    [TRN_QuestionnaireDetails].[MaintainingMandateTime] AS [MaintainingMandateTime]
+    FROM [dbo].[TRN_QuestionnaireDetails] AS [TRN_QuestionnaireDetails]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TRN_QuestionnaireHyginePhotos" EntityType="Self.TRN_QuestionnaireHyginePhotos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TRN_QuestionnaireHyginePhotos].[Id] AS [Id], 
+    [TRN_QuestionnaireHyginePhotos].[Number] AS [Number], 
+    [TRN_QuestionnaireHyginePhotos].[HyginePhoto] AS [HyginePhoto]
+    FROM [dbo].[TRN_QuestionnaireHyginePhotos] AS [TRN_QuestionnaireHyginePhotos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TRN_QuestionnaireHygineSignature" EntityType="Self.TRN_QuestionnaireHygineSignature" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TRN_QuestionnaireHygineSignature].[Id] AS [Id], 
+    [TRN_QuestionnaireHygineSignature].[Number] AS [Number], 
+    [TRN_QuestionnaireHygineSignature].[Name] AS [Name], 
+    [TRN_QuestionnaireHygineSignature].[IdentityId] AS [IdentityId], 
+    [TRN_QuestionnaireHygineSignature].[SignaturePhoto] AS [SignaturePhoto], 
+    [TRN_QuestionnaireHygineSignature].[DistributorPhoto] AS [DistributorPhoto]
+    FROM [dbo].[TRN_QuestionnaireHygineSignature] AS [TRN_QuestionnaireHygineSignature]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TRN_QuestionnaireObservation" EntityType="Self.TRN_QuestionnaireObservation" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TRN_QuestionnaireObservation].[Id] AS [Id], 
+    [TRN_QuestionnaireObservation].[Number] AS [Number], 
+    [TRN_QuestionnaireObservation].[ObservationId] AS [ObservationId], 
+    [TRN_QuestionnaireObservation].[isChecked] AS [isChecked]
+    FROM [dbo].[TRN_QuestionnaireObservation] AS [TRN_QuestionnaireObservation]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TRN_QuestionnaireObservationFreeHandWriting" EntityType="Self.TRN_QuestionnaireObservationFreeHandWriting" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TRN_QuestionnaireObservationFreeHandWriting].[Id] AS [Id], 
+    [TRN_QuestionnaireObservationFreeHandWriting].[Number] AS [Number], 
+    [TRN_QuestionnaireObservationFreeHandWriting].[QuestionnaireObservationId] AS [QuestionnaireObservationId], 
+    [TRN_QuestionnaireObservationFreeHandWriting].[ObservationId] AS [ObservationId], 
+    [TRN_QuestionnaireObservationFreeHandWriting].[FreeHandWriting] AS [FreeHandWriting]
+    FROM [dbo].[TRN_QuestionnaireObservationFreeHandWriting] AS [TRN_QuestionnaireObservationFreeHandWriting]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TRN_QuestionnairePhysicalStock" EntityType="Self.TRN_QuestionnairePhysicalStock" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TRN_QuestionnairePhysicalStock].[Id] AS [Id], 
+    [TRN_QuestionnairePhysicalStock].[Number] AS [Number], 
+    [TRN_QuestionnairePhysicalStock].[ItemId] AS [ItemId], 
+    [TRN_QuestionnairePhysicalStock].[SystemStock] AS [SystemStock], 
+    [TRN_QuestionnairePhysicalStock].[PhysicalStock] AS [PhysicalStock], 
+    [TRN_QuestionnairePhysicalStock].[Difference] AS [Difference], 
+    [TRN_QuestionnairePhysicalStock].[BBDDamage] AS [BBDDamage], 
+    [TRN_QuestionnairePhysicalStock].[IssueId] AS [IssueId]
+    FROM [dbo].[TRN_QuestionnairePhysicalStock] AS [TRN_QuestionnairePhysicalStock]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TRN_QuestionnaireStockIssueFreeHandwriting" EntityType="Self.TRN_QuestionnaireStockIssueFreeHandwriting" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TRN_QuestionnaireStockIssueFreeHandwriting].[Id] AS [Id], 
+    [TRN_QuestionnaireStockIssueFreeHandwriting].[Number] AS [Number], 
+    [TRN_QuestionnaireStockIssueFreeHandwriting].[PhysicalStockId] AS [PhysicalStockId], 
+    [TRN_QuestionnaireStockIssueFreeHandwriting].[IssueId] AS [IssueId], 
+    [TRN_QuestionnaireStockIssueFreeHandwriting].[Issue] AS [Issue]
+    FROM [dbo].[TRN_QuestionnaireStockIssueFreeHandwriting] AS [TRN_QuestionnaireStockIssueFreeHandwriting]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Item_Category" Association="Self.FK_Item_Category">
             <End Role="LU_Category" EntitySet="LU_Category" />
             <End Role="LU_Item" EntitySet="LU_Item" />
@@ -870,10 +995,6 @@
           <AssociationSet Name="FK_QuestionnaireObservation_Observation" Association="Self.FK_QuestionnaireObservation_Observation">
             <End Role="LU_Observation" EntitySet="LU_Observation" />
             <End Role="TRN_QuestionnaireObservation" EntitySet="TRN_QuestionnaireObservation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire" Association="Self.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire">
-            <End Role="TRN_QuestionnaireObservationFreeHandWriting" EntitySet="TRN_QuestionnaireObservationFreeHandWriting" />
-            <End Role="TRN_QuestionnaireStockIssueFreeHandwriting" EntitySet="TRN_QuestionnaireStockIssueFreeHandwriting" />
           </AssociationSet>
           <AssociationSet Name="FK_RoleWisePermission_PageList" Association="Self.FK_RoleWisePermission_PageList">
             <End Role="LU_Screen" EntitySet="LU_Screen" />
@@ -1378,7 +1499,6 @@
           <EntitySet Name="TRN_Questionnaire" EntityType="qt_infinigentdbModel.TRN_Questionnaire" />
           <EntitySet Name="TRN_QuestionnaireDetails" EntityType="qt_infinigentdbModel.TRN_QuestionnaireDetails" />
           <EntitySet Name="TRN_QuestionnaireHyginePhotos" EntityType="qt_infinigentdbModel.TRN_QuestionnaireHyginePhotos" />
-          <EntitySet Name="TRN_QuestionnaireHygineSignature" EntityType="qt_infinigentdbModel.TRN_QuestionnaireHygineSignature" />
           <EntitySet Name="TRN_QuestionnaireObservationFreeHandWriting" EntityType="qt_infinigentdbModel.TRN_QuestionnaireObservationFreeHandWriting" />
           <EntitySet Name="TRN_QuestionnairePhysicalStock" EntityType="qt_infinigentdbModel.TRN_QuestionnairePhysicalStock" />
           <EntitySet Name="TRN_QuestionnaireStockIssueFreeHandwriting" EntityType="qt_infinigentdbModel.TRN_QuestionnaireStockIssueFreeHandwriting" />
@@ -1398,10 +1518,6 @@
             <End Role="TRN_Questionnaire" EntitySet="TRN_Questionnaire" />
             <End Role="TRN_QuestionnaireHyginePhotos" EntitySet="TRN_QuestionnaireHyginePhotos" />
           </AssociationSet>
-          <AssociationSet Name="FK_QuestionnaireHygineSignature_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireHygineSignature_Questionnaire">
-            <End Role="TRN_Questionnaire" EntitySet="TRN_Questionnaire" />
-            <End Role="TRN_QuestionnaireHygineSignature" EntitySet="TRN_QuestionnaireHygineSignature" />
-          </AssociationSet>
           <AssociationSet Name="FK_QuestionnaireObservationFreeHandWriting_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireObservationFreeHandWriting_Questionnaire">
             <End Role="TRN_Questionnaire" EntitySet="TRN_Questionnaire" />
             <End Role="TRN_QuestionnaireObservationFreeHandWriting" EntitySet="TRN_QuestionnaireObservationFreeHandWriting" />
@@ -1419,6 +1535,7 @@
             <End Role="LU_Observation" EntitySet="LU_Observation" />
             <End Role="TRN_QuestionnaireObservation" EntitySet="TRN_QuestionnaireObservation" />
           </AssociationSet>
+          <EntitySet Name="TRN_QuestionnaireHygineSignature" EntityType="qt_infinigentdbModel.TRN_QuestionnaireHygineSignature" />
           </EntityContainer>
         <EntityType Name="Test">
           <Key>
@@ -1933,7 +2050,6 @@
           <NavigationProperty Name="LU_Distributor" Relationship="qt_infinigentdbModel.FK_Questionnaire_Distributor" FromRole="TRN_Questionnaire" ToRole="LU_Distributor" />
           <NavigationProperty Name="LU_User" Relationship="qt_infinigentdbModel.FK_Questionnaire_LU_User" FromRole="TRN_Questionnaire" ToRole="LU_User" />
           <NavigationProperty Name="TRN_QuestionnaireHyginePhotos" Relationship="qt_infinigentdbModel.FK_QuestionnaireHyginePhotos_Questionnaire" FromRole="TRN_Questionnaire" ToRole="TRN_QuestionnaireHyginePhotos" />
-          <NavigationProperty Name="TRN_QuestionnaireHygineSignature" Relationship="qt_infinigentdbModel.FK_QuestionnaireHygineSignature_Questionnaire" FromRole="TRN_Questionnaire" ToRole="TRN_QuestionnaireHygineSignature" />
           <NavigationProperty Name="TRN_QuestionnaireObservationFreeHandWriting" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservationFreeHandWriting_Questionnaire" FromRole="TRN_Questionnaire" ToRole="TRN_QuestionnaireObservationFreeHandWriting" />
           <NavigationProperty Name="TRN_QuestionnairePhysicalStock" Relationship="qt_infinigentdbModel.FK_QuestionnairePhysicalStock_Questionnaire" FromRole="TRN_Questionnaire" ToRole="TRN_QuestionnairePhysicalStock" />
         </EntityType>
@@ -1965,17 +2081,6 @@
           <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="HyginePhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnaireHyginePhotos_Questionnaire" FromRole="TRN_QuestionnaireHyginePhotos" ToRole="TRN_Questionnaire" />
-        </EntityType>
-        <EntityType Name="TRN_QuestionnaireHygineSignature">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IdentityId" Type="Int32" Nullable="false" />
-          <Property Name="SignaturePhoto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnaireHygineSignature_Questionnaire" FromRole="TRN_QuestionnaireHygineSignature" ToRole="TRN_Questionnaire" />
         </EntityType>
         <EntityType Name="TRN_QuestionnaireObservationFreeHandWriting">
           <Key>
@@ -2062,18 +2167,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QuestionnaireHygineSignature_Questionnaire">
-          <End Type="qt_infinigentdbModel.TRN_Questionnaire" Role="TRN_Questionnaire" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.TRN_QuestionnaireHygineSignature" Role="TRN_QuestionnaireHygineSignature" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TRN_Questionnaire">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TRN_QuestionnaireHygineSignature">
-              <PropertyRef Name="Number" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_QuestionnaireObservationFreeHandWriting_Questionnaire">
           <End Type="qt_infinigentdbModel.TRN_Questionnaire" Role="TRN_Questionnaire" Multiplicity="1" />
           <End Type="qt_infinigentdbModel.TRN_QuestionnaireObservationFreeHandWriting" Role="TRN_QuestionnaireObservationFreeHandWriting" Multiplicity="*" />
@@ -2132,6 +2225,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="TRN_QuestionnaireHygineSignature">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Number" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="IdentityId" />
+            <PropertyRef Name="SignaturePhoto" />
+            <PropertyRef Name="DistributorPhoto" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdentityId" Type="Int32" Nullable="false" />
+          <Property Name="SignaturePhoto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DistributorPhoto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2746,17 +2855,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TRN_QuestionnaireHygineSignature">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnaireHygineSignature">
-              <MappingFragment StoreEntitySet="TRN_QuestionnaireHygineSignature">
-                <ScalarProperty Name="SignaturePhoto" ColumnName="SignaturePhoto" />
-                <ScalarProperty Name="IdentityId" ColumnName="IdentityId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TRN_QuestionnaireObservationFreeHandWriting">
             <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnaireObservationFreeHandWriting">
               <MappingFragment StoreEntitySet="TRN_QuestionnaireObservationFreeHandWriting">
@@ -2798,6 +2896,18 @@
               <MappingFragment StoreEntitySet="TRN_QuestionnaireObservation">
                 <ScalarProperty Name="isChecked" ColumnName="isChecked" />
                 <ScalarProperty Name="ObservationId" ColumnName="ObservationId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_QuestionnaireHygineSignature">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnaireHygineSignature">
+              <MappingFragment StoreEntitySet="TRN_QuestionnaireHygineSignature">
+                <ScalarProperty Name="DistributorPhoto" ColumnName="DistributorPhoto" />
+                <ScalarProperty Name="SignaturePhoto" ColumnName="SignaturePhoto" />
+                <ScalarProperty Name="IdentityId" ColumnName="IdentityId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

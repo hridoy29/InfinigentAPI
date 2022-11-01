@@ -19,7 +19,6 @@ namespace InfinigentAPI.Models
         public string Name { get; set; }
         public int IdentityId { get; set; }
         public string SignaturePhoto { get; set; }
-    
-        public virtual TRN_Questionnaire TRN_Questionnaire { get; set; }
+        public string DistributorPhoto { get; set; }
     }
 }

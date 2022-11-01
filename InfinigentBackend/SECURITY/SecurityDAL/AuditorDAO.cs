@@ -41,6 +41,25 @@ namespace SecurityDAL
             return instance;
         }
 
+
+        public async Task<List<Auditor>> GetAuditors()
+        {
+            try
+            {
+
+                var auditorList = new List<Auditor>();
+
+                auditorList = dbExecutor.FetchData<Auditor>(CommandType.StoredProcedure, "get_auditors");
+
+                return auditorList;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         //public int Add(LU_User _Item)
         //{
         //    var ret = 0;

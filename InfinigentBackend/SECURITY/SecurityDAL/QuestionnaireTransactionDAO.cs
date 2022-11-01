@@ -217,6 +217,7 @@ namespace SecurityDAL
                     sql_cmndQSP.Parameters.AddWithValue("@paramName", SqlDbType.VarChar).Value = _Transaction.TRN_QuestionnaireHygineSignature.Name;
                     sql_cmndQSP.Parameters.AddWithValue("@paramIdentityId", SqlDbType.Int).Value = _Transaction.TRN_QuestionnaireHygineSignature.IdentityId;
                     sql_cmndQSP.Parameters.AddWithValue("@paramSignaturePhoto", SqlDbType.NVarChar).Value = _Transaction.TRN_QuestionnaireHygineSignature.SignaturePhoto;
+                    sql_cmndQSP.Parameters.AddWithValue("@paramDistributorPhoto", SqlDbType.NVarChar).Value = _Transaction.TRN_QuestionnaireHygineSignature.DistributorPhoto;
 
                     ret =  sql_cmndQSP.ExecuteNonQuery();
 

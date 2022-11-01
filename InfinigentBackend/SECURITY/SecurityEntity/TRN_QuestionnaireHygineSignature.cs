@@ -19,7 +19,8 @@ namespace InfinigentBackend.SECURITY.SecurityEntity
         public string Name { get; set; }
         public int IdentityId { get; set; }
         public string SignaturePhoto { get; set; }
-    
-      
+        public string DistributorPhoto { get; set; }
+
+
     }
 }

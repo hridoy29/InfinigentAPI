@@ -46,11 +46,11 @@ namespace SecurityDAL
             try
             {
 
-                var identityList = new List<Distributor>();
+                var distributorList = new List<Distributor>();
 
-                identityList = dbExecutor.FetchData<Distributor>(CommandType.StoredProcedure, "get_distributors");
+                distributorList = dbExecutor.FetchData<Distributor>(CommandType.StoredProcedure, "get_distributors");
 
-                return identityList;
+                return distributorList;
             }
             catch (Exception ex)
             {

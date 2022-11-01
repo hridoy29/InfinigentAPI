@@ -41,40 +41,40 @@ namespace InfinigentAPI.Controllers
             return Ok(tRN_SchemeAuditChild);
         }
 
-        // PUT: api/SchemeAuditChild/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutTRN_SchemeAuditChild(int id, TRN_SchemeAuditChild tRN_SchemeAuditChild)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// PUT: api/SchemeAuditChild/5
+        //[ResponseType(typeof(void))]
+        //public IHttpActionResult PutTRN_SchemeAuditChild(int id, TRN_SchemeAuditChild tRN_SchemeAuditChild)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (id != tRN_SchemeAuditChild.Id)
-            {
-                return BadRequest();
-            }
+        //    if (id != tRN_SchemeAuditChild.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            db.Entry(tRN_SchemeAuditChild).State = EntityState.Modified;
+        //    db.Entry(tRN_SchemeAuditChild).State = EntityState.Modified;
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TRN_SchemeAuditChildExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!TRN_SchemeAuditChildExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
 
         // POST: api/QuestionnaireTransaction
         [ResponseType(typeof(QuestionnaireTransaction))]
