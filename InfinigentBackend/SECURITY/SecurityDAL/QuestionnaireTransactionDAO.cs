@@ -47,9 +47,13 @@ namespace SecurityDAL
         public async Task<int> Post(QuestionnaireTransaction _Transaction)
         {
             var ret = 0;
-           
-            
-            
+
+            string folder = @"C:\Temp\";
+            // Filename  
+            string fileName = "Log.txt";
+            // Fullpath. You can direct hardcode it if you like.  
+            string fullPath = folder + fileName;
+
             SqlTransaction objTrans = null;
          
                
@@ -156,27 +160,38 @@ namespace SecurityDAL
 
                         sql_cmndQObs.ExecuteNonQuery();
 
-                        if(observation.Id == 15)
-                        {
-                            if (observation.isChecked)
-                            {
-                                SqlCommand sql_cmndQObsFH = new SqlCommand("wsp_TRN_QuestionnaireObservationFreeHandWriting_Post", sqlCon, objTrans);
-                                sql_cmndQObsFH.CommandType = CommandType.StoredProcedure;
-                                sql_cmndQObsFH.Parameters.AddWithValue("@paramId", SqlDbType.Int).Value = _Transaction.TRN_QuestionnaireObservationFreeHandWritings.Id;
-                                sql_cmndQObsFH.Parameters.AddWithValue("@paramNumber", SqlDbType.NVarChar).Value = _Transaction.TRN_QuestionnaireObservationFreeHandWritings.Number;
-                                sql_cmndQObsFH.Parameters.AddWithValue("@paramQuestionnaireObservationId", SqlDbType.Int).Value = _Transaction.TRN_QuestionnaireObservationFreeHandWritings.QuestionnaireObservationId;
-                                sql_cmndQObsFH.Parameters.AddWithValue("@paramObservationId", SqlDbType.Int).Value = _Transaction.TRN_QuestionnaireObservationFreeHandWritings.ObservationId;
-                                sql_cmndQObsFH.Parameters.AddWithValue("@paramFreeHandWriting", SqlDbType.VarChar).Value = _Transaction.TRN_QuestionnaireObservationFreeHandWritings.FreeHandWriting;
+                        //if(observation.ObservationId == 15)
+                        //{
+                        //    if (observation.isChecked)
+                        //    {
+                        //        SqlCommand sql_cmndQObsFH = new SqlCommand("wsp_TRN_QuestionnaireObservationFreeHandWriting_Post", sqlCon, objTrans);
+                        //        sql_cmndQObsFH.CommandType = CommandType.StoredProcedure;
+                        //        sql_cmndQObsFH.Parameters.AddWithValue("@paramId", SqlDbType.Int).Value = _Transaction.TRN_QuestionnaireObservationFreeHandWritings.Id;
+                        //        sql_cmndQObsFH.Parameters.AddWithValue("@paramNumber", SqlDbType.NVarChar).Value = _Transaction.TRN_QuestionnaireObservationFreeHandWritings.Number;
+                        //        sql_cmndQObsFH.Parameters.AddWithValue("@paramQuestionnaireObservationId", SqlDbType.Int).Value = _Transaction.TRN_QuestionnaireObservationFreeHandWritings.QuestionnaireObservationId;
+                        //        sql_cmndQObsFH.Parameters.AddWithValue("@paramObservationId", SqlDbType.Int).Value = _Transaction.TRN_QuestionnaireObservationFreeHandWritings.ObservationId;
+                        //        sql_cmndQObsFH.Parameters.AddWithValue("@paramFreeHandWriting", SqlDbType.VarChar).Value = _Transaction.TRN_QuestionnaireObservationFreeHandWritings.FreeHandWriting;
 
-                                sql_cmndQObsFH.ExecuteNonQuery();
-                            }
-                        }
+                        //        sql_cmndQObsFH.ExecuteNonQuery();
+                        //    }
+                        //}
 
                     }
 
 
 
+                    if (_Transaction.TRN_QuestionnaireObservationFreeHandWritings != null)
+                    {
+                        SqlCommand sql_cmndQObsFH = new SqlCommand("wsp_TRN_QuestionnaireObservationFreeHandWriting_Post", sqlCon, objTrans);
+                        sql_cmndQObsFH.CommandType = CommandType.StoredProcedure;
+                        sql_cmndQObsFH.Parameters.AddWithValue("@paramId", SqlDbType.Int).Value = _Transaction.TRN_QuestionnaireObservationFreeHandWritings.Id;
+                        sql_cmndQObsFH.Parameters.AddWithValue("@paramNumber", SqlDbType.NVarChar).Value = _Transaction.TRN_QuestionnaireObservationFreeHandWritings.Number;
+                        sql_cmndQObsFH.Parameters.AddWithValue("@paramQuestionnaireObservationId", SqlDbType.Int).Value = _Transaction.TRN_QuestionnaireObservationFreeHandWritings.QuestionnaireObservationId;
+                        sql_cmndQObsFH.Parameters.AddWithValue("@paramObservationId", SqlDbType.Int).Value = _Transaction.TRN_QuestionnaireObservationFreeHandWritings.ObservationId;
+                        sql_cmndQObsFH.Parameters.AddWithValue("@paramFreeHandWriting", SqlDbType.VarChar).Value = _Transaction.TRN_QuestionnaireObservationFreeHandWritings.FreeHandWriting;
 
+                        sql_cmndQObsFH.ExecuteNonQuery();
+                    }
 
                    
 
@@ -242,9 +257,16 @@ namespace SecurityDAL
 
                 }
             }
-           
+
 
             // }
+
+            // An array of strings  
+            string[] text = { "Test Log  ", ret+"" };
+            // Write array of strings to a file using WriteAllLines.  
+            // If the file does not exists, it will create a new file.  
+            // This method automatically opens the file, writes to it, and closes file  
+            File.WriteAllLines(fullPath, text);
 
             return ret;
         }
