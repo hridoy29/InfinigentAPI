@@ -17,9 +17,7 @@ namespace InfinigentAPI.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LU_User()
         {
-            this.UserDepartments = new HashSet<UserDepartment>();
             this.LU_UserDepartment = new HashSet<LU_UserDepartment>();
-            this.TRN_Questionnaire = new HashSet<TRN_Questionnaire>();
         }
     
         public int Id { get; set; }
@@ -35,10 +33,6 @@ namespace InfinigentAPI.Models
         public bool IsActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserDepartment> UserDepartments { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LU_UserDepartment> LU_UserDepartment { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TRN_Questionnaire> TRN_Questionnaire { get; set; }
     }
 }

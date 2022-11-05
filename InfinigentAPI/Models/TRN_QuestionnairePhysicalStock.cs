@@ -22,7 +22,5 @@ namespace InfinigentAPI.Models
         public decimal Difference { get; set; }
         public decimal BBDDamage { get; set; }
         public int IssueId { get; set; }
-    
-        public virtual TRN_Questionnaire TRN_Questionnaire { get; set; }
     }
 }

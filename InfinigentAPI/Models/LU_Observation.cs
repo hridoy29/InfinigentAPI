@@ -23,11 +23,11 @@ namespace InfinigentAPI.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public bool IsActive { get; set; }
+        public Nullable<bool> IsPositiveComments { get; set; }
         public int CreatorId { get; set; }
         public System.DateTime CreationDate { get; set; }
         public int ModifierId { get; set; }
         public System.DateTime ModificationDate { get; set; }
-        public Nullable<bool> IsPositiveComments { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TRN_QuestionnaireObservation> TRN_QuestionnaireObservation { get; set; }

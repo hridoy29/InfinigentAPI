@@ -18,7 +18,7 @@ namespace InfinigentAPI.Controllers
     {
         private qt_infinigentdbEntities db = new qt_infinigentdbEntities();
 
-        // GET: api/Distributors
+        // GET: api/LU_Distributor
         public async Task<IHttpActionResult> GetDistributorsAsync()
         {
             try
@@ -42,23 +42,23 @@ namespace InfinigentAPI.Controllers
             }
         }
 
-        // GET: api/Distributors/5
-        [ResponseType(typeof(Distributor))]
+        // GET: api/LU_Distributor/5
+        [ResponseType(typeof(LU_Distributor))]
         public async Task<IHttpActionResult> GetDistributor(int id)
         {
-            Distributor distributor = await db.Distributors.FindAsync(id);
-            if (distributor == null)
+            LU_Distributor LU_Distributor = await db.LU_Distributor.FindAsync(id);
+            if (LU_Distributor == null)
             {
                 return NotFound();
             }
 
-            return Ok(distributor);
+            return Ok(LU_Distributor);
         }
 
 
 
-        // GET: api/Distributor/GetDistributorInfo/DbCode
-        [ResponseType(typeof(Distributor))]
+        // GET: api/LU_Distributor/GetDistributorInfo/DbCode
+        [ResponseType(typeof(LU_Distributor))]
         public async Task<IHttpActionResult> GetDistributorInfo(string DbCode)
         {
 
@@ -92,21 +92,21 @@ namespace InfinigentAPI.Controllers
         }
 
 
-        // PUT: api/Distributors/5
+        // PUT: api/LU_Distributor/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutDistributor(int id, Distributor distributor)
+        public async Task<IHttpActionResult> PutDistributor(int id, LU_Distributor LU_Distributor)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != distributor.Id)
+            if (id != LU_Distributor.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(distributor).State = EntityState.Modified;
+            db.Entry(LU_Distributor).State = EntityState.Modified;
 
             try
             {
@@ -127,35 +127,35 @@ namespace InfinigentAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Distributors
-        [ResponseType(typeof(Distributor))]
-        public async Task<IHttpActionResult> PostDistributor(Distributor distributor)
+        // POST: api/LU_Distributor
+        [ResponseType(typeof(LU_Distributor))]
+        public async Task<IHttpActionResult> PostDistributor(LU_Distributor LU_Distributor)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Distributors.Add(distributor);
+            db.LU_Distributor.Add(LU_Distributor);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = distributor.Id }, distributor);
+            return CreatedAtRoute("DefaultApi", new { id = LU_Distributor.Id }, LU_Distributor);
         }
 
-        // DELETE: api/Distributors/5
-        [ResponseType(typeof(Distributor))]
+        // DELETE: api/LU_Distributor/5
+        [ResponseType(typeof(LU_Distributor))]
         public async Task<IHttpActionResult> DeleteDistributor(int id)
         {
-            Distributor distributor = await db.Distributors.FindAsync(id);
-            if (distributor == null)
+            LU_Distributor LU_Distributor = await db.LU_Distributor.FindAsync(id);
+            if (LU_Distributor == null)
             {
                 return NotFound();
             }
 
-            db.Distributors.Remove(distributor);
+            db.LU_Distributor.Remove(LU_Distributor);
             await db.SaveChangesAsync();
 
-            return Ok(distributor);
+            return Ok(LU_Distributor);
         }
 
         protected override void Dispose(bool disposing)
@@ -169,7 +169,7 @@ namespace InfinigentAPI.Controllers
 
         private bool DistributorExists(int id)
         {
-            return db.Distributors.Count(e => e.Id == id) > 0;
+            return db.LU_Distributor.Count(e => e.Id == id) > 0;
         }
     }
 }

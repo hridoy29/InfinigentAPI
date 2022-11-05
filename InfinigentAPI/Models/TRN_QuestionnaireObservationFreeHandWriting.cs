@@ -26,7 +26,6 @@ namespace InfinigentAPI.Models
         public int ObservationId { get; set; }
         public string FreeHandWriting { get; set; }
     
-        public virtual TRN_Questionnaire TRN_Questionnaire { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TRN_QuestionnaireStockIssueFreeHandwriting> TRN_QuestionnaireStockIssueFreeHandwriting { get; set; }
     }

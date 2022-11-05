@@ -392,15 +392,15 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_Questionnaire' does not ha
         <EntityType Name="TRN_Questionnaire">
           <Key>
             <PropertyRef Name="Id" />
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="DistributorId" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="Month" />
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="CreatorId" />
+            <PropertyRef Name="CreationDate" />
+            <PropertyRef Name="ModifierId" />
+            <PropertyRef Name="ModificationDate" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Number" Type="nvarchar" MaxLength="50" />
@@ -472,6 +472,13 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireHygineSignatu
           <Property Name="IdentityId" Type="int" Nullable="false" />
           <Property Name="SignaturePhoto" Type="nvarchar(max)" Nullable="false" />
           <Property Name="DistributorPhoto" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TRN_QuestionnaireNumber">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireObservation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -868,6 +875,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <EntitySet Name="Test" EntityType="Self.Test" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_Permission" EntityType="Self.TRN_Permission" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_PermissionDetail" EntityType="Self.TRN_PermissionDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRN_QuestionnaireNumber" EntityType="Self.TRN_QuestionnaireNumber" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_SchemeAuditChild" EntityType="Self.TRN_SchemeAuditChild" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_SchemeAuditChild_Test" EntityType="Self.TRN_SchemeAuditChild_Test" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_SchemeAuditParent" EntityType="Self.TRN_SchemeAuditParent" Schema="dbo" store:Type="Tables" />
@@ -1021,18 +1029,6 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="qt_infinigentdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="LU_AIC">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-        </EntityType>
         <EntityType Name="LU_ASM">
           <Key>
             <PropertyRef Name="Id" />
@@ -1226,9 +1222,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="UserDepartments" Relationship="qt_infinigentdbModel.FK_UserDepartment_LU_User1" FromRole="LU_User" ToRole="UserDepartment" />
-          <NavigationProperty Name="LU_UserDepartment" Relationship="qt_infinigentdbModel.FK_UserDepartment_LU_User11" FromRole="LU_User" ToRole="LU_UserDepartment" />
-          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_Questionnaire_LU_User" FromRole="LU_User" ToRole="TRN_Questionnaire" />
+          <NavigationProperty Name="LU_UserDepartment" Relationship="qt_infinigentdbModel.FK_UserDepartment_LU_User1" FromRole="LU_User" ToRole="LU_UserDepartment" />
         </EntityType>
         <EntityType Name="LU_UserGroup">
           <Key>
@@ -1385,7 +1379,6 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="qt_infinigentdbEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="LU_AIC" EntityType="Self.LU_AIC" />
           <EntitySet Name="LU_ASM" EntityType="Self.LU_ASM" />
           <EntitySet Name="LU_ChallanType" EntityType="Self.LU_ChallanType" />
           <EntitySet Name="LU_CommentsType" EntityType="Self.LU_CommentsType" />
@@ -1444,32 +1437,20 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <EntitySet Name="TRN_SchemeAuditChild_Test" EntityType="qt_infinigentdbModel.TRN_SchemeAuditChild_Test" />
           <EntitySet Name="TRN_SchemeAuditParent_Test" EntityType="qt_infinigentdbModel.TRN_SchemeAuditParent_Test" />
           <EntitySet Name="TRN_SchemeAuditShopDetails_Test" EntityType="qt_infinigentdbModel.TRN_SchemeAuditShopDetails_Test" />
-          <EntitySet Name="BBDs" EntityType="qt_infinigentdbModel.BBD" />
-          <EntitySet Name="Categories" EntityType="qt_infinigentdbModel.Category" />
-          <EntitySet Name="Departments" EntityType="qt_infinigentdbModel.Department" />
-          <EntitySet Name="Distributors" EntityType="qt_infinigentdbModel.Distributor" />
-          <EntitySet Name="Identities" EntityType="qt_infinigentdbModel.Identity" />
-          <EntitySet Name="Issues" EntityType="qt_infinigentdbModel.Issue" />
-          <EntitySet Name="Items" EntityType="qt_infinigentdbModel.Item" />
-          <EntitySet Name="ItemGroups" EntityType="qt_infinigentdbModel.ItemGroup" />
-          <EntitySet Name="Observations" EntityType="qt_infinigentdbModel.Observation" />
-          <EntitySet Name="UserDepartments" EntityType="qt_infinigentdbModel.UserDepartment" />
-          <AssociationSet Name="FK_Item_Category" Association="qt_infinigentdbModel.FK_Item_Category">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="Item" EntitySet="Items" />
+          <EntitySet Name="TRN_QuestionnaireDetails" EntityType="qt_infinigentdbModel.TRN_QuestionnaireDetails" />
+          <EntitySet Name="TRN_QuestionnaireHyginePhotos" EntityType="qt_infinigentdbModel.TRN_QuestionnaireHyginePhotos" />
+          <EntitySet Name="TRN_QuestionnaireObservationFreeHandWriting" EntityType="qt_infinigentdbModel.TRN_QuestionnaireObservationFreeHandWriting" />
+          <EntitySet Name="TRN_QuestionnairePhysicalStock" EntityType="qt_infinigentdbModel.TRN_QuestionnairePhysicalStock" />
+          <EntitySet Name="TRN_QuestionnaireStockIssueFreeHandwriting" EntityType="qt_infinigentdbModel.TRN_QuestionnaireStockIssueFreeHandwriting" />
+          <AssociationSet Name="FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire">
+            <End Role="TRN_QuestionnaireObservationFreeHandWriting" EntitySet="TRN_QuestionnaireObservationFreeHandWriting" />
+            <End Role="TRN_QuestionnaireStockIssueFreeHandwriting" EntitySet="TRN_QuestionnaireStockIssueFreeHandwriting" />
           </AssociationSet>
-          <AssociationSet Name="FK_UserDepartment_Department" Association="qt_infinigentdbModel.FK_UserDepartment_Department">
-            <End Role="Department" EntitySet="Departments" />
-            <End Role="UserDepartment" EntitySet="UserDepartments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Item_ItemGroup" Association="qt_infinigentdbModel.FK_Item_ItemGroup">
-            <End Role="ItemGroup" EntitySet="ItemGroups" />
-            <End Role="Item" EntitySet="Items" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserDepartment_LU_User1" Association="qt_infinigentdbModel.FK_UserDepartment_LU_User1">
-            <End Role="LU_User" EntitySet="LU_User" />
-            <End Role="UserDepartment" EntitySet="UserDepartments" />
-          </AssociationSet>
+          <EntitySet Name="TRN_QuestionnaireObservation" EntityType="qt_infinigentdbModel.TRN_QuestionnaireObservation" />
+          <EntitySet Name="TRN_QuestionnaireHygineSignature" EntityType="qt_infinigentdbModel.TRN_QuestionnaireHygineSignature" />
+          <EntitySet Name="TRN_QuestionnaireNumber" EntityType="qt_infinigentdbModel.TRN_QuestionnaireNumber" />
+          <EntitySet Name="LU_AIC" EntityType="qt_infinigentdbModel.LU_AIC" />
+          <EntitySet Name="TRN_Questionnaire" EntityType="qt_infinigentdbModel.TRN_Questionnaire" />
           <EntitySet Name="LU_BBD" EntityType="qt_infinigentdbModel.LU_BBD" />
           <EntitySet Name="LU_Category" EntityType="qt_infinigentdbModel.LU_Category" />
           <EntitySet Name="LU_Department" EntityType="qt_infinigentdbModel.LU_Department" />
@@ -1480,62 +1461,30 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <EntitySet Name="LU_ItemGroup" EntityType="qt_infinigentdbModel.LU_ItemGroup" />
           <EntitySet Name="LU_Observation" EntityType="qt_infinigentdbModel.LU_Observation" />
           <EntitySet Name="LU_UserDepartment" EntityType="qt_infinigentdbModel.LU_UserDepartment" />
-          <AssociationSet Name="FK_Item_Category1" Association="qt_infinigentdbModel.FK_Item_Category1">
-            <End Role="LU_Category" EntitySet="LU_Category" />
-            <End Role="LU_Item" EntitySet="LU_Item" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserDepartment_Department1" Association="qt_infinigentdbModel.FK_UserDepartment_Department1">
-            <End Role="LU_Department" EntitySet="LU_Department" />
-            <End Role="LU_UserDepartment" EntitySet="LU_UserDepartment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Item_ItemGroup1" Association="qt_infinigentdbModel.FK_Item_ItemGroup1">
-            <End Role="LU_ItemGroup" EntitySet="LU_ItemGroup" />
-            <End Role="LU_Item" EntitySet="LU_Item" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserDepartment_LU_User11" Association="qt_infinigentdbModel.FK_UserDepartment_LU_User11">
-            <End Role="LU_User" EntitySet="LU_User" />
-            <End Role="LU_UserDepartment" EntitySet="LU_UserDepartment" />
-          </AssociationSet>
-          <EntitySet Name="TRN_Questionnaire" EntityType="qt_infinigentdbModel.TRN_Questionnaire" />
-          <EntitySet Name="TRN_QuestionnaireDetails" EntityType="qt_infinigentdbModel.TRN_QuestionnaireDetails" />
-          <EntitySet Name="TRN_QuestionnaireHyginePhotos" EntityType="qt_infinigentdbModel.TRN_QuestionnaireHyginePhotos" />
-          <EntitySet Name="TRN_QuestionnaireObservationFreeHandWriting" EntityType="qt_infinigentdbModel.TRN_QuestionnaireObservationFreeHandWriting" />
-          <EntitySet Name="TRN_QuestionnairePhysicalStock" EntityType="qt_infinigentdbModel.TRN_QuestionnairePhysicalStock" />
-          <EntitySet Name="TRN_QuestionnaireStockIssueFreeHandwriting" EntityType="qt_infinigentdbModel.TRN_QuestionnaireStockIssueFreeHandwriting" />
           <AssociationSet Name="FK_QuestionnaireDetails_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireDetails_Questionnaire">
             <End Role="LU_BBD" EntitySet="LU_BBD" />
             <End Role="TRN_QuestionnaireDetails" EntitySet="TRN_QuestionnaireDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_Questionnaire_Distributor" Association="qt_infinigentdbModel.FK_Questionnaire_Distributor">
-            <End Role="LU_Distributor" EntitySet="LU_Distributor" />
-            <End Role="TRN_Questionnaire" EntitySet="TRN_Questionnaire" />
+          <AssociationSet Name="FK_Item_Category" Association="qt_infinigentdbModel.FK_Item_Category">
+            <End Role="LU_Category" EntitySet="LU_Category" />
+            <End Role="LU_Item" EntitySet="LU_Item" />
           </AssociationSet>
-          <AssociationSet Name="FK_Questionnaire_LU_User" Association="qt_infinigentdbModel.FK_Questionnaire_LU_User">
-            <End Role="LU_User" EntitySet="LU_User" />
-            <End Role="TRN_Questionnaire" EntitySet="TRN_Questionnaire" />
+          <AssociationSet Name="FK_UserDepartment_Department" Association="qt_infinigentdbModel.FK_UserDepartment_Department">
+            <End Role="LU_Department" EntitySet="LU_Department" />
+            <End Role="LU_UserDepartment" EntitySet="LU_UserDepartment" />
           </AssociationSet>
-          <AssociationSet Name="FK_QuestionnaireHyginePhotos_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireHyginePhotos_Questionnaire">
-            <End Role="TRN_Questionnaire" EntitySet="TRN_Questionnaire" />
-            <End Role="TRN_QuestionnaireHyginePhotos" EntitySet="TRN_QuestionnaireHyginePhotos" />
+          <AssociationSet Name="FK_Item_ItemGroup" Association="qt_infinigentdbModel.FK_Item_ItemGroup">
+            <End Role="LU_ItemGroup" EntitySet="LU_ItemGroup" />
+            <End Role="LU_Item" EntitySet="LU_Item" />
           </AssociationSet>
-          <AssociationSet Name="FK_QuestionnaireObservationFreeHandWriting_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireObservationFreeHandWriting_Questionnaire">
-            <End Role="TRN_Questionnaire" EntitySet="TRN_Questionnaire" />
-            <End Role="TRN_QuestionnaireObservationFreeHandWriting" EntitySet="TRN_QuestionnaireObservationFreeHandWriting" />
-          </AssociationSet>
-          <AssociationSet Name="FK_QuestionnairePhysicalStock_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnairePhysicalStock_Questionnaire">
-            <End Role="TRN_Questionnaire" EntitySet="TRN_Questionnaire" />
-            <End Role="TRN_QuestionnairePhysicalStock" EntitySet="TRN_QuestionnairePhysicalStock" />
-          </AssociationSet>
-          <AssociationSet Name="FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire" Association="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire">
-            <End Role="TRN_QuestionnaireObservationFreeHandWriting" EntitySet="TRN_QuestionnaireObservationFreeHandWriting" />
-            <End Role="TRN_QuestionnaireStockIssueFreeHandwriting" EntitySet="TRN_QuestionnaireStockIssueFreeHandwriting" />
-          </AssociationSet>
-          <EntitySet Name="TRN_QuestionnaireObservation" EntityType="qt_infinigentdbModel.TRN_QuestionnaireObservation" />
           <AssociationSet Name="FK_QuestionnaireObservation_Observation" Association="qt_infinigentdbModel.FK_QuestionnaireObservation_Observation">
             <End Role="LU_Observation" EntitySet="LU_Observation" />
             <End Role="TRN_QuestionnaireObservation" EntitySet="TRN_QuestionnaireObservation" />
           </AssociationSet>
-          <EntitySet Name="TRN_QuestionnaireHygineSignature" EntityType="qt_infinigentdbModel.TRN_QuestionnaireHygineSignature" />
+          <AssociationSet Name="FK_UserDepartment_LU_User1" Association="qt_infinigentdbModel.FK_UserDepartment_LU_User1">
+            <End Role="LU_User" EntitySet="LU_User" />
+            <End Role="LU_UserDepartment" EntitySet="LU_UserDepartment" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Test">
           <Key>
@@ -1672,184 +1621,151 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <Property Name="AicId" Type="Int32" Nullable="false" />
           <Property Name="OutlateAddress" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="BBD">
+        <EntityType Name="TRN_QuestionnaireDetails">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BBDName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LogoOfTheTCC" Type="Boolean" Nullable="false" />
+          <Property Name="LogoImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StorageOfMemoForLastYear" Type="Boolean" Nullable="false" />
+          <Property Name="MemoImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GitInIdasAvailable" Type="Boolean" Nullable="false" />
+          <Property Name="GitImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DayClosePending" Type="Boolean" Nullable="false" />
+          <Property Name="DayCloseImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StorageCondition" Type="Boolean" Nullable="false" />
+          <Property Name="MarketReturnedProductAdjusted" Type="Boolean" Nullable="false" />
+          <Property Name="FreeSchemeProductAvailable" Type="Boolean" Nullable="false" />
+          <Property Name="MaintainingMandateTime" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="LU_BBD" Relationship="qt_infinigentdbModel.FK_QuestionnaireDetails_Questionnaire" FromRole="TRN_QuestionnaireDetails" ToRole="LU_BBD" />
+        </EntityType>
+        <EntityType Name="TRN_QuestionnaireHyginePhotos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HyginePhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TRN_QuestionnaireObservationFreeHandWriting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QuestionnaireObservationId" Type="Int32" Nullable="false" />
+          <Property Name="ObservationId" Type="Int32" Nullable="false" />
+          <Property Name="FreeHandWriting" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TRN_QuestionnaireStockIssueFreeHandwriting" Relationship="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire" FromRole="TRN_QuestionnaireObservationFreeHandWriting" ToRole="TRN_QuestionnaireStockIssueFreeHandwriting" />
+        </EntityType>
+        <EntityType Name="TRN_QuestionnairePhysicalStock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="SystemStock" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="PhysicalStock" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Difference" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="BBDDamage" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="IssueId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TRN_QuestionnaireStockIssueFreeHandwriting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhysicalStockId" Type="Int32" Nullable="false" />
+          <Property Name="IssueId" Type="Int32" Nullable="false" />
+          <Property Name="Issue" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TRN_QuestionnaireObservationFreeHandWriting" Relationship="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire" FromRole="TRN_QuestionnaireStockIssueFreeHandwriting" ToRole="TRN_QuestionnaireObservationFreeHandWriting" />
+        </EntityType>
+        <Association Name="FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire">
+          <End Type="qt_infinigentdbModel.TRN_QuestionnaireObservationFreeHandWriting" Role="TRN_QuestionnaireObservationFreeHandWriting" Multiplicity="1" />
+          <End Type="qt_infinigentdbModel.TRN_QuestionnaireStockIssueFreeHandwriting" Role="TRN_QuestionnaireStockIssueFreeHandwriting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRN_QuestionnaireObservationFreeHandWriting">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TRN_QuestionnaireStockIssueFreeHandwriting">
+              <PropertyRef Name="PhysicalStockId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TRN_QuestionnaireObservation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ObservationId" Type="Int32" Nullable="false" />
+          <Property Name="isChecked" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="LU_Observation" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservation_Observation" FromRole="TRN_QuestionnaireObservation" ToRole="LU_Observation" />
+        </EntityType>
+        <EntityType Name="TRN_QuestionnaireHygineSignature">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Number" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="IdentityId" />
+            <PropertyRef Name="SignaturePhoto" />
+            <PropertyRef Name="DistributorPhoto" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdentityId" Type="Int32" Nullable="false" />
+          <Property Name="SignaturePhoto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DistributorPhoto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TRN_QuestionnaireNumber">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LU_AIC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatorId" Type="Int32" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
-        <EntityType Name="Category">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Items" Relationship="qt_infinigentdbModel.FK_Item_Category" FromRole="Category" ToRole="Item" />
         </EntityType>
-        <EntityType Name="Department">
+        <EntityType Name="TRN_Questionnaire">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="DistributorId" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="Month" />
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="CreatorId" />
+            <PropertyRef Name="CreationDate" />
+            <PropertyRef Name="ModifierId" />
+            <PropertyRef Name="ModificationDate" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DeptName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="UserDepartments" Relationship="qt_infinigentdbModel.FK_UserDepartment_Department" FromRole="Department" ToRole="UserDepartment" />
-        </EntityType>
-        <EntityType Name="Distributor">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DbCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="GccCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
-        <EntityType Name="Identity">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Designation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
-        <EntityType Name="Issue">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="isDefault" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Item">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ItemCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ItemGroupId" Type="Int32" Nullable="false" />
-          <Property Name="CategoryId" Type="Int32" Nullable="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Category" Relationship="qt_infinigentdbModel.FK_Item_Category" FromRole="Item" ToRole="Category" />
-          <NavigationProperty Name="ItemGroup" Relationship="qt_infinigentdbModel.FK_Item_ItemGroup" FromRole="Item" ToRole="ItemGroup" />
-        </EntityType>
-        <EntityType Name="ItemGroup">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GroupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Items" Relationship="qt_infinigentdbModel.FK_Item_ItemGroup" FromRole="ItemGroup" ToRole="Item" />
-        </EntityType>
-        <EntityType Name="Observation">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
-        <EntityType Name="UserDepartment">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="DeptId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Department" Relationship="qt_infinigentdbModel.FK_UserDepartment_Department" FromRole="UserDepartment" ToRole="Department" />
-          <NavigationProperty Name="LU_User" Relationship="qt_infinigentdbModel.FK_UserDepartment_LU_User1" FromRole="UserDepartment" ToRole="LU_User" />
+          <Property Name="DistributorId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Month" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
-        <Association Name="FK_Item_Category">
-          <End Type="qt_infinigentdbModel.Category" Role="Category" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.Item" Role="Item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Item">
-              <PropertyRef Name="CategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserDepartment_Department">
-          <End Type="qt_infinigentdbModel.Department" Role="Department" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.UserDepartment" Role="UserDepartment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Department">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="UserDepartment">
-              <PropertyRef Name="DeptId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Item_ItemGroup">
-          <End Type="qt_infinigentdbModel.ItemGroup" Role="ItemGroup" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.Item" Role="Item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ItemGroup">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Item">
-              <PropertyRef Name="ItemGroupId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserDepartment_LU_User1">
-          <End Type="qt_infinigentdbModel.LU_User" Role="LU_User" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.UserDepartment" Role="UserDepartment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LU_User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="UserDepartment">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="LU_BBD">
           <Key>
             <PropertyRef Name="Id" />
@@ -1874,7 +1790,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="LU_Item" Relationship="qt_infinigentdbModel.FK_Item_Category1" FromRole="LU_Category" ToRole="LU_Item" />
+          <NavigationProperty Name="LU_Item" Relationship="qt_infinigentdbModel.FK_Item_Category" FromRole="LU_Category" ToRole="LU_Item" />
         </EntityType>
         <EntityType Name="LU_Department">
           <Key>
@@ -1887,7 +1803,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="LU_UserDepartment" Relationship="qt_infinigentdbModel.FK_UserDepartment_Department1" FromRole="LU_Department" ToRole="LU_UserDepartment" />
+          <NavigationProperty Name="LU_UserDepartment" Relationship="qt_infinigentdbModel.FK_UserDepartment_Department" FromRole="LU_Department" ToRole="LU_UserDepartment" />
         </EntityType>
         <EntityType Name="LU_Distributor">
           <Key>
@@ -1903,7 +1819,6 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_Questionnaire_Distributor" FromRole="LU_Distributor" ToRole="TRN_Questionnaire" />
         </EntityType>
         <EntityType Name="LU_Identity">
           <Key>
@@ -1944,8 +1859,8 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <Property Name="CreationDate" Type="DateTime" Precision="3" />
           <Property Name="ModifierId" Type="Int32" />
           <Property Name="ModificationDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="LU_Category" Relationship="qt_infinigentdbModel.FK_Item_Category1" FromRole="LU_Item" ToRole="LU_Category" />
-          <NavigationProperty Name="LU_ItemGroup" Relationship="qt_infinigentdbModel.FK_Item_ItemGroup1" FromRole="LU_Item" ToRole="LU_ItemGroup" />
+          <NavigationProperty Name="LU_Category" Relationship="qt_infinigentdbModel.FK_Item_Category" FromRole="LU_Item" ToRole="LU_Category" />
+          <NavigationProperty Name="LU_ItemGroup" Relationship="qt_infinigentdbModel.FK_Item_ItemGroup" FromRole="LU_Item" ToRole="LU_ItemGroup" />
         </EntityType>
         <EntityType Name="LU_ItemGroup">
           <Key>
@@ -1958,7 +1873,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="LU_Item" Relationship="qt_infinigentdbModel.FK_Item_ItemGroup1" FromRole="LU_ItemGroup" ToRole="LU_Item" />
+          <NavigationProperty Name="LU_Item" Relationship="qt_infinigentdbModel.FK_Item_ItemGroup" FromRole="LU_ItemGroup" ToRole="LU_Item" />
         </EntityType>
         <EntityType Name="LU_Observation">
           <Key>
@@ -1967,11 +1882,11 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsPositiveComments" Type="Boolean" />
           <Property Name="CreatorId" Type="Int32" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IsPositiveComments" Type="Boolean" />
           <NavigationProperty Name="TRN_QuestionnaireObservation" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservation_Observation" FromRole="LU_Observation" ToRole="TRN_QuestionnaireObservation" />
         </EntityType>
         <EntityType Name="LU_UserDepartment">
@@ -1981,143 +1896,8 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="DeptId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="LU_Department" Relationship="qt_infinigentdbModel.FK_UserDepartment_Department1" FromRole="LU_UserDepartment" ToRole="LU_Department" />
-          <NavigationProperty Name="LU_User" Relationship="qt_infinigentdbModel.FK_UserDepartment_LU_User11" FromRole="LU_UserDepartment" ToRole="LU_User" />
-        </EntityType>
-        <Association Name="FK_Item_Category1">
-          <End Type="qt_infinigentdbModel.LU_Category" Role="LU_Category" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.LU_Item" Role="LU_Item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LU_Category">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="LU_Item">
-              <PropertyRef Name="CategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserDepartment_Department1">
-          <End Type="qt_infinigentdbModel.LU_Department" Role="LU_Department" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.LU_UserDepartment" Role="LU_UserDepartment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LU_Department">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="LU_UserDepartment">
-              <PropertyRef Name="DeptId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Item_ItemGroup1">
-          <End Type="qt_infinigentdbModel.LU_ItemGroup" Role="LU_ItemGroup" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.LU_Item" Role="LU_Item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LU_ItemGroup">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="LU_Item">
-              <PropertyRef Name="ItemGroupId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserDepartment_LU_User11">
-          <End Type="qt_infinigentdbModel.LU_User" Role="LU_User" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.LU_UserDepartment" Role="LU_UserDepartment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LU_User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="LU_UserDepartment">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="TRN_Questionnaire">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" />
-          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="DistributorId" Type="Int32" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Month" Type="Int32" Nullable="false" />
-          <Property Name="Year" Type="Int32" Nullable="false" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="LU_Distributor" Relationship="qt_infinigentdbModel.FK_Questionnaire_Distributor" FromRole="TRN_Questionnaire" ToRole="LU_Distributor" />
-          <NavigationProperty Name="LU_User" Relationship="qt_infinigentdbModel.FK_Questionnaire_LU_User" FromRole="TRN_Questionnaire" ToRole="LU_User" />
-          <NavigationProperty Name="TRN_QuestionnaireHyginePhotos" Relationship="qt_infinigentdbModel.FK_QuestionnaireHyginePhotos_Questionnaire" FromRole="TRN_Questionnaire" ToRole="TRN_QuestionnaireHyginePhotos" />
-          <NavigationProperty Name="TRN_QuestionnaireObservationFreeHandWriting" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservationFreeHandWriting_Questionnaire" FromRole="TRN_Questionnaire" ToRole="TRN_QuestionnaireObservationFreeHandWriting" />
-          <NavigationProperty Name="TRN_QuestionnairePhysicalStock" Relationship="qt_infinigentdbModel.FK_QuestionnairePhysicalStock_Questionnaire" FromRole="TRN_Questionnaire" ToRole="TRN_QuestionnairePhysicalStock" />
-        </EntityType>
-        <EntityType Name="TRN_QuestionnaireDetails">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LogoOfTheTCC" Type="Boolean" Nullable="false" />
-          <Property Name="LogoImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="StorageOfMemoForLastYear" Type="Boolean" Nullable="false" />
-          <Property Name="MemoImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="GitInIdasAvailable" Type="Boolean" Nullable="false" />
-          <Property Name="GitImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DayClosePending" Type="Boolean" Nullable="false" />
-          <Property Name="DayCloseImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="StorageCondition" Type="Boolean" Nullable="false" />
-          <Property Name="MarketReturnedProductAdjusted" Type="Boolean" Nullable="false" />
-          <Property Name="FreeSchemeProductAvailable" Type="Boolean" Nullable="false" />
-          <Property Name="MaintainingMandateTime" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="LU_BBD" Relationship="qt_infinigentdbModel.FK_QuestionnaireDetails_Questionnaire" FromRole="TRN_QuestionnaireDetails" ToRole="LU_BBD" />
-        </EntityType>
-        <EntityType Name="TRN_QuestionnaireHyginePhotos">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HyginePhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnaireHyginePhotos_Questionnaire" FromRole="TRN_QuestionnaireHyginePhotos" ToRole="TRN_Questionnaire" />
-        </EntityType>
-        <EntityType Name="TRN_QuestionnaireObservationFreeHandWriting">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="QuestionnaireObservationId" Type="Int32" Nullable="false" />
-          <Property Name="ObservationId" Type="Int32" Nullable="false" />
-          <Property Name="FreeHandWriting" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservationFreeHandWriting_Questionnaire" FromRole="TRN_QuestionnaireObservationFreeHandWriting" ToRole="TRN_Questionnaire" />
-          <NavigationProperty Name="TRN_QuestionnaireStockIssueFreeHandwriting" Relationship="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire" FromRole="TRN_QuestionnaireObservationFreeHandWriting" ToRole="TRN_QuestionnaireStockIssueFreeHandwriting" />
-        </EntityType>
-        <EntityType Name="TRN_QuestionnairePhysicalStock">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ItemId" Type="Int32" Nullable="false" />
-          <Property Name="SystemStock" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="PhysicalStock" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="Difference" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="BBDDamage" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="IssueId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TRN_Questionnaire" Relationship="qt_infinigentdbModel.FK_QuestionnairePhysicalStock_Questionnaire" FromRole="TRN_QuestionnairePhysicalStock" ToRole="TRN_Questionnaire" />
-        </EntityType>
-        <EntityType Name="TRN_QuestionnaireStockIssueFreeHandwriting">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PhysicalStockId" Type="Int32" Nullable="false" />
-          <Property Name="IssueId" Type="Int32" Nullable="false" />
-          <Property Name="Issue" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TRN_QuestionnaireObservationFreeHandWriting" Relationship="qt_infinigentdbModel.FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire" FromRole="TRN_QuestionnaireStockIssueFreeHandwriting" ToRole="TRN_QuestionnaireObservationFreeHandWriting" />
+          <NavigationProperty Name="LU_Department" Relationship="qt_infinigentdbModel.FK_UserDepartment_Department" FromRole="LU_UserDepartment" ToRole="LU_Department" />
+          <NavigationProperty Name="LU_User" Relationship="qt_infinigentdbModel.FK_UserDepartment_LU_User1" FromRole="LU_UserDepartment" ToRole="LU_User" />
         </EntityType>
         <Association Name="FK_QuestionnaireDetails_Questionnaire">
           <End Type="qt_infinigentdbModel.LU_BBD" Role="LU_BBD" Multiplicity="1" />
@@ -2131,88 +1911,42 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Questionnaire_Distributor">
-          <End Type="qt_infinigentdbModel.LU_Distributor" Role="LU_Distributor" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.TRN_Questionnaire" Role="TRN_Questionnaire" Multiplicity="*" />
+        <Association Name="FK_Item_Category">
+          <End Type="qt_infinigentdbModel.LU_Category" Role="LU_Category" Multiplicity="1" />
+          <End Type="qt_infinigentdbModel.LU_Item" Role="LU_Item" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="LU_Distributor">
+            <Principal Role="LU_Category">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TRN_Questionnaire">
-              <PropertyRef Name="DistributorId" />
+            <Dependent Role="LU_Item">
+              <PropertyRef Name="CategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Questionnaire_LU_User">
-          <End Type="qt_infinigentdbModel.LU_User" Role="LU_User" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.TRN_Questionnaire" Role="TRN_Questionnaire" Multiplicity="*" />
+        <Association Name="FK_UserDepartment_Department">
+          <End Type="qt_infinigentdbModel.LU_Department" Role="LU_Department" Multiplicity="1" />
+          <End Type="qt_infinigentdbModel.LU_UserDepartment" Role="LU_UserDepartment" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="LU_User">
+            <Principal Role="LU_Department">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TRN_Questionnaire">
-              <PropertyRef Name="UserId" />
+            <Dependent Role="LU_UserDepartment">
+              <PropertyRef Name="DeptId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QuestionnaireHyginePhotos_Questionnaire">
-          <End Type="qt_infinigentdbModel.TRN_Questionnaire" Role="TRN_Questionnaire" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.TRN_QuestionnaireHyginePhotos" Role="TRN_QuestionnaireHyginePhotos" Multiplicity="*" />
+        <Association Name="FK_Item_ItemGroup">
+          <End Type="qt_infinigentdbModel.LU_ItemGroup" Role="LU_ItemGroup" Multiplicity="1" />
+          <End Type="qt_infinigentdbModel.LU_Item" Role="LU_Item" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TRN_Questionnaire">
+            <Principal Role="LU_ItemGroup">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TRN_QuestionnaireHyginePhotos">
-              <PropertyRef Name="Number" />
+            <Dependent Role="LU_Item">
+              <PropertyRef Name="ItemGroupId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QuestionnaireObservationFreeHandWriting_Questionnaire">
-          <End Type="qt_infinigentdbModel.TRN_Questionnaire" Role="TRN_Questionnaire" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.TRN_QuestionnaireObservationFreeHandWriting" Role="TRN_QuestionnaireObservationFreeHandWriting" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TRN_Questionnaire">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TRN_QuestionnaireObservationFreeHandWriting">
-              <PropertyRef Name="Number" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_QuestionnairePhysicalStock_Questionnaire">
-          <End Type="qt_infinigentdbModel.TRN_Questionnaire" Role="TRN_Questionnaire" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.TRN_QuestionnairePhysicalStock" Role="TRN_QuestionnairePhysicalStock" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TRN_Questionnaire">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TRN_QuestionnairePhysicalStock">
-              <PropertyRef Name="Number" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_QuestionnaireStockIssueFreeHandwriting_Questionnaire">
-          <End Type="qt_infinigentdbModel.TRN_QuestionnaireObservationFreeHandWriting" Role="TRN_QuestionnaireObservationFreeHandWriting" Multiplicity="1" />
-          <End Type="qt_infinigentdbModel.TRN_QuestionnaireStockIssueFreeHandwriting" Role="TRN_QuestionnaireStockIssueFreeHandwriting" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TRN_QuestionnaireObservationFreeHandWriting">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TRN_QuestionnaireStockIssueFreeHandwriting">
-              <PropertyRef Name="PhysicalStockId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="TRN_QuestionnaireObservation">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ObservationId" Type="Int32" Nullable="false" />
-          <Property Name="isChecked" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="LU_Observation" Relationship="qt_infinigentdbModel.FK_QuestionnaireObservation_Observation" FromRole="TRN_QuestionnaireObservation" ToRole="LU_Observation" />
-        </EntityType>
         <Association Name="FK_QuestionnaireObservation_Observation">
           <End Type="qt_infinigentdbModel.LU_Observation" Role="LU_Observation" Multiplicity="1" />
           <End Type="qt_infinigentdbModel.TRN_QuestionnaireObservation" Role="TRN_QuestionnaireObservation" Multiplicity="*" />
@@ -2225,41 +1959,24 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="TRN_QuestionnaireHygineSignature">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Number" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="IdentityId" />
-            <PropertyRef Name="SignaturePhoto" />
-            <PropertyRef Name="DistributorPhoto" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IdentityId" Type="Int32" Nullable="false" />
-          <Property Name="SignaturePhoto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DistributorPhoto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
+        <Association Name="FK_UserDepartment_LU_User1">
+          <End Type="qt_infinigentdbModel.LU_User" Role="LU_User" Multiplicity="1" />
+          <End Type="qt_infinigentdbModel.LU_UserDepartment" Role="LU_UserDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LU_User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LU_UserDepartment">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="qt_infinigentdbModelStoreContainer" CdmEntityContainer="qt_infinigentdbEntities">
-          <EntitySetMapping Name="LU_AIC">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_AIC">
-              <MappingFragment StoreEntitySet="LU_AIC">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="LU_ASM">
             <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_ASM">
               <MappingFragment StoreEntitySet="LU_ASM">
@@ -2675,6 +2392,131 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TRN_QuestionnaireDetails">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnaireDetails">
+              <MappingFragment StoreEntitySet="TRN_QuestionnaireDetails">
+                <ScalarProperty Name="MaintainingMandateTime" ColumnName="MaintainingMandateTime" />
+                <ScalarProperty Name="FreeSchemeProductAvailable" ColumnName="FreeSchemeProductAvailable" />
+                <ScalarProperty Name="MarketReturnedProductAdjusted" ColumnName="MarketReturnedProductAdjusted" />
+                <ScalarProperty Name="StorageCondition" ColumnName="StorageCondition" />
+                <ScalarProperty Name="DayCloseImage" ColumnName="DayCloseImage" />
+                <ScalarProperty Name="DayClosePending" ColumnName="DayClosePending" />
+                <ScalarProperty Name="GitImage" ColumnName="GitImage" />
+                <ScalarProperty Name="GitInIdasAvailable" ColumnName="GitInIdasAvailable" />
+                <ScalarProperty Name="MemoImage" ColumnName="MemoImage" />
+                <ScalarProperty Name="StorageOfMemoForLastYear" ColumnName="StorageOfMemoForLastYear" />
+                <ScalarProperty Name="LogoImage" ColumnName="LogoImage" />
+                <ScalarProperty Name="LogoOfTheTCC" ColumnName="LogoOfTheTCC" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_QuestionnaireHyginePhotos">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnaireHyginePhotos">
+              <MappingFragment StoreEntitySet="TRN_QuestionnaireHyginePhotos">
+                <ScalarProperty Name="HyginePhoto" ColumnName="HyginePhoto" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_QuestionnaireObservationFreeHandWriting">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnaireObservationFreeHandWriting">
+              <MappingFragment StoreEntitySet="TRN_QuestionnaireObservationFreeHandWriting">
+                <ScalarProperty Name="FreeHandWriting" ColumnName="FreeHandWriting" />
+                <ScalarProperty Name="ObservationId" ColumnName="ObservationId" />
+                <ScalarProperty Name="QuestionnaireObservationId" ColumnName="QuestionnaireObservationId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_QuestionnairePhysicalStock">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnairePhysicalStock">
+              <MappingFragment StoreEntitySet="TRN_QuestionnairePhysicalStock">
+                <ScalarProperty Name="IssueId" ColumnName="IssueId" />
+                <ScalarProperty Name="BBDDamage" ColumnName="BBDDamage" />
+                <ScalarProperty Name="Difference" ColumnName="Difference" />
+                <ScalarProperty Name="PhysicalStock" ColumnName="PhysicalStock" />
+                <ScalarProperty Name="SystemStock" ColumnName="SystemStock" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_QuestionnaireStockIssueFreeHandwriting">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnaireStockIssueFreeHandwriting">
+              <MappingFragment StoreEntitySet="TRN_QuestionnaireStockIssueFreeHandwriting">
+                <ScalarProperty Name="Issue" ColumnName="Issue" />
+                <ScalarProperty Name="IssueId" ColumnName="IssueId" />
+                <ScalarProperty Name="PhysicalStockId" ColumnName="PhysicalStockId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_QuestionnaireObservation">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnaireObservation">
+              <MappingFragment StoreEntitySet="TRN_QuestionnaireObservation">
+                <ScalarProperty Name="isChecked" ColumnName="isChecked" />
+                <ScalarProperty Name="ObservationId" ColumnName="ObservationId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_QuestionnaireHygineSignature">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnaireHygineSignature">
+              <MappingFragment StoreEntitySet="TRN_QuestionnaireHygineSignature">
+                <ScalarProperty Name="DistributorPhoto" ColumnName="DistributorPhoto" />
+                <ScalarProperty Name="SignaturePhoto" ColumnName="SignaturePhoto" />
+                <ScalarProperty Name="IdentityId" ColumnName="IdentityId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_QuestionnaireNumber">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnaireNumber">
+              <MappingFragment StoreEntitySet="TRN_QuestionnaireNumber">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_AIC">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_AIC">
+              <MappingFragment StoreEntitySet="LU_AIC">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_Questionnaire">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_Questionnaire">
+              <MappingFragment StoreEntitySet="TRN_Questionnaire">
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="DistributorId" ColumnName="DistributorId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="LU_BBD">
             <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_BBD">
               <MappingFragment StoreEntitySet="LU_BBD">
@@ -2789,11 +2631,11 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <EntitySetMapping Name="LU_Observation">
             <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Observation">
               <MappingFragment StoreEntitySet="LU_Observation">
-                <ScalarProperty Name="IsPositiveComments" ColumnName="IsPositiveComments" />
                 <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
                 <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
                 <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
                 <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="IsPositiveComments" ColumnName="IsPositiveComments" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -2805,110 +2647,6 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
               <MappingFragment StoreEntitySet="LU_UserDepartment">
                 <ScalarProperty Name="DeptId" ColumnName="DeptId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TRN_Questionnaire">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_Questionnaire">
-              <MappingFragment StoreEntitySet="TRN_Questionnaire">
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
-                <ScalarProperty Name="Month" ColumnName="Month" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="DistributorId" ColumnName="DistributorId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TRN_QuestionnaireDetails">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnaireDetails">
-              <MappingFragment StoreEntitySet="TRN_QuestionnaireDetails">
-                <ScalarProperty Name="MaintainingMandateTime" ColumnName="MaintainingMandateTime" />
-                <ScalarProperty Name="FreeSchemeProductAvailable" ColumnName="FreeSchemeProductAvailable" />
-                <ScalarProperty Name="MarketReturnedProductAdjusted" ColumnName="MarketReturnedProductAdjusted" />
-                <ScalarProperty Name="StorageCondition" ColumnName="StorageCondition" />
-                <ScalarProperty Name="DayCloseImage" ColumnName="DayCloseImage" />
-                <ScalarProperty Name="DayClosePending" ColumnName="DayClosePending" />
-                <ScalarProperty Name="GitImage" ColumnName="GitImage" />
-                <ScalarProperty Name="GitInIdasAvailable" ColumnName="GitInIdasAvailable" />
-                <ScalarProperty Name="MemoImage" ColumnName="MemoImage" />
-                <ScalarProperty Name="StorageOfMemoForLastYear" ColumnName="StorageOfMemoForLastYear" />
-                <ScalarProperty Name="LogoImage" ColumnName="LogoImage" />
-                <ScalarProperty Name="LogoOfTheTCC" ColumnName="LogoOfTheTCC" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TRN_QuestionnaireHyginePhotos">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnaireHyginePhotos">
-              <MappingFragment StoreEntitySet="TRN_QuestionnaireHyginePhotos">
-                <ScalarProperty Name="HyginePhoto" ColumnName="HyginePhoto" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TRN_QuestionnaireObservationFreeHandWriting">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnaireObservationFreeHandWriting">
-              <MappingFragment StoreEntitySet="TRN_QuestionnaireObservationFreeHandWriting">
-                <ScalarProperty Name="FreeHandWriting" ColumnName="FreeHandWriting" />
-                <ScalarProperty Name="ObservationId" ColumnName="ObservationId" />
-                <ScalarProperty Name="QuestionnaireObservationId" ColumnName="QuestionnaireObservationId" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TRN_QuestionnairePhysicalStock">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnairePhysicalStock">
-              <MappingFragment StoreEntitySet="TRN_QuestionnairePhysicalStock">
-                <ScalarProperty Name="IssueId" ColumnName="IssueId" />
-                <ScalarProperty Name="BBDDamage" ColumnName="BBDDamage" />
-                <ScalarProperty Name="Difference" ColumnName="Difference" />
-                <ScalarProperty Name="PhysicalStock" ColumnName="PhysicalStock" />
-                <ScalarProperty Name="SystemStock" ColumnName="SystemStock" />
-                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TRN_QuestionnaireStockIssueFreeHandwriting">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnaireStockIssueFreeHandwriting">
-              <MappingFragment StoreEntitySet="TRN_QuestionnaireStockIssueFreeHandwriting">
-                <ScalarProperty Name="Issue" ColumnName="Issue" />
-                <ScalarProperty Name="IssueId" ColumnName="IssueId" />
-                <ScalarProperty Name="PhysicalStockId" ColumnName="PhysicalStockId" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TRN_QuestionnaireObservation">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnaireObservation">
-              <MappingFragment StoreEntitySet="TRN_QuestionnaireObservation">
-                <ScalarProperty Name="isChecked" ColumnName="isChecked" />
-                <ScalarProperty Name="ObservationId" ColumnName="ObservationId" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TRN_QuestionnaireHygineSignature">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_QuestionnaireHygineSignature">
-              <MappingFragment StoreEntitySet="TRN_QuestionnaireHygineSignature">
-                <ScalarProperty Name="DistributorPhoto" ColumnName="DistributorPhoto" />
-                <ScalarProperty Name="SignaturePhoto" ColumnName="SignaturePhoto" />
-                <ScalarProperty Name="IdentityId" ColumnName="IdentityId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

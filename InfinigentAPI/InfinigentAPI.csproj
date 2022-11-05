@@ -187,6 +187,7 @@
     <Compile Include="Controllers\CommnetsController.cs" />
     <Compile Include="Controllers\DistributorDetailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QuestionnaireNumberController.cs" />
     <Compile Include="Controllers\IdentityController.cs" />
     <Compile Include="Controllers\LU_IssuesController.cs" />
     <Compile Include="Controllers\MyController.cs" />
@@ -203,21 +204,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BBD.cs">
-      <DependentUpon>infinigentdb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Category.cs">
-      <DependentUpon>infinigentdb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Department.cs">
-      <DependentUpon>infinigentdb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Distributor.cs">
-      <DependentUpon>infinigentdb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Identity.cs">
-      <DependentUpon>infinigentdb.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\infinigentdb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -232,15 +218,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>infinigentdb.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Issue.cs">
-      <DependentUpon>infinigentdb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Item.cs">
-      <DependentUpon>infinigentdb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ItemGroup.cs">
-      <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LU_AIC.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
@@ -329,9 +306,6 @@
     <Compile Include="Models\LU_UserLoginIds.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Observation.cs">
-      <DependentUpon>infinigentdb.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\SaveImages.cs" />
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
@@ -358,6 +332,9 @@
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TRN_QuestionnaireHygineSignature.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRN_QuestionnaireNumber.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TRN_QuestionnaireObservation.cs">
@@ -391,9 +368,6 @@
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TRN_SMkneet_t.cs">
-      <DependentUpon>infinigentdb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserDepartment.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

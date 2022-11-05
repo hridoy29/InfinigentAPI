@@ -17,40 +17,40 @@ namespace InfinigentAPI.Controllers
     {
         private qt_infinigentdbEntities db = new qt_infinigentdbEntities();
 
-        // GET: api/BBDs
-        public IQueryable<BBD> GetBBDs()
+        // GET: api/LU_BBD
+        public IQueryable<LU_BBD> GetBBDs()
         {
-            return db.BBDs;
+            return db.LU_BBD;
         }
 
-        // GET: api/BBDs/5
-        [ResponseType(typeof(BBD))]
+        // GET: api/LU_BBD/5
+        [ResponseType(typeof(LU_BBD))]
         public async Task<IHttpActionResult> GetBBD(int id)
         {
-            BBD bBD = await db.BBDs.FindAsync(id);
-            if (bBD == null)
+            LU_BBD LU_BBD = await db.LU_BBD.FindAsync(id);
+            if (LU_BBD == null)
             {
                 return NotFound();
             }
 
-            return Ok(bBD);
+            return Ok(LU_BBD);
         }
 
-        // PUT: api/BBDs/5
+        // PUT: api/LU_BBD/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutBBD(int id, BBD bBD)
+        public async Task<IHttpActionResult> PutBBD(int id, LU_BBD LU_BBD)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != bBD.Id)
+            if (id != LU_BBD.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(bBD).State = EntityState.Modified;
+            db.Entry(LU_BBD).State = EntityState.Modified;
 
             try
             {
@@ -71,35 +71,35 @@ namespace InfinigentAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/BBDs
-        [ResponseType(typeof(BBD))]
-        public async Task<IHttpActionResult> PostBBD(BBD bBD)
+        // POST: api/LU_BBD
+        [ResponseType(typeof(LU_BBD))]
+        public async Task<IHttpActionResult> PostBBD(LU_BBD LU_BBD)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.BBDs.Add(bBD);
+            db.LU_BBD.Add(LU_BBD);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = bBD.Id }, bBD);
+            return CreatedAtRoute("DefaultApi", new { id = LU_BBD.Id }, LU_BBD);
         }
 
-        // DELETE: api/BBDs/5
-        [ResponseType(typeof(BBD))]
+        // DELETE: api/LU_BBD/5
+        [ResponseType(typeof(LU_BBD))]
         public async Task<IHttpActionResult> DeleteBBD(int id)
         {
-            BBD bBD = await db.BBDs.FindAsync(id);
-            if (bBD == null)
+            LU_BBD LU_BBD = await db.LU_BBD.FindAsync(id);
+            if (LU_BBD == null)
             {
                 return NotFound();
             }
 
-            db.BBDs.Remove(bBD);
+            db.LU_BBD.Remove(LU_BBD);
             await db.SaveChangesAsync();
 
-            return Ok(bBD);
+            return Ok(LU_BBD);
         }
 
         protected override void Dispose(bool disposing)
@@ -113,7 +113,7 @@ namespace InfinigentAPI.Controllers
 
         private bool BBDExists(int id)
         {
-            return db.BBDs.Count(e => e.Id == id) > 0;
+            return db.LU_BBD.Count(e => e.Id == id) > 0;
         }
     }
 }
