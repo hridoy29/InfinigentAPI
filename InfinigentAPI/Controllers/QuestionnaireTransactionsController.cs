@@ -89,8 +89,64 @@ namespace InfinigentAPI.Controllers
             }
             else
             {
+                //string _imagePath = string.Empty;
+                //SaveImages saveImages = new SaveImages();
+                //if(questionnaireTransaction.TRN_QuestionnaireDetails.DayCloseImage!= null)
+                //{
+                //    questionnaireTransaction.TRN_QuestionnaireDetails.DayCloseImage = saveImages.isQuestionnaireImageSaved(questionnaireTransaction.TRN_QuestionnaireDetails.DayCloseImage, questionnaireTransaction.TRN_QuestionnaireDetails.Number, "DayCloseImage", "QDImage");
 
-               var result = Facade.QuestionnaireTransactionBLL.Post(questionnaireTransaction);
+                //}
+                //if (questionnaireTransaction.TRN_QuestionnaireDetails.LogoImage != null)
+                //{
+                //    questionnaireTransaction.TRN_QuestionnaireDetails.LogoImage = saveImages.isQuestionnaireImageSaved(questionnaireTransaction.TRN_QuestionnaireDetails.LogoImage, questionnaireTransaction.TRN_QuestionnaireDetails.Number, "LogoImage", "QDImage");
+
+                //}
+                //if (questionnaireTransaction.TRN_QuestionnaireDetails.GitImage != null)
+                //{
+                //    questionnaireTransaction.TRN_QuestionnaireDetails.GitImage = saveImages.isQuestionnaireImageSaved(questionnaireTransaction.TRN_QuestionnaireDetails.GitImage, questionnaireTransaction.TRN_QuestionnaireDetails.Number, "GitImage", "QDImage");
+
+                //}
+                //if (questionnaireTransaction.TRN_QuestionnaireDetails.MemoImage != null)
+                //{
+                //    questionnaireTransaction.TRN_QuestionnaireDetails.MemoImage = saveImages.isQuestionnaireImageSaved(questionnaireTransaction.TRN_QuestionnaireDetails.MemoImage, questionnaireTransaction.TRN_QuestionnaireDetails.Number, "MemoImage", "QDImage");
+
+                //}
+
+
+
+                //foreach (InfinigentBackend.SECURITY.SecurityEntity.TRN_QuestionnaireHyginePhotos photo in questionnaireTransaction.TRN_QuestionnaireHyginePhotoss)
+                //{
+
+
+                //    if (photo != null)
+                //    {
+
+
+
+                //        photo.HyginePhoto = saveImages.isQuestionnaireImageSaved(photo.HyginePhoto, photo.Number, ""+photo.Id, "HyginePhotos");
+
+
+                //    }
+
+
+                //}
+
+
+
+
+                //if (questionnaireTransaction.TRN_QuestionnaireHygineSignature.SignaturePhoto != null)
+                //{
+                //    questionnaireTransaction.TRN_QuestionnaireHygineSignature.SignaturePhoto = saveImages.isQuestionnaireImageSaved(questionnaireTransaction.TRN_QuestionnaireHygineSignature.SignaturePhoto, questionnaireTransaction.TRN_QuestionnaireHygineSignature.Number, "Sign", "HygineSign");
+
+                //}
+                //if (questionnaireTransaction.TRN_QuestionnaireHygineSignature.DistributorPhoto != null)
+                //{
+                //    questionnaireTransaction.TRN_QuestionnaireHygineSignature.DistributorPhoto = saveImages.isQuestionnaireImageSaved(questionnaireTransaction.TRN_QuestionnaireHygineSignature.DistributorPhoto, questionnaireTransaction.TRN_QuestionnaireHygineSignature.Number, "Photo", "HygineSign");
+
+                //}
+
+
+                var result = Facade.QuestionnaireTransactionBLL.Post(questionnaireTransaction);
                 int ret = await result;
                 if(ret != 0)
                 {

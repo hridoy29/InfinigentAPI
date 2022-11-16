@@ -25,5 +25,23 @@ namespace InfinigentAPI.Models
             }
             return _imagePath;
         }
+
+
+
+        public string isQuestionnaireImageSaved(String imgBytes, String number,String imageName, String folderName)
+        {
+            var bytes = Convert.FromBase64String(imgBytes);
+            string _imageActualPath = string.Empty;
+            string _imagePath = string.Empty;
+            using (var ms = new MemoryStream(bytes, 0, bytes.Length))
+            {
+                Image image = Image.FromStream(ms, true);
+                _imagePath = "/"+folderName+"/" + number + "_" + imageName + ".png";
+                _imageActualPath = HttpContext.Current.Server.MapPath("~/" + folderName + "/" + number + "_" + imageName + ".png");
+                image.Save(_imageActualPath, System.Drawing.Imaging.ImageFormat.Png);
+
+            }
+            return _imagePath;
+        }
     }
 }
