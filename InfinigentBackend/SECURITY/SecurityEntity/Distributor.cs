@@ -25,10 +25,11 @@ namespace InfinigentBackend.SECURITY.SecurityEntity
         public string Name { get; set; }
         public string Mobile { get; set; }
         public bool IsActive { get; set; }
+        public System.DateTime? LastAuditDate { get; set; }
         public string GccCode { get; set; }
         public int CreatorId { get; set; }
         public System.DateTime CreationDate { get; set; }
-        public int ModifierId { get; set; }
+        public int ModifierId { get; set; } 
         public System.DateTime ModificationDate { get; set; }
     
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
