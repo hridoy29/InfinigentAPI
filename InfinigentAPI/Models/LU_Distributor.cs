@@ -20,9 +20,11 @@ namespace InfinigentAPI.Models
         public string Mobile { get; set; }
         public bool IsActive { get; set; }
         public string GccCode { get; set; }
-        public int CreatorId { get; set; }
-        public System.DateTime CreationDate { get; set; }
-        public int ModifierId { get; set; }
-        public System.DateTime ModificationDate { get; set; }
+        public Nullable<int> CreatorId { get; set; }
+        public Nullable<System.DateTime> CreationDate { get; set; }
+        public Nullable<int> ModifierId { get; set; }
+        public Nullable<System.DateTime> ModificationDate { get; set; }
+        public string Address { get; set; }
+        public string ContactPersonName { get; set; }
     }
 }

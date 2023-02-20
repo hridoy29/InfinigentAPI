@@ -49,8 +49,6 @@ namespace InfinigentAPI.Models
         public virtual DbSet<TRN_SMkneet_t> TRN_SMkneet_t { get; set; }
         public virtual DbSet<Test> Tests { get; set; }
         public virtual DbSet<TRN_SchemeAuditShopDetails> TRN_SchemeAuditShopDetails { get; set; }
-        public virtual DbSet<TRN_Number> TRN_Number { get; set; }
-        public virtual DbSet<TRN_SchemeAuditChild> TRN_SchemeAuditChild { get; set; }
         public virtual DbSet<TRN_SchemeAuditParent> TRN_SchemeAuditParent { get; set; }
         public virtual DbSet<TRN_SchemeAuditChild_Test> TRN_SchemeAuditChild_Test { get; set; }
         public virtual DbSet<TRN_SchemeAuditParent_Test> TRN_SchemeAuditParent_Test { get; set; }
@@ -69,11 +67,14 @@ namespace InfinigentAPI.Models
         public virtual DbSet<LU_Category> LU_Category { get; set; }
         public virtual DbSet<LU_Department> LU_Department { get; set; }
         public virtual DbSet<LU_Distributor> LU_Distributor { get; set; }
-        public virtual DbSet<LU_Identity> LU_Identity { get; set; }
         public virtual DbSet<LU_Issues> LU_Issues { get; set; }
         public virtual DbSet<LU_Item> LU_Item { get; set; }
         public virtual DbSet<LU_ItemGroup> LU_ItemGroup { get; set; }
         public virtual DbSet<LU_Observation> LU_Observation { get; set; }
         public virtual DbSet<LU_UserDepartment> LU_UserDepartment { get; set; }
+        public virtual DbSet<LU_CodeName> LU_CodeName { get; set; }
+        public virtual DbSet<TRN_Number> TRN_Number { get; set; }
+        public virtual DbSet<LU_Identity> LU_Identity { get; set; }
+        public virtual DbSet<TRN_SchemeAuditChild> TRN_SchemeAuditChild { get; set; }
     }
 }

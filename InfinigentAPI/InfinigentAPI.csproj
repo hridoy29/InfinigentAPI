@@ -234,6 +234,9 @@
     <Compile Include="Models\LU_ChallanType.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LU_CodeName.cs">
+      <DependentUpon>infinigentdb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LU_CommentsType.cs">
       <DependentUpon>infinigentdb.tt</DependentUpon>
     </Compile>

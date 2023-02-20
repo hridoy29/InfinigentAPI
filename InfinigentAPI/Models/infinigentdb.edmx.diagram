@@ -36,8 +36,6 @@
         <AssociationConnector Association="qt_infinigentdbModel.FK_PermissionDetail_Permission" ManuallyRouted="false" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.Test" Width="1.5" PointX="8.375" PointY="0.75" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_SchemeAuditShopDetails" Width="1.5" PointX="15.375" PointY="0.75" />
-        <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_Number" Width="1.5" PointX="15.375" PointY="5.75" />
-        <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_SchemeAuditChild" Width="1.5" PointX="13.375" PointY="12.75" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_SchemeAuditParent" Width="1.5" PointX="5.375" PointY="15.75" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_SchemeAuditChild_Test" Width="1.5" PointX="7.375" PointY="15.75" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_SchemeAuditParent_Test" Width="1.5" PointX="15.375" PointY="8.75" />
@@ -57,7 +55,6 @@
         <EntityTypeShape EntityType="qt_infinigentdbModel.LU_Category" Width="1.5" PointX="20.75" PointY="9.125" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.LU_Department" Width="1.5" PointX="16.125" PointY="17.375" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.LU_Distributor" Width="1.5" PointX="11.75" PointY="17.5" />
-        <EntityTypeShape EntityType="qt_infinigentdbModel.LU_Identity" Width="1.5" PointX="0.75" PointY="20.5" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.LU_Issues" Width="1.5" PointX="2.75" PointY="20.5" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.LU_Item" Width="1.5" PointX="23" PointY="8.75" />
         <EntityTypeShape EntityType="qt_infinigentdbModel.LU_ItemGroup" Width="1.5" PointX="20.75" PointY="13.125" />
@@ -69,6 +66,10 @@
         <AssociationConnector Association="qt_infinigentdbModel.FK_Item_ItemGroup" />
         <AssociationConnector Association="qt_infinigentdbModel.FK_QuestionnaireObservation_Observation" />
         <AssociationConnector Association="qt_infinigentdbModel.FK_UserDepartment_LU_User1" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.LU_CodeName" Width="1.5" PointX="17.375" PointY="9.75" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_Number" Width="1.5" PointX="17.375" PointY="12.75" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.LU_Identity" Width="1.5" PointX="14.375" PointY="20.75" />
+        <EntityTypeShape EntityType="qt_infinigentdbModel.TRN_SchemeAuditChild" Width="1.5" PointX="20.375" PointY="16.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -20,7 +20,14 @@ namespace InfinigentAPI.Controllers
         // GET: api/Number
         public IQueryable<TRN_Number> GetTRN_Number()
         {
-            return db.TRN_Number;
+            try
+            {
+                return db.TRN_Number;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
 
         // GET: api/Number/5

@@ -29,11 +29,19 @@
           <Property Name="ModificationDate" Type="datetime" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.LU_BBD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="LU_BBD">
           <Key>
             <PropertyRef Name="Id" />
+            
+            
+            
+            
+            
+            
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="BBDName" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="CreatorId" Type="int" Nullable="false" />
@@ -41,11 +49,19 @@
           <Property Name="ModifierId" Type="int" Nullable="false" />
           <Property Name="ModificationDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.LU_Category' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="LU_Category">
           <Key>
             <PropertyRef Name="Id" />
+            
+            
+            
+            
+            
+            
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="CreatorId" Type="int" Nullable="false" />
@@ -64,6 +80,14 @@
           <Property Name="ModifierId" Type="int" Nullable="false" />
           <Property Name="ModificationDate" Type="datetime" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LU_CodeName">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codeTypeId" Type="int" Nullable="false" />
+          <Property Name="CodeTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="LU_CommentsType">
           <Key>
@@ -103,11 +127,19 @@
           <Property Name="ModificationDate" Type="datetime" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.LU_Department' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="LU_Department">
           <Key>
             <PropertyRef Name="Id" />
+            
+            
+            
+            
+            
+            
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="DeptName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="CreatorId" Type="int" Nullable="false" />
@@ -129,20 +161,28 @@
           <Property Name="ModificationDate" Type="datetime" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.LU_Distributor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="LU_Distributor">
           <Key>
             <PropertyRef Name="Id" />
+            
+            
+            
+            
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="DbCode" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Mobile" Type="varchar" MaxLength="15" />
+          <Property Name="Address" Type="varchar" MaxLength="150" />
+          <Property Name="ContactPersonName" Type="varchar" MaxLength="100" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="GccCode" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="CreatorId" Type="int" Nullable="false" />
-          <Property Name="CreationDate" Type="datetime" Nullable="false" />
-          <Property Name="ModifierId" Type="int" Nullable="false" />
-          <Property Name="ModificationDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="int" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="ModifierId" Type="int" />
+          <Property Name="ModificationDate" Type="datetime" />
         </EntityType>
         <EntityType Name="LU_DistributorDetails">
           <Key>
@@ -181,11 +221,20 @@
           <Property Name="ModifierId" Type="int" Nullable="false" />
           <Property Name="ModificationDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.LU_Issues' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="LU_Issues">
           <Key>
             <PropertyRef Name="Id" />
+            
+            
+            
+            
+            
+            
+            
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="isDefault" Type="bit" Nullable="false" />
@@ -194,11 +243,16 @@
           <Property Name="ModifierId" Type="int" Nullable="false" />
           <Property Name="ModificationDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.LU_Item' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="LU_Item">
           <Key>
             <PropertyRef Name="Id" />
+            
+            
+            
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ItemCode" Type="varchar" MaxLength="15" />
           <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="ItemGroupId" Type="int" Nullable="false" />
@@ -209,11 +263,19 @@
           <Property Name="ModifierId" Type="int" />
           <Property Name="ModificationDate" Type="datetime" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.LU_ItemGroup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="LU_ItemGroup">
           <Key>
             <PropertyRef Name="Id" />
+            
+            
+            
+            
+            
+            
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="GroupName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="CreatorId" Type="int" Nullable="false" />
@@ -228,11 +290,19 @@
           <Property Name="ModuleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ModuleName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.LU_Observation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="LU_Observation">
           <Key>
             <PropertyRef Name="Id" />
+            
+            
+            
+            
+            
+            
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="IsPositiveComments" Type="bit" />
@@ -319,11 +389,15 @@
           <Property Name="ModificationDate" Type="datetime" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.LU_UserDepartment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="LU_UserDepartment">
           <Key>
             <PropertyRef Name="Id" />
+            
+            
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="DeptId" Type="int" Nullable="false" />
         </EntityType>
@@ -364,6 +438,13 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Number" Type="nvarchar" MaxLength="50" />
           <Property Name="Photo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TRN_Number">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="TRN_Permission">
           <Key>
@@ -473,9 +554,12 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireHygineSignatu
           <Property Name="SignaturePhoto" Type="nvarchar(max)" Nullable="false" />
           <Property Name="DistributorPhoto" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireNumber' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TRN_QuestionnaireNumber">
           <Key>
             <PropertyRef Name="Id" />
+            
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -666,13 +750,6 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <Property Name="AicId" Type="int" Nullable="false" />
           <Property Name="OutlateAddress" Type="nvarchar" MaxLength="500" Nullable="false" />
         </EntityType>
-        <EntityType Name="TRN_Number">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
         <EntityType Name="TRN_SMkneet_t">
           <Key>
             <PropertyRef Name="Id" />
@@ -685,30 +762,6 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="ZId" Type="int" />
         </EntityType>
-        <Association Name="FK_Item_Category">
-          <End Role="LU_Category" Type="Self.LU_Category" Multiplicity="1" />
-          <End Role="LU_Item" Type="Self.LU_Item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LU_Category">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="LU_Item">
-              <PropertyRef Name="CategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Item_ItemGroup">
-          <End Role="LU_ItemGroup" Type="Self.LU_ItemGroup" Multiplicity="1" />
-          <End Role="LU_Item" Type="Self.LU_Item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LU_ItemGroup">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="LU_Item">
-              <PropertyRef Name="ItemGroupId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_LU_ScreenDetail_LU_ScreenFunction">
           <End Role="LU_ScreenFunction" Type="Self.LU_ScreenFunction" Multiplicity="1" />
           <End Role="LU_ScreenDetail" Type="Self.LU_ScreenDetail" Multiplicity="*" />
@@ -757,30 +810,6 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QuestionnaireDetails_Questionnaire">
-          <End Role="LU_BBD" Type="Self.LU_BBD" Multiplicity="1" />
-          <End Role="TRN_QuestionnaireDetails" Type="Self.TRN_QuestionnaireDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LU_BBD">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TRN_QuestionnaireDetails">
-              <PropertyRef Name="MaintainingMandateTime" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_QuestionnaireObservation_Observation">
-          <End Role="LU_Observation" Type="Self.LU_Observation" Multiplicity="1" />
-          <End Role="TRN_QuestionnaireObservation" Type="Self.TRN_QuestionnaireObservation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LU_Observation">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TRN_QuestionnaireObservation">
-              <PropertyRef Name="ObservationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_RoleWisePermission_PageList">
           <End Role="LU_Screen" Type="Self.LU_Screen" Multiplicity="1" />
           <End Role="TRN_Permission" Type="Self.TRN_Permission" Multiplicity="*" />
@@ -817,50 +846,19 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_UserDepartment_Department">
-          <End Role="LU_Department" Type="Self.LU_Department" Multiplicity="1" />
-          <End Role="LU_UserDepartment" Type="Self.LU_UserDepartment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LU_Department">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="LU_UserDepartment">
-              <PropertyRef Name="DeptId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserDepartment_LU_User1">
-          <End Role="LU_User" Type="Self.LU_User" Multiplicity="1" />
-          <End Role="LU_UserDepartment" Type="Self.LU_UserDepartment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LU_User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="LU_UserDepartment">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="qt_infinigentdbModelStoreContainer">
           <EntitySet Name="LU_AIC" EntityType="Self.LU_AIC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_ASM" EntityType="Self.LU_ASM" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LU_BBD" EntityType="Self.LU_BBD" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LU_Category" EntityType="Self.LU_Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_ChallanType" EntityType="Self.LU_ChallanType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LU_CodeName" EntityType="Self.LU_CodeName" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_CommentsType" EntityType="Self.LU_CommentsType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_Commnets" EntityType="Self.LU_Commnets" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_ConfigarationSettings" EntityType="Self.LU_ConfigarationSettings" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LU_Department" EntityType="Self.LU_Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_DeviceInfo" EntityType="Self.LU_DeviceInfo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LU_Distributor" EntityType="Self.LU_Distributor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_DistributorDetails" EntityType="Self.LU_DistributorDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_Employee" EntityType="Self.LU_Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_Identity" EntityType="Self.LU_Identity" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LU_Issues" EntityType="Self.LU_Issues" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LU_Item" EntityType="Self.LU_Item" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LU_ItemGroup" EntityType="Self.LU_ItemGroup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_Module" EntityType="Self.LU_Module" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LU_Observation" EntityType="Self.LU_Observation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_OutletType" EntityType="Self.LU_OutletType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_SchemeMediaType" EntityType="Self.LU_SchemeMediaType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_SchemeName" EntityType="Self.LU_SchemeName" Schema="dbo" store:Type="Tables" />
@@ -868,22 +866,125 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <EntitySet Name="LU_ScreenDetail" EntityType="Self.LU_ScreenDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_ScreenFunction" EntityType="Self.LU_ScreenFunction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_User" EntityType="Self.LU_User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LU_UserDepartment" EntityType="Self.LU_UserDepartment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_UserGroup" EntityType="Self.LU_UserGroup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LU_UserLoginIds" EntityType="Self.LU_UserLoginIds" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Test" EntityType="Self.Test" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRN_Number" EntityType="Self.TRN_Number" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_Permission" EntityType="Self.TRN_Permission" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_PermissionDetail" EntityType="Self.TRN_PermissionDetail" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRN_QuestionnaireNumber" EntityType="Self.TRN_QuestionnaireNumber" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_SchemeAuditChild" EntityType="Self.TRN_SchemeAuditChild" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_SchemeAuditChild_Test" EntityType="Self.TRN_SchemeAuditChild_Test" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_SchemeAuditParent" EntityType="Self.TRN_SchemeAuditParent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_SchemeAuditParent_Test" EntityType="Self.TRN_SchemeAuditParent_Test" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_SchemeAuditShopDetails" EntityType="Self.TRN_SchemeAuditShopDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_SchemeAuditShopDetails_Test" EntityType="Self.TRN_SchemeAuditShopDetails_Test" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRN_Number" EntityType="Self.TRN_Number" Schema="demo2" store:Type="Tables" />
           <EntitySet Name="TRN_SMkneet_t" EntityType="Self.TRN_SMkneet_t" Schema="demo2" store:Type="Tables" />
+          <EntitySet Name="LU_BBD" EntityType="Self.LU_BBD" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LU_BBD].[Id] AS [Id], 
+    [LU_BBD].[BBDName] AS [BBDName], 
+    [LU_BBD].[IsActive] AS [IsActive], 
+    [LU_BBD].[CreatorId] AS [CreatorId], 
+    [LU_BBD].[CreationDate] AS [CreationDate], 
+    [LU_BBD].[ModifierId] AS [ModifierId], 
+    [LU_BBD].[ModificationDate] AS [ModificationDate]
+    FROM [dbo].[LU_BBD] AS [LU_BBD]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LU_Category" EntityType="Self.LU_Category" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LU_Category].[Id] AS [Id], 
+    [LU_Category].[Description] AS [Description], 
+    [LU_Category].[IsActive] AS [IsActive], 
+    [LU_Category].[CreatorId] AS [CreatorId], 
+    [LU_Category].[CreationDate] AS [CreationDate], 
+    [LU_Category].[ModifierId] AS [ModifierId], 
+    [LU_Category].[ModificationDate] AS [ModificationDate]
+    FROM [dbo].[LU_Category] AS [LU_Category]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LU_Department" EntityType="Self.LU_Department" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LU_Department].[Id] AS [Id], 
+    [LU_Department].[DeptName] AS [DeptName], 
+    [LU_Department].[IsActive] AS [IsActive], 
+    [LU_Department].[CreatorId] AS [CreatorId], 
+    [LU_Department].[CreationDate] AS [CreationDate], 
+    [LU_Department].[ModifierId] AS [ModifierId], 
+    [LU_Department].[ModificationDate] AS [ModificationDate]
+    FROM [dbo].[LU_Department] AS [LU_Department]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LU_Distributor" EntityType="Self.LU_Distributor" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LU_Distributor].[Id] AS [Id], 
+    [LU_Distributor].[DbCode] AS [DbCode], 
+    [LU_Distributor].[Name] AS [Name], 
+    [LU_Distributor].[Mobile] AS [Mobile], 
+    [LU_Distributor].[Address] AS [Address], 
+    [LU_Distributor].[ContactPersonName] AS [ContactPersonName], 
+    [LU_Distributor].[IsActive] AS [IsActive], 
+    [LU_Distributor].[GccCode] AS [GccCode], 
+    [LU_Distributor].[CreatorId] AS [CreatorId], 
+    [LU_Distributor].[CreationDate] AS [CreationDate], 
+    [LU_Distributor].[ModifierId] AS [ModifierId], 
+    [LU_Distributor].[ModificationDate] AS [ModificationDate]
+    FROM [dbo].[LU_Distributor] AS [LU_Distributor]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LU_Issues" EntityType="Self.LU_Issues" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LU_Issues].[Id] AS [Id], 
+    [LU_Issues].[Name] AS [Name], 
+    [LU_Issues].[IsActive] AS [IsActive], 
+    [LU_Issues].[isDefault] AS [isDefault], 
+    [LU_Issues].[CreatorId] AS [CreatorId], 
+    [LU_Issues].[CreationDate] AS [CreationDate], 
+    [LU_Issues].[ModifierId] AS [ModifierId], 
+    [LU_Issues].[ModificationDate] AS [ModificationDate]
+    FROM [dbo].[LU_Issues] AS [LU_Issues]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LU_Item" EntityType="Self.LU_Item" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LU_Item].[Id] AS [Id], 
+    [LU_Item].[ItemCode] AS [ItemCode], 
+    [LU_Item].[Name] AS [Name], 
+    [LU_Item].[ItemGroupId] AS [ItemGroupId], 
+    [LU_Item].[CategoryId] AS [CategoryId], 
+    [LU_Item].[IsActive] AS [IsActive], 
+    [LU_Item].[CreatorId] AS [CreatorId], 
+    [LU_Item].[CreationDate] AS [CreationDate], 
+    [LU_Item].[ModifierId] AS [ModifierId], 
+    [LU_Item].[ModificationDate] AS [ModificationDate]
+    FROM [dbo].[LU_Item] AS [LU_Item]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LU_ItemGroup" EntityType="Self.LU_ItemGroup" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LU_ItemGroup].[Id] AS [Id], 
+    [LU_ItemGroup].[GroupName] AS [GroupName], 
+    [LU_ItemGroup].[IsActive] AS [IsActive], 
+    [LU_ItemGroup].[CreatorId] AS [CreatorId], 
+    [LU_ItemGroup].[CreationDate] AS [CreationDate], 
+    [LU_ItemGroup].[ModifierId] AS [ModifierId], 
+    [LU_ItemGroup].[ModificationDate] AS [ModificationDate]
+    FROM [dbo].[LU_ItemGroup] AS [LU_ItemGroup]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LU_Observation" EntityType="Self.LU_Observation" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LU_Observation].[Id] AS [Id], 
+    [LU_Observation].[Name] AS [Name], 
+    [LU_Observation].[IsActive] AS [IsActive], 
+    [LU_Observation].[IsPositiveComments] AS [IsPositiveComments], 
+    [LU_Observation].[CreatorId] AS [CreatorId], 
+    [LU_Observation].[CreationDate] AS [CreationDate], 
+    [LU_Observation].[ModifierId] AS [ModifierId], 
+    [LU_Observation].[ModificationDate] AS [ModificationDate]
+    FROM [dbo].[LU_Observation] AS [LU_Observation]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LU_UserDepartment" EntityType="Self.LU_UserDepartment" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LU_UserDepartment].[Id] AS [Id], 
+    [LU_UserDepartment].[UserId] AS [UserId], 
+    [LU_UserDepartment].[DeptId] AS [DeptId]
+    FROM [dbo].[LU_UserDepartment] AS [LU_UserDepartment]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="TRN_Questionnaire" EntityType="Self.TRN_Questionnaire" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [TRN_Questionnaire].[Id] AS [Id], 
@@ -934,6 +1035,12 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
     [TRN_QuestionnaireHygineSignature].[DistributorPhoto] AS [DistributorPhoto]
     FROM [dbo].[TRN_QuestionnaireHygineSignature] AS [TRN_QuestionnaireHygineSignature]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="TRN_QuestionnaireNumber" EntityType="Self.TRN_QuestionnaireNumber" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TRN_QuestionnaireNumber].[Id] AS [Id], 
+    [TRN_QuestionnaireNumber].[Number] AS [Number]
+    FROM [dbo].[TRN_QuestionnaireNumber] AS [TRN_QuestionnaireNumber]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="TRN_QuestionnaireObservation" EntityType="Self.TRN_QuestionnaireObservation" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [TRN_QuestionnaireObservation].[Id] AS [Id], 
@@ -972,14 +1079,6 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
     [TRN_QuestionnaireStockIssueFreeHandwriting].[Issue] AS [Issue]
     FROM [dbo].[TRN_QuestionnaireStockIssueFreeHandwriting] AS [TRN_QuestionnaireStockIssueFreeHandwriting]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK_Item_Category" Association="Self.FK_Item_Category">
-            <End Role="LU_Category" EntitySet="LU_Category" />
-            <End Role="LU_Item" EntitySet="LU_Item" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Item_ItemGroup" Association="Self.FK_Item_ItemGroup">
-            <End Role="LU_ItemGroup" EntitySet="LU_ItemGroup" />
-            <End Role="LU_Item" EntitySet="LU_Item" />
-          </AssociationSet>
           <AssociationSet Name="FK_LU_ScreenDetail_LU_ScreenFunction" Association="Self.FK_LU_ScreenDetail_LU_ScreenFunction">
             <End Role="LU_ScreenFunction" EntitySet="LU_ScreenFunction" />
             <End Role="LU_ScreenDetail" EntitySet="LU_ScreenDetail" />
@@ -996,14 +1095,6 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
             <End Role="LU_ScreenDetail" EntitySet="LU_ScreenDetail" />
             <End Role="TRN_PermissionDetail" EntitySet="TRN_PermissionDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK_QuestionnaireDetails_Questionnaire" Association="Self.FK_QuestionnaireDetails_Questionnaire">
-            <End Role="LU_BBD" EntitySet="LU_BBD" />
-            <End Role="TRN_QuestionnaireDetails" EntitySet="TRN_QuestionnaireDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_QuestionnaireObservation_Observation" Association="Self.FK_QuestionnaireObservation_Observation">
-            <End Role="LU_Observation" EntitySet="LU_Observation" />
-            <End Role="TRN_QuestionnaireObservation" EntitySet="TRN_QuestionnaireObservation" />
-          </AssociationSet>
           <AssociationSet Name="FK_RoleWisePermission_PageList" Association="Self.FK_RoleWisePermission_PageList">
             <End Role="LU_Screen" EntitySet="LU_Screen" />
             <End Role="TRN_Permission" EntitySet="TRN_Permission" />
@@ -1015,14 +1106,6 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <AssociationSet Name="FK_ScreenDetail_Screen" Association="Self.FK_ScreenDetail_Screen">
             <End Role="LU_Screen" EntitySet="LU_Screen" />
             <End Role="LU_ScreenDetail" EntitySet="LU_ScreenDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserDepartment_Department" Association="Self.FK_UserDepartment_Department">
-            <End Role="LU_Department" EntitySet="LU_Department" />
-            <End Role="LU_UserDepartment" EntitySet="LU_UserDepartment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserDepartment_LU_User1" Association="Self.FK_UserDepartment_LU_User1">
-            <End Role="LU_User" EntitySet="LU_User" />
-            <End Role="LU_UserDepartment" EntitySet="LU_UserDepartment" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -1431,8 +1514,6 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           </AssociationSet>
           <EntitySet Name="Tests" EntityType="qt_infinigentdbModel.Test" />
           <EntitySet Name="TRN_SchemeAuditShopDetails" EntityType="qt_infinigentdbModel.TRN_SchemeAuditShopDetails" />
-          <EntitySet Name="TRN_Number" EntityType="qt_infinigentdbModel.TRN_Number" />
-          <EntitySet Name="TRN_SchemeAuditChild" EntityType="qt_infinigentdbModel.TRN_SchemeAuditChild" />
           <EntitySet Name="TRN_SchemeAuditParent" EntityType="qt_infinigentdbModel.TRN_SchemeAuditParent" />
           <EntitySet Name="TRN_SchemeAuditChild_Test" EntityType="qt_infinigentdbModel.TRN_SchemeAuditChild_Test" />
           <EntitySet Name="TRN_SchemeAuditParent_Test" EntityType="qt_infinigentdbModel.TRN_SchemeAuditParent_Test" />
@@ -1455,7 +1536,6 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <EntitySet Name="LU_Category" EntityType="qt_infinigentdbModel.LU_Category" />
           <EntitySet Name="LU_Department" EntityType="qt_infinigentdbModel.LU_Department" />
           <EntitySet Name="LU_Distributor" EntityType="qt_infinigentdbModel.LU_Distributor" />
-          <EntitySet Name="LU_Identity" EntityType="qt_infinigentdbModel.LU_Identity" />
           <EntitySet Name="LU_Issues" EntityType="qt_infinigentdbModel.LU_Issues" />
           <EntitySet Name="LU_Item" EntityType="qt_infinigentdbModel.LU_Item" />
           <EntitySet Name="LU_ItemGroup" EntityType="qt_infinigentdbModel.LU_ItemGroup" />
@@ -1485,6 +1565,10 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
             <End Role="LU_User" EntitySet="LU_User" />
             <End Role="LU_UserDepartment" EntitySet="LU_UserDepartment" />
           </AssociationSet>
+          <EntitySet Name="LU_CodeName" EntityType="qt_infinigentdbModel.LU_CodeName" />
+          <EntitySet Name="TRN_Number" EntityType="qt_infinigentdbModel.TRN_Number" />
+          <EntitySet Name="LU_Identity" EntityType="qt_infinigentdbModel.LU_Identity" />
+          <EntitySet Name="TRN_SchemeAuditChild" EntityType="qt_infinigentdbModel.TRN_SchemeAuditChild" />
           </EntityContainer>
         <EntityType Name="Test">
           <Key>
@@ -1510,21 +1594,6 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <Property Name="AsmId" Type="Int32" Nullable="false" />
           <Property Name="AicId" Type="Int32" Nullable="false" />
           <Property Name="OutlateAddress" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="TRN_Number">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="TRN_SchemeAuditChild">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ImageLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TRN_SchemeAuditParent">
           <Key>
@@ -1815,22 +1884,12 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="GccCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
-        <EntityType Name="LU_Identity">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Designation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="Int32" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" />
+          <Property Name="ModificationDate" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPersonName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="LU_Issues">
           <Key>
@@ -1971,6 +2030,41 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="LU_CodeName">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codeTypeId" Type="Int32" Nullable="false" />
+          <Property Name="CodeTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TRN_Number">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LU_Identity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Designation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TRN_SchemeAuditChild">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImageLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2276,23 +2370,6 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TRN_Number">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_Number">
-              <MappingFragment StoreEntitySet="TRN_Number">
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TRN_SchemeAuditChild">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_SchemeAuditChild">
-              <MappingFragment StoreEntitySet="TRN_SchemeAuditChild">
-                <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TRN_SchemeAuditParent">
             <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_SchemeAuditParent">
               <MappingFragment StoreEntitySet="TRN_SchemeAuditParent">
@@ -2559,6 +2636,8 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
           <EntitySetMapping Name="LU_Distributor">
             <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Distributor">
               <MappingFragment StoreEntitySet="LU_Distributor">
+                <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
                 <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
                 <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
@@ -2568,19 +2647,6 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
                 <ScalarProperty Name="Mobile" ColumnName="Mobile" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="DbCode" ColumnName="DbCode" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LU_Identity">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Identity">
-              <MappingFragment StoreEntitySet="LU_Identity">
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="Designation" ColumnName="Designation" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2647,6 +2713,45 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_QuestionnaireStockIssueFre
               <MappingFragment StoreEntitySet="LU_UserDepartment">
                 <ScalarProperty Name="DeptId" ColumnName="DeptId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_CodeName">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_CodeName">
+              <MappingFragment StoreEntitySet="LU_CodeName">
+                <ScalarProperty Name="CodeTypeName" ColumnName="CodeTypeName" />
+                <ScalarProperty Name="codeTypeId" ColumnName="codeTypeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_Number">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_Number">
+              <MappingFragment StoreEntitySet="TRN_Number">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_Identity">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.LU_Identity">
+              <MappingFragment StoreEntitySet="LU_Identity">
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRN_SchemeAuditChild">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel.TRN_SchemeAuditChild">
+              <MappingFragment StoreEntitySet="TRN_SchemeAuditChild">
+                <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

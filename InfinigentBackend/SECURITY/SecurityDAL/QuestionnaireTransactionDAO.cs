@@ -48,11 +48,11 @@ namespace SecurityDAL
         {
             var ret = 0;
 
-            string folder = @"C:\Temp\";
-            // Filename  
-            string fileName = "Log.txt";
-            // Fullpath. You can direct hardcode it if you like.  
-            string fullPath = folder + fileName;
+            //string folder = @"C:\Temp\";
+            //// Filename  
+            //string fileName = "Log.txt";
+            //// Fullpath. You can direct hardcode it if you like.  
+            //string fullPath = folder + fileName;
 
             SqlTransaction objTrans = null;
          
@@ -262,11 +262,11 @@ namespace SecurityDAL
             // }
 
             // An array of strings  
-            string[] text = { "Test Log  ", ret+"" };
-            // Write array of strings to a file using WriteAllLines.  
-            // If the file does not exists, it will create a new file.  
-            // This method automatically opens the file, writes to it, and closes file  
-            File.WriteAllLines(fullPath, text);
+            //string[] text = { "Test Log  ", ret+"" };
+            //// Write array of strings to a file using WriteAllLines.  
+            //// If the file does not exists, it will create a new file.  
+            //// This method automatically opens the file, writes to it, and closes file  
+            //File.WriteAllLines(fullPath, text);
 
             return ret;
         }
