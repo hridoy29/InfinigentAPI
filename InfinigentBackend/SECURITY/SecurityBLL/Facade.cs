@@ -17,6 +17,10 @@ namespace SecurityBLL
         public static UserBLL UserBLL { get { return new UserBLL(); } }
         public static DistributorBLL DistributorBLL { get { return new DistributorBLL(); } }
         public static QuestionnaireTransactionBLL QuestionnaireTransactionBLL { get { return new QuestionnaireTransactionBLL(); } }
+        public static ShortNoteBLL ShortNoteBLL { get { return new ShortNoteBLL(); } }
+        public static AssetInfoBLL AssetInfoBLL { get { return new AssetInfoBLL(); } }
+        public static AssetAuditNumberBLL AssetAuditNumberBLL { get { return new AssetAuditNumberBLL(); } }
+        public static AssetAuditTransactionBLL AssetAuditTransactionBLL { get { return new AssetAuditTransactionBLL(); } }
    
     }
 }
