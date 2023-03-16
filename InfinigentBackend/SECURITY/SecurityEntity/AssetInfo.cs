@@ -17,24 +17,20 @@ namespace InfinigentBackend.SECURITY.SecurityEntity
         public int Id { get; set; }
         public string AssetNumber { get; set; }
         public string SerialNumber { get; set; }
-        public int DistributorId { get; set; }
+        public string DistributorId { get; set; }
         public string DistributorName { get; set; }
         public int AICId { get; set; }
         public string AICName { get; set; }
         public int ASMId { get; set; }
         public string ASMName { get; set; }
-        public int MDOId { get; set; }
+        public string MDOId { get; set; }
         public string MDOName { get; set; }
-        public int OutletId { get; set; }
+        public string OutletId { get; set; }
         public string OutletName { get; set; }
         public string OutletAddress{ get; set; }
         public string ContactNumber { get; set; }
         public int CoolerId { get; set; }
         public string CoolerModel { get; set; }
-        public bool IsCancelled { get; set; }
-        public int CreatorId { get; set; }
-        public System.DateTime CreationDate { get; set; }
-        public int ModifierId { get; set; }
-        public System.DateTime ModificationDate { get; set; }
+      
     }
 }
