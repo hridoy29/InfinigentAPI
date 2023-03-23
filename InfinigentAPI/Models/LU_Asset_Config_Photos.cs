@@ -12,13 +12,15 @@ namespace InfinigentAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TRN_AssetAuditPhotos
+    public partial class LU_Asset_Config_Photos
     {
         public int Id { get; set; }
-        public string Number { get; set; }
-        public int AssetInfoId { get; set; }
+        public string AssetNumber { get; set; }
         public string ShopImage { get; set; }
         public string AssetImage { get; set; }
         public string SignImage { get; set; }
+        public string CoolerImage { get; set; }
+        public string ShortNote { get; set; }
+        public string Remarks { get; set; }
     }
 }

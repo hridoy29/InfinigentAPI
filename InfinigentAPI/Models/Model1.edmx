@@ -4,7 +4,89 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="qt_infinigentdbModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="qt_infinigentdbModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LU_Asset_Config">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AssetNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="SerialNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="DistributorId" Type="nvarchar" MaxLength="10" />
+          <Property Name="DistributorName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AICName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ASMName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MDOId" Type="nvarchar" MaxLength="10" />
+          <Property Name="MDOName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OutletId" Type="nvarchar" MaxLength="10" />
+          <Property Name="OutletName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OutletAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="ContactNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="CoolerModel" Type="nvarchar" MaxLength="50" />
+          <Property Name="NightCover" Type="bit" />
+          <Property Name="IsRepeated" Type="bit" />
+          <Property Name="IsCancelled" Type="bit" />
+          <Property Name="IsUpdated" Type="bit" />
+          <Property Name="Device_Number" Type="nvarchar" MaxLength="3" />
+          <Property Name="CreatorId" Type="int" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="int" />
+          <Property Name="ModificationDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.LU_Asset_Config_Log' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LU_Asset_Config_Log">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="AssetNumber" />
+            <PropertyRef Name="SerialNumber" />
+            <PropertyRef Name="DistributorId" />
+            <PropertyRef Name="DistributorName" />
+            <PropertyRef Name="AICName" />
+            <PropertyRef Name="ASMName" />
+            <PropertyRef Name="CreationDate" />
+            <PropertyRef Name="ModificationDate" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="AssetNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SerialNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DistributorId" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DistributorName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AICName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ASMName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MDOId" Type="nvarchar" MaxLength="10" />
+          <Property Name="MDOName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OutletId" Type="nvarchar" MaxLength="10" />
+          <Property Name="OutletName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OutletAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="ContactNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="CoolerModel" Type="nvarchar" MaxLength="50" />
+          <Property Name="NightCover" Type="bit" />
+          <Property Name="IsRepeated" Type="bit" />
+          <Property Name="IsCancelled" Type="bit" />
+          <Property Name="IsUpdated" Type="bit" />
+          <Property Name="Device_Number" Type="nvarchar" MaxLength="3" />
+          <Property Name="CreatorId" Type="int" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="int" />
+          <Property Name="ModificationDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'qt_infinigentdb.dbo.LU_Asset_Config_Photos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LU_Asset_Config_Photos">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="AssetNumber" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AssetNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ShopImage" Type="nvarchar(max)" />
+          <Property Name="AssetImage" Type="nvarchar(max)" />
+          <Property Name="SignImage" Type="nvarchar(max)" />
+          <Property Name="CoolerImage" Type="nvarchar(max)" />
+          <Property Name="ShortNote" Type="nvarchar" MaxLength="500" />
+          <Property Name="Remarks" Type="varchar" MaxLength="500" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'qt_infinigentdb.dbo.LU_AssetInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="LU_AssetInfo">
@@ -18,6 +100,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.LU_AssetInfo' does not have a 
             <PropertyRef Name="MDOId" />
             <PropertyRef Name="OutletId" />
             <PropertyRef Name="CoolerId" />
+            <PropertyRef Name="IsCancelled" />
             <PropertyRef Name="CreatorId" />
             <PropertyRef Name="CreationDate" />
             <PropertyRef Name="ModifierId" />
@@ -32,6 +115,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.LU_AssetInfo' does not have a 
           <Property Name="MDOId" Type="int" Nullable="false" />
           <Property Name="OutletId" Type="int" Nullable="false" />
           <Property Name="CoolerId" Type="int" Nullable="false" />
+          <Property Name="IsCancelled" Type="bit" Nullable="false" />
           <Property Name="CreatorId" Type="int" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="int" Nullable="false" />
@@ -50,6 +134,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.LU_AssetInfo_Log' does not hav
             <PropertyRef Name="MDOId" />
             <PropertyRef Name="OutletId" />
             <PropertyRef Name="CoolerId" />
+            <PropertyRef Name="IsCancelled" />
             <PropertyRef Name="CreatorId" />
             <PropertyRef Name="CreationDate" />
             <PropertyRef Name="ModifierId" />
@@ -64,6 +149,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.LU_AssetInfo_Log' does not hav
           <Property Name="MDOId" Type="int" Nullable="false" />
           <Property Name="OutletId" Type="int" Nullable="false" />
           <Property Name="CoolerId" Type="int" Nullable="false" />
+          <Property Name="IsCancelled" Type="bit" Nullable="false" />
           <Property Name="CreatorId" Type="int" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="int" Nullable="false" />
@@ -82,7 +168,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.LU_Cooler' does not have a pri
             <PropertyRef Name="IsActive" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="CreatorId" Type="int" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="int" Nullable="false" />
@@ -94,6 +180,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.LU_MDO' does not have a primar
         <EntityType Name="LU_MDO">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="Code" />
             <PropertyRef Name="Name" />
             <PropertyRef Name="CreatorId" />
             <PropertyRef Name="CreationDate" />
@@ -102,7 +189,8 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.LU_MDO' does not have a primar
             <PropertyRef Name="IsActive" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="CreatorId" Type="int" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="int" Nullable="false" />
@@ -114,6 +202,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.LU_Outlet' does not have a pri
         <EntityType Name="LU_Outlet">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="Code" />
             <PropertyRef Name="Name" />
             <PropertyRef Name="CreatorId" />
             <PropertyRef Name="CreationDate" />
@@ -122,6 +211,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.LU_Outlet' does not have a pri
             <PropertyRef Name="IsActive" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="100" />
           <Property Name="ContactNo" Type="nvarchar" MaxLength="20" />
@@ -144,49 +234,12 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.LU_ShortNote' does not have a 
             <PropertyRef Name="IsActive" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="CreatorId" Type="int" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="int" Nullable="false" />
           <Property Name="ModificationDate" Type="datetime" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TRN_AssetAudit">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="AssetInfoId" Type="int" Nullable="false" />
-          <Property Name="IsMDONameCorrect" Type="bit" Nullable="false" />
-          <Property Name="MDONameShortNote" Type="varchar" MaxLength="250" />
-          <Property Name="MDONameRemarks" Type="varchar" MaxLength="250" />
-          <Property Name="IsMDOIdCorrect" Type="bit" Nullable="false" />
-          <Property Name="MDOIdShortNote" Type="varchar" MaxLength="250" />
-          <Property Name="MDOIdRemarks" Type="varchar" MaxLength="250" />
-          <Property Name="IsOutletIdCorrect" Type="bit" Nullable="false" />
-          <Property Name="OutletIdShortNote" Type="varchar" MaxLength="250" />
-          <Property Name="OutletIdRemarks" Type="varchar" MaxLength="250" />
-          <Property Name="IsOutletNameCorrect" Type="bit" Nullable="false" />
-          <Property Name="OutletNameShortNote" Type="varchar" MaxLength="250" />
-          <Property Name="OutletNameRemarks" Type="varchar" MaxLength="250" />
-          <Property Name="IsOutletAddressCorrect" Type="bit" Nullable="false" />
-          <Property Name="OutletAddressShortNote" Type="varchar" MaxLength="250" />
-          <Property Name="OutletAddressRemarks" Type="varchar" MaxLength="250" />
-          <Property Name="IsContactNumberCorrect" Type="bit" Nullable="false" />
-          <Property Name="ContactNumberShortNote" Type="varchar" MaxLength="250" />
-          <Property Name="ContactNumberRemarks" Type="varchar" MaxLength="250" />
-          <Property Name="IsCoolerModelCorrect" Type="bit" Nullable="false" />
-          <Property Name="CoolerModelShortNote" Type="varchar" MaxLength="250" />
-          <Property Name="CoolerModelRemarks" Type="varchar" MaxLength="250" />
-          <Property Name="IsAssetNumberCorrect" Type="bit" Nullable="false" />
-          <Property Name="AssetNumberShortNote" Type="varchar" MaxLength="250" />
-          <Property Name="AssetNumberRemarks" Type="varchar" MaxLength="250" />
-          <Property Name="IsSerialNumberCorrect" Type="bit" Nullable="false" />
-          <Property Name="SerialNumberShortNote" Type="varchar" MaxLength="250" />
-          <Property Name="SerialNumberNumberRemarks" Type="varchar" MaxLength="250" />
-          <Property Name="CreatorId" Type="int" Nullable="false" />
-          <Property Name="CreationDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="TRN_AssetAuditNumber">
           <Key>
@@ -197,22 +250,48 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.LU_ShortNote' does not have a 
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="TRN_AssetAuditPhotos">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Number" />
-            <PropertyRef Name="AssetInfoId" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Number" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="AssetInfoId" Type="int" Nullable="false" />
-          <Property Name="ShopImage" Type="nvarchar(max)" />
-          <Property Name="AssetImage" Type="nvarchar(max)" />
-          <Property Name="SignImage" Type="nvarchar(max)" />
-        </EntityType>
         <EntityContainer Name="qt_infinigentdbModel1StoreContainer">
-          <EntitySet Name="TRN_AssetAudit" EntityType="Self.TRN_AssetAudit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LU_Asset_Config" EntityType="Self.LU_Asset_Config" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRN_AssetAuditNumber" EntityType="Self.TRN_AssetAuditNumber" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LU_Asset_Config_Log" EntityType="Self.LU_Asset_Config_Log" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LU_Asset_Config_Log].[Id] AS [Id], 
+    [LU_Asset_Config_Log].[AssetNumber] AS [AssetNumber], 
+    [LU_Asset_Config_Log].[SerialNumber] AS [SerialNumber], 
+    [LU_Asset_Config_Log].[DistributorId] AS [DistributorId], 
+    [LU_Asset_Config_Log].[DistributorName] AS [DistributorName], 
+    [LU_Asset_Config_Log].[AICName] AS [AICName], 
+    [LU_Asset_Config_Log].[ASMName] AS [ASMName], 
+    [LU_Asset_Config_Log].[MDOId] AS [MDOId], 
+    [LU_Asset_Config_Log].[MDOName] AS [MDOName], 
+    [LU_Asset_Config_Log].[OutletId] AS [OutletId], 
+    [LU_Asset_Config_Log].[OutletName] AS [OutletName], 
+    [LU_Asset_Config_Log].[OutletAddress] AS [OutletAddress], 
+    [LU_Asset_Config_Log].[ContactNo] AS [ContactNo], 
+    [LU_Asset_Config_Log].[CoolerModel] AS [CoolerModel], 
+    [LU_Asset_Config_Log].[NightCover] AS [NightCover], 
+    [LU_Asset_Config_Log].[IsRepeated] AS [IsRepeated], 
+    [LU_Asset_Config_Log].[IsCancelled] AS [IsCancelled], 
+    [LU_Asset_Config_Log].[IsUpdated] AS [IsUpdated], 
+    [LU_Asset_Config_Log].[Device_Number] AS [Device_Number], 
+    [LU_Asset_Config_Log].[CreatorId] AS [CreatorId], 
+    [LU_Asset_Config_Log].[CreationDate] AS [CreationDate], 
+    [LU_Asset_Config_Log].[ModifierId] AS [ModifierId], 
+    [LU_Asset_Config_Log].[ModificationDate] AS [ModificationDate]
+    FROM [dbo].[LU_Asset_Config_Log] AS [LU_Asset_Config_Log]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LU_Asset_Config_Photos" EntityType="Self.LU_Asset_Config_Photos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LU_Asset_Config_Photos].[Id] AS [Id], 
+    [LU_Asset_Config_Photos].[AssetNumber] AS [AssetNumber], 
+    [LU_Asset_Config_Photos].[ShopImage] AS [ShopImage], 
+    [LU_Asset_Config_Photos].[AssetImage] AS [AssetImage], 
+    [LU_Asset_Config_Photos].[SignImage] AS [SignImage], 
+    [LU_Asset_Config_Photos].[CoolerImage] AS [CoolerImage], 
+    [LU_Asset_Config_Photos].[ShortNote] AS [ShortNote], 
+    [LU_Asset_Config_Photos].[Remarks] AS [Remarks]
+    FROM [dbo].[LU_Asset_Config_Photos] AS [LU_Asset_Config_Photos]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="LU_AssetInfo" EntityType="Self.LU_AssetInfo" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [LU_AssetInfo].[Id] AS [Id], 
@@ -224,6 +303,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
     [LU_AssetInfo].[MDOId] AS [MDOId], 
     [LU_AssetInfo].[OutletId] AS [OutletId], 
     [LU_AssetInfo].[CoolerId] AS [CoolerId], 
+    [LU_AssetInfo].[IsCancelled] AS [IsCancelled], 
     [LU_AssetInfo].[CreatorId] AS [CreatorId], 
     [LU_AssetInfo].[CreationDate] AS [CreationDate], 
     [LU_AssetInfo].[ModifierId] AS [ModifierId], 
@@ -241,6 +321,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
     [LU_AssetInfo_Log].[MDOId] AS [MDOId], 
     [LU_AssetInfo_Log].[OutletId] AS [OutletId], 
     [LU_AssetInfo_Log].[CoolerId] AS [CoolerId], 
+    [LU_AssetInfo_Log].[IsCancelled] AS [IsCancelled], 
     [LU_AssetInfo_Log].[CreatorId] AS [CreatorId], 
     [LU_AssetInfo_Log].[CreationDate] AS [CreationDate], 
     [LU_AssetInfo_Log].[ModifierId] AS [ModifierId], 
@@ -261,6 +342,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
           <EntitySet Name="LU_MDO" EntityType="Self.LU_MDO" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [LU_MDO].[Id] AS [Id], 
+    [LU_MDO].[Code] AS [Code], 
     [LU_MDO].[Name] AS [Name], 
     [LU_MDO].[CreatorId] AS [CreatorId], 
     [LU_MDO].[CreationDate] AS [CreationDate], 
@@ -272,6 +354,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
           <EntitySet Name="LU_Outlet" EntityType="Self.LU_Outlet" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [LU_Outlet].[Id] AS [Id], 
+    [LU_Outlet].[Code] AS [Code], 
     [LU_Outlet].[Name] AS [Name], 
     [LU_Outlet].[Address] AS [Address], 
     [LU_Outlet].[ContactNo] AS [ContactNo], 
@@ -293,59 +376,11 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
     [LU_ShortNote].[IsActive] AS [IsActive]
     FROM [dbo].[LU_ShortNote] AS [LU_ShortNote]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="TRN_AssetAuditPhotos" EntityType="Self.TRN_AssetAuditPhotos" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [TRN_AssetAuditPhotos].[Id] AS [Id], 
-    [TRN_AssetAuditPhotos].[Number] AS [Number], 
-    [TRN_AssetAuditPhotos].[AssetInfoId] AS [AssetInfoId], 
-    [TRN_AssetAuditPhotos].[ShopImage] AS [ShopImage], 
-    [TRN_AssetAuditPhotos].[AssetImage] AS [AssetImage], 
-    [TRN_AssetAuditPhotos].[SignImage] AS [SignImage]
-    FROM [dbo].[TRN_AssetAuditPhotos] AS [TRN_AssetAuditPhotos]</DefiningQuery>
-          </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="qt_infinigentdbModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="TRN_AssetAudit">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="AssetInfoId" Type="Int32" Nullable="false" />
-          <Property Name="IsMDONameCorrect" Type="Boolean" Nullable="false" />
-          <Property Name="MDONameShortNote" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="MDONameRemarks" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="IsMDOIdCorrect" Type="Boolean" Nullable="false" />
-          <Property Name="MDOIdShortNote" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="MDOIdRemarks" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="IsOutletIdCorrect" Type="Boolean" Nullable="false" />
-          <Property Name="OutletIdShortNote" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="OutletIdRemarks" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="IsOutletNameCorrect" Type="Boolean" Nullable="false" />
-          <Property Name="OutletNameShortNote" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="OutletNameRemarks" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="IsOutletAddressCorrect" Type="Boolean" Nullable="false" />
-          <Property Name="OutletAddressShortNote" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="OutletAddressRemarks" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="IsContactNumberCorrect" Type="Boolean" Nullable="false" />
-          <Property Name="ContactNumberShortNote" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="ContactNumberRemarks" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="IsCoolerModelCorrect" Type="Boolean" Nullable="false" />
-          <Property Name="CoolerModelShortNote" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="CoolerModelRemarks" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="IsAssetNumberCorrect" Type="Boolean" Nullable="false" />
-          <Property Name="AssetNumberShortNote" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="AssetNumberRemarks" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="IsSerialNumberCorrect" Type="Boolean" Nullable="false" />
-          <Property Name="SerialNumberShortNote" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="SerialNumberNumberRemarks" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
         <EntityType Name="TRN_AssetAuditNumber">
           <Key>
             <PropertyRef Name="Id" />
@@ -368,6 +403,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
             <PropertyRef Name="CreationDate" />
             <PropertyRef Name="ModifierId" />
             <PropertyRef Name="ModificationDate" />
+            <PropertyRef Name="IsCancelled" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AssetNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
@@ -382,6 +418,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsCancelled" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="LU_AssetInfo_Log">
           <Key>
@@ -398,6 +435,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
             <PropertyRef Name="CreationDate" />
             <PropertyRef Name="ModifierId" />
             <PropertyRef Name="ModificationDate" />
+            <PropertyRef Name="IsCancelled" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AssetNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
@@ -412,6 +450,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsCancelled" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="LU_Cooler">
           <Key>
@@ -424,7 +463,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
             <PropertyRef Name="IsActive" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatorId" Type="Int32" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
@@ -440,14 +479,16 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
             <PropertyRef Name="ModifierId" />
             <PropertyRef Name="ModificationDate" />
             <PropertyRef Name="IsActive" />
+            <PropertyRef Name="Code" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatorId" Type="Int32" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="LU_Outlet">
           <Key>
@@ -458,6 +499,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
             <PropertyRef Name="ModifierId" />
             <PropertyRef Name="ModificationDate" />
             <PropertyRef Name="IsActive" />
+            <PropertyRef Name="Code" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -468,6 +510,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="LU_ShortNote">
           <Key>
@@ -480,28 +523,14 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
             <PropertyRef Name="IsActive" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreatorId" Type="Int32" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="TRN_AssetAuditPhotos">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Number" />
-            <PropertyRef Name="AssetInfoId" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="AssetInfoId" Type="Int32" Nullable="false" />
-          <Property Name="ShopImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AssetImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SignImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityContainer Name="qt_infinigentdbEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="TRN_AssetAudit" EntityType="Self.TRN_AssetAudit" />
           <EntitySet Name="TRN_AssetAuditNumber" EntityType="Self.TRN_AssetAuditNumber" />
           <EntitySet Name="LU_AssetInfo" EntityType="Self.LU_AssetInfo" />
           <EntitySet Name="LU_AssetInfo_Log" EntityType="Self.LU_AssetInfo_Log" />
@@ -509,52 +538,94 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
           <EntitySet Name="LU_MDO" EntityType="Self.LU_MDO" />
           <EntitySet Name="LU_Outlet" EntityType="Self.LU_Outlet" />
           <EntitySet Name="LU_ShortNote" EntityType="Self.LU_ShortNote" />
-          <EntitySet Name="TRN_AssetAuditPhotos" EntityType="Self.TRN_AssetAuditPhotos" />
+          <EntitySet Name="LU_Asset_Config" EntityType="qt_infinigentdbModel1.LU_Asset_Config" />
+          <EntitySet Name="LU_Asset_Config_Log" EntityType="qt_infinigentdbModel1.LU_Asset_Config_Log" />
+          <EntitySet Name="LU_Asset_Config_Photos" EntityType="qt_infinigentdbModel1.LU_Asset_Config_Photos" />
         </EntityContainer>
+        <EntityType Name="LU_Asset_Config">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AssetNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SerialNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DistributorId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DistributorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AICName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ASMName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MDOId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MDOName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OutletId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="OutletName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OutletAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CoolerModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NightCover" Type="Boolean" />
+          <Property Name="IsRepeated" Type="Boolean" />
+          <Property Name="IsCancelled" Type="Boolean" />
+          <Property Name="IsUpdated" Type="Boolean" />
+          <Property Name="Device_Number" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="CreatorId" Type="Int32" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="LU_Asset_Config_Log">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="AssetNumber" />
+            <PropertyRef Name="SerialNumber" />
+            <PropertyRef Name="DistributorId" />
+            <PropertyRef Name="DistributorName" />
+            <PropertyRef Name="AICName" />
+            <PropertyRef Name="ASMName" />
+            <PropertyRef Name="CreationDate" />
+            <PropertyRef Name="ModificationDate" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="AssetNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SerialNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DistributorId" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DistributorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AICName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ASMName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MDOId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MDOName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OutletId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="OutletName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OutletAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CoolerModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NightCover" Type="Boolean" />
+          <Property Name="IsRepeated" Type="Boolean" />
+          <Property Name="IsCancelled" Type="Boolean" />
+          <Property Name="IsUpdated" Type="Boolean" />
+          <Property Name="Device_Number" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="CreatorId" Type="Int32" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="LU_Asset_Config_Photos">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="AssetNumber" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AssetNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ShopImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AssetImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SignImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CoolerImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShortNote" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="qt_infinigentdbModel1StoreContainer" CdmEntityContainer="qt_infinigentdbEntities1">
-          <EntitySetMapping Name="TRN_AssetAudit">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel1.TRN_AssetAudit">
-              <MappingFragment StoreEntitySet="TRN_AssetAudit">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="AssetInfoId" ColumnName="AssetInfoId" />
-                <ScalarProperty Name="IsMDONameCorrect" ColumnName="IsMDONameCorrect" />
-                <ScalarProperty Name="MDONameShortNote" ColumnName="MDONameShortNote" />
-                <ScalarProperty Name="MDONameRemarks" ColumnName="MDONameRemarks" />
-                <ScalarProperty Name="IsMDOIdCorrect" ColumnName="IsMDOIdCorrect" />
-                <ScalarProperty Name="MDOIdShortNote" ColumnName="MDOIdShortNote" />
-                <ScalarProperty Name="MDOIdRemarks" ColumnName="MDOIdRemarks" />
-                <ScalarProperty Name="IsOutletIdCorrect" ColumnName="IsOutletIdCorrect" />
-                <ScalarProperty Name="OutletIdShortNote" ColumnName="OutletIdShortNote" />
-                <ScalarProperty Name="OutletIdRemarks" ColumnName="OutletIdRemarks" />
-                <ScalarProperty Name="IsOutletNameCorrect" ColumnName="IsOutletNameCorrect" />
-                <ScalarProperty Name="OutletNameShortNote" ColumnName="OutletNameShortNote" />
-                <ScalarProperty Name="OutletNameRemarks" ColumnName="OutletNameRemarks" />
-                <ScalarProperty Name="IsOutletAddressCorrect" ColumnName="IsOutletAddressCorrect" />
-                <ScalarProperty Name="OutletAddressShortNote" ColumnName="OutletAddressShortNote" />
-                <ScalarProperty Name="OutletAddressRemarks" ColumnName="OutletAddressRemarks" />
-                <ScalarProperty Name="IsContactNumberCorrect" ColumnName="IsContactNumberCorrect" />
-                <ScalarProperty Name="ContactNumberShortNote" ColumnName="ContactNumberShortNote" />
-                <ScalarProperty Name="ContactNumberRemarks" ColumnName="ContactNumberRemarks" />
-                <ScalarProperty Name="IsCoolerModelCorrect" ColumnName="IsCoolerModelCorrect" />
-                <ScalarProperty Name="CoolerModelShortNote" ColumnName="CoolerModelShortNote" />
-                <ScalarProperty Name="CoolerModelRemarks" ColumnName="CoolerModelRemarks" />
-                <ScalarProperty Name="IsAssetNumberCorrect" ColumnName="IsAssetNumberCorrect" />
-                <ScalarProperty Name="AssetNumberShortNote" ColumnName="AssetNumberShortNote" />
-                <ScalarProperty Name="AssetNumberRemarks" ColumnName="AssetNumberRemarks" />
-                <ScalarProperty Name="IsSerialNumberCorrect" ColumnName="IsSerialNumberCorrect" />
-                <ScalarProperty Name="SerialNumberShortNote" ColumnName="SerialNumberShortNote" />
-                <ScalarProperty Name="SerialNumberNumberRemarks" ColumnName="SerialNumberNumberRemarks" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TRN_AssetAuditNumber">
             <EntityTypeMapping TypeName="qt_infinigentdbModel1.TRN_AssetAuditNumber">
               <MappingFragment StoreEntitySet="TRN_AssetAuditNumber">
@@ -566,6 +637,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
           <EntitySetMapping Name="LU_AssetInfo">
             <EntityTypeMapping TypeName="qt_infinigentdbModel1.LU_AssetInfo">
               <MappingFragment StoreEntitySet="LU_AssetInfo">
+                <ScalarProperty Name="IsCancelled" ColumnName="IsCancelled" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="AssetNumber" ColumnName="AssetNumber" />
                 <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
@@ -585,6 +657,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
           <EntitySetMapping Name="LU_AssetInfo_Log">
             <EntityTypeMapping TypeName="qt_infinigentdbModel1.LU_AssetInfo_Log">
               <MappingFragment StoreEntitySet="LU_AssetInfo_Log">
+                <ScalarProperty Name="IsCancelled" ColumnName="IsCancelled" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="AssetNumber" ColumnName="AssetNumber" />
                 <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
@@ -617,6 +690,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
           <EntitySetMapping Name="LU_MDO">
             <EntityTypeMapping TypeName="qt_infinigentdbModel1.LU_MDO">
               <MappingFragment StoreEntitySet="LU_MDO">
+                <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
@@ -630,6 +704,7 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
           <EntitySetMapping Name="LU_Outlet">
             <EntityTypeMapping TypeName="qt_infinigentdbModel1.LU_Outlet">
               <MappingFragment StoreEntitySet="LU_Outlet">
+                <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
@@ -655,15 +730,75 @@ warning 6002: The table/view 'qt_infinigentdb.dbo.TRN_AssetAuditPhotos' does not
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TRN_AssetAuditPhotos">
-            <EntityTypeMapping TypeName="qt_infinigentdbModel1.TRN_AssetAuditPhotos">
-              <MappingFragment StoreEntitySet="TRN_AssetAuditPhotos">
+          <EntitySetMapping Name="LU_Asset_Config">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel1.LU_Asset_Config">
+              <MappingFragment StoreEntitySet="LU_Asset_Config">
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="Device_Number" ColumnName="Device_Number" />
+                <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+                <ScalarProperty Name="IsCancelled" ColumnName="IsCancelled" />
+                <ScalarProperty Name="IsRepeated" ColumnName="IsRepeated" />
+                <ScalarProperty Name="NightCover" ColumnName="NightCover" />
+                <ScalarProperty Name="CoolerModel" ColumnName="CoolerModel" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="OutletAddress" ColumnName="OutletAddress" />
+                <ScalarProperty Name="OutletName" ColumnName="OutletName" />
+                <ScalarProperty Name="OutletId" ColumnName="OutletId" />
+                <ScalarProperty Name="MDOName" ColumnName="MDOName" />
+                <ScalarProperty Name="MDOId" ColumnName="MDOId" />
+                <ScalarProperty Name="ASMName" ColumnName="ASMName" />
+                <ScalarProperty Name="AICName" ColumnName="AICName" />
+                <ScalarProperty Name="DistributorName" ColumnName="DistributorName" />
+                <ScalarProperty Name="DistributorId" ColumnName="DistributorId" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="AssetNumber" ColumnName="AssetNumber" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="AssetInfoId" ColumnName="AssetInfoId" />
-                <ScalarProperty Name="ShopImage" ColumnName="ShopImage" />
-                <ScalarProperty Name="AssetImage" ColumnName="AssetImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_Asset_Config_Log">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel1.LU_Asset_Config_Log">
+              <MappingFragment StoreEntitySet="LU_Asset_Config_Log">
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="Device_Number" ColumnName="Device_Number" />
+                <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+                <ScalarProperty Name="IsCancelled" ColumnName="IsCancelled" />
+                <ScalarProperty Name="IsRepeated" ColumnName="IsRepeated" />
+                <ScalarProperty Name="NightCover" ColumnName="NightCover" />
+                <ScalarProperty Name="CoolerModel" ColumnName="CoolerModel" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="OutletAddress" ColumnName="OutletAddress" />
+                <ScalarProperty Name="OutletName" ColumnName="OutletName" />
+                <ScalarProperty Name="OutletId" ColumnName="OutletId" />
+                <ScalarProperty Name="MDOName" ColumnName="MDOName" />
+                <ScalarProperty Name="MDOId" ColumnName="MDOId" />
+                <ScalarProperty Name="ASMName" ColumnName="ASMName" />
+                <ScalarProperty Name="AICName" ColumnName="AICName" />
+                <ScalarProperty Name="DistributorName" ColumnName="DistributorName" />
+                <ScalarProperty Name="DistributorId" ColumnName="DistributorId" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="AssetNumber" ColumnName="AssetNumber" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LU_Asset_Config_Photos">
+            <EntityTypeMapping TypeName="qt_infinigentdbModel1.LU_Asset_Config_Photos">
+              <MappingFragment StoreEntitySet="LU_Asset_Config_Photos">
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="ShortNote" ColumnName="ShortNote" />
+                <ScalarProperty Name="CoolerImage" ColumnName="CoolerImage" />
                 <ScalarProperty Name="SignImage" ColumnName="SignImage" />
+                <ScalarProperty Name="AssetImage" ColumnName="AssetImage" />
+                <ScalarProperty Name="ShopImage" ColumnName="ShopImage" />
+                <ScalarProperty Name="AssetNumber" ColumnName="AssetNumber" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

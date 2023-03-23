@@ -21,5 +21,6 @@ namespace InfinigentAPI.Models
         public int ModifierId { get; set; }
         public System.DateTime ModificationDate { get; set; }
         public bool IsActive { get; set; }
+        public string Code { get; set; }
     }
 }

@@ -25,7 +25,6 @@ namespace InfinigentAPI.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<TRN_AssetAudit> TRN_AssetAudit { get; set; }
         public virtual DbSet<TRN_AssetAuditNumber> TRN_AssetAuditNumber { get; set; }
         public virtual DbSet<LU_AssetInfo> LU_AssetInfo { get; set; }
         public virtual DbSet<LU_AssetInfo_Log> LU_AssetInfo_Log { get; set; }
@@ -33,6 +32,8 @@ namespace InfinigentAPI.Models
         public virtual DbSet<LU_MDO> LU_MDO { get; set; }
         public virtual DbSet<LU_Outlet> LU_Outlet { get; set; }
         public virtual DbSet<LU_ShortNote> LU_ShortNote { get; set; }
-        public virtual DbSet<TRN_AssetAuditPhotos> TRN_AssetAuditPhotos { get; set; }
+        public virtual DbSet<LU_Asset_Config> LU_Asset_Config { get; set; }
+        public virtual DbSet<LU_Asset_Config_Log> LU_Asset_Config_Log { get; set; }
+        public virtual DbSet<LU_Asset_Config_Photos> LU_Asset_Config_Photos { get; set; }
     }
 }
