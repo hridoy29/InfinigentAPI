@@ -83,6 +83,7 @@
     <Compile Include="SECURITY\SecurityDAL\IssuesDAO.cs" />
     <Compile Include="SECURITY\SecurityDAL\DistributorDAO.cs" />
     <Compile Include="SECURITY\SecurityDAL\AuditorDAO.cs" />
+    <Compile Include="SECURITY\SecurityEntity\AssetConfigTransaction.cs" />
     <Compile Include="SECURITY\SecurityEntity\Auditor.cs" />
     <Compile Include="SECURITY\SecurityEntity\Distributor.cs" />
     <Compile Include="SECURITY\SecurityEntity\AssetInfo.cs" />
