@@ -51,8 +51,6 @@ namespace SecurityDAL
         {
             try
             {
-
-               
                 var ad_ItemLst = new List<LU_Asset_Config>();
              
                 ad_ItemLst =  dbExecutor.FetchData<LU_Asset_Config>(CommandType.StoredProcedure, "get_assetconfigs");
@@ -64,6 +62,31 @@ namespace SecurityDAL
                 throw ex;
             }
         }
+
+        public async Task<AssetConfigGetPagedView> GetPagedAssetConfigs(int startRow,int rowCount)
+        {
+            try
+            {
+                int row=0;
+                AssetConfigGetPagedView assetConfigGetPagedViews = new AssetConfigGetPagedView();
+                Parameters[] colparameters = new Parameters[2]{
+                new Parameters("@StartRecordNo", startRow, DbType.Int32, ParameterDirection.Input),
+                new Parameters("@RowPerPage", rowCount, DbType.Int32, ParameterDirection.Input)
+                };
+                var assetConfigs = dbExecutor.FetchDataRef<LU_Asset_Config>(CommandType.StoredProcedure, "LU_AsserConfigGetPaged", colparameters, ref row);
+
+                assetConfigGetPagedViews.Asset_Configs = assetConfigs;
+                assetConfigGetPagedViews.TotalCount = row;
+
+
+                return assetConfigGetPagedViews;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<int> PostAssetConfigs(AssetConfigTransaction assetConfigTransaction)
         {
             try

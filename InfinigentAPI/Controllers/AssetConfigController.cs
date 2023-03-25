@@ -45,6 +45,31 @@ namespace InfinigentAPI.Controllers
             }
 
         }
+        public async Task<IHttpActionResult> GetPagedAssetConfigs(int startRow, int rowCount)
+        {
+
+            try
+            {
+
+                var list = await Facade.AssetConfigBLL.GetPagedAssetConfigs(startRow, rowCount);
+
+                if (list == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(list);
+
+
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
+
+            }
+
+        }
+
 
         [ResponseType(typeof(AssetConfigTransaction))]
         public async Task<IHttpActionResult> PostAssetConfigsAsync(AssetConfigTransaction assetConfigTransaction)
