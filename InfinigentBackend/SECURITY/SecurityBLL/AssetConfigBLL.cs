@@ -38,6 +38,17 @@ namespace Sundorbon.Backend.SECURITY.SecurityBLL
                 throw ex;
             }
         }
+        public async Task<List<LU_Asset_Config>> GetAssetConfigsByDistributorId(string DistributorId)
+        {
+            try
+            {
+                return await _AssetConfigDAO.GetAssetConfigsByDistributorId(DistributorId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public async Task<AssetConfigGetPagedView> GetPagedAssetConfigs(int startRow, int rowCount)
         {
             try

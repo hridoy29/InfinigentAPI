@@ -63,6 +63,27 @@ namespace SecurityDAL
             }
         }
 
+        public async Task<List<LU_Asset_Config>> GetAssetConfigsByDistributorId(string DistributorId)
+        {
+            try
+            {
+                var ad_ItemLst = new List<LU_Asset_Config>();
+                Parameters[] colparameters = new Parameters[1]{
+                new Parameters("@DistributorId", DistributorId, DbType.String, ParameterDirection.Input)
+                };
+
+                ad_ItemLst = dbExecutor.FetchData<LU_Asset_Config>(CommandType.StoredProcedure, "get_assetconfigs_by_distributorId", colparameters);
+
+                return ad_ItemLst;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
         public async Task<AssetConfigGetPagedView> GetPagedAssetConfigs(int startRow,int rowCount)
         {
             try

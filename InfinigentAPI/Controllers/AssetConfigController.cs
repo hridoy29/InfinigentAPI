@@ -70,6 +70,31 @@ namespace InfinigentAPI.Controllers
 
         }
 
+        public async Task<IHttpActionResult> GetAssetConfigsByDistributorId(string DistributorId)
+        {
+
+            try
+            {
+
+                var list = await Facade.AssetConfigBLL.GetAssetConfigsByDistributorId(DistributorId);
+
+                if (list == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(list);
+
+
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
+
+            }
+
+        }
+
 
         [ResponseType(typeof(AssetConfigTransaction))]
         public async Task<IHttpActionResult> PostAssetConfigsAsync(AssetConfigTransaction assetConfigTransaction)
