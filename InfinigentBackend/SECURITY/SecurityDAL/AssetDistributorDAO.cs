@@ -8,47 +8,47 @@ using InfinigentBackend.SECURITY.SecurityEntity;
 
 namespace SecurityDAL
 {
-    public class DistributorDAO
+    public class AssetDistributorDAO
     {
-        private static volatile DistributorDAO instance;
+        private static volatile AssetDistributorDAO instance;
         private static readonly object lockObj = new object();
 
         private readonly DBExecutor dbExecutor;
 
-        public DistributorDAO()
+        public AssetDistributorDAO()
         {
             //dbExecutor = DBExecutor.GetInstanceThreadSafe;
             dbExecutor = new DBExecutor();
         }
 
-        public static DistributorDAO GetInstanceThreadSafe
+        public static AssetDistributorDAO GetInstanceThreadSafe
         {
             get
             {
                 if (instance == null)
                     lock (lockObj)
                     {
-                        if (instance == null) instance = new DistributorDAO();
+                        if (instance == null) instance = new AssetDistributorDAO();
                     }
 
                 return instance;
             }
         }
 
-        public static DistributorDAO GetInstance()
+        public static AssetDistributorDAO GetInstance()
         {
-            if (instance == null) instance = new DistributorDAO();
+            if (instance == null) instance = new AssetDistributorDAO();
             return instance;
         }
 
-        public async Task<List<Distributor>> GetDistributors()
+        public async Task<List<AssetDistributor>> GetAssetDistributors()
         {
             try
             {
 
-                var distributorList = new List<Distributor>();
+                var distributorList = new List<AssetDistributor>();
 
-                distributorList = dbExecutor.FetchData<Distributor>(CommandType.StoredProcedure, "get_distributors");
+                distributorList = dbExecutor.FetchData<AssetDistributor>(CommandType.StoredProcedure, "get_asset_distributors");
 
                 return distributorList;
             }
@@ -121,76 +121,7 @@ namespace SecurityDAL
         //        throw ex;
         //    }
         //}
-        public async Task<Distributor> GetDistributorInfo(string DbCode)
-        {
-            try
-            {
-
-                var colparameters = new Parameters[1]
-                {
-                     new Parameters("@DbCode", DbCode, DbType.String,
-                        ParameterDirection.Input)
-
-                        };
-                var distributors = new List <Distributor>();
-                var distributor = new Distributor();
-                distributors =   dbExecutor.FetchData<Distributor>(CommandType.StoredProcedure, "wsp_GetDistributorInfo", colparameters);
-                if (distributors.Count > 0)
-                {
-
-                    distributor = distributors[0];
-                }
-                return distributor;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-
-        //public List<ad_Item> GetDynamic(string whereCondition, string orderByExpression)
-        //{
-        //    try
-        //    {
-        //        var ad_PaymentGroupLst = new List<ad_Item>();
-        //        var colparameters = new Parameters[2]
-        //        {
-        //            new Parameters("@WhereCondition", whereCondition, DbType.String, ParameterDirection.Input),
-        //            new Parameters("@OrderByExpression", orderByExpression, DbType.String, ParameterDirection.Input)
-        //        };
-        //        ad_PaymentGroupLst = dbExecutor.FetchData<ad_Item>(CommandType.StoredProcedure,
-        //            "ad_Item_GetDynamic", colparameters);
-        //        return ad_PaymentGroupLst;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
-        //public List<ad_Item> GetPaged(int startRecordNo, int rowPerPage, string whereClause, string sortColumn,
-        //   string sortOrder, ref int rows)
-        //{
-        //    try
-        //    {
-        //        var ad_BankLst = new List<ad_Item>();
-        //        var colparameters = new Parameters[5]
-        //        {
-        //            new Parameters("@StartRecordNo", startRecordNo, DbType.Int32, ParameterDirection.Input),
-        //            new Parameters("@RowPerPage", rowPerPage, DbType.Int32, ParameterDirection.Input),
-        //            new Parameters("@WhereClause", whereClause, DbType.String, ParameterDirection.Input),
-        //            new Parameters("@SortColumn", sortColumn, DbType.String, ParameterDirection.Input),
-        //            new Parameters("@SortOrder", sortOrder, DbType.String, ParameterDirection.Input)
-        //        };
-        //        ad_BankLst = dbExecutor.FetchDataRef<ad_Item>(CommandType.StoredProcedure, "ad_Item_GetPaged",
-        //            colparameters, ref rows);
-        //        return ad_BankLst;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+      
 
     }
 }

@@ -181,6 +181,7 @@
     <Compile Include="Controllers\ASMController.cs" />
     <Compile Include="Controllers\AssetConfigController.cs" />
     <Compile Include="Controllers\BBDController.cs" />
+    <Compile Include="Controllers\AssetDistributorController.cs" />
     <Compile Include="Controllers\DistributorsController.cs" />
     <Compile Include="Controllers\AuditorsController.cs" />
     <Compile Include="Controllers\BBDsController.cs" />

@@ -58,6 +58,7 @@
     <Compile Include="SECURITY\SecurityBLL\AssetInfoBLL.cs" />
     <Compile Include="SECURITY\SecurityBLL\AssetAuditNumberBLL.cs" />
     <Compile Include="SECURITY\SecurityBLL\AssetAuditTransactionBLL.cs" />
+    <Compile Include="SECURITY\SecurityBLL\AssetDistributorBLL.cs" />
     <Compile Include="SECURITY\SecurityBLL\ShortNoteBLL.cs" />
     <Compile Include="SECURITY\SecurityBLL\QuestionnaireNumberBLL.cs" />
     <Compile Include="SECURITY\SecurityBLL\QuestionnaireTransactionBLL.cs" />
@@ -73,7 +74,7 @@
     <Compile Include="SECURITY\SecurityDAL\AssetInfoDAO.cs" />
     <Compile Include="SECURITY\SecurityDAL\AssetAuditNumberDAO.cs" />
     <Compile Include="SECURITY\SecurityDAL\AssetAuditTransactionDAO.cs" />
-    <Compile Include="SECURITY\SecurityDAL\DistributorDAO - Copy.cs" />
+    <Compile Include="SECURITY\SecurityDAL\AssetDistributorDAO.cs" />
     <Compile Include="SECURITY\SecurityDAL\ShortNoteDAO.cs" />
     <Compile Include="SECURITY\SecurityDAL\QuestionnaireNumberDAO.cs" />
     <Compile Include="SECURITY\SecurityDAL\QuestionnaireTransactionDAO.cs" />
