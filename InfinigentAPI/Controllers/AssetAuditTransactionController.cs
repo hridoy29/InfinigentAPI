@@ -30,11 +30,10 @@ namespace InfinigentAPI.Controllers
 
       
         // POST: api/QuestionnaireTransaction
-        [ResponseType(typeof(AssetAuditTransaction))]
+        [ResponseType(typeof(AssetConfigTransaction))]
 
         [HttpPost]
-
-        public async Task<IHttpActionResult> PostAssetAuditTransaction(AssetAuditTransaction transaction)
+        public async Task<IHttpActionResult> PostAssetAuditTransaction(AssetConfigTransaction transaction)
         {
             if (!ModelState.IsValid)
             {
@@ -42,21 +41,46 @@ namespace InfinigentAPI.Controllers
             }
             else
             {
-               
 
-                var result = Facade.AssetAuditTransactionBLL.Post(transaction);
+
+                var result = Facade.AssetConfigTransactionBLL.Post(transaction);
                 int ret = await result;
-                if(ret != 0)
+                if (ret != 0)
                 {
-                  return  Ok(transaction);
+                    return Ok(transaction);
                 }
                 else
                 {
                     return BadRequest(ModelState);
                 }
-               // return CreatedAtRoute("DefaultApi", new { id = questionnaireTransaction.TRN_Questionnaire.Id }, questionnaireTransaction);
+                // return CreatedAtRoute("DefaultApi", new { id = questionnaireTransaction.TRN_Questionnaire.Id }, questionnaireTransaction);
             }
         }
+
+
+        //public async Task<IHttpActionResult> PostAssetAuditTransaction(AssetAuditTransaction transaction)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+        //    else
+        //    {
+
+
+        //        var result = Facade.AssetAuditTransactionBLL.Post(transaction);
+        //        int ret = await result;
+        //        if (ret != 0)
+        //        {
+        //            return Ok(transaction);
+        //        }
+        //        else
+        //        {
+        //            return BadRequest(ModelState);
+        //        }
+        //        // return CreatedAtRoute("DefaultApi", new { id = questionnaireTransaction.TRN_Questionnaire.Id }, questionnaireTransaction);
+        //    }
+        //}
 
 
         protected override void Dispose(bool disposing)

@@ -23,6 +23,7 @@ namespace SecurityBLL
         public static AssetAuditTransactionBLL AssetAuditTransactionBLL { get { return new AssetAuditTransactionBLL(); } }
         public static AssetConfigBLL AssetConfigBLL { get { return new AssetConfigBLL(); } }
         public static AssetDistributorBLL AssetDistributorBLL { get { return new AssetDistributorBLL(); } }
+        public static AssetConfigTransactionBLL AssetConfigTransactionBLL { get { return new AssetConfigTransactionBLL(); } }
    
     }
 }

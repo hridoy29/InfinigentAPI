@@ -179,6 +179,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AICController.cs" />
     <Compile Include="Controllers\ASMController.cs" />
+    <Compile Include="Controllers\AssetConfigTransactionController.cs" />
     <Compile Include="Controllers\AssetConfigController.cs" />
     <Compile Include="Controllers\BBDController.cs" />
     <Compile Include="Controllers\AssetDistributorController.cs" />

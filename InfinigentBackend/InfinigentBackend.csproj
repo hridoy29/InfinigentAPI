@@ -54,6 +54,7 @@
     <Compile Include="DbExecutor\IEntityBase.cs" />
     <Compile Include="DbExecutor\Parameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SECURITY\SecurityBLL\AssetConfigTransactionBLL.cs" />
     <Compile Include="SECURITY\SecurityBLL\AssetConfigBLL.cs" />
     <Compile Include="SECURITY\SecurityBLL\AssetInfoBLL.cs" />
     <Compile Include="SECURITY\SecurityBLL\AssetAuditNumberBLL.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="SECURITY\SecurityBLL\DistributorBLL.cs" />
     <Compile Include="SECURITY\SecurityBLL\AuditorBLL.cs" />
     <Compile Include="SECURITY\SecurityBLL\Facade.cs" />
+    <Compile Include="SECURITY\SecurityDAL\AssetConfigTransactionDAO.cs" />
     <Compile Include="SECURITY\SecurityDAL\AssetConfigDAO.cs" />
     <Compile Include="SECURITY\SecurityDAL\AssetInfoDAO.cs" />
     <Compile Include="SECURITY\SecurityDAL\AssetAuditNumberDAO.cs" />
