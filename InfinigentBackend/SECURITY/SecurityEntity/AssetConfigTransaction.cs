@@ -11,5 +11,7 @@ namespace InfinigentBackend.SECURITY.SecurityEntity
         public LU_Asset_Config LU_Asset_Config { get; set; }
 
         public LU_Asset_Config_Photos LU_Asset_Config_Photos { get; set; }
+        public string TransactionType { get; set; }
+
     }
 }

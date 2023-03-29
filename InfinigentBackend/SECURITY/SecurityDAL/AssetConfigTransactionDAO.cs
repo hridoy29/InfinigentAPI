@@ -64,7 +64,7 @@ namespace SecurityDAL
                         sqlCon.Open();
                         objTrans = sqlCon.BeginTransaction();
 
-                        SqlCommand sql_cmndQ = new SqlCommand("wsp_LU_Asset_Config_Post", sqlCon, objTrans);
+                        SqlCommand sql_cmndQ = new SqlCommand("wsp_LU_Asset_Config_Post_For_Api", sqlCon, objTrans);
                         sql_cmndQ.CommandType = CommandType.StoredProcedure;
 
 
@@ -94,14 +94,18 @@ namespace SecurityDAL
                         sql_cmndQ.Parameters.AddWithValue("@paramCreationDate", SqlDbType.DateTime).Value = DateTime.Now;
                         sql_cmndQ.Parameters.AddWithValue("@paramModifierId", SqlDbType.Int).Value = assetConfigTransaction.LU_Asset_Config.CreatorId;
                         sql_cmndQ.Parameters.AddWithValue("@paramModificationDate", SqlDbType.DateTime).Value = DateTime.Now;
-                        sql_cmndQ.Parameters.AddWithValue("@paramTransactionType", SqlDbType.NVarChar).Value = "UPDATE";
-                        sql_cmndQ.ExecuteNonQuery();
-
-
+                        sql_cmndQ.Parameters.AddWithValue("@paramTransactionType", SqlDbType.NVarChar).Value = assetConfigTransaction.TransactionType;
+                        var id = sql_cmndQ.ExecuteScalar();
+                        var AssetConfigId = assetConfigTransaction.LU_Asset_Config_Photos.AssetConfigId;
+                        if (assetConfigTransaction.TransactionType=="INSERT")
+                        {
+                            AssetConfigId = (int)id;
+                        }
 
                         SqlCommand sql_cmndQD = new SqlCommand("wsp_LU_AssetConfigPhotos_Post", sqlCon, objTrans);
                         sql_cmndQD.CommandType = CommandType.StoredProcedure;
                         sql_cmndQD.Parameters.AddWithValue("@paramId", SqlDbType.Int).Value = assetConfigTransaction.LU_Asset_Config_Photos.Id;
+                        sql_cmndQD.Parameters.AddWithValue("@paramAssetConfigId", SqlDbType.Int).Value = AssetConfigId;
                         sql_cmndQD.Parameters.AddWithValue("@paramNumber", SqlDbType.NVarChar).Value = assetConfigTransaction.LU_Asset_Config_Photos.AssetNumber;
                         sql_cmndQD.Parameters.AddWithValue("@paramShopImage", SqlDbType.NVarChar).Value = assetConfigTransaction.LU_Asset_Config_Photos.ShopImage;
                         sql_cmndQD.Parameters.AddWithValue("@paramAssetImage", SqlDbType.NVarChar).Value = assetConfigTransaction.LU_Asset_Config_Photos.AssetImage;

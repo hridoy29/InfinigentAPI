@@ -10,6 +10,7 @@ namespace InfinigentBackend.SECURITY.SecurityEntity
     {
 
         public int Id { get; set; }
+        public int AssetConfigId { get; set; }
         public string AssetNumber { get; set; }
         public string ShopImage { get; set; }
         public string AssetImage { get; set; }
