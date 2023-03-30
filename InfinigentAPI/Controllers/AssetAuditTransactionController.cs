@@ -51,7 +51,7 @@ namespace InfinigentAPI.Controllers
                 }
                 else
                 {
-                    return BadRequest(ModelState);
+                    return NotFound();
                 }
                 // return CreatedAtRoute("DefaultApi", new { id = questionnaireTransaction.TRN_Questionnaire.Id }, questionnaireTransaction);
             }

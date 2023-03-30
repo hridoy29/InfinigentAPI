@@ -96,10 +96,17 @@ namespace SecurityDAL
                         sql_cmndQ.Parameters.AddWithValue("@paramModificationDate", SqlDbType.DateTime).Value = DateTime.Now;
                         sql_cmndQ.Parameters.AddWithValue("@paramTransactionType", SqlDbType.NVarChar).Value = assetConfigTransaction.TransactionType;
                         var id = sql_cmndQ.ExecuteScalar();
-                        var AssetConfigId = assetConfigTransaction.LU_Asset_Config_Photos.AssetConfigId;
+                        int AssetConfigId = assetConfigTransaction.LU_Asset_Config_Photos.AssetConfigId;
                         if (assetConfigTransaction.TransactionType=="INSERT")
                         {
-                            AssetConfigId = (int)id;
+                            if ((int)id !=0)
+                            {
+                                AssetConfigId = (int)id;
+                            }
+                            else
+                            {
+                                throw new InvalidOperationException("Asset No Already existis");
+                            }
                         }
 
                         SqlCommand sql_cmndQD = new SqlCommand("wsp_LU_AssetConfigPhotos_Post", sqlCon, objTrans);
