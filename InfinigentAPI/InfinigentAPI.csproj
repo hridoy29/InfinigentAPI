@@ -189,6 +189,7 @@
     <Compile Include="Controllers\CommentsTypeController.cs" />
     <Compile Include="Controllers\CommnetsController.cs" />
     <Compile Include="Controllers\DistributorDetailsController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AssetInfoController.cs" />
     <Compile Include="Controllers\AssetAuditNumberController.cs" />
@@ -514,6 +515,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
