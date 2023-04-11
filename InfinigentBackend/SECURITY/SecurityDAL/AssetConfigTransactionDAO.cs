@@ -73,11 +73,11 @@ namespace SecurityDAL
                         sql_cmndQ.Parameters.AddWithValue("@paramAssetNumber", SqlDbType.NVarChar).Value = assetConfigTransaction.LU_Asset_Config.AssetNumber;
                         sql_cmndQ.Parameters.AddWithValue("@paramSerialNumber", SqlDbType.NVarChar).Value = assetConfigTransaction.LU_Asset_Config.SerialNumber;
                         sql_cmndQ.Parameters.AddWithValue("@paramDistributorId", SqlDbType.NVarChar).Value = assetConfigTransaction.LU_Asset_Config.DistributorId;
-                        sql_cmndQ.Parameters.AddWithValue("@paramDistributorName", SqlDbType.VarChar).Value = assetConfigTransaction.LU_Asset_Config.DistributorName;
-                        sql_cmndQ.Parameters.AddWithValue("@paramAICName", SqlDbType.VarChar).Value = assetConfigTransaction.LU_Asset_Config.AICName;
+                        sql_cmndQ.Parameters.AddWithValue("@paramDistributorName", SqlDbType.NVarChar).Value = assetConfigTransaction.LU_Asset_Config.DistributorName;
+                        sql_cmndQ.Parameters.AddWithValue("@paramAICName", SqlDbType.NVarChar).Value = assetConfigTransaction.LU_Asset_Config.AICName;
                         sql_cmndQ.Parameters.AddWithValue("@paramASMName", SqlDbType.NVarChar).Value = assetConfigTransaction.LU_Asset_Config.ASMName;
-                        sql_cmndQ.Parameters.AddWithValue("@paramMDOId", SqlDbType.VarChar).Value = assetConfigTransaction.LU_Asset_Config.MDOId;
-                        sql_cmndQ.Parameters.AddWithValue("@paramMDOName", SqlDbType.VarChar).Value = assetConfigTransaction.LU_Asset_Config.MDOName;
+                        sql_cmndQ.Parameters.AddWithValue("@paramMDOId", SqlDbType.NVarChar).Value = assetConfigTransaction.LU_Asset_Config.MDOId;
+                        sql_cmndQ.Parameters.AddWithValue("@paramMDOName", SqlDbType.NVarChar).Value = assetConfigTransaction.LU_Asset_Config.MDOName;
                         sql_cmndQ.Parameters.AddWithValue("@paramOutletId", SqlDbType.NVarChar).Value = assetConfigTransaction.LU_Asset_Config.OutletId;
                         sql_cmndQ.Parameters.AddWithValue("@paramOutletName", SqlDbType.NVarChar).Value = assetConfigTransaction.LU_Asset_Config.OutletName;
                         sql_cmndQ.Parameters.AddWithValue("@paramOutletAddress", SqlDbType.NVarChar).Value = assetConfigTransaction.LU_Asset_Config.OutletAddress;
