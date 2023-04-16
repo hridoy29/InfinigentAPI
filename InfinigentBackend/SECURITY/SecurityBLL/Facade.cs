@@ -24,6 +24,7 @@ namespace SecurityBLL
         public static AssetConfigBLL AssetConfigBLL { get { return new AssetConfigBLL(); } }
         public static AssetDistributorBLL AssetDistributorBLL { get { return new AssetDistributorBLL(); } }
         public static AssetConfigTransactionBLL AssetConfigTransactionBLL { get { return new AssetConfigTransactionBLL(); } }
+        public static CoolerBLL CoolerBLL { get { return new CoolerBLL(); } }
    
     }
 }

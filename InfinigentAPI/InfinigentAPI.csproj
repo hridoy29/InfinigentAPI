@@ -194,6 +194,7 @@
     <Compile Include="Controllers\AssetInfoController.cs" />
     <Compile Include="Controllers\AssetAuditNumberController.cs" />
     <Compile Include="Controllers\AssetAuditTransactionController.cs" />
+    <Compile Include="Controllers\CoolerController.cs" />
     <Compile Include="Controllers\ShortNoteController.cs" />
     <Compile Include="Controllers\QuestionnaireNumberController.cs" />
     <Compile Include="Controllers\IdentityController.cs" />
